@@ -16,6 +16,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+!project.pbxproj
 
 ## Other
 *.moved-aside
@@ -37,7 +38,6 @@ playground.xcworkspace
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
 # Package.pins
-# Package.resolved
 .build/
 
 # CocoaPods
@@ -46,7 +46,8 @@ playground.xcworkspace
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
-# Pods/
+Pods/
+Podfile.lock
 
 # Carthage
 #
@@ -64,5 +65,5 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots/**/*.png
+fastlane/screenshots
 fastlane/test_output
