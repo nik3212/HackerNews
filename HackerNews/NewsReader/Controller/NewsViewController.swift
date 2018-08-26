@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MXSegmentedControl
 
 class NewsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: MXSegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,12 +20,28 @@ class NewsViewController: UIViewController {
         tableView.register(NewsTableCell.self)
         tableView.tableFooterView = UIView()
         style()
+        configure()
     }
     
     fileprivate func style() {
+        UIApplication.shared.statusBarView?.backgroundColor = Color.segmentedControlBackground
+        
         view.backgroundColor = Color.appBackground
         tableView.backgroundColor = Color.tableBackground
         tableView.separatorColor = Color.tableSeparator
+        
+        segmentedControl.backgroundColor = Color.segmentedControlBackground
+        segmentedControl.font = Font.segmentedControl
+        segmentedControl.textColor = Color.segmentedControlText
+        segmentedControl.selectedTextColor = Color.segmentedControlSelect
+        segmentedControl.indicatorColor = Color.segmentedControlSelect
+        segmentedControl.indicatorHeight = 2.0
+    }
+    
+    fileprivate func configure() {
+        segmentedControl.append(title: "Top")
+        segmentedControl.append(title: "Newest")
+        segmentedControl.append(title: "Ask HN")
     }
 }
 

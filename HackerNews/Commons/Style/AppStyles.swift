@@ -17,4 +17,12 @@ struct Color {
     
     static let titleCell = UIColor.fromRGB(255, 255, 255)
     static let pointsCell = UIColor.fromRGB(255, 255, 255)
+    
+    static let segmentedControlBackground = UIColor.fromRGB(34, 34, 34)
+    static let segmentedControlSelect = UIColor.fromRGB(241, 89, 37)
+    static let segmentedControlText = UIColor.fromRGB(241, 89, 37)
+}
+
+struct Font {
+    static let segmentedControl = UIFont(name: "OpenSans-Bold", size: 12)!
 }

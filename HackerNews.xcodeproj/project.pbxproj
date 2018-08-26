@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E22CEE5F617BD33744CA6BA /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D7A99805FD981F4437D9A7 /* Pods_HackerNews.framework */; };
 		D026E85D2131AB1E00512C32 /* NewsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D026E85C2131AB1E00512C32 /* NewsTableCell.xib */; };
 		D026E85F2131AB3500512C32 /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026E85E2131AB3500512C32 /* NewsTableCell.swift */; };
 		D026E8622131ADED00512C32 /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026E8612131ADED00512C32 /* AppStyles.swift */; };
@@ -48,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02D7A99805FD981F4437D9A7 /* Pods_HackerNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		299EE547094A059831FA6535 /* Pods-HackerNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNews/Pods-HackerNews.debug.xcconfig"; sourceTree = "<group>"; };
+		63100782525D8A733AA59448 /* Pods-HackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNews/Pods-HackerNews.release.xcconfig"; sourceTree = "<group>"; };
 		D026E85C2131AB1E00512C32 /* NewsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableCell.xib; sourceTree = "<group>"; };
 		D026E85E2131AB3500512C32 /* NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
 		D026E8612131ADED00512C32 /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E22CEE5F617BD33744CA6BA /* Pods_HackerNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +107,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C574C5FE4CA041CD42B23BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				299EE547094A059831FA6535 /* Pods-HackerNews.debug.xcconfig */,
+				63100782525D8A733AA59448 /* Pods-HackerNews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7F8C1831CD1E27581EABE1F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02D7A99805FD981F4437D9A7 /* Pods_HackerNews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D026E85B2131AAB400512C32 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +148,8 @@
 				D072050721309FC900E4B1ED /* HackerNewsTests */,
 				D072051221309FC900E4B1ED /* HackerNewsUITests */,
 				D07204F121309FC600E4B1ED /* Products */,
+				4C574C5FE4CA041CD42B23BD /* Pods */,
+				7F8C1831CD1E27581EABE1F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D072051821309FC900E4B1ED /* Build configuration list for PBXNativeTarget "HackerNews" */;
 			buildPhases = (
+				59709DA8EE71F8AEAF07F7AE /* [CP] Check Pods Manifest.lock */,
 				D07204EC21309FC600E4B1ED /* Sources */,
 				D07204ED21309FC600E4B1ED /* Frameworks */,
 				D07204EE21309FC600E4B1ED /* Resources */,
+				E4D508F19C5AA4D97D5A06BB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -409,6 +435,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59709DA8EE71F8AEAF07F7AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackerNews-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4D508F19C5AA4D97D5A06BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HackerNews/Pods-HackerNews-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MXSegmentedControl/MXSegmentedControl.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXSegmentedControl.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackerNews/Pods-HackerNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D07204EC21309FC600E4B1ED /* Sources */ = {
@@ -596,6 +661,7 @@
 		};
 		D072051921309FC900E4B1ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 299EE547094A059831FA6535 /* Pods-HackerNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -615,6 +681,7 @@
 		};
 		D072051A21309FC900E4B1ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63100782525D8A733AA59448 /* Pods-HackerNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
