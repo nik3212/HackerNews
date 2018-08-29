@@ -10,9 +10,14 @@ def ui_pods
     pod 'MXSegmentedControl'
 end
 
+def net_pods
+	pod 'Firebase', '~> 5.7'
+end
+
 target :HackerNews do
 	xcodeproj 'HackerNews.xcodeproj'
 	ui_pods
+	net_pods
 end
 
 post_install do |installer|
