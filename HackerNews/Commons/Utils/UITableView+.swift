@@ -27,7 +27,7 @@ extension UITableView {
     }
     
     func register<T: UITableViewCell>(_: T.Type) {
-        let Nib = UINib(nibName: T.NibName, bundle: nil)
-        self.register(Nib, forCellReuseIdentifier: T.reuseIdentifier)
+        let nib = UINib(nibName: T.NibName, bundle: nil)
+        self.register(nib, forCellReuseIdentifier: T.reuseIdentifier)
     }
 }

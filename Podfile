@@ -15,10 +15,15 @@ def net_pods
 	pod 'Firebase', '2.5.0'
 end
 
+def other_pods
+    pod 'SwiftLint'
+end
+
 target :HackerNews do
 	xcodeproj 'HackerNews.xcodeproj'
 	ui_pods
     net_pods
+    other_pods
 end
 
 target :NetworkManager do

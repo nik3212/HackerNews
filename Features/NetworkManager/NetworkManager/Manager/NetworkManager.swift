@@ -35,16 +35,16 @@ public class NetworkManager {
     ///   - type: Type of stories
     ///   - completion: The block that should be called.
     ///                 It is passed the data as an Result<[Int]>.
-    public func getIds(type: ItemType, _ completion: @escaping (Result<[Int]>)->()) {
+    public func getIds(type: ItemType, _ completion: @escaping (Result<[Int]>) -> Void) {
         firebase?.child(byAppendingPath: type.rawValue).queryLimited(toFirst: storyLimit).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let snapshot = snapshot,
-                  let ids = snapshot.value as? [Int] else { return }
+                let ids = snapshot.value as? [Int] else { return }
             completion(.success(ids))
-        }) { (error) in
+        }, withCancel: { (error) in
             if let error = error {
                 completion(.error(error))
             }
-        }
+        })
     }
     
     /// Returns articles with given id.
@@ -53,21 +53,21 @@ public class NetworkManager {
     ///   - ids: Contains articles ids.
     ///   - completion: The block that should be called.
     ///                 It is passed the data as an Result<[Item]>
-    public func retrieve(ids: [Int], _ completion: @escaping (Result<[Item]>)->()) {
+    public func retrieve(ids: [Int], _ completion: @escaping (Result<[Item]>) -> Void) {
         for id in ids {
             let query = firebase?.child(byAppendingPath: Constants.itemChildRef).child(byAppendingPath: String(id))
             query?.observeSingleEvent(of: .value, with: { (snapshot) in
                 guard let snapshot = snapshot,
                       let item = Item(snapshot: snapshot) else { return }
                 self.items.append(item)
-                if (self.items.count == self.storyLimit) {
+                if self.items.count == self.storyLimit {
                     completion(.success(self.items))
                 }
-            }) { (error) in
+            }, withCancel: { (error) in
                 if let error = error {
                     completion(.error(error))
                 }
-            }
+            })
         }
     }
 }

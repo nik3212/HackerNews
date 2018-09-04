@@ -85,7 +85,7 @@ public class Item {
 // MARK: - Equatable
 
 extension Item: Equatable {
-    public static func ==(lhs: Item, rhs: Item) -> Bool {
+    public static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.id == rhs.id
     }
 }

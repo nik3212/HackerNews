@@ -10,7 +10,7 @@ import UIKit
 
 extension UIStoryboard {
     enum Storyboard: String {
-        case Main
+        case main
         
         var fileName: String {
             return rawValue
