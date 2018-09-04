@@ -5,19 +5,24 @@ use_frameworks!
 workspace 'HackerNews'
 
 xcodeproj 'HackerNews.xcodeproj'
+xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
 
 def ui_pods
     pod 'MXSegmentedControl'
 end
 
 def net_pods
-	pod 'Firebase', '~> 5.7'
+	pod 'Firebase', '2.5.0'
 end
 
 target :HackerNews do
 	xcodeproj 'HackerNews.xcodeproj'
 	ui_pods
-	net_pods
+    net_pods
+end
+
+target :NetworkManager do
+    net_pods
 end
 
 post_install do |installer|

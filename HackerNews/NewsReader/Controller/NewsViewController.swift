@@ -8,6 +8,7 @@
 
 import UIKit
 import MXSegmentedControl
+import NetworkManager
 
 class NewsViewController: UIViewController {
 
