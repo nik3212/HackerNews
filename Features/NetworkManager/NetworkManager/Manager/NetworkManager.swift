@@ -9,7 +9,12 @@
 import Foundation
 import Firebase
 
-public class NetworkManager {
+protocol NetworkEngine {
+    func getIds(type: ItemType, _ completion: @escaping (Result<[Int]>) -> Void)
+    func retrieve(ids: [Int], _ completion: @escaping (Result<[Item]>) -> Void)
+}
+
+public class NetworkManager: NetworkEngine {
     
     // MARK: - Properties
     

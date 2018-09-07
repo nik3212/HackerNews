@@ -27,6 +27,12 @@ target :HackerNews do
 end
 
 target :NetworkManager do
+    xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
+    net_pods
+end
+
+target :NetworkManagerTests do
+    xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
     net_pods
 end
 

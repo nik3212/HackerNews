@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 
+// sourcery: ItemRepresentable
 public class Item {
     
     // MARK: - Properties
@@ -59,27 +60,28 @@ public class Item {
     public var descendants: Int?
     
     // MARK: - Initialization
-    
+
+    // sourcery:inline:auto:Item.ItemRepresentable
     public required init?(snapshot: FDataSnapshot) {
-        guard let value = snapshot.value as? [String: AnyObject]
-        else { return nil }
-        
-        id = value["id"] as? Int
-        author = value["by"] as? String
-        url = value["url"] as? URL
-        title = value["title"] as? String
-        score = value["score"] as? Int
-        isDeleted = value["deleted"] as? Bool
-        type = value["type"] as? [String]
-        time = value["time"] as? Date
-        text = value["text"] as? String
-        isDead = value["dead"] as? Bool
-        parent = value["parent"] as? Int
-        poll = value["poll"] as? Int
-        kids = value["kids"] as? [Int]
-        parts = value["parts"] as? [Int]
-        descendants = value["descendants"] as? Int
+        guard let values = snapshot.value as? [String: AnyObject] else { return nil }
+        author = values["author"] as? String
+        id = values["id"] as? Int
+        url = values["url"] as? URL
+        title = values["title"] as? String
+        score = values["score"] as? Int
+        isDeleted = values["isDeleted"] as? Bool
+        type = values["type"] as? [String]
+        time = values["time"] as? Date
+        text = values["text"] as? String
+        isDead = values["isDead"] as? Bool
+        parent = values["parent"] as? Int
+        poll = values["poll"] as? Int
+        kids = values["kids"] as? [Int]
+        parts = values["parts"] as? [Int]
+        descendants = values["descendants"] as? Int
     }
+   // sourcery:end
+
 }
 
 // MARK: - Equatable

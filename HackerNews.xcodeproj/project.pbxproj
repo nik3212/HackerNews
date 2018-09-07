@@ -329,8 +329,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D072051821309FC900E4B1ED /* Build configuration list for PBXNativeTarget "HackerNews" */;
 			buildPhases = (
-				D095C042213F22950047AB79 /* ShellScript */,
 				59709DA8EE71F8AEAF07F7AE /* [CP] Check Pods Manifest.lock */,
+				D095C042213F22950047AB79 /* ShellScript */,
 				D07204EC21309FC600E4B1ED /* Sources */,
 				D07204ED21309FC600E4B1ED /* Frameworks */,
 				D07204EE21309FC600E4B1ED /* Resources */,

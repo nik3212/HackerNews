@@ -1,0 +1,5 @@
+sources:
+    - Features/NetworkManager/NetworkManager/Models
+templates:
+    - Templates/
+output: Features/NetworkManager/NetworkManager/Models

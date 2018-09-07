@@ -1,0 +1,10 @@
+{% for type in types.all|annotated:"ItemRepresentable" %}
+    // sourcery:inline:auto:{{ type.name }}.ItemRepresentable
+    public required init?(snapshot: FDataSnapshot) {
+        guard let values = snapshot.value as? [String: AnyObject] else { return nil }
+        {% for variable in type.storedVariables %}
+        {{ variable.name }} = values["{{ variable.name }}"] as? {{ variable.unwrappedTypeName }}
+        {% endfor %}
+    }
+    // sourcery:end
+{% endfor %}

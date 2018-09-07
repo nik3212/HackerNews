@@ -2,6 +2,20 @@
 <Workspace
    version = "1.0">
    <Group
+      location = "group:/Users/nikita/Desktop/iOS application/HackerNews/Scripts"
+      name = "Scripts">
+      <FileRef
+         location = "group:SourceryGeneratorWatch.command">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:/Users/nikita/Desktop/iOS application/HackerNews/Templates"
+      name = "Templates">
+      <FileRef
+         location = "group:ItemRepresentable.stencil">
+      </FileRef>
+   </Group>
+   <Group
       location = "group:Features"
       name = "Features">
       <Group
@@ -17,8 +31,5 @@
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Features/NetworkManager/NetworkManager.xcodeproj">
    </FileRef>
 </Workspace>
