@@ -15,7 +15,7 @@ public class Item {
     // MARK: - Properties
     
     /// The username of the item's author.
-    public var author: String?
+    public var by: String?
     
     /// The item's unique id.
     public var id: Int?
@@ -64,7 +64,7 @@ public class Item {
     // sourcery:inline:auto:Item.ItemRepresentable
     public required init?(snapshot: FDataSnapshot) {
         guard let values = snapshot.value as? [String: AnyObject] else { return nil }
-        author = values["author"] as? String
+        by = values["by"] as? String
         id = values["id"] as? Int
         url = values["url"] as? URL
         title = values["title"] as? String

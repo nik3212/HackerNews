@@ -22,6 +22,15 @@ class NewsViewController: UIViewController {
         tableView.tableFooterView = UIView()
         style()
         configure()
+        
+        NetworkManager.shared.retrieve(ids: [18052121, 18051762, 18045741, 18049515, 18051264, 18051037, 18052221, 18051809, 18051171, 18050873, 18034852, 18034004, 18052243, 18049512, 18039833, 18049509, 18050090, 18050838, 18051990, 18051338, 18045583, 18052331, 18049795, 18051161, 18050585, 18045318, 18048316, 18048744, 18051067, 18051417]) { (snap) in
+            switch snap {
+            case .success(let data):
+                print("\(data[0].title)")
+            case .error(let error):
+                print("\(error)")
+            }
+        }
     }
     
     fileprivate func style() {

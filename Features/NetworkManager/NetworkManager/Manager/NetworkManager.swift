@@ -22,7 +22,7 @@ public class NetworkManager: NetworkEngine {
     public static let shared = NetworkManager()
     
     /// Instance of Firebase
-    fileprivate let firebase = Firebase(url: Constants.firebaseRef)
+    fileprivate var firebase = Firebase(url: Constants.firebaseRef)
     
     /// Contains stored articles
     fileprivate var items = [Item]()
@@ -75,4 +75,12 @@ public class NetworkManager: NetworkEngine {
             })
         }
     }
+    
+    /// Set instance of Firebase
+    ///
+    /// - Parameter firebase: Instance of Firebase
+    public func setup(with firebase: Firebase) {
+        self.firebase = firebase
+    }
+    
 }
