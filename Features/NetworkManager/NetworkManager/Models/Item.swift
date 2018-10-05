@@ -21,7 +21,7 @@ public class Item {
     public var id: Int?
     
     /// The URL of the story.
-    public var url: URL?
+    public var url: String?
     
     /// The title of the story, poll or job.
     public var title: String?
@@ -36,7 +36,7 @@ public class Item {
     public var type: [String]?
     
     /// Creation date of the item, in Unix Time.
-    public var time: Date?
+    public var time: Int?
     
     /// The comment, story or poll text. HTML.
     public var text: String?
@@ -66,12 +66,12 @@ public class Item {
         guard let values = snapshot.value as? [String: AnyObject] else { return nil }
         by = values["by"] as? String
         id = values["id"] as? Int
-        url = values["url"] as? URL
+        url = values["url"] as? String
         title = values["title"] as? String
         score = values["score"] as? Int
         isDeleted = values["isDeleted"] as? Bool
         type = values["type"] as? [String]
-        time = values["time"] as? Date
+        time = values["time"] as? Int
         text = values["text"] as? String
         isDead = values["isDead"] as? Bool
         parent = values["parent"] as? Int

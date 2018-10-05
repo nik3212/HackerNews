@@ -24,9 +24,6 @@ public class NetworkManager: NetworkEngine {
     /// Instance of Firebase
     fileprivate var firebase = Firebase(url: Constants.firebaseRef)
     
-    /// Contains stored articles
-    fileprivate var items = [Item]()
-    
     /// Count of fetched items
     var storyLimit: UInt = 30
     
@@ -59,20 +56,44 @@ public class NetworkManager: NetworkEngine {
     ///   - completion: The block that should be called.
     ///                 It is passed the data as an Result<[Item]>
     public func retrieve(ids: [Int], _ completion: @escaping (Result<[Item]>) -> Void) {
+        var stories = [Int: Item]()
         for id in ids {
             let query = firebase?.child(byAppendingPath: Constants.itemChildRef).child(byAppendingPath: String(id))
             query?.observeSingleEvent(of: .value, with: { (snapshot) in
                 guard let snapshot = snapshot,
                       let item = Item(snapshot: snapshot) else { return }
-                self.items.append(item)
-                if self.items.count == self.storyLimit {
-                    completion(.success(self.items))
+                stories[id] = item
+                if stories.count == self.storyLimit {
+                    var items = [Item]()
+                    
+                    for id in ids {
+                        items.append(stories[id]!)
+                    }
+                    
+                    completion(.success(items))
                 }
             }, withCancel: { (error) in
                 if let error = error {
                     completion(.error(error))
                 }
             })
+        }
+    }
+    
+    /// Returns articles with type.
+    ///
+    /// - Parameters:
+    ///   - type: Type of stories
+    ///   - completion: The block that should be called.
+    ///                 It is passed the data as an Result<[Item]>
+    public func retrieve(type: ItemType, _ completion: @escaping (Result<[Item]>) -> Void) {
+        NetworkManager.shared.getIds(type: type) { (response) in
+            switch response {
+            case .success(let ids):
+                NetworkManager.shared.retrieve(ids: ids, completion)
+            case .error(let error):
+                completion(Result.error(error))
+            }
         }
     }
     

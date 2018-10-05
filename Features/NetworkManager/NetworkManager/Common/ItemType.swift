@@ -11,5 +11,6 @@ import Foundation
 public enum ItemType: String {
     case top = "topstories"
     case news = "newstories"
+    case ask = "askstories"
     case show = "showstories"
 }

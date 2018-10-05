@@ -1,5 +1,5 @@
 //
-//  NewsTableCell.swift
+//  NewsTableViewCell.swift
 //  HackerNews
 //
 //  Created by Никита Васильев on 25/08/2018.
@@ -8,9 +8,12 @@
 
 import UIKit
 
-class NewsTableCell: UITableViewCell {
+class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var points: UILabel!
+    @IBOutlet weak var info: UILabel!
+    @IBOutlet weak var link: UILabel!
+    @IBOutlet weak var commentsView: UIView!
+    @IBOutlet weak var score: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +24,12 @@ class NewsTableCell: UITableViewCell {
         super.awakeFromNib()
         
         title.textColor = Color.titleCell
-        points.textColor = Color.pointsCell
+        info.textColor = Color.infoCell
+        link.textColor = Color.linkCell
+        commentsView.backgroundColor = Color.commentsViewBackground
+        
+        score.layer.masksToBounds = true
+        score.layer.cornerRadius = 5
         
         backgroundColor = Color.tableCellBackground
         

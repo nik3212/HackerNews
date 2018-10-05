@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Light.ttf">
+            <string>OpenSans-Light</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewCell" rowHeight="60" id="fJb-RJ-S8H" customClass="NewsTableViewCell" customModule="HackerNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fJb-RJ-S8H" id="U2C-Ir-rIn">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook Network Breach Impacts Up to 50M Users" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbo-ZH-Ard">
+                        <rect key="frame" x="20" y="11" width="269.33333333333331" height="38.333333333333336"/>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="671 points by coloneltcb - 143 comments - 4 hrs ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="us7-Lx-bhg">
+                        <rect key="frame" x="19.999999999999986" y="58.333333333333336" width="235.66666666666663" height="13.666666666666664"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://www.nytimes.com/2018/09/2018/09/28/technology-upgr..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZf-QG-IKf">
+                        <rect key="frame" x="20" y="76" width="289" height="13.666666666666671"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CkF-uT-VaK">
+                        <rect key="frame" x="325" y="0.0" width="50" height="99.666666666666671"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="173" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyo-Lr-woD">
+                                <rect key="frame" x="8" y="73" width="34" height="16.666666666666671"/>
+                                <color key="backgroundColor" red="1" green="0.38431372549999998" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCo-kW-FlC">
+                                <rect key="frame" x="10.666666666666686" y="11" width="29" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="aqg-b1-zAz"/>
+                                    <constraint firstAttribute="height" constant="29" id="lhE-6i-zwg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                <state key="normal" title="143" image="Comments"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fCo-kW-FlC" firstAttribute="top" secondItem="CkF-uT-VaK" secondAttribute="top" constant="11" id="0lV-MN-ve0"/>
+                            <constraint firstAttribute="bottom" secondItem="vyo-Lr-woD" secondAttribute="bottom" constant="10" id="PUm-eP-Dd0"/>
+                            <constraint firstItem="vyo-Lr-woD" firstAttribute="leading" secondItem="CkF-uT-VaK" secondAttribute="leading" constant="8" id="PXK-fa-zM7"/>
+                            <constraint firstAttribute="trailing" secondItem="vyo-Lr-woD" secondAttribute="trailing" constant="8" id="Rzw-VS-7Oo"/>
+                            <constraint firstItem="fCo-kW-FlC" firstAttribute="centerX" secondItem="CkF-uT-VaK" secondAttribute="centerX" id="de8-dQ-fvD"/>
+                            <constraint firstItem="vyo-Lr-woD" firstAttribute="centerX" secondItem="CkF-uT-VaK" secondAttribute="centerX" id="qEv-Pa-udI"/>
+                            <constraint firstAttribute="width" constant="50" id="t7s-xZ-fcd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="us7-Lx-bhg" firstAttribute="leading" secondItem="U2C-Ir-rIn" secondAttribute="leadingMargin" id="6Mj-JZ-I6z"/>
+                    <constraint firstAttribute="bottom" secondItem="CkF-uT-VaK" secondAttribute="bottom" id="Oyt-KX-7Nb"/>
+                    <constraint firstAttribute="bottom" secondItem="YZf-QG-IKf" secondAttribute="bottom" constant="10" id="PpA-Xb-FDJ"/>
+                    <constraint firstItem="YZf-QG-IKf" firstAttribute="leading" secondItem="U2C-Ir-rIn" secondAttribute="leadingMargin" id="Sh4-zY-JJm"/>
+                    <constraint firstItem="CkF-uT-VaK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fbo-ZH-Ard" secondAttribute="trailing" constant="10" id="Veo-SG-3B4"/>
+                    <constraint firstItem="Fbo-ZH-Ard" firstAttribute="top" secondItem="U2C-Ir-rIn" secondAttribute="topMargin" id="eEi-dt-LLe"/>
+                    <constraint firstItem="CkF-uT-VaK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="us7-Lx-bhg" secondAttribute="trailing" constant="10" id="gJq-DE-Zgc"/>
+                    <constraint firstAttribute="trailing" secondItem="CkF-uT-VaK" secondAttribute="trailing" id="jUX-kA-taQ"/>
+                    <constraint firstItem="CkF-uT-VaK" firstAttribute="top" secondItem="U2C-Ir-rIn" secondAttribute="top" id="kHq-K5-JLu"/>
+                    <constraint firstItem="YZf-QG-IKf" firstAttribute="top" secondItem="us7-Lx-bhg" secondAttribute="bottom" constant="4" id="q3d-yp-Ak7"/>
+                    <constraint firstItem="Fbo-ZH-Ard" firstAttribute="leading" secondItem="U2C-Ir-rIn" secondAttribute="leadingMargin" id="s3c-1O-WbR"/>
+                    <constraint firstItem="CkF-uT-VaK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YZf-QG-IKf" secondAttribute="trailing" constant="10" id="uQa-hl-lZ6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="commentsView" destination="CkF-uT-VaK" id="gow-h5-QKv"/>
+                <outlet property="info" destination="us7-Lx-bhg" id="bQr-SU-Efj"/>
+                <outlet property="link" destination="YZf-QG-IKf" id="GG3-Oz-jq1"/>
+                <outlet property="score" destination="vyo-Lr-woD" id="LrY-K6-DGE"/>
+                <outlet property="title" destination="Fbo-ZH-Ard" id="ics-mW-yPg"/>
+            </connections>
+            <point key="canvasLocation" x="20" y="-23.388305847076463"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Comments" width="69.599998474121094" height="69.599998474121094"/>
+    </resources>
+</document>

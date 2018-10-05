@@ -9,13 +9,18 @@
 import UIKit
 
 extension UIStoryboard {
+    // swiftlint:disable identifier_name
     enum Storyboard: String {
-        case main
-        
+        case Main
+        case TopStories
+        case NewsStories
+        case AskStories
+        case ShowStories
         var fileName: String {
             return rawValue
         }
     }
+    // swiftlint:enable identifier_name
     
     convenience init(storyboard: Storyboard, bundle: Bundle? = nil) {
         self.init(name: storyboard.fileName, bundle: bundle)
