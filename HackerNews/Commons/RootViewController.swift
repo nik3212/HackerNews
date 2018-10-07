@@ -28,13 +28,13 @@ class RootViewController: UIViewController {
     
     fileprivate func configure() {
         let topStoriesController = ViewControllerFactory.instantiate(.TopStories) as TopStoriesViewController
-        topStoriesController.tabBarItem = UITabBarItem(title: "Top", image: nil, tag: 0)
+        topStoriesController.tabBarItem = UITabBarItem(title: "Top", image: UIImage.Asset.earth.image, tag: 0)
         let newsStoriesController = ViewControllerFactory.instantiate(.NewsStories) as NewsStoriesViewController
-        newsStoriesController.tabBarItem = UITabBarItem(title: "New", image: nil, tag: 1)
+        newsStoriesController.tabBarItem = UITabBarItem(title: "New", image: UIImage.Asset.news.image, tag: 1)
         let askStoriesController = ViewControllerFactory.instantiate(.AskStories) as AskStoriesViewController
-        askStoriesController.tabBarItem = UITabBarItem(title: "Ask", image: nil, tag: 2)
+        askStoriesController.tabBarItem = UITabBarItem(title: "Ask", image: UIImage.Asset.ask.image, tag: 2)
         let showStoriesController = ViewControllerFactory.instantiate(.ShowStories) as ShowStoriesViewController
-        showStoriesController.tabBarItem = UITabBarItem(title: "Show", image: nil, tag: 3)
+        showStoriesController.tabBarItem = UITabBarItem(title: "Show", image: UIImage.Asset.show.image, tag: 3)
         tabBarController?.viewControllers = [topStoriesController, newsStoriesController, askStoriesController, showStoriesController]
     }
 }

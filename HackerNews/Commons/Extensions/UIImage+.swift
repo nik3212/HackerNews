@@ -11,6 +11,10 @@ import UIKit
 extension UIImage {
     enum Asset: String {
         case appIcon = "AppIcon"
+        case earth = "Earth"
+        case news = "News"
+        case ask = "Ask"
+        case show = "Show"
         
         var image: UIImage {
             return UIImage(asset: self)
