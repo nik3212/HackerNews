@@ -18,7 +18,7 @@ class RootViewController: UIViewController {
     }
     
     fileprivate func style() {
-        navigationController?.navigationBar.barStyle = UIBarStyle.default
+        navigationController?.navigationBar.barStyle = .blackOpaque
         navigationController?.navigationBar.barTintColor = Color.navigationBarBackground
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.navigationControllerText]
         tabBarController?.tabBar.barTintColor = Color.tabBarBackground

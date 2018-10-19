@@ -15,7 +15,7 @@ struct Color {
     static let tabBarBackground = UIColor.fromRGB(43, 46, 57)
     static let tableBackground = UIColor.fromRGB(32, 35, 43)
     static let tableCellBackground = UIColor.fromRGB(43, 46, 57)
-    static let tableSelectedCellBackground = UIColor.fromRGB(40, 40, 40)
+    static let tableSelectedCellBackground = UIColor.fromRGB(32, 35, 43)
     static let tableSeparator = UIColor.fromRGB(25, 25, 25)
     
     static let commentsViewBackground = UIColor.fromRGB(36, 38, 48)

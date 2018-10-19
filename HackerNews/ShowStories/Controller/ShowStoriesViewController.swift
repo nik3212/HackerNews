@@ -15,6 +15,7 @@ class ShowStoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var stories = [Item]()
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,10 @@ class ShowStoriesViewController: UIViewController {
     fileprivate func configure() {
         tableView.register(NewsTableViewCell.self)
         tableView.tableFooterView = UIView()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(updateShowStories(_:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Ask Stories...",
+                                                            attributes: [.foregroundColor: UIColor.white])
     }
     
     fileprivate func loadData() {
@@ -40,10 +45,15 @@ class ShowStoriesViewController: UIViewController {
             case .success(let stories):
                 self?.stories = stories
                 self?.tableView.reloadData()
+                self?.refreshControl.endRefreshing()
             case .error(let error):
                 print("\(error.localizedDescription)")
             }
         }
+    }
+    
+    @objc private func updateShowStories(_ sender: Any) {
+        loadData()
     }
 }
 
