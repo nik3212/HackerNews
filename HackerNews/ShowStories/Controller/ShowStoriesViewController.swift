@@ -16,6 +16,7 @@ class ShowStoriesViewController: UIViewController {
     
     private var stories = [Item]()
     private let refreshControl = UIRefreshControl()
+    private let activityIndicator = UIActivityIndicatorView(style: .white)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,10 @@ class ShowStoriesViewController: UIViewController {
         style()
         configure()
         loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        activityIndicator.startAnimating()
     }
     
     fileprivate func style() {
@@ -37,6 +42,7 @@ class ShowStoriesViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(updateShowStories(_:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Ask Stories...",
                                                             attributes: [.foregroundColor: UIColor.white])
+        tableView.backgroundView = activityIndicator
     }
     
     fileprivate func loadData() {
@@ -46,6 +52,7 @@ class ShowStoriesViewController: UIViewController {
                 self?.stories = stories
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()
+                self?.activityIndicator.stopAnimating()
             case .error(let error):
                 print("\(error.localizedDescription)")
             }

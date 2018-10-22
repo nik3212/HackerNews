@@ -16,6 +16,7 @@ class TopStoriesViewController: UIViewController {
 
     private var stories = [Item]()
     private let refreshControl = UIRefreshControl()
+    private let activityIndicator = UIActivityIndicatorView(style: .white)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,10 @@ class TopStoriesViewController: UIViewController {
         style()
         configure()
         loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        activityIndicator.startAnimating()
     }
     
     fileprivate func style() {
@@ -37,15 +42,18 @@ class TopStoriesViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(updateTopStories(_:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Top Stories...",
                                                             attributes: [.foregroundColor: UIColor.white])
+        tableView.backgroundView = activityIndicator
     }
     
     fileprivate func loadData() {
+        
         NetworkManager.shared.retrieve(type: .top) { [weak self] (response) in
             switch response {
             case .success(let stories):
                 self?.stories = stories
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()
+                self?.activityIndicator.stopAnimating()
             case .error(let error):
                 print("\(error.localizedDescription)")
             }
