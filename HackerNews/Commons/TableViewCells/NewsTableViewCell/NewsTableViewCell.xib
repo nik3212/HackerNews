@@ -61,7 +61,10 @@
                                     <constraint firstAttribute="height" constant="29" id="lhE-6i-zwg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
-                                <state key="normal" title="143" image="Comments"/>
+                                <state key="normal" image="Comments"/>
+                                <connections>
+                                    <action selector="openCommentsView:" destination="fJb-RJ-S8H" eventType="touchUpInside" id="y9m-iy-9aX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

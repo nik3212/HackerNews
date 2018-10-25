@@ -16,6 +16,7 @@ extension UIStoryboard {
         case NewsStories
         case AskStories
         case ShowStories
+        case Comments
         var fileName: String {
             return rawValue
         }

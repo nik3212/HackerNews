@@ -46,7 +46,6 @@ class TopStoriesViewController: UIViewController {
     }
     
     fileprivate func loadData() {
-        
         NetworkManager.shared.retrieve(type: .top) { [weak self] (response) in
             switch response {
             case .success(let stories):
@@ -85,11 +84,8 @@ extension TopStoriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: NewsTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        let story = stories[indexPath.row]
-        cell.title.text = stories[indexPath.row].title
-        cell.info.text = "\(story.score ?? 0) points by \(story.by ?? "Unknown") - \(story.descendants ?? 0) comments"
-        cell.link.text = story.url
-        cell.score.text = String(story.score ?? 0)
+        cell.story = stories[indexPath.row]
+        cell.delegate = self
         return cell
     }
 }
@@ -97,5 +93,13 @@ extension TopStoriesViewController: UITableViewDataSource {
 extension TopStoriesViewController: SFSafariViewControllerDelegate {
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension TopStoriesViewController: NewsCellDelegate {
+    func newsCellDidSelectComment(cell: NewsTableViewCell, storyId: Int) {
+        let commentsController = ViewControllerFactory.instantiate(.Comments) as CommentsViewController
+        commentsController.commentsIds = cell.story.kids
+        navigationController?.pushViewController(commentsController, animated: true)
     }
 }

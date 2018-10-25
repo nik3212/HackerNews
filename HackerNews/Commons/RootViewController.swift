@@ -18,9 +18,11 @@ class RootViewController: UIViewController {
     }
     
     fileprivate func style() {
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         navigationController?.navigationBar.barStyle = .blackOpaque
         navigationController?.navigationBar.barTintColor = Color.navigationBarBackground
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.navigationControllerText]
+        navigationController?.navigationBar.tintColor = Color.navigationControllerText
         tabBarController?.tabBar.barTintColor = Color.tabBarBackground
         tabBarController?.tabBar.tintColor = Color.appTint
         view.backgroundColor = Color.appBackground
@@ -36,5 +38,9 @@ class RootViewController: UIViewController {
         let showStoriesController = ViewControllerFactory.instantiate(.ShowStories) as ShowStoriesViewController
         showStoriesController.tabBarItem = UITabBarItem(title: "Show", image: UIImage.Asset.show.image, tag: 3)
         tabBarController?.viewControllers = [topStoriesController, newsStoriesController, askStoriesController, showStoriesController]
+    }
+    
+    fileprivate var backButton: UIBarButtonItem {
+        return UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
     }
 }

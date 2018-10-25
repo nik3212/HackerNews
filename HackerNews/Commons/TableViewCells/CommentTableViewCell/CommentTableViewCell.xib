@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="108" id="PdV-z9-1Zv" customClass="CommentTableViewCell" customModule="HackerNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PdV-z9-1Zv" id="3l7-AH-bg4">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="107.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-HA-hbA">
+                        <rect key="frame" x="16" y="11" width="49" height="14"/>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LS-89-qjw">
+                        <rect key="frame" x="79" y="11" width="55.5" height="14"/>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjP-WS-7ZF">
+                        <rect key="frame" x="16" y="33" width="68.5" height="20"/>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" relation="lessThanOrEqual" secondItem="hjP-WS-7ZF" secondAttribute="bottom" constant="44" id="3nv-Qj-LCE"/>
+                    <constraint firstItem="9LS-89-qjw" firstAttribute="top" secondItem="3l7-AH-bg4" secondAttribute="topMargin" id="D6Q-y4-j3R"/>
+                    <constraint firstItem="hjP-WS-7ZF" firstAttribute="leading" secondItem="3l7-AH-bg4" secondAttribute="leadingMargin" id="EJj-YU-dKd"/>
+                    <constraint firstItem="hjP-WS-7ZF" firstAttribute="top" secondItem="HdC-HA-hbA" secondAttribute="bottom" constant="8" id="SaO-uA-wa4"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hjP-WS-7ZF" secondAttribute="trailing" id="Tse-hX-y8b"/>
+                    <constraint firstItem="HdC-HA-hbA" firstAttribute="top" secondItem="3l7-AH-bg4" secondAttribute="topMargin" id="Zzw-OG-ja2"/>
+                    <constraint firstItem="HdC-HA-hbA" firstAttribute="leading" secondItem="3l7-AH-bg4" secondAttribute="leadingMargin" id="fjK-ch-bEC"/>
+                    <constraint firstItem="9LS-89-qjw" firstAttribute="leading" secondItem="HdC-HA-hbA" secondAttribute="trailing" constant="14" id="nqq-wY-7yv"/>
+                    <constraint firstItem="9LS-89-qjw" firstAttribute="centerY" secondItem="HdC-HA-hbA" secondAttribute="centerY" id="xLm-WQ-dD7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="commentLabel" destination="hjP-WS-7ZF" id="PIG-HB-yEg"/>
+                <outlet property="timeLabel" destination="9LS-89-qjw" id="oOQ-a9-wAT"/>
+                <outlet property="usernameLabel" destination="HdC-HA-hbA" id="lZR-nq-1sn"/>
+            </connections>
+            <point key="canvasLocation" x="64.799999999999997" y="98.950524737631198"/>
+        </tableViewCell>
+    </objects>
+</document>

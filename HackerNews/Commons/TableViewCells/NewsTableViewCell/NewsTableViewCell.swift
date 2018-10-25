@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import NetworkManager
+
+protocol NewsCellDelegate: class {
+    func newsCellDidSelectComment(cell: NewsTableViewCell, storyId: Int)
+}
 
 class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
@@ -15,14 +20,20 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var commentsView: UIView!
     @IBOutlet weak var score: UILabel!
     
+    weak var delegate: NewsCellDelegate?
+    
+    var story: Item! {
+        didSet {
+            configure(post: story)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
     }
     
     fileprivate func setup() {
-        super.awakeFromNib()
-        
         title.textColor = Color.titleCell
         info.textColor = Color.infoCell
         link.textColor = Color.linkCell
@@ -36,5 +47,18 @@ class NewsTableViewCell: UITableViewCell {
         let backgroundCellView = UIView()
         backgroundCellView.backgroundColor = Color.tableSelectedCellBackground
         self.selectedBackgroundView = backgroundCellView
+    }
+    
+    fileprivate func configure(post: Item) {
+        title.text = post.title
+        info.text = "\(post.score ?? 0) points by \(post.by ?? "Unknown") - \(post.descendants ?? 0) comments"
+        link.text = post.url
+        score.text = String(post.score ?? 0)
+    }
+}
+
+extension NewsTableViewCell {
+    @IBAction func openCommentsView(_ sender: UIButton) {
+        delegate?.newsCellDidSelectComment(cell: self, storyId: story.id!)
     }
 }

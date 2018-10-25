@@ -84,11 +84,8 @@ extension AskStoriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: NewsTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        let story = stories[indexPath.row]
-        cell.title.text = stories[indexPath.row].title
-        cell.info.text = "\(story.score ?? 0) points by \(story.by ?? "Unknown") - \(story.descendants ?? 0) comments"
-        cell.link.text = story.url
-        cell.score.text = String(story.score ?? 0)
+        cell.story = stories[indexPath.row]
+        cell.delegate = self
         return cell
     }
 }
@@ -96,5 +93,11 @@ extension AskStoriesViewController: UITableViewDataSource {
 extension AskStoriesViewController: SFSafariViewControllerDelegate {
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AskStoriesViewController: NewsCellDelegate {
+    func newsCellDidSelectComment(cell: NewsTableViewCell, storyId: Int) {
+        
     }
 }
