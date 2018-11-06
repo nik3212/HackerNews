@@ -22,7 +22,6 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="lTL-oN-anY" id="ldT-vc-UAf"/>
                                     <outlet property="delegate" destination="lTL-oN-anY" id="5Yq-DR-jg1"/>
                                 </connections>
                             </tableView>

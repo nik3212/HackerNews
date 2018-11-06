@@ -13,10 +13,11 @@ import SafariServices
 class ShowStoriesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    private var stories = [Item]()
+
     private let refreshControl = UIRefreshControl()
     private let activityIndicator = UIActivityIndicatorView(style: .white)
+    
+    private var dataSource = StoriesListDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,56 +38,61 @@ class ShowStoriesViewController: UIViewController {
     
     fileprivate func configure() {
         tableView.register(NewsTableViewCell.self)
+        tableView.register(LoadingTableViewCell.self)
         tableView.tableFooterView = UIView()
         tableView.refreshControl = refreshControl
+        dataSource.delegate = self
+        tableView.dataSource = dataSource
         refreshControl.addTarget(self, action: #selector(updateShowStories(_:)), for: .valueChanged)
-        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Ask Stories...",
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Show Stories...",
                                                             attributes: [.foregroundColor: UIColor.white])
         tableView.backgroundView = activityIndicator
     }
     
-    fileprivate func loadData() {
-        NetworkManager.shared.retrieve(type: .show) { [weak self] (response) in
-            switch response {
-            case .success(let stories):
-                self?.stories = stories
+    private func loadMoreStories() {
+        dataSource.fetchingMore = true
+        tableView.beginUpdates()
+        tableView.reloadSections(IndexSet(integer: 1), with: .none)
+        tableView.endUpdates()
+        loadData()
+    }
+    
+    private func loadData() {
+        StoriesLoader.retrieve(to: dataSource, type: .show) { [weak self] (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()
                 self?.activityIndicator.stopAnimating()
-            case .error(let error):
-                print("\(error.localizedDescription)")
+                self?.dataSource.fetchingMore = false
             }
         }
     }
     
     @objc private func updateShowStories(_ sender: Any) {
+        dataSource.ids.removeAll()
+        dataSource.stories.removeAll()
+        tableView.reloadData()
         loadData()
     }
 }
 
 extension ShowStoriesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
         
-        let item = stories[indexPath.row]
-        if let url = item.url {
-            let webViewController = SFSafariViewController(url: URL(string: url)!)
-            webViewController.delegate = self
-            present(webViewController, animated: true)
+        if offsetY > contentHeight - scrollView.frame.height {
+            if !dataSource.fetchingMore && dataSource.stories.count != dataSource.ids.count &&
+                dataSource.stories.count != 0 {
+                loadMoreStories()
+            }
         }
     }
-}
-
-extension ShowStoriesViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stories.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: NewsTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.story = stories[indexPath.row]
-        cell.delegate = self
-        return cell
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 
@@ -96,8 +102,10 @@ extension ShowStoriesViewController: SFSafariViewControllerDelegate {
     }
 }
 
-extension ShowStoriesViewController: NewsCellDelegate {
-    func newsCellDidSelectComment(cell: NewsTableViewCell, storyId: Int) {
-        
+extension ShowStoriesViewController: StoriesListDelegate {
+    func openCommentView(cell: NewsTableViewCell, storyId: Int) {
+        let commentsController = ViewControllerFactory.instantiate(.Comments) as CommentsViewController
+        commentsController.commentsIds = cell.story.kids
+        navigationController?.pushViewController(commentsController, animated: true)
     }
 }

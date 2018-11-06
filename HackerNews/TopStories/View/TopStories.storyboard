@@ -22,8 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="lCY-AG-CiG" id="c9I-9u-Da8"/>
-                                    <outlet property="delegate" destination="lCY-AG-CiG" id="YAD-n7-aMf"/>
+                                    <outlet property="delegate" destination="lCY-AG-CiG" id="LED-Hg-6Ra"/>
                                 </connections>
                             </tableView>
                         </subviews>

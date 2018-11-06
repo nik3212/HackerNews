@@ -25,7 +25,7 @@ public class NetworkManager: NetworkEngine {
     fileprivate var firebase = Firebase(url: Constants.firebaseRef)
     
     /// Count of fetched items
-    var storyLimit: UInt = 30
+    var storyLimit: UInt = 100
     
     // MARK: - Initialization
     
@@ -38,7 +38,9 @@ public class NetworkManager: NetworkEngine {
     ///   - completion: The block that should be called.
     ///                 It is passed the data as an Result<[Int]>.
     public func getIds(type: ItemType, _ completion: @escaping (Result<[Int]>) -> Void) {
-        firebase?.child(byAppendingPath: type.rawValue).queryLimited(toFirst: storyLimit).observeSingleEvent(of: .value, with: { (snapshot) in
+        firebase?.child(byAppendingPath: type.rawValue)
+            .queryLimited(toFirst: storyLimit)
+            .observeSingleEvent(of: .value, with: { (snapshot) in
             guard let snapshot = snapshot,
                 let ids = snapshot.value as? [Int] else { return }
             completion(.success(ids))
@@ -63,7 +65,7 @@ public class NetworkManager: NetworkEngine {
                 guard let snapshot = snapshot,
                       let item = Item(snapshot: snapshot) else { return }
                 stories[id] = item
-                if stories.count == self.storyLimit {
+                if stories.count == ids.count {
                     var items = [Item]()
                     
                     for id in ids {
