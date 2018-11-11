@@ -94,6 +94,17 @@ extension ShowStoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let item = dataSource.stories[indexPath.row]
+        if let url = item.url {
+            let webViewController = SFSafariViewController(url: URL(string: url)!)
+            webViewController.delegate = self
+            present(webViewController, animated: true)
+        }
+    }
 }
 
 extension ShowStoriesViewController: SFSafariViewControllerDelegate {

@@ -50,8 +50,10 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     fileprivate func configure(post: Item) {
+        let date = Date(timeIntervalSince1970: TimeInterval(post.time ?? 0))
+        
         title.text = post.title
-        info.text = "\(post.score ?? 0) points by \(post.by ?? "Unknown") - \(post.descendants ?? 0) comments"
+        info.text = "\(post.score ?? 0) points by \(post.by ?? "Unknown") - \(post.descendants ?? 0) comments - \(Date().timeAgo(from: date))"
         link.text = post.url
         score.text = String(post.score ?? 0)
     }
