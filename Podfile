@@ -7,10 +7,6 @@ workspace 'HackerNews'
 xcodeproj 'HackerNews.xcodeproj'
 xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
 
-def ui_pods
-    pod 'MXSegmentedControl'
-end
-
 def net_pods
 	pod 'Firebase', '2.5.0'
 end
@@ -21,7 +17,6 @@ end
 
 target :HackerNews do
 	xcodeproj 'HackerNews.xcodeproj'
-	ui_pods
     net_pods
     other_pods
 end

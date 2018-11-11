@@ -24,4 +24,7 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Features/NetworkManager/NetworkManager.xcodeproj">
+   </FileRef>
 </Workspace>
