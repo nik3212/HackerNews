@@ -15,7 +15,11 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     
-    var comment: Item! {
+    @IBOutlet weak var usernameLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var timeLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var commentLeadingConstraint: NSLayoutConstraint!
+    
+    var comment: Comment! {
         didSet {
             configure(comment: comment)
         }
@@ -29,7 +33,7 @@ class CommentTableViewCell: UITableViewCell {
     fileprivate func setup() {
         usernameLabel.textColor = Color.titleCell
         timeLabel.textColor = Color.infoCell
-        commentLabel.textColor = Color.linkCell
+        commentLabel.textColor = Color.comment
         
         backgroundColor = Color.tableCellBackground
         
@@ -38,8 +42,11 @@ class CommentTableViewCell: UITableViewCell {
         self.selectedBackgroundView = backgroundCellView
     }
     
-    fileprivate func configure(comment: Item) {
-        usernameLabel.text = comment.by
-        commentLabel.text = comment.text
+    fileprivate func configure(comment: Comment) {
+        let date = Date(timeIntervalSince1970: TimeInterval(comment.time ?? 0))
+        
+        usernameLabel.text = comment.author
+        timeLabel.text = Date().timeAgo(from: date)
+        commentLabel.text = comment.text?.htmlDecoded
     }
 }

@@ -12,6 +12,7 @@ import Firebase
 protocol NetworkEngine {
     func getIds(type: ItemType, _ completion: @escaping (Result<[Int]>) -> Void)
     func retrieve(ids: [Int], _ completion: @escaping (Result<[Item]>) -> Void)
+    func getComments(ids: [Int], _ completion: @escaping(Result<[Comment]>) -> Void)
 }
 
 public class NetworkManager: NetworkEngine {
@@ -104,6 +105,44 @@ public class NetworkManager: NetworkEngine {
     /// - Parameter firebase: Instance of Firebase
     public func setup(with firebase: Firebase) {
         self.firebase = firebase
+    }
+    
+    
+    /// 
+    ///
+    /// - Parameters:
+    ///   - ids: <#ids description#>
+    ///   - completion: <#completion description#>
+    public func getComments(ids: [Int], _ completion: @escaping(Result<[Comment]>) -> Void) {
+        var comments: [Comment] = []
+        let commentsGroup = DispatchGroup()
+        
+        for id in ids {
+            commentsGroup.enter()
+            
+            NetworkManager.shared.retrieve(ids: [id]) { (response) in
+                switch response {
+                case .success(let items):
+                    let comment = Comment(item: items.first!)
+                    comment.getComments(completion: { (_) in
+                        comments.append(comment)
+                        commentsGroup.leave()
+                    })
+                case .error(let error):
+                    print(error.localizedDescription)
+                    commentsGroup.leave()
+                    completion(Result.error(error))
+                }
+            }
+        }
+        
+        commentsGroup.notify(queue: .main) {
+            comments.sort { a, b in
+                ids.index(of: a.id!)! < ids.index(of: b.id!)!
+            }
+            
+            completion(Result.success(comments))
+        }
     }
     
 }

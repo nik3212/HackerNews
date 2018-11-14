@@ -25,6 +25,7 @@ struct Color {
     static let titleCell = UIColor.fromRGB(241, 241, 241)
     static let infoCell = UIColor.fromRGB(87, 96, 111)
     static let linkCell = UIColor.fromRGB(87, 96, 111)
+    static let comment = UIColor.fromRGB(255, 255, 255)
 }
 
 struct Font {

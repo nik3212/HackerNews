@@ -12,10 +12,13 @@ import NetworkManager
 class CommentsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var articleTitleLabel: UILabel!
     
     var commentsIds: [Int]?
+    var articleTitle: String?
     
-    private var comments = [Item]()
+    private var comments: [Comment] = []
+ 
     private let refreshControl = UIRefreshControl()
     private let activityIndicator = UIActivityIndicatorView(style: .white)
     
@@ -38,6 +41,7 @@ class CommentsViewController: UIViewController {
     
     fileprivate func configure() {
         title = "Comments"
+        articleTitleLabel.text = articleTitle
         tableView.register(CommentTableViewCell.self)
         tableView.tableFooterView = UIView()
         tableView.refreshControl = refreshControl
@@ -45,26 +49,38 @@ class CommentsViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching New Comments...",
                                                             attributes: [.foregroundColor: UIColor.white])
         tableView.backgroundView = activityIndicator
+        view.backgroundColor = Color.appBackground
+        articleTitleLabel.textColor = Color.titleCell
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 140
     }
     
     @objc private func updateComments(_ sender: Any) {
         loadComments(ids: commentsIds)
     }
     
+    // swiftlint:disable force_cast
     fileprivate func loadComments(ids: [Int]?) {
         guard let ids = ids else { return }
-        NetworkManager.shared.retrieve(ids: ids) { [weak self] (response) in
+        NetworkManager.shared.getComments(ids: ids) { (response) in
             switch response {
             case .success(let comments):
-                self?.comments = comments
-                self?.tableView.reloadData()
-                self?.refreshControl.endRefreshing()
-                self?.activityIndicator.stopAnimating()
+                var flattenedCommnets = [Any]()
+                
+                for comment in comments {
+                    flattenedCommnets += comment.flattenedComments() as! [Any]
+                }
+                
+                self.comments = flattenedCommnets.compactMap { $0 } as! [Comment]
+
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             case .error(let error):
-                print("\(error.localizedDescription)")
+                print(error.localizedDescription)
             }
         }
     }
+    // swiftlint:enable force_cast
 }
 
 extension CommentsViewController: UITableViewDelegate { }
@@ -76,7 +92,16 @@ extension CommentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CommentTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.comment = comments[indexPath.row]
+        let comment = comments[indexPath.row]
+        
+        cell.comment = comment
+        
+        cell.usernameLeadingConstraint.constant = CGFloat(9 + comment.level * 20)
+        cell.timeLeadingConstraint.constant = CGFloat(9 + comment.level * 20)
+        cell.commentLeadingConstraint.constant = CGFloat(9 + comment.level * 20)
+        
+        cell.selectionStyle = .none
+        
         return cell
     }
 }

@@ -24,40 +24,48 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-HA-hbA">
-                        <rect key="frame" x="16" y="11" width="49" height="14"/>
-                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LS-89-qjw">
-                        <rect key="frame" x="79" y="11" width="55.5" height="14"/>
-                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
+                        <rect key="frame" x="16" y="11" width="58.5" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="CAU-i6-fAt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjP-WS-7ZF">
-                        <rect key="frame" x="16" y="33" width="68.5" height="20"/>
+                        <rect key="frame" x="16" y="57" width="343" height="32"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LS-89-qjw">
+                        <rect key="frame" x="16" y="33" width="66.5" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="hnQ-5z-Xfu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" relation="lessThanOrEqual" secondItem="hjP-WS-7ZF" secondAttribute="bottom" constant="44" id="3nv-Qj-LCE"/>
-                    <constraint firstItem="9LS-89-qjw" firstAttribute="top" secondItem="3l7-AH-bg4" secondAttribute="topMargin" id="D6Q-y4-j3R"/>
+                    <constraint firstItem="9LS-89-qjw" firstAttribute="leading" secondItem="3l7-AH-bg4" secondAttribute="leadingMargin" id="Bfv-A5-htF"/>
                     <constraint firstItem="hjP-WS-7ZF" firstAttribute="leading" secondItem="3l7-AH-bg4" secondAttribute="leadingMargin" id="EJj-YU-dKd"/>
-                    <constraint firstItem="hjP-WS-7ZF" firstAttribute="top" secondItem="HdC-HA-hbA" secondAttribute="bottom" constant="8" id="SaO-uA-wa4"/>
-                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hjP-WS-7ZF" secondAttribute="trailing" id="Tse-hX-y8b"/>
                     <constraint firstItem="HdC-HA-hbA" firstAttribute="top" secondItem="3l7-AH-bg4" secondAttribute="topMargin" id="Zzw-OG-ja2"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hjP-WS-7ZF" secondAttribute="bottom" constant="8" id="fft-C4-NIV"/>
                     <constraint firstItem="HdC-HA-hbA" firstAttribute="leading" secondItem="3l7-AH-bg4" secondAttribute="leadingMargin" id="fjK-ch-bEC"/>
-                    <constraint firstItem="9LS-89-qjw" firstAttribute="leading" secondItem="HdC-HA-hbA" secondAttribute="trailing" constant="14" id="nqq-wY-7yv"/>
-                    <constraint firstItem="9LS-89-qjw" firstAttribute="centerY" secondItem="HdC-HA-hbA" secondAttribute="centerY" id="xLm-WQ-dD7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hjP-WS-7ZF" secondAttribute="trailing" id="jTB-zo-ycu"/>
+                    <constraint firstItem="9LS-89-qjw" firstAttribute="top" secondItem="HdC-HA-hbA" secondAttribute="bottom" constant="8" id="mTN-j7-3Ey"/>
+                    <constraint firstItem="hjP-WS-7ZF" firstAttribute="top" secondItem="9LS-89-qjw" secondAttribute="bottom" constant="8" id="tC1-df-zAM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="commentLabel" destination="hjP-WS-7ZF" id="PIG-HB-yEg"/>
+                <outlet property="commentLeadingConstraint" destination="EJj-YU-dKd" id="uSr-HQ-fnP"/>
                 <outlet property="timeLabel" destination="9LS-89-qjw" id="oOQ-a9-wAT"/>
+                <outlet property="timeLeadingConstraint" destination="Bfv-A5-htF" id="z3I-DL-U8d"/>
                 <outlet property="usernameLabel" destination="HdC-HA-hbA" id="lZR-nq-1sn"/>
+                <outlet property="usernameLeadingConstraint" destination="fjK-ch-bEC" id="Jdd-eV-MgY"/>
             </connections>
             <point key="canvasLocation" x="64.799999999999997" y="98.950524737631198"/>
         </tableViewCell>

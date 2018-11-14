@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38F7969C2198B97A0083EFEF /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7969B2198B97A0083EFEF /* Comment.swift */; };
 		6656BEBD045976CA2CEC4AE3 /* Pods_NetworkManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7529AD9DE31E87E29A292FBF /* Pods_NetworkManagerTests.framework */; };
 		872E5E0096182FF74FFD0912 /* Pods_NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6396BAC443EB0FD6D4A57DB /* Pods_NetworkManager.framework */; };
 		D02555AE213C70F800822BFE /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02555AD213C70F800822BFE /* Result.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38F7969B2198B97A0083EFEF /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		3F35EF52AF6F725871B0D98E /* Pods-NetworkManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManagerTests.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-NetworkManagerTests/Pods-NetworkManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		56E40017254E0EE6E38E7E99 /* Pods-NetworkManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManager.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager.debug.xcconfig"; sourceTree = "<group>"; };
 		5EA4D6BA42570055750886FD /* Pods-NetworkManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManagerTests.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-NetworkManagerTests/Pods-NetworkManagerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				D0FA2E6A21373F7F00C073A3 /* Item.swift */,
+				38F7969B2198B97A0083EFEF /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0FA2E6921373EAF00C073A3 /* NetworkManager.swift in Sources */,
+				38F7969C2198B97A0083EFEF /* Comment.swift in Sources */,
 				D0FA2E6B21373F7F00C073A3 /* Item.swift in Sources */,
 				D095C03F213F15D60047AB79 /* ItemType.swift in Sources */,
 				D02555AE213C70F800822BFE /* Result.swift in Sources */,

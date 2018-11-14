@@ -27,6 +27,7 @@
 		38BF9C07215D494F0080C57C /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; };
 		38BF9C08215D494F0080C57C /* NetworkManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38DF2B58218B9ACA00F03B9E /* StoriesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF2B57218B9ACA00F03B9E /* StoriesLoader.swift */; };
+		38F7969A2198A2710083EFEF /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F796992198A2710083EFEF /* String+.swift */; };
 		8E22CEE5F617BD33744CA6BA /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D7A99805FD981F4437D9A7 /* Pods_HackerNews.framework */; };
 		D026E85D2131AB1E00512C32 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D026E85C2131AB1E00512C32 /* NewsTableViewCell.xib */; };
 		D026E85F2131AB3500512C32 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026E85E2131AB3500512C32 /* NewsTableViewCell.swift */; };
@@ -103,6 +104,7 @@
 		389F80AA218F8EC8003F2A55 /* StoriesListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListDataSource.swift; sourceTree = "<group>"; };
 		38BF9C06215D494F0080C57C /* NetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38DF2B57218B9ACA00F03B9E /* StoriesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoader.swift; sourceTree = "<group>"; };
+		38F796992198A2710083EFEF /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		63100782525D8A733AA59448 /* Pods-HackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNews/Pods-HackerNews.release.xcconfig"; sourceTree = "<group>"; };
 		D026E85C2131AB1E00512C32 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		D026E85E2131AB3500512C32 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				D07205242130A09C00E4B1ED /* Color+.swift */,
 				D07205262130A0AF00E4B1ED /* UIImage+.swift */,
 				3867CB6E215FB264003C0658 /* Date+.swift */,
+				38F796992198A2710083EFEF /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				D026E85F2131AB3500512C32 /* NewsTableViewCell.swift in Sources */,
 				382F1AB6217E7225001D89A4 /* CommentTableViewCell.swift in Sources */,
 				381A4BE221680CFB0084F05B /* AskStoriesViewController.swift in Sources */,
+				38F7969A2198A2710083EFEF /* String+.swift in Sources */,
 				381A4BD3216806ED0084F05B /* RootViewController.swift in Sources */,
 				381A4BCE2168009F0084F05B /* TopStoriesViewController.swift in Sources */,
 				D07204F421309FC600E4B1ED /* AppDelegate.swift in Sources */,
