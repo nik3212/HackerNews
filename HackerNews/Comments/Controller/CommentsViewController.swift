@@ -44,7 +44,7 @@ class CommentsViewController: UIViewController {
             tableView.backgroundView = activityIndicator
         }
         tableView.register(CommentTableViewCell.self)
-        //tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
         refreshControl.addTarget(self, action: #selector(updateComments(_:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching New Comments...",
                                                             attributes: [.foregroundColor: UIColor.white])
