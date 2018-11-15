@@ -108,11 +108,12 @@ public class NetworkManager: NetworkEngine {
     }
     
     
-    /// 
+    ///   Returns comments on the article.
     ///
     /// - Parameters:
-    ///   - ids: <#ids description#>
-    ///   - completion: <#completion description#>
+    ///   - ids: Contains comments ids.
+    ///   - completion: The block that should be called.
+    ///                 It is passed the data as an Result<[Comment]>
     public func getComments(ids: [Int], _ completion: @escaping(Result<[Comment]>) -> Void) {
         var comments: [Comment] = []
         let commentsGroup = DispatchGroup()
