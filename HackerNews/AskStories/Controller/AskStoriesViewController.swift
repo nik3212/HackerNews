@@ -117,7 +117,6 @@ extension AskStoriesViewController: StoriesListDelegate {
     func openCommentView(cell: NewsTableViewCell, storyId: Int) {
         let commentsController = ViewControllerFactory.instantiate(.Comments) as CommentsViewController
         commentsController.commentsIds = cell.story.kids
-        commentsController.articleTitle = cell.story.title
         navigationController?.pushViewController(commentsController, animated: true)
     }
 }

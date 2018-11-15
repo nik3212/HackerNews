@@ -24,22 +24,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-HA-hbA">
-                        <rect key="frame" x="16" y="11" width="58.5" height="14"/>
+                        <rect key="frame" x="16" y="11" width="58.5" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="CAU-i6-fAt"/>
+                            <constraint firstAttribute="height" constant="16" id="CAU-i6-fAt"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjP-WS-7ZF">
-                        <rect key="frame" x="16" y="57" width="343" height="32"/>
-                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LS-89-qjw">
-                        <rect key="frame" x="16" y="33" width="66.5" height="16"/>
+                        <rect key="frame" x="16" y="35" width="66.5" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="hnQ-5z-Xfu"/>
                         </constraints>
@@ -47,21 +41,29 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bk6-4q-IFt">
+                        <rect key="frame" x="20" y="59" width="335" height="48.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bk6-4q-IFt" secondAttribute="trailing" constant="20" id="0tO-eL-jXc"/>
                     <constraint firstItem="9LS-89-qjw" firstAttribute="leading" secondItem="3l7-AH-bg4" secondAttribute="leadingMargin" id="Bfv-A5-htF"/>
-                    <constraint firstItem="hjP-WS-7ZF" firstAttribute="leading" secondItem="3l7-AH-bg4" secondAttribute="leadingMargin" id="EJj-YU-dKd"/>
+                    <constraint firstAttribute="bottom" secondItem="bk6-4q-IFt" secondAttribute="bottom" id="G87-Qz-fAt"/>
+                    <constraint firstItem="bk6-4q-IFt" firstAttribute="top" secondItem="9LS-89-qjw" secondAttribute="bottom" constant="8" id="OlV-TI-JJl"/>
                     <constraint firstItem="HdC-HA-hbA" firstAttribute="top" secondItem="3l7-AH-bg4" secondAttribute="topMargin" id="Zzw-OG-ja2"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="hjP-WS-7ZF" secondAttribute="bottom" constant="8" id="fft-C4-NIV"/>
                     <constraint firstItem="HdC-HA-hbA" firstAttribute="leading" secondItem="3l7-AH-bg4" secondAttribute="leadingMargin" id="fjK-ch-bEC"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="hjP-WS-7ZF" secondAttribute="trailing" id="jTB-zo-ycu"/>
                     <constraint firstItem="9LS-89-qjw" firstAttribute="top" secondItem="HdC-HA-hbA" secondAttribute="bottom" constant="8" id="mTN-j7-3Ey"/>
-                    <constraint firstItem="hjP-WS-7ZF" firstAttribute="top" secondItem="9LS-89-qjw" secondAttribute="bottom" constant="8" id="tC1-df-zAM"/>
+                    <constraint firstItem="bk6-4q-IFt" firstAttribute="leading" secondItem="3l7-AH-bg4" secondAttribute="leading" constant="20" id="mnZ-6R-vaZ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="commentLabel" destination="hjP-WS-7ZF" id="PIG-HB-yEg"/>
-                <outlet property="commentLeadingConstraint" destination="EJj-YU-dKd" id="uSr-HQ-fnP"/>
+                <outlet property="commentLeadingConstraint" destination="mnZ-6R-vaZ" id="qxf-je-THS"/>
+                <outlet property="commentTextView" destination="bk6-4q-IFt" id="DYU-na-6bp"/>
                 <outlet property="timeLabel" destination="9LS-89-qjw" id="oOQ-a9-wAT"/>
                 <outlet property="timeLeadingConstraint" destination="Bfv-A5-htF" id="z3I-DL-U8d"/>
                 <outlet property="usernameLabel" destination="HdC-HA-hbA" id="lZR-nq-1sn"/>

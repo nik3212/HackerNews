@@ -13,7 +13,7 @@ class CommentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var commentTextView: UITextView!
     
     @IBOutlet weak var usernameLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var timeLeadingConstraint: NSLayoutConstraint!
@@ -33,7 +33,8 @@ class CommentTableViewCell: UITableViewCell {
     fileprivate func setup() {
         usernameLabel.textColor = Color.titleCell
         timeLabel.textColor = Color.infoCell
-        commentLabel.textColor = Color.comment
+        commentTextView.textColor = Color.comment
+        commentTextView.backgroundColor = Color.tableCellBackground
         
         backgroundColor = Color.tableCellBackground
         
@@ -47,6 +48,6 @@ class CommentTableViewCell: UITableViewCell {
         
         usernameLabel.text = comment.author
         timeLabel.text = Date().timeAgo(from: date)
-        commentLabel.text = comment.text?.htmlDecoded
+        commentTextView.text = comment.text?.htmlDecoded
     }
 }

@@ -12,10 +12,8 @@ import NetworkManager
 class CommentsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak private var articleTitleLabel: UILabel!
     
     var commentsIds: [Int]?
-    var articleTitle: String?
     
     private var comments: [Comment] = []
  
@@ -41,16 +39,16 @@ class CommentsViewController: UIViewController {
     
     fileprivate func configure() {
         title = "Comments"
-        articleTitleLabel.text = articleTitle
+        if commentsIds != nil {
+            tableView.refreshControl = refreshControl
+            tableView.backgroundView = activityIndicator
+        }
         tableView.register(CommentTableViewCell.self)
-        tableView.tableFooterView = UIView()
-        tableView.refreshControl = refreshControl
+        //tableView.tableFooterView = UIView()
         refreshControl.addTarget(self, action: #selector(updateComments(_:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching New Comments...",
                                                             attributes: [.foregroundColor: UIColor.white])
-        tableView.backgroundView = activityIndicator
         view.backgroundColor = Color.appBackground
-        articleTitleLabel.textColor = Color.titleCell
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 140
     }
@@ -98,7 +96,7 @@ extension CommentsViewController: UITableViewDataSource {
         
         cell.usernameLeadingConstraint.constant = CGFloat(9 + comment.level * 20)
         cell.timeLeadingConstraint.constant = CGFloat(9 + comment.level * 20)
-        cell.commentLeadingConstraint.constant = CGFloat(9 + comment.level * 20)
+        cell.commentLeadingConstraint.constant = CGFloat(20 + comment.level * 20)
         
         cell.selectionStyle = .none
         
