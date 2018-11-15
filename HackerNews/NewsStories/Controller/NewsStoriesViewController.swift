@@ -49,6 +49,7 @@ class NewsStoriesViewController: UIViewController {
     }
     
     @objc private func updateNewStories(_ sender: Any) {
+        tableView.backgroundView = nil
         dataSource.ids.removeAll()
         dataSource.stories.removeAll()
         tableView.reloadData()
@@ -64,14 +65,15 @@ class NewsStoriesViewController: UIViewController {
     }
     
     private func loadData() {
-        StoriesLoader.retrieve(to: dataSource, type: .news) { [weak self] (error) in
-            if let error = error {
-                print(error.localizedDescription)
+        StoriesLoader.retrieve(to: dataSource, type: .news) { (error) in
+            if error != nil {
+                self.showAlert(title: "Error occurred",
+                               message: "Please make sure you're connected to the internet and try again.")
             } else {
-                self?.tableView.reloadData()
-                self?.refreshControl.endRefreshing()
-                self?.activityIndicator.stopAnimating()
-                self?.dataSource.fetchingMore = false
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
+                self.dataSource.fetchingMore = false
             }
         }
     }
@@ -119,3 +121,5 @@ extension NewsStoriesViewController: StoriesListDelegate {
         navigationController?.pushViewController(commentsController, animated: true)
     }
 }
+
+extension NewsStoriesViewController: Alertable { }

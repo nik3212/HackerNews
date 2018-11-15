@@ -58,19 +58,21 @@ class AskStoriesViewController: UIViewController {
     }
     
     private func loadData() {
-        StoriesLoader.retrieve(to: dataSource, type: .ask) { [weak self] (error) in
-            if let error = error {
-                print(error.localizedDescription)
+        StoriesLoader.retrieve(to: dataSource, type: .ask) { (error) in
+            if error != nil {
+                self.showAlert(title: "Error occurred",
+                               message: "Please make sure you're connected to the internet and try again.")
             } else {
-                self?.tableView.reloadData()
-                self?.refreshControl.endRefreshing()
-                self?.activityIndicator.stopAnimating()
-                self?.dataSource.fetchingMore = false
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
+                self.dataSource.fetchingMore = false
             }
         }
     }
     
     @objc private func updateAskStories(_ sender: Any) {
+        tableView.backgroundView = nil
         dataSource.ids.removeAll()
         dataSource.stories.removeAll()
         tableView.reloadData()
@@ -99,11 +101,9 @@ extension AskStoriesViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let item = dataSource.stories[indexPath.row]
-        if let url = item.url {
-            let webViewController = SFSafariViewController(url: URL(string: url)!)
-            webViewController.delegate = self
-            present(webViewController, animated: true)
-        }
+        let commentsController = ViewControllerFactory.instantiate(.Comments) as CommentsViewController
+        commentsController.commentsIds = item.kids
+        navigationController?.pushViewController(commentsController, animated: true)
     }
 }
 
@@ -120,3 +120,5 @@ extension AskStoriesViewController: StoriesListDelegate {
         navigationController?.pushViewController(commentsController, animated: true)
     }
 }
+
+extension AskStoriesViewController: Alertable { }

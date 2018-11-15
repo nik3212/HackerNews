@@ -20,6 +20,7 @@
 		382F1AB1217E7105001D89A4 /* Comments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382F1AB0217E7105001D89A4 /* Comments.storyboard */; };
 		382F1AB4217E7201001D89A4 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382F1AB3217E7201001D89A4 /* CommentTableViewCell.xib */; };
 		382F1AB6217E7225001D89A4 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F1AB5217E7225001D89A4 /* CommentTableViewCell.swift */; };
+		384F0821219E07D30029ADDD /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F0820219E07D30029ADDD /* Alertable.swift */; };
 		385CCA5E2188F23A0025AC42 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385CCA5D2188F23A0025AC42 /* LoadingTableViewCell.swift */; };
 		385CCA602188F24F0025AC42 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385CCA5F2188F24F0025AC42 /* LoadingTableViewCell.xib */; };
 		3867CB6F215FB264003C0658 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867CB6E215FB264003C0658 /* Date+.swift */; };
@@ -98,6 +99,7 @@
 		382F1AB0217E7105001D89A4 /* Comments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Comments.storyboard; sourceTree = "<group>"; };
 		382F1AB3217E7201001D89A4 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		382F1AB5217E7225001D89A4 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		384F0820219E07D30029ADDD /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		385CCA5D2188F23A0025AC42 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		385CCA5F2188F24F0025AC42 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		3867CB6E215FB264003C0658 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				D072052C2130A13800E4B1ED /* UITableView+.swift */,
 				D072052E2130A15200E4B1ED /* UITableViewCell+.swift */,
 				D07205302130A17100E4B1ED /* UIViewControllerFactory.swift */,
+				384F0820219E07D30029ADDD /* Alertable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				385CCA5E2188F23A0025AC42 /* LoadingTableViewCell.swift in Sources */,
 				D07205252130A09C00E4B1ED /* Color+.swift in Sources */,
 				D07205292130A10400E4B1ED /* NibLoadableView.swift in Sources */,
+				384F0821219E07D30029ADDD /* Alertable.swift in Sources */,
 				D07205272130A0AF00E4B1ED /* UIImage+.swift in Sources */,
 				389F80AB218F8EC8003F2A55 /* StoriesListDataSource.swift in Sources */,
 				382F1AAD217E70E4001D89A4 /* CommentsViewController.swift in Sources */,

@@ -107,7 +107,6 @@ public class NetworkManager: NetworkEngine {
         self.firebase = firebase
     }
     
-    
     ///   Returns comments on the article.
     ///
     /// - Parameters:
