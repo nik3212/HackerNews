@@ -536,6 +536,7 @@
 				E4D508F19C5AA4D97D5A06BB /* [CP] Embed Pods Frameworks */,
 				D02555AC213C6F7400822BFE /* Embed Frameworks */,
 				3860B553219F0B8300D2CC03 /* ShellScript */,
+				3860B554219F132500D2CC03 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -684,6 +685,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "FABRIC_APIKEY_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.apikey\"\nFABRIC_BUILDSECRET_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.buildsecret\"\n\nif [ ! -f $FABRIC_APIKEY_FILE ]; then\necho \"warning: secret files not found\"\nexit 0\nfi\n\napiKey=$(cat \"$FABRIC_APIKEY_FILE\")\nsecretKey=$(cat \"$FABRIC_BUILDSECRET_FILE\")\n\n\"${PODS_ROOT}/Fabric/run\" $apiKey $secretKey\n";
+		};
+		3860B554219F132500D2CC03 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 		59709DA8EE71F8AEAF07F7AE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
