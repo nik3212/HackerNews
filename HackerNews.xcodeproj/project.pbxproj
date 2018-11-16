@@ -113,7 +113,7 @@
 		D026E85C2131AB1E00512C32 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		D026E85E2131AB3500512C32 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		D026E8612131ADED00512C32 /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
-		D07204F021309FC600E4B1ED /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D07204F021309FC600E4B1ED /* Hacker News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07204F321309FC600E4B1ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D07204F821309FC600E4B1ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D07204FA21309FC900E4B1ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 		D07204F121309FC600E4B1ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D07204F021309FC600E4B1ED /* HackerNews.app */,
+				D07204F021309FC600E4B1ED /* Hacker News.app */,
 				D072050421309FC900E4B1ED /* HackerNewsTests.xctest */,
 				D072050F21309FC900E4B1ED /* HackerNewsUITests.xctest */,
 			);
@@ -542,7 +542,7 @@
 			);
 			name = HackerNews;
 			productName = HackerNews;
-			productReference = D07204F021309FC600E4B1ED /* HackerNews.app */;
+			productReference = D07204F021309FC600E4B1ED /* Hacker News.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D072050321309FC900E4B1ED /* HackerNewsTests */ = {
@@ -960,7 +960,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNews;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hacker News";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -980,7 +980,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNews;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hacker News";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
