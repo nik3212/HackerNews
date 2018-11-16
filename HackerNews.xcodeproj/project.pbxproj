@@ -23,6 +23,8 @@
 		384F0821219E07D30029ADDD /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F0820219E07D30029ADDD /* Alertable.swift */; };
 		385CCA5E2188F23A0025AC42 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385CCA5D2188F23A0025AC42 /* LoadingTableViewCell.swift */; };
 		385CCA602188F24F0025AC42 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385CCA5F2188F24F0025AC42 /* LoadingTableViewCell.xib */; };
+		3860B559219F2DD800D2CC03 /* fabric.buildsecret in Resources */ = {isa = PBXBuildFile; fileRef = 3860B557219F2DD800D2CC03 /* fabric.buildsecret */; };
+		3860B55A219F2DD800D2CC03 /* fabric.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 3860B558219F2DD800D2CC03 /* fabric.apikey */; };
 		3867CB6F215FB264003C0658 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867CB6E215FB264003C0658 /* Date+.swift */; };
 		389F80AB218F8EC8003F2A55 /* StoriesListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F80AA218F8EC8003F2A55 /* StoriesListDataSource.swift */; };
 		38BF9C07215D494F0080C57C /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; };
@@ -102,12 +104,12 @@
 		384F0820219E07D30029ADDD /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		385CCA5D2188F23A0025AC42 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		385CCA5F2188F24F0025AC42 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		3860B557219F2DD800D2CC03 /* fabric.buildsecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.buildsecret; sourceTree = "<group>"; };
+		3860B558219F2DD800D2CC03 /* fabric.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.apikey; sourceTree = "<group>"; };
 		3867CB6E215FB264003C0658 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		389F80AA218F8EC8003F2A55 /* StoriesListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListDataSource.swift; sourceTree = "<group>"; };
 		38BF9C06215D494F0080C57C /* NetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38DF2B57218B9ACA00F03B9E /* StoriesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoader.swift; sourceTree = "<group>"; };
-		38E7FAF1219F05010026B3EF /* fabric.buildsecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.buildsecret; sourceTree = "<group>"; };
-		38E7FAF2219F05010026B3EF /* fabric.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.apikey; sourceTree = "<group>"; };
 		38F796992198A2710083EFEF /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		63100782525D8A733AA59448 /* Pods-HackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNews/Pods-HackerNews.release.xcconfig"; sourceTree = "<group>"; };
 		D026E85C2131AB1E00512C32 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
@@ -318,6 +320,15 @@
 			path = LoadingTableViewCell;
 			sourceTree = "<group>";
 		};
+		3860B556219F2DD800D2CC03 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				3860B557219F2DD800D2CC03 /* fabric.buildsecret */,
+				3860B558219F2DD800D2CC03 /* fabric.apikey */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
 		38DF2B56218B9AAA00F03B9E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,15 +336,6 @@
 				389F80AA218F8EC8003F2A55 /* StoriesListDataSource.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		38E7FAF0219F05010026B3EF /* Keys */ = {
-			isa = PBXGroup;
-			children = (
-				38E7FAF1219F05010026B3EF /* fabric.buildsecret */,
-				38E7FAF2219F05010026B3EF /* fabric.apikey */,
-			);
-			path = Keys;
 			sourceTree = "<group>";
 		};
 		4C574C5FE4CA041CD42B23BD /* Pods */ = {
@@ -467,7 +469,7 @@
 		D07205322130A21500E4B1ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				38E7FAF0219F05010026B3EF /* Keys */,
+				3860B556219F2DD800D2CC03 /* Keys */,
 				D07205392130ABA400E4B1ED /* Fonts */,
 				D07204FA21309FC900E4B1ED /* Assets.xcassets */,
 				D07204FF21309FC900E4B1ED /* Info.plist */,
@@ -629,6 +631,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3860B55A219F2DD800D2CC03 /* fabric.apikey in Resources */,
 				D07204FE21309FC900E4B1ED /* LaunchScreen.storyboard in Resources */,
 				381A4BD921680ADE0084F05B /* NewsStories.storyboard in Resources */,
 				D07204FB21309FC900E4B1ED /* Assets.xcassets in Resources */,
@@ -642,6 +645,7 @@
 				D07205422130AC6300E4B1ED /* OpenSans-Semibold.ttf in Resources */,
 				D07204F921309FC600E4B1ED /* Main.storyboard in Resources */,
 				382F1AB4217E7201001D89A4 /* CommentTableViewCell.xib in Resources */,
+				3860B559219F2DD800D2CC03 /* fabric.buildsecret in Resources */,
 				D026E85D2131AB1E00512C32 /* NewsTableViewCell.xib in Resources */,
 				382F1AB1217E7105001D89A4 /* Comments.storyboard in Resources */,
 			);
