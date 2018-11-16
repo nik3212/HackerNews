@@ -28,8 +28,6 @@
 		38BF9C07215D494F0080C57C /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; };
 		38BF9C08215D494F0080C57C /* NetworkManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38DF2B58218B9ACA00F03B9E /* StoriesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF2B57218B9ACA00F03B9E /* StoriesLoader.swift */; };
-		38E7FAF3219F05010026B3EF /* fabric.buildsecret in Resources */ = {isa = PBXBuildFile; fileRef = 38E7FAF1219F05010026B3EF /* fabric.buildsecret */; };
-		38E7FAF4219F05010026B3EF /* fabric.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 38E7FAF2219F05010026B3EF /* fabric.apikey */; };
 		38F7969A2198A2710083EFEF /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F796992198A2710083EFEF /* String+.swift */; };
 		8E22CEE5F617BD33744CA6BA /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D7A99805FD981F4437D9A7 /* Pods_HackerNews.framework */; };
 		D026E85D2131AB1E00512C32 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D026E85C2131AB1E00512C32 /* NewsTableViewCell.xib */; };
@@ -631,7 +629,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38E7FAF4219F05010026B3EF /* fabric.apikey in Resources */,
 				D07204FE21309FC900E4B1ED /* LaunchScreen.storyboard in Resources */,
 				381A4BD921680ADE0084F05B /* NewsStories.storyboard in Resources */,
 				D07204FB21309FC900E4B1ED /* Assets.xcassets in Resources */,
@@ -645,7 +642,6 @@
 				D07205422130AC6300E4B1ED /* OpenSans-Semibold.ttf in Resources */,
 				D07204F921309FC600E4B1ED /* Main.storyboard in Resources */,
 				382F1AB4217E7201001D89A4 /* CommentTableViewCell.xib in Resources */,
-				38E7FAF3219F05010026B3EF /* fabric.buildsecret in Resources */,
 				D026E85D2131AB1E00512C32 /* NewsTableViewCell.xib in Resources */,
 				382F1AB1217E7105001D89A4 /* Comments.storyboard in Resources */,
 			);
@@ -684,7 +680,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "FABRIC_APIKEY_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.apikey\"\nFABRIC_BUILDSECRET_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.buildsecret\"\n\nif [ ! -f $FABRIC_APIKEY_FILE ]; then\necho \"warning: secret files not found\"\nexit 0\nfi\n\napiKey=$(cat \"$FABRIC_APIKEY_FILE\")\nsecretKey=$(cat \"$FABRIC_BUILDSECRET_FILE\")\n\n\"${PODS_ROOT}/Fabric/run\" $apiKey $secretKey\n";
+			shellScript = "FABRIC_APIKEY_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.apikey\"\nFABRIC_BUILDSECRET_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.buildsecret\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\nif test ! -f \"$FABRIC_APIKEY_FILE\" -o ! -f \"$FABRIC_BUILDSECRET_FILE\"; then\necho \"This build wants to upload dSYM files to Crashlytics.\"\necho \"Uploading is possible only if a Fabric API key and a Fabric build secret are\"\necho \"available. This build is failing because at least one of these pieces of\"\necho \"information is missing.\"\necho \"\"\necho \"To fix the problem, create the following files and store the API key and\"\necho \"build secret, respectively, within those files:\"\necho \"\"\necho \"  $FABRIC_APIKEY_FILE\"\necho \"  $FABRIC_BUILDSECRET_FILE\"\necho \"\"\necho \"If you forked the project then you must register with Crashlytics and\"\necho \"get your own API key and build secret.\"\n\n# Let the build fail\nexit 1\nfi\n\nFABRIC_APIKEY=$(cat \"$FABRIC_APIKEY_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_APIKEY_FILE\"\nexit 1\nfi\n\nFABRIC_BUILDSECRET=$(cat \"$FABRIC_BUILDSECRET_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_BUILDSECRET_FILE\"\nexit 1\nfi\n\necho \"Uploading dSYM files to Crashlytics\"\n\"${PODS_ROOT}/Fabric/run\" \"$FABRIC_APIKEY\" \"$FABRIC_BUILDSECRET\"\nfi\n";
 		};
 		3860B554219F132500D2CC03 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
