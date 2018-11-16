@@ -28,6 +28,8 @@
 		38BF9C07215D494F0080C57C /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; };
 		38BF9C08215D494F0080C57C /* NetworkManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38DF2B58218B9ACA00F03B9E /* StoriesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF2B57218B9ACA00F03B9E /* StoriesLoader.swift */; };
+		38E7FAF3219F05010026B3EF /* fabric.buildsecret in Resources */ = {isa = PBXBuildFile; fileRef = 38E7FAF1219F05010026B3EF /* fabric.buildsecret */; };
+		38E7FAF4219F05010026B3EF /* fabric.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 38E7FAF2219F05010026B3EF /* fabric.apikey */; };
 		38F7969A2198A2710083EFEF /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F796992198A2710083EFEF /* String+.swift */; };
 		8E22CEE5F617BD33744CA6BA /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D7A99805FD981F4437D9A7 /* Pods_HackerNews.framework */; };
 		D026E85D2131AB1E00512C32 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D026E85C2131AB1E00512C32 /* NewsTableViewCell.xib */; };
@@ -106,6 +108,8 @@
 		389F80AA218F8EC8003F2A55 /* StoriesListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListDataSource.swift; sourceTree = "<group>"; };
 		38BF9C06215D494F0080C57C /* NetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38DF2B57218B9ACA00F03B9E /* StoriesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoader.swift; sourceTree = "<group>"; };
+		38E7FAF1219F05010026B3EF /* fabric.buildsecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.buildsecret; sourceTree = "<group>"; };
+		38E7FAF2219F05010026B3EF /* fabric.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.apikey; sourceTree = "<group>"; };
 		38F796992198A2710083EFEF /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		63100782525D8A733AA59448 /* Pods-HackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNews/Pods-HackerNews.release.xcconfig"; sourceTree = "<group>"; };
 		D026E85C2131AB1E00512C32 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
@@ -325,6 +329,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		38E7FAF0219F05010026B3EF /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				38E7FAF1219F05010026B3EF /* fabric.buildsecret */,
+				38E7FAF2219F05010026B3EF /* fabric.apikey */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
 		4C574C5FE4CA041CD42B23BD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +469,7 @@
 		D07205322130A21500E4B1ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				38E7FAF0219F05010026B3EF /* Keys */,
 				D07205392130ABA400E4B1ED /* Fonts */,
 				D07204FA21309FC900E4B1ED /* Assets.xcassets */,
 				D07204FF21309FC900E4B1ED /* Info.plist */,
@@ -521,6 +535,7 @@
 				D07204EE21309FC600E4B1ED /* Resources */,
 				E4D508F19C5AA4D97D5A06BB /* [CP] Embed Pods Frameworks */,
 				D02555AC213C6F7400822BFE /* Embed Frameworks */,
+				3860B553219F0B8300D2CC03 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -615,6 +630,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E7FAF4219F05010026B3EF /* fabric.apikey in Resources */,
 				D07204FE21309FC900E4B1ED /* LaunchScreen.storyboard in Resources */,
 				381A4BD921680ADE0084F05B /* NewsStories.storyboard in Resources */,
 				D07204FB21309FC900E4B1ED /* Assets.xcassets in Resources */,
@@ -628,6 +644,7 @@
 				D07205422130AC6300E4B1ED /* OpenSans-Semibold.ttf in Resources */,
 				D07204F921309FC600E4B1ED /* Main.storyboard in Resources */,
 				382F1AB4217E7201001D89A4 /* CommentTableViewCell.xib in Resources */,
+				38E7FAF3219F05010026B3EF /* fabric.buildsecret in Resources */,
 				D026E85D2131AB1E00512C32 /* NewsTableViewCell.xib in Resources */,
 				382F1AB1217E7105001D89A4 /* Comments.storyboard in Resources */,
 			);
@@ -650,6 +667,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3860B553219F0B8300D2CC03 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FABRIC_APIKEY_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.apikey\"\nFABRIC_BUILDSECRET_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.buildsecret\"\n\nif [ ! -f $FABRIC_APIKEY_FILE ]; then\necho \"warning: secret files not found\"\nexit 0\nfi\n\napiKey=$(cat \"$FABRIC_APIKEY_FILE\")\nsecretKey=$(cat \"$FABRIC_BUILDSECRET_FILE\")\n\n\"${PODS_ROOT}/Fabric/run\" $apiKey $secretKey\n";
+		};
 		59709DA8EE71F8AEAF07F7AE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -679,7 +714,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		E4D508F19C5AA4D97D5A06BB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
