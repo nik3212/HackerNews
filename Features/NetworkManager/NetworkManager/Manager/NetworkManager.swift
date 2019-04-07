@@ -138,7 +138,7 @@ public class NetworkManager: NetworkEngine {
         
         commentsGroup.notify(queue: .main) {
             comments.sort { a, b in
-                ids.index(of: a.id!)! < ids.index(of: b.id!)!
+                ids.firstIndex(of: a.id!)! < ids.firstIndex(of: b.id!)!
             }
             
             completion(Result.success(comments))
