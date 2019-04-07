@@ -40,7 +40,7 @@ $ open HackerNews.xcworkspace
 
 # Requirements
 
-- Xcode 8
+- Xcode 10.2
 - iOS 10
 
 
