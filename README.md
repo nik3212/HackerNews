@@ -40,9 +40,9 @@ $ open HackerNews.xcworkspace
 
 # Requirements
 
-- Xcode 10.2
-- iOS 10
-
+- Xcode 10.2+
+- iOS 10+
+- Swift 5.0+
 
 ## Contributing
 
@@ -60,3 +60,7 @@ I use several open source projects in Hacker News, in no particular order:
 * [Firebase](https://github.com/firebase/firebase-ios-sdk)
 * [SwiftLint](https://github.com/realm/SwiftLint)
 * [Sourcery](https://github.com/krzysztofzablocki/Sourcery)
+
+## License
+
+HackerNews is available under the MIT license. See the LICENSE file for more info.
