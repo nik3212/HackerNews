@@ -44,7 +44,7 @@ public class Comment {
     
     func getComments(completion: @escaping (Bool) -> Void) {
         if let ids = ids {
-            if ids.count > 0 {
+            if !ids.isEmpty {
                 var returnComments = [Comment]()
                 let commentsGroup = DispatchGroup()
                 

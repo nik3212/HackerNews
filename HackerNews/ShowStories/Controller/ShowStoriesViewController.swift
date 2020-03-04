@@ -87,7 +87,7 @@ extension ShowStoriesViewController: UITableViewDelegate {
         
         if offsetY > contentHeight - scrollView.frame.height {
             if !dataSource.fetchingMore && dataSource.stories.count != dataSource.ids.count &&
-                dataSource.stories.count != 0 {
+                !dataSource.stories.isEmpty {
                 loadMoreStories()
             }
         }

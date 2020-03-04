@@ -1,0 +1,19 @@
+{% include 'header' %}
+
+import UIKit
+
+class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
+    var output: {{ prefix }}{{ module_info.name }}ViewOutput!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        output.viewIsReady()
+    }
+}
+
+extension {{ prefix }}{{ module_info.name }}ViewController: {{ prefix }}{{ module_info.name }}ViewInput {
+    func setupInitialState() {
+        
+    }
+}

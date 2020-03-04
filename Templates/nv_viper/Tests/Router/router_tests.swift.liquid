@@ -1,0 +1,12 @@
+{% include 'header' %}
+
+import Quick
+import Nimble
+
+@testable import {{ module_info.project_name }}
+
+class {{ prefix }}{{ module_info.name }}RouterTests: QuickSpec {
+    override func spec() {
+        
+    }
+}

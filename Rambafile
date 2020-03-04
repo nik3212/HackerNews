@@ -1,0 +1,34 @@
+### Headers settings
+company: Nikita Vasilev
+
+### Xcode project settings
+project_name: HackerNews
+xcodeproj_path: HackerNews.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: HackerNews
+
+# The file path for new modules
+project_file_path: HackerNews/Classes/PresentationLayer
+
+# The Xcode group path to new modules
+project_group_path: HackerNews/Classes/PresentationLayer
+
+### Tests generation settings section
+# The tests target name
+test_target: HackerNewsTests
+
+# The file path for new tests
+test_file_path: HackerNewsTests
+
+# The Xcode group path to new tests
+test_group_path: HackerNewsTests
+
+### Templates
+
+catalogs:
+- 'https://github.com/nik3212/GenerambaTemplates'
+
+templates:
+- {name: nv_viper}

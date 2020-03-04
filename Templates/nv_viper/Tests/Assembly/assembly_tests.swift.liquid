@@ -1,0 +1,52 @@
+{% include 'header' %}
+
+import Quick
+import Nimble
+import Swinject
+
+@testable import {{ module_info.project_name }}
+
+class {{ prefix }}{{ module_info.name }}ModuleAssemblyTests: QuickSpec {
+    let container = Container()
+
+    override func spec() {
+        let assembly = {{ module_info.name }}ModuleAssembly()
+        assembly.assemble(container: container)
+
+        let viewController = container.resolve({{ module_info.name }}ViewController.self)
+        let presenter = viewController?.output as? {{ module_info.name }}Presenter
+        let router = presenter?.router as? {{ module_info.name }}Router
+        let interactor = presenter?.interactor as? {{ module_info.name }}Interactor
+
+        describe("Checking module creation") {
+            it("Must be {{ module_info.name }}ViewController") {
+                expect(viewController).toNot(beNil())
+                expect(viewController).to(beAKindOf({{ module_info.name }}ViewController.self))
+            }
+            
+            it("Must contains correct output") {
+                expect(viewController?.output).toNot(beNil())
+                expect(viewController?.output).to(beIdenticalTo(presenter))
+            }
+            
+            it("Must contains view, interactor and router") {
+                expect(presenter?.view).toNot(beNil())
+                expect(presenter?.view).to(beIdenticalTo(viewController))
+                expect(presenter?.router).toNot(beNil())
+                expect(presenter?.router).to(beIdenticalTo(router))
+                expect(presenter?.interactor).toNot(beNil())
+                expect(presenter?.interactor).to(beIdenticalTo(interactor))
+            }
+
+            it("Must contains output") {
+                expect(interactor?.output).toNot(beNil())
+                expect(interactor?.output).to(beIdenticalTo(presenter))
+            }
+
+            it("Must contains correct transitionHandler") {
+                expect(router?.transitionHandler).toNot(beNil())
+                expect(router?.transitionHandler).to(beIdenticalTo(viewController))
+            }
+        }
+    }
+}

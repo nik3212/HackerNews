@@ -7,24 +7,40 @@ workspace 'HackerNews'
 xcodeproj 'HackerNews.xcodeproj'
 xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
 
+def app_pods
+    pod 'Swinject'
+    pod 'R.swift'
+end
+
 def analitics_pod
     pod 'Fabric'
     pod 'Crashlytics'
 end
 
 def net_pods
-	pod 'Firebase', '2.5.0'
+    pod 'Firebase', '2.5.0'
 end
 
 def other_pods
     pod 'SwiftLint'
 end
 
+def test_pods
+    pod 'Nimble'
+    pod 'Quick'
+end
+
 target :HackerNews do
 	xcodeproj 'HackerNews.xcodeproj'
+    app_pods
     analitics_pod
     net_pods
     other_pods
+end
+
+target :HackerNewsTests do
+	xcodeproj 'HackerNews.xcodeproj'
+    test_pods
 end
 
 target :NetworkManager do

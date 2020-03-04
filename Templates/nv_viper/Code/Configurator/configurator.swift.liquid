@@ -1,0 +1,12 @@
+{% include 'header' %}
+
+final class {{ prefix }}{{ module_info.name }}Configurator {
+    private var viewController: {{ prefix }}{{ module_info.name }}ViewController = {
+        return ApplicationAssembly.shared.assembler.resolver.resolve({{ prefix }}{{ module_info.name }}ViewController.self)!
+    }()
+
+    func configure() -> {{ prefix }}{{ module_info.name }}ModuleInput? {
+        let moduleInput = ApplicationAssembly.shared.assembler.resolver.resolve({{ prefix }}{{ module_info.name }}ModuleInput.self, argument: viewController)
+        return moduleInput
+    }
+}
