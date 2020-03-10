@@ -90,38 +90,14 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
-    /// Storyboard `AskStories`.
-    static let askStories = _R.storyboard.askStories()
-    /// Storyboard `Comments`.
-    static let comments = _R.storyboard.comments()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
-    /// Storyboard `NewsStories`.
-    static let newsStories = _R.storyboard.newsStories()
-    /// Storyboard `ShowStories`.
-    static let showStories = _R.storyboard.showStories()
     /// Storyboard `Stories`.
     static let stories = _R.storyboard.stories()
-    /// Storyboard `TopStories`.
-    static let topStories = _R.storyboard.topStories()
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "AskStories", bundle: ...)`
-    static func askStories(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.askStories)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Comments", bundle: ...)`
-    static func comments(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.comments)
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -138,30 +114,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "NewsStories", bundle: ...)`
-    static func newsStories(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.newsStories)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "ShowStories", bundle: ...)`
-    static func showStories(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.showStories)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Stories", bundle: ...)`
     static func stories(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.stories)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "TopStories", bundle: ...)`
-    static func topStories(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.topStories)
     }
     #endif
 
@@ -464,72 +419,15 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
-      try askStories.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
-      try comments.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try launchScreen.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try main.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try newsStories.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
-      try showStories.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try stories.validate()
       #endif
-      #if os(iOS) || os(tvOS)
-      try topStories.validate()
-      #endif
     }
-
-    #if os(iOS) || os(tvOS)
-    struct askStories: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let askStoriesViewController = StoryboardViewControllerResource<AskStoriesViewController>(identifier: "AskStoriesViewController")
-      let bundle = R.hostingBundle
-      let name = "AskStories"
-
-      func askStoriesViewController(_: Void = ()) -> AskStoriesViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: askStoriesViewController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.askStories().askStoriesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'askStoriesViewController' could not be loaded from storyboard 'AskStories' as 'AskStoriesViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct comments: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = CommentsViewController
-
-      let bundle = R.hostingBundle
-      let commentsViewController = StoryboardViewControllerResource<CommentsViewController>(identifier: "CommentsViewController")
-      let name = "Comments"
-
-      func commentsViewController(_: Void = ()) -> CommentsViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: commentsViewController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.comments().commentsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'commentsViewController' could not be loaded from storyboard 'Comments' as 'CommentsViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -565,46 +463,6 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct newsStories: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "NewsStories"
-      let newsStoriesViewController = StoryboardViewControllerResource<NewsStoriesViewController>(identifier: "NewsStoriesViewController")
-
-      func newsStoriesViewController(_: Void = ()) -> NewsStoriesViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: newsStoriesViewController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.newsStories().newsStoriesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newsStoriesViewController' could not be loaded from storyboard 'NewsStories' as 'NewsStoriesViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct showStories: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "ShowStories"
-      let showStoriesViewController = StoryboardViewControllerResource<ShowStoriesViewController>(identifier: "ShowStoriesViewController")
-
-      func showStoriesViewController(_: Void = ()) -> ShowStoriesViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: showStoriesViewController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.showStories().showStoriesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'showStoriesViewController' could not be loaded from storyboard 'ShowStories' as 'ShowStoriesViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     struct stories: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "Stories"
@@ -618,26 +476,6 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.stories().storiesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'storiesViewController' could not be loaded from storyboard 'Stories' as 'StoriesViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct topStories: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "TopStories"
-      let topStoriesViewController = StoryboardViewControllerResource<TopStoriesViewController>(identifier: "TopStoriesViewController")
-
-      func topStoriesViewController(_: Void = ()) -> TopStoriesViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: topStoriesViewController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.topStories().topStoriesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'topStoriesViewController' could not be loaded from storyboard 'TopStories' as 'TopStoriesViewController'.") }
       }
 
       fileprivate init() {}
