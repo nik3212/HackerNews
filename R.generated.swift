@@ -90,7 +90,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
   struct storyboard {
     /// Storyboard `AskStories`.
     static let askStories = _R.storyboard.askStories()
@@ -104,6 +104,8 @@ struct R: Rswift.Validatable {
     static let newsStories = _R.storyboard.newsStories()
     /// Storyboard `ShowStories`.
     static let showStories = _R.storyboard.showStories()
+    /// Storyboard `Stories`.
+    static let stories = _R.storyboard.stories()
     /// Storyboard `TopStories`.
     static let topStories = _R.storyboard.topStories()
 
@@ -146,6 +148,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "ShowStories", bundle: ...)`
     static func showStories(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.showStories)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Stories", bundle: ...)`
+    static func stories(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.stories)
     }
     #endif
 
@@ -473,6 +482,9 @@ struct _R: Rswift.Validatable {
       try showStories.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try stories.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try topStories.validate()
       #endif
     }
@@ -586,6 +598,26 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.showStories().showStoriesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'showStoriesViewController' could not be loaded from storyboard 'ShowStories' as 'ShowStoriesViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct stories: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Stories"
+      let storiesViewController = StoryboardViewControllerResource<StoriesViewController>(identifier: "StoriesViewController")
+
+      func storiesViewController(_: Void = ()) -> StoriesViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: storiesViewController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.stories().storiesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'storiesViewController' could not be loaded from storyboard 'Stories' as 'StoriesViewController'.") }
       }
 
       fileprivate init() {}
