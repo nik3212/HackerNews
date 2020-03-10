@@ -12,7 +12,7 @@ final class MainTabBarConfigurator {
     
     // MARK: Public Methods
     func configure() -> MainTabBarViewController {
-        let modules: [TabBarViewProtocol] = [StoriesAssembler()]
+        let modules: [TabBarViewProtocol] = [StoriesConfigurator()]
         let mainTabBarVC = MainTabBarViewController()
         var viewControllers: [UIViewController] = []
         

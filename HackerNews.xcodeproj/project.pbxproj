@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		223CB8777BF3B1F04F665350 /* StoriesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0973524E7C669B5C27E93D /* StoriesPresenterTests.swift */; };
 		2C5287CA0F51E7CC0998F056 /* StoriesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75288D891967908B4B1CF34C /* StoriesRouter.swift */; };
-		2EA036539C9497D818D984D6 /* StoriesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FD324542D9451B28E97A13 /* StoriesConfigurator.swift */; };
 		381A4BCC216800790084F05B /* TopStories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381A4BCB216800790084F05B /* TopStories.storyboard */; };
 		381A4BCE2168009F0084F05B /* TopStoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381A4BCD2168009F0084F05B /* TopStoriesViewController.swift */; };
 		381A4BD3216806ED0084F05B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381A4BD2216806ED0084F05B /* RootViewController.swift */; };
@@ -37,7 +36,7 @@
 		3C63C91DAA87693F4AF304FD /* StoriesConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D49B681E9B168FE7B4F96 /* StoriesConfiguratorTests.swift */; };
 		4FBF586447B5D27D3FFE8695 /* StoriesViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54504D79E3203454D65767 /* StoriesViewInput.swift */; };
 		5A6FF6C124182107003F9B9D /* ApplicationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FF6C024182107003F9B9D /* ApplicationAssembler.swift */; };
-		5A6FF6C324182BDF003F9B9D /* StoriesAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FF6C224182BDF003F9B9D /* StoriesAssembler.swift */; };
+		5A6FF6C324182BDF003F9B9D /* StoriesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FF6C224182BDF003F9B9D /* StoriesConfigurator.swift */; };
 		5AE2EDCD24103C9B0011A198 /* RootModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */; };
 		5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */; };
 		5AE2EDD424103EED0011A198 /* MainTabBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDD324103EED0011A198 /* MainTabBarConfigurator.swift */; };
@@ -147,7 +146,7 @@
 		5688482AF43266B89E7A0A7B /* StoriesInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesInteractorInput.swift; sourceTree = "<group>"; };
 		5A0E81CDA4A0FF01D6CCD1E8 /* Pods_HackerNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6FF6C024182107003F9B9D /* ApplicationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembler.swift; sourceTree = "<group>"; };
-		5A6FF6C224182BDF003F9B9D /* StoriesAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesAssembler.swift; sourceTree = "<group>"; };
+		5A6FF6C224182BDF003F9B9D /* StoriesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesConfigurator.swift; sourceTree = "<group>"; };
 		5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleAssembly.swift; sourceTree = "<group>"; };
 		5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootConfigurator.swift; sourceTree = "<group>"; };
 		5AE2EDD324103EED0011A198 /* MainTabBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarConfigurator.swift; sourceTree = "<group>"; };
@@ -170,7 +169,6 @@
 		98EAC67E1A9739CA65400E95 /* StoriesRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesRouterTests.swift; sourceTree = "<group>"; };
 		A8A4FDD125295BD464D56161 /* StoriesAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesAssembly.swift; sourceTree = "<group>"; };
 		B3A76C4A1BBE4B4F8C6FCEC3 /* StoriesInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesInteractor.swift; sourceTree = "<group>"; };
-		B7FD324542D9451B28E97A13 /* StoriesConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesConfigurator.swift; sourceTree = "<group>"; };
 		BB7D49B681E9B168FE7B4F96 /* StoriesConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesConfiguratorTests.swift; sourceTree = "<group>"; };
 		C465F457451BB047F53DF5D7 /* StoriesAssemblyTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesAssemblyTests.swift; sourceTree = "<group>"; };
 		C58FA4A86F5D21BC625349CD /* StoriesRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesRouterInput.swift; sourceTree = "<group>"; };
@@ -251,23 +249,15 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		27CAA8E598609BB737AD30ED /* Configurator */ = {
-			isa = PBXGroup;
-			children = (
-				B7FD324542D9451B28E97A13 /* StoriesConfigurator.swift */,
-			);
-			path = Configurator;
-			sourceTree = "<group>";
-		};
 		2CEA7D26636B60D4D590C779 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
+				5A6FF6C6241833D6003F9B9D /* Configurator */,
 				06EB26021A911C3F1836ECC3 /* View */,
 				7D87A71A50611BAFAE9E4AAF /* Presenter */,
 				2F14444915C298B8F325B11F /* Interactor */,
 				F7BBA7FD73C0C57982AF8E1E /* Router */,
 				9949B397CEE3E580720BE48F /* Assembly */,
-				27CAA8E598609BB737AD30ED /* Configurator */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -480,6 +470,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5A6FF6C6241833D6003F9B9D /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				5A6FF6C224182BDF003F9B9D /* StoriesConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 		5AE2EDC424103B450011A198 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,7 +646,6 @@
 			isa = PBXGroup;
 			children = (
 				A8A4FDD125295BD464D56161 /* StoriesAssembly.swift */,
-				5A6FF6C224182BDF003F9B9D /* StoriesAssembler.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -1176,7 +1173,7 @@
 				5AE2EDD724103F1D0011A198 /* MainTabBarAssembly.swift in Sources */,
 				5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */,
 				381A4BE221680CFB0084F05B /* AskStoriesViewController.swift in Sources */,
-				5A6FF6C324182BDF003F9B9D /* StoriesAssembler.swift in Sources */,
+				5A6FF6C324182BDF003F9B9D /* StoriesConfigurator.swift in Sources */,
 				38F7969A2198A2710083EFEF /* String+.swift in Sources */,
 				381A4BD3216806ED0084F05B /* RootViewController.swift in Sources */,
 				5AE2EDDA241040420011A198 /* TabBarViewProtocol.swift in Sources */,
@@ -1194,7 +1191,6 @@
 				2C5287CA0F51E7CC0998F056 /* StoriesRouter.swift in Sources */,
 				5A6FF6C124182107003F9B9D /* ApplicationAssembler.swift in Sources */,
 				C72C67A3801D1099E2E78982 /* StoriesAssembly.swift in Sources */,
-				2EA036539C9497D818D984D6 /* StoriesConfigurator.swift in Sources */,
 				5AE2EDE0241045D60011A198 /* Presentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
