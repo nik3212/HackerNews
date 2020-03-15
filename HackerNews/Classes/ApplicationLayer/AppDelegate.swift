@@ -43,12 +43,6 @@ extension AppDelegate: UIApplicationDelegate {
     }
 }
 
-extension UIApplication {
-    var statusBarView: UIView? {
-        return value(forKey: "statusBar") as? UIView
-    }
-}
-
 extension AppDelegate {
     static var currentDelegate: AppDelegate {
         // swiftlint:disable force_cast
