@@ -13,12 +13,13 @@ final class RootConfigurator {
         let splitViewController = UISplitViewController()
         
         let firstViewController = MainTabBarConfigurator().configure()
-        let navigationFirstViewController = UINavigationController(rootViewController: firstViewController)
-        
+
         let secondViewController = UIViewController()
         let navigationSecondViewController = UINavigationController(rootViewController: secondViewController)
         
-        splitViewController.viewControllers = [navigationFirstViewController, navigationSecondViewController]
+        splitViewController.viewControllers = [firstViewController, navigationSecondViewController]
+        splitViewController.preferredPrimaryColumnWidthFraction = 1 / 3
+        splitViewController.preferredDisplayMode = .primaryOverlay
         
         window.rootViewController = splitViewController
         

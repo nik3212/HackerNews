@@ -34,7 +34,7 @@ final class MainTabBarConfigurator {
         let controller = module.configureViewController()
         controller.tabBarItem = item
         controller.title = item.title
-        
+
         return controller
     }
 }

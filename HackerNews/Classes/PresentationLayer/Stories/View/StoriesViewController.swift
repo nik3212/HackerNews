@@ -9,17 +9,27 @@
 import UIKit
 
 class StoriesViewController: UIViewController {
+    
+    // MARK: Public Properties
     var output: StoriesViewOutput!
 
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setup()
         output.viewIsReady()
+    }
+    
+    // MARK: Private Methods
+    private func setup() {
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
     }
 }
 
 extension StoriesViewController: StoriesViewInput {
-    func setupInitialState() {
-        
+    func setupInitialState(title: String) {
+        self.title = title
     }
 }

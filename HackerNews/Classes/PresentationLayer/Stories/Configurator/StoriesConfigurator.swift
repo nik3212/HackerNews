@@ -23,6 +23,6 @@ final class StoriesConfigurator: TabBarViewProtocol {
             fatalError("StoriesViewController shouldn't be nil")
         }
         
-        return viewController
+        return UINavigationController(rootViewController: viewController)
     }
 }

@@ -17,7 +17,7 @@ class StoriesPresenter {
 // MARK: StoriesViewOutput
 extension StoriesPresenter: StoriesViewOutput {
     func viewIsReady() {
-        view.setupInitialState()
+        view.setupInitialState(title: "News")
     }
 }
 
