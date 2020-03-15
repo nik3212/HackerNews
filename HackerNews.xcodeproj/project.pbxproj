@@ -24,7 +24,8 @@
 		38F7969A2198A2710083EFEF /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F796992198A2710083EFEF /* String+.swift */; };
 		3C63C91DAA87693F4AF304FD /* StoriesConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D49B681E9B168FE7B4F96 /* StoriesConfiguratorTests.swift */; };
 		4FBF586447B5D27D3FFE8695 /* StoriesViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54504D79E3203454D65767 /* StoriesViewInput.swift */; };
-		5A6FF6C124182107003F9B9D /* ApplicationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FF6C024182107003F9B9D /* ApplicationAssembler.swift */; };
+		5A5C0AA0241ECB7D007B4FCF /* ServiceLocatorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C0A9F241ECB7D007B4FCF /* ServiceLocatorConfigurator.swift */; };
+		5A5C0AA2241ECBF9007B4FCF /* ServiceLocatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C0AA1241ECBF9007B4FCF /* ServiceLocatorAssembly.swift */; };
 		5A6FF6C324182BDF003F9B9D /* StoriesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FF6C224182BDF003F9B9D /* StoriesConfigurator.swift */; };
 		5AE2EDCD24103C9B0011A198 /* RootModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */; };
 		5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */; };
@@ -123,7 +124,8 @@
 		5263AF6EF05EEDA880DA524F /* StoriesViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesViewOutput.swift; sourceTree = "<group>"; };
 		5688482AF43266B89E7A0A7B /* StoriesInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesInteractorInput.swift; sourceTree = "<group>"; };
 		5A0E81CDA4A0FF01D6CCD1E8 /* Pods_HackerNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A6FF6C024182107003F9B9D /* ApplicationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembler.swift; sourceTree = "<group>"; };
+		5A5C0A9F241ECB7D007B4FCF /* ServiceLocatorConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorConfigurator.swift; sourceTree = "<group>"; };
+		5A5C0AA1241ECBF9007B4FCF /* ServiceLocatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorAssembly.swift; sourceTree = "<group>"; };
 		5A6FF6C224182BDF003F9B9D /* StoriesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesConfigurator.swift; sourceTree = "<group>"; };
 		5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleAssembly.swift; sourceTree = "<group>"; };
 		5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootConfigurator.swift; sourceTree = "<group>"; };
@@ -345,7 +347,8 @@
 			isa = PBXGroup;
 			children = (
 				D07204F321309FC600E4B1ED /* AppDelegate.swift */,
-				5A6FF6C024182107003F9B9D /* ApplicationAssembler.swift */,
+				5A5C0A9F241ECB7D007B4FCF /* ServiceLocatorConfigurator.swift */,
+				5A5C0AA1241ECBF9007B4FCF /* ServiceLocatorAssembly.swift */,
 			);
 			path = ApplicationLayer;
 			sourceTree = "<group>";
@@ -986,6 +989,7 @@
 				5AE2EDE8241047660011A198 /* R.generated.swift in Sources */,
 				D07205292130A10400E4B1ED /* NibLoadableView.swift in Sources */,
 				384F0821219E07D30029ADDD /* Alertable.swift in Sources */,
+				5A5C0AA2241ECBF9007B4FCF /* ServiceLocatorAssembly.swift in Sources */,
 				D07205272130A0AF00E4B1ED /* UIImage+.swift in Sources */,
 				389F80AB218F8EC8003F2A55 /* StoriesListDataSource.swift in Sources */,
 				5AE2EDDD241040A40011A198 /* MainTabBarViewController.swift in Sources */,
@@ -1008,6 +1012,7 @@
 				5AE2EDDA241040420011A198 /* TabBarViewProtocol.swift in Sources */,
 				5AE2EDD424103EED0011A198 /* MainTabBarConfigurator.swift in Sources */,
 				D07204F421309FC600E4B1ED /* AppDelegate.swift in Sources */,
+				5A5C0AA0241ECB7D007B4FCF /* ServiceLocatorConfigurator.swift in Sources */,
 				4FBF586447B5D27D3FFE8695 /* StoriesViewInput.swift in Sources */,
 				D746902D625B40CF3177A9A3 /* StoriesViewOutput.swift in Sources */,
 				CB02B826066E9E278B544AB0 /* StoriesViewController.swift in Sources */,
@@ -1017,7 +1022,6 @@
 				FAEE86FF44686D0C9C73A091 /* StoriesInteractor.swift in Sources */,
 				A2973A58E5B273EFDDA3199A /* StoriesRouterInput.swift in Sources */,
 				2C5287CA0F51E7CC0998F056 /* StoriesRouter.swift in Sources */,
-				5A6FF6C124182107003F9B9D /* ApplicationAssembler.swift in Sources */,
 				C72C67A3801D1099E2E78982 /* StoriesAssembly.swift in Sources */,
 				5AE2EDE0241045D60011A198 /* Presentable.swift in Sources */,
 			);

@@ -9,7 +9,19 @@
 import UIKit
 import Swinject
 
-final class StoriesConfigurator: TabBarViewProtocol {
+final class StoriesConfigurator {
+    
+    // MARK: Private Properties
+    private let assembler: Assembler
+    
+    // MARK: Initialization
+    init(parentAssembler: Assembler) {
+        assembler = Assembler([StoriesModuleAssembly()], parent: parentAssembler)
+    }
+}
+
+// MARK: TabBarViewProtocol
+extension StoriesConfigurator: TabBarViewProtocol {
     var icon: UIImage? {
         return R.image.news()
     }
@@ -19,7 +31,7 @@ final class StoriesConfigurator: TabBarViewProtocol {
     }
     
     func configureViewController() -> UIViewController {
-        guard let viewController = ApplicationAssembly.resolver.resolve(StoriesViewController.self) else {
+        guard let viewController = assembler.resolver.resolve(StoriesViewController.self) else {
             fatalError("StoriesViewController shouldn't be nil")
         }
         

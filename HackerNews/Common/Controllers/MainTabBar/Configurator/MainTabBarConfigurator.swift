@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import Swinject
 
 final class MainTabBarConfigurator {
     
+    // MARK: Private Properties
+    private let assembler: Assembler
+    
+    // MARK: Initialization
+    init(parentAssembler: Assembler) {
+        assembler = Assembler([MainTabBarModuleAssembly()], parent: parentAssembler)
+    }
+    
     // MARK: Public Methods
     func configure() -> MainTabBarViewController {
-        let modules: [TabBarViewProtocol] = [StoriesConfigurator()]
+        let modules: [TabBarViewProtocol] = [StoriesConfigurator(parentAssembler: assembler)]
         let mainTabBarVC = MainTabBarViewController()
         var viewControllers: [UIViewController] = []
         

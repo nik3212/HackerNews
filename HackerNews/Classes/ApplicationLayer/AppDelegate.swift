@@ -12,11 +12,10 @@ import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder {
+    
     // MARK: Public Properties
     var window: UIWindow?
-    
-    // MARK: Private Properties
-    private var mainModule = RootConfigurator()
+    let serviceLocatorConfigurator = ServiceLocatorConfigurator()
 }
 
 // MARK: UIApplicationDelegate
@@ -27,7 +26,8 @@ extension AppDelegate: UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         if let window = window {
-            mainModule.installIntoWindow(window)
+            let rootConfigurator = serviceLocatorConfigurator.assembler.resolver.resolve(RootConfigurator.self)
+            rootConfigurator?.installIntoWindow(window)
         }
         
         if let resourceURL = Bundle.main.url(forResource: "fabric.apikey", withExtension: nil) {
