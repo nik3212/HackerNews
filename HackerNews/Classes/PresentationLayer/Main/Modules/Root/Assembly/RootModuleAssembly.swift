@@ -10,6 +10,15 @@ import Swinject
 
 final class RootModuleAssembly: Assembly {
     func assemble(container: Container) {
-        
+        container.register(UISplitViewController.self) { (_, firstVC: MainTabBarViewController, secondVC: UIViewController) in
+            let splitViewController = UISplitViewController()
+            let navigationSecondViewController = UINavigationController(rootViewController: secondVC)
+    
+            splitViewController.viewControllers = [firstVC, navigationSecondViewController]
+            splitViewController.preferredPrimaryColumnWidthFraction = 1 / 3
+            splitViewController.preferredDisplayMode = .primaryOverlay
+            
+            return splitViewController
+        }
     }
 }
