@@ -53,7 +53,6 @@
 		D07204F921309FC600E4B1ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D07204F721309FC600E4B1ED /* Main.storyboard */; };
 		D07204FB21309FC900E4B1ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07204FA21309FC900E4B1ED /* Assets.xcassets */; };
 		D07204FE21309FC900E4B1ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D07204FC21309FC900E4B1ED /* LaunchScreen.storyboard */; };
-		D072050921309FC900E4B1ED /* HackerNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072050821309FC900E4B1ED /* HackerNewsTests.swift */; };
 		D072051421309FC900E4B1ED /* HackerNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072051321309FC900E4B1ED /* HackerNewsUITests.swift */; };
 		D07205252130A09C00E4B1ED /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07205242130A09C00E4B1ED /* Color+.swift */; };
 		D07205272130A0AF00E4B1ED /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07205262130A0AF00E4B1ED /* UIImage+.swift */; };
@@ -162,7 +161,6 @@
 		D07204FD21309FC900E4B1ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D07204FF21309FC900E4B1ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D072050421309FC900E4B1ED /* HackerNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D072050821309FC900E4B1ED /* HackerNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsTests.swift; sourceTree = "<group>"; };
 		D072050A21309FC900E4B1ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D072050F21309FC900E4B1ED /* HackerNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D072051321309FC900E4B1ED /* HackerNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsUITests.swift; sourceTree = "<group>"; };
@@ -570,7 +568,6 @@
 		D072050721309FC900E4B1ED /* HackerNewsTests */ = {
 			isa = PBXGroup;
 			children = (
-				D072050821309FC900E4B1ED /* HackerNewsTests.swift */,
 				D072050A21309FC900E4B1ED /* Info.plist */,
 				C2570B1A87F07AE586E2A92C /* Stories */,
 			);
@@ -1031,7 +1028,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D072050921309FC900E4B1ED /* HackerNewsTests.swift in Sources */,
 				EDE03E5231E7355B1352B22D /* StoriesAssemblyTests.swift in Sources */,
 				87235FA1D54F1BBD55496993 /* StoriesViewTests.swift in Sources */,
 				EF595E98A7E35C576C647499 /* StoriesInteractorTests.swift in Sources */,
@@ -1212,6 +1208,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNews;
+				PRODUCT_MODULE_NAME = HackerNews;
 				PRODUCT_NAME = "Hacker News";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1232,6 +1229,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNews;
+				PRODUCT_MODULE_NAME = HackerNews;
 				PRODUCT_NAME = "Hacker News";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

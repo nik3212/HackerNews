@@ -25,7 +25,7 @@ class StoriesPresenterTests: QuickSpec {
     }
     
     class MockView: UIViewController, StoriesViewInput {
-        func setupInitialState() {
+        func setupInitialState(title: String) {
             
         }
     }

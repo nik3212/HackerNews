@@ -7,8 +7,11 @@ workspace 'HackerNews'
 xcodeproj 'HackerNews.xcodeproj'
 xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
 
+def di_pods
+    pod 'Swinject' 
+end
+
 def app_pods
-    pod 'Swinject'
     pod 'R.swift'
 end
 
@@ -33,6 +36,7 @@ end
 target :HackerNews do
 	xcodeproj 'HackerNews.xcodeproj'
     app_pods
+    di_pods
     analitics_pod
     net_pods
     other_pods
@@ -41,6 +45,7 @@ end
 target :HackerNewsTests do
 	xcodeproj 'HackerNews.xcodeproj'
     test_pods
+    di_pods
 end
 
 target :NetworkManager do
