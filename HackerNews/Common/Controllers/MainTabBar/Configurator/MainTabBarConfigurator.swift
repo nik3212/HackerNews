@@ -21,7 +21,8 @@ final class MainTabBarConfigurator {
     
     // MARK: Public Methods
     func configure() -> MainTabBarViewController {
-        let modules: [TabBarViewProtocol] = [StoriesConfigurator(parentAssembler: assembler)]
+        let modules: [TabBarViewProtocol] = [StoriesConfigurator(parentAssembler: assembler),
+                                             SettingsConfigurator(parentAssembler: assembler)]
         let mainTabBarVC = MainTabBarViewController()
         var viewControllers: [UIViewController] = []
         

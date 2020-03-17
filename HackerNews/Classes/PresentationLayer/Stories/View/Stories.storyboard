@@ -21,7 +21,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
                             <constraint firstItem="HhK-QP-Upz" firstAttribute="trailing" secondItem="APs-f6-HXH" secondAttribute="trailing" id="9Qk-No-JFr"/>
                             <constraint firstItem="APs-f6-HXH" firstAttribute="top" secondItem="HhK-QP-Upz" secondAttribute="top" id="AIG-OY-6Ob"/>
