@@ -8,17 +8,26 @@
 
 import Quick
 import Nimble
+import Swinject
 
 @testable import HackerNews
 
 class SettingsConfiguratorTests: QuickSpec {
+    
+    // MARK: Private Properties
+    private var container = Container(parent: nil)
+    
+    // MARK: Tests
     override func spec() {
-        let module = SettingsConfigurator().configure()
+        let assembler = Assembler(container: container)
+        let configurator = SettingsConfigurator(parentAssembler: assembler)
+        let navigationController = configurator.configureViewController() as? UINavigationController
+        let viewController = navigationController?.viewControllers.first
 
         describe("Check module configuration") {
             it("Module input shouldn't be nil") {
-                expect(module).notTo(beNil())
-                expect(module).to(beAKindOf(SettingsModuleInput.self))
+                expect(viewController).notTo(beNil())
+                expect(viewController).to(beAKindOf(SettingsViewController.self))
             }
         }
     }

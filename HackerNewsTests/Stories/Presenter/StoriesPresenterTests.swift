@@ -25,7 +25,11 @@ class StoriesPresenterTests: QuickSpec {
     }
     
     class MockView: UIViewController, StoriesViewInput {
-        func setupInitialState(title: String) {
+        func changeNavigationTitle(with title: String) {
+            
+        }
+        
+        func setupInitialState() {
             
         }
     }
