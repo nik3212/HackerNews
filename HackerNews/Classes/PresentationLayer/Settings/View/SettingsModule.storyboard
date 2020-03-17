@@ -15,8 +15,23 @@
                     <view key="view" contentMode="scaleToFill" id="fpZ-83-tPa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kya-wP-Dkn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Kya-wP-Dkn" firstAttribute="leading" secondItem="HhK-QP-Upz" secondAttribute="leading" id="5iF-DP-IzT"/>
+                            <constraint firstItem="Kya-wP-Dkn" firstAttribute="trailing" secondItem="HhK-QP-Upz" secondAttribute="trailing" id="R2S-LZ-Z7u"/>
+                            <constraint firstItem="HhK-QP-Upz" firstAttribute="bottom" secondItem="Kya-wP-Dkn" secondAttribute="bottom" id="jUV-33-Uxb"/>
+                            <constraint firstItem="Kya-wP-Dkn" firstAttribute="top" secondItem="HhK-QP-Upz" secondAttribute="top" id="xf9-q6-itn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HhK-QP-Upz"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Kya-wP-Dkn" id="XJH-Qt-lgh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fn-gN-HZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
