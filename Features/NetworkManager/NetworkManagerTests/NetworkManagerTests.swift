@@ -34,7 +34,7 @@ class NetworkManagerTests: XCTestCase {
         firebase.add(snap: snap)
         networkManager.setup(with: firebase)
 
-        networkManager.getIds(type: .top) { (data) in
+        networkManager.getIds(type: .top) { data in
             switch data {
             case .success(let items):
                 XCTAssertEqual(items.count, 9, "Items should contains 9 values")
@@ -63,7 +63,7 @@ class NetworkManagerTests: XCTestCase {
         networkManager.storyLimit = 1
         networkManager.setup(with: firebase)
         
-        networkManager.retrieve(ids: [18052121]) { (response) in
+        networkManager.retrieve(ids: [18052121]) { response in
             switch response {
             case .success(let items):
                 XCTAssertEqual(items.count, 1, "Items should be contains one item")

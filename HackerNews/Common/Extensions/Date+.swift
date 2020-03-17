@@ -39,11 +39,11 @@ extension Date {
     }
     // Returns time ago by checking if the time differences between two dates are in year or months or weeks or days or hours or minutes or seconds
     func timeAgo(from date: Date) -> String {
-        if yearsCount(from: date)   > 0 { return "\(yearsCount(from: date)) years ago"   }
-        if monthsCount(from: date)  > 0 { return "\(monthsCount(from: date)) months ago"  }
-        if weeksCount(from: date)   > 0 { return "\(weeksCount(from: date)) weeks ago"   }
-        if daysCount(from: date)    > 0 { return "\(daysCount(from: date)) days ago"    }
-        if hoursCount(from: date)   > 0 { return "\(hoursCount(from: date)) hrs ago"   }
+        if yearsCount(from: date) > 0 { return "\(yearsCount(from: date)) years ago" }
+        if monthsCount(from: date) > 0 { return "\(monthsCount(from: date)) months ago" }
+        if weeksCount(from: date) > 0 { return "\(weeksCount(from: date)) weeks ago" }
+        if daysCount(from: date) > 0 { return "\(daysCount(from: date)) days ago" }
+        if hoursCount(from: date) > 0 { return "\(hoursCount(from: date)) hrs ago" }
         if minutesCount(from: date) > 0 { return "\(minutesCount(from: date)) min ago" }
         if secondsCount(from: date) > 0 { return "\(secondsCount(from: date)) sec ago" }
         return ""

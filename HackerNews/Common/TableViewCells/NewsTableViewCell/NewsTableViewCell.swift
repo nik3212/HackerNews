@@ -14,11 +14,11 @@ protocol NewsCellDelegate: class {
 }
 
 class NewsTableViewCell: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var info: UILabel!
-    @IBOutlet weak var link: UILabel!
-    @IBOutlet weak var commentsView: UIView!
-    @IBOutlet weak var score: UILabel!
+    @IBOutlet private var title: UILabel!
+    @IBOutlet private var info: UILabel!
+    @IBOutlet private var link: UILabel!
+    @IBOutlet private var commentsView: UIView!
+    @IBOutlet private var score: UILabel!
     
     weak var delegate: NewsCellDelegate?
     
@@ -60,7 +60,9 @@ class NewsTableViewCell: UITableViewCell {
 }
 
 extension NewsTableViewCell {
-    @IBAction func openCommentsView(_ sender: UIButton) {
-        delegate?.newsCellDidSelectComment(cell: self, storyId: story.id!)
+    @IBAction private func openCommentsView(_ sender: UIButton) {
+        if let id = story.id {
+            delegate?.newsCellDidSelectComment(cell: self, storyId: id)
+        }
     }
 }

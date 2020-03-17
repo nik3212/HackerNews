@@ -41,11 +41,11 @@ public class NetworkManager: NetworkEngine {
     public func getIds(type: ItemType, _ completion: @escaping (Result<[Int]>) -> Void) {
         firebase?.child(byAppendingPath: type.rawValue)
             .queryLimited(toFirst: storyLimit)
-            .observeSingleEvent(of: .value, with: { (snapshot) in
+            .observeSingleEvent(of: .value, with: { snapshot in
             guard let snapshot = snapshot,
                 let ids = snapshot.value as? [Int] else { return }
             completion(.success(ids))
-        }, withCancel: { (error) in
+        }, withCancel: { error in
             if let error = error {
                 completion(.error(error))
             }
@@ -62,7 +62,7 @@ public class NetworkManager: NetworkEngine {
         var stories = [Int: Item]()
         for id in ids {
             let query = firebase?.child(byAppendingPath: Constants.itemChildRef).child(byAppendingPath: String(id))
-            query?.observeSingleEvent(of: .value, with: { (snapshot) in
+            query?.observeSingleEvent(of: .value, with: { snapshot in
                 guard let snapshot = snapshot,
                       let item = Item(snapshot: snapshot) else { return }
                 stories[id] = item
@@ -75,7 +75,7 @@ public class NetworkManager: NetworkEngine {
                     
                     completion(.success(items))
                 }
-            }, withCancel: { (error) in
+            }, withCancel: { error in
                 if let error = error {
                     completion(.error(error))
                 }
@@ -90,7 +90,7 @@ public class NetworkManager: NetworkEngine {
     ///   - completion: The block that should be called.
     ///                 It is passed the data as an Result<[Item]>
     public func retrieve(type: ItemType, _ completion: @escaping (Result<[Item]>) -> Void) {
-        NetworkManager.shared.getIds(type: type) { (response) in
+        NetworkManager.shared.getIds(type: type) { response in
             switch response {
             case .success(let ids):
                 NetworkManager.shared.retrieve(ids: ids, completion)
@@ -120,11 +120,11 @@ public class NetworkManager: NetworkEngine {
         for id in ids {
             commentsGroup.enter()
             
-            NetworkManager.shared.retrieve(ids: [id]) { (response) in
+            NetworkManager.shared.retrieve(ids: [id]) { response in
                 switch response {
                 case .success(let items):
                     let comment = Comment(item: items.first!)
-                    comment.getComments(completion: { (_) in
+                    comment.getComments(completion: { _ in
                         comments.append(comment)
                         commentsGroup.leave()
                     })

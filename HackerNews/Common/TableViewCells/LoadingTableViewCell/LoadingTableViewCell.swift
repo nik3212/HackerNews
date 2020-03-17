@@ -10,15 +10,18 @@ import UIKit
 
 class LoadingTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private var loadingIndicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
     }
     
+    func startAnimating() {
+        loadingIndicator.startAnimating()
+    }
+    
     private func setup() {
         backgroundColor = Color.tableCellBackground
     }
-
 }

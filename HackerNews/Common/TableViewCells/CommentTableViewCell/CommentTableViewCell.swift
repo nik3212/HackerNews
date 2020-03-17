@@ -11,13 +11,13 @@ import NetworkManager
 
 class CommentTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var commentTextView: UITextView!
+    @IBOutlet private var usernameLabel: UILabel!
+    @IBOutlet private var timeLabel: UILabel!
+    @IBOutlet private var commentTextView: UITextView!
     
-    @IBOutlet weak var usernameLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var timeLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var commentLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private var usernameLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private var timeLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private var commentLeadingConstraint: NSLayoutConstraint!
     
     var comment: Comment! {
         didSet {

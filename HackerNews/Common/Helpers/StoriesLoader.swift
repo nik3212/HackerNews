@@ -15,7 +15,7 @@ class StoriesLoader {
     private static func loadIds(to dataSource: StoriesListDataSource,
                                 type: ItemType,
                                 completion: @escaping Handler) {
-        NetworkManager.shared.getIds(type: type) { (response) in
+        NetworkManager.shared.getIds(type: type) { response in
             switch response {
             case .success(let ids):
                 dataSource.ids = ids
@@ -38,7 +38,7 @@ class StoriesLoader {
             ids = Array(dataSource.ids[count..<count + 20])
         }
         
-        NetworkManager.shared.retrieve(ids: ids) { (response) in
+        NetworkManager.shared.retrieve(ids: ids) { response in
             switch response {
             case .success(let stories):
                 dataSource.stories.append(contentsOf: stories)
@@ -52,7 +52,7 @@ class StoriesLoader {
     static func retrieve(to dataSource: StoriesListDataSource,
                          type: ItemType,
                          _ completion: @escaping Handler) {
-        StoriesLoader.loadIds(to: dataSource, type: type) { (error) in
+        StoriesLoader.loadIds(to: dataSource, type: type) { error in
             if let error = error {
                 completion(error)
             } else {

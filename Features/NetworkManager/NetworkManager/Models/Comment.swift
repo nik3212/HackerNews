@@ -52,12 +52,12 @@ public class Comment {
                     commentsGroup.enter()
                     let currentIndentLevel = level
                     
-                    networkManager?.retrieve(ids: [id]) { (response) in
+                    networkManager?.retrieve(ids: [id]) { response in
                         switch response {
                         case .success(let items):
                             let commentObject = Comment(item: items.first!)
                             commentObject.level = currentIndentLevel + 1
-                            commentObject.getComments(completion: { (_) in
+                            commentObject.getComments(completion: { _ in
                                 returnComments.append(commentObject)
                                 commentsGroup.leave()
                             })

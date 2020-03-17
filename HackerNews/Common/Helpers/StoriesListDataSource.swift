@@ -30,7 +30,7 @@ class StoriesListDataSource: NSObject, UITableViewDataSource {
             return cell
         } else {
             let cell: LoadingTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.loadingIndicator.startAnimating()
+            cell.startAnimating()
             return cell
         }
     }
