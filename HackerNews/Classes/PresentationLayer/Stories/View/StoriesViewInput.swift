@@ -7,5 +7,6 @@
 //
 
 protocol StoriesViewInput: class, Presentable {
-    func setupInitialState(title: String)
+    func setupInitialState()
+    func changeNavigationTitle(with title: String)
 }

@@ -28,8 +28,13 @@ class StoriesViewController: UIViewController {
     }
 }
 
+// MARK: StoriesViewInput
 extension StoriesViewController: StoriesViewInput {
-    func setupInitialState(title: String) {
+    func setupInitialState() {
+        
+    }
+    
+    func changeNavigationTitle(with title: String) {
         self.title = title
     }
 }
