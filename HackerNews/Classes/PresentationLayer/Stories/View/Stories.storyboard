@@ -11,13 +11,28 @@
         <!--Stories View Controller-->
         <scene sceneID="iQD-7Q-ugX">
             <objects>
-                <viewController storyboardIdentifier="StoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jGj-gt-ec7" customClass="StoriesViewController" customModule="Hacker_News" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jGj-gt-ec7" customClass="StoriesViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fpZ-83-tPa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="APs-f6-HXH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <constraints>
+                            <constraint firstItem="HhK-QP-Upz" firstAttribute="trailing" secondItem="APs-f6-HXH" secondAttribute="trailing" id="9Qk-No-JFr"/>
+                            <constraint firstItem="APs-f6-HXH" firstAttribute="top" secondItem="HhK-QP-Upz" secondAttribute="top" id="AIG-OY-6Ob"/>
+                            <constraint firstItem="APs-f6-HXH" firstAttribute="leading" secondItem="HhK-QP-Upz" secondAttribute="leading" id="LI5-jV-FwT"/>
+                            <constraint firstItem="HhK-QP-Upz" firstAttribute="bottom" secondItem="APs-f6-HXH" secondAttribute="bottom" id="Zb9-LD-hle"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HhK-QP-Upz"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="APs-f6-HXH" id="PCb-He-T8h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fn-gN-HZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

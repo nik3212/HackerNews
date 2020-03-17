@@ -10,6 +10,9 @@ import UIKit
 
 class StoriesViewController: UIViewController {
     
+    // MARK: IBOutlets
+    @IBOutlet private var tableView: UITableView!
+    
     // MARK: Public Properties
     var output: StoriesViewOutput!
 
