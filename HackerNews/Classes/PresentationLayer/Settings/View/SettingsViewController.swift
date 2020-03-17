@@ -38,3 +38,29 @@ extension SettingsViewController: SettingsViewInput {
         
     }
 }
+
+// MARK: UITableViewDelegate
+extension SettingsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectRow(at: indexPath)
+    }
+}
+
+// MARK: UITableViewDataSource
+extension SettingsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return output.getTitleForHeader(in: section)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return output.getNumberOfSections()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return output.getNumberOfRows(in: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
