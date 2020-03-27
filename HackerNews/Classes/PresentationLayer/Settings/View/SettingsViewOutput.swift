@@ -14,4 +14,5 @@ protocol SettingsViewOutput: class {
     func getNumberOfSections() -> Int
     func getTitleForHeader(in section: Int) -> String
     func didSelectRow(at indexPath: IndexPath)
+    func getModel(for indexPath: IndexPath) -> SettingsCellModel
 }

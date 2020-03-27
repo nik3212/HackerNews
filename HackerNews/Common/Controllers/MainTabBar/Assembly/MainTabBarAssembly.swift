@@ -10,6 +10,9 @@ import Swinject
 
 final class MainTabBarModuleAssembly: Assembly {
     func assemble(container: Container) {
-        
+        container.register(SettingsConfigurator.self) { resolver in
+            let parentAssembler = resolver.resolve(MainTabBarConfigurator.self)?.assembler
+            return SettingsConfigurator(parentAssembler: parentAssembler!)
+        }
     }
 }

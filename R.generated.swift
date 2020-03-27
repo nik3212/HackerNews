@@ -90,16 +90,18 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
-    /// Storyboard `SettingsModule`.
-    static let settingsModule = _R.storyboard.settingsModule()
+    /// Storyboard `Settings`.
+    static let settings = _R.storyboard.settings()
     /// Storyboard `Stories`.
     static let stories = _R.storyboard.stories()
+    /// Storyboard `ThemeModule`.
+    static let themeModule = _R.storyboard.themeModule()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -116,9 +118,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "SettingsModule", bundle: ...)`
-    static func settingsModule(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.settingsModule)
+    /// `UIStoryboard(name: "Settings", bundle: ...)`
+    static func settings(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.settings)
     }
     #endif
 
@@ -126,6 +128,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Stories", bundle: ...)`
     static func stories(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.stories)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "ThemeModule", bundle: ...)`
+    static func themeModule(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.themeModule)
     }
     #endif
 
@@ -297,7 +306,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
     /// Nib `CommentTableViewCell`.
     static let commentTableViewCell = _R.nib._CommentTableViewCell()
@@ -305,6 +314,8 @@ struct R: Rswift.Validatable {
     static let loadingTableViewCell = _R.nib._LoadingTableViewCell()
     /// Nib `NewsTableViewCell`.
     static let newsTableViewCell = _R.nib._NewsTableViewCell()
+    /// Nib `SettingsTableViewCell`.
+    static let settingsTableViewCell = _R.nib._SettingsTableViewCell()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "CommentTableViewCell", in: bundle)`
@@ -330,6 +341,14 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SettingsTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.settingsTableViewCell) instead")
+    static func settingsTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.settingsTableViewCell)
+    }
+    #endif
+
     static func commentTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CommentTableViewCell? {
       return R.nib.commentTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CommentTableViewCell
     }
@@ -342,15 +361,21 @@ struct R: Rswift.Validatable {
       return R.nib.newsTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NewsTableViewCell
     }
 
+    static func settingsTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsTableViewCell? {
+      return R.nib.settingsTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsTableViewCell
+    }
+
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `LoadingTableViewCell`.
     static let loadingTableViewCell: Rswift.ReuseIdentifier<LoadingTableViewCell> = Rswift.ReuseIdentifier(identifier: "LoadingTableViewCell")
     /// Reuse identifier `NewsTableViewCell`.
     static let newsTableViewCell: Rswift.ReuseIdentifier<NewsTableViewCell> = Rswift.ReuseIdentifier(identifier: "NewsTableViewCell")
+    /// Reuse identifier `SettingsTableViewCell`.
+    static let settingsTableViewCell: Rswift.ReuseIdentifier<SettingsTableViewCell> = Rswift.ReuseIdentifier(identifier: "SettingsTableViewCell")
 
     fileprivate init() {}
   }
@@ -429,6 +454,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _SettingsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = SettingsTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "SettingsTableViewCell"
+      let name = "SettingsTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsTableViewCell
+      }
+
+      fileprivate init() {}
+    }
+
     fileprivate init() {}
   }
   #endif
@@ -443,10 +482,13 @@ struct _R: Rswift.Validatable {
       try main.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try settingsModule.validate()
+      try settings.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try stories.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try themeModule.validate()
       #endif
     }
 
@@ -484,9 +526,9 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct settingsModule: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct settings: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
-      let name = "SettingsModule"
+      let name = "Settings"
       let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
 
       func settingsViewController(_: Void = ()) -> SettingsViewController? {
@@ -496,7 +538,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.settingsModule().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'SettingsModule' as 'SettingsViewController'.") }
+        if _R.storyboard.settings().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Settings' as 'SettingsViewController'.") }
       }
 
       fileprivate init() {}
@@ -517,6 +559,26 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.stories().storiesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'storiesViewController' could not be loaded from storyboard 'Stories' as 'StoriesViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct themeModule: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "ThemeModule"
+      let themeViewController = StoryboardViewControllerResource<ThemeViewController>(identifier: "ThemeViewController")
+
+      func themeViewController(_: Void = ()) -> ThemeViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: themeViewController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.themeModule().themeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'themeViewController' could not be loaded from storyboard 'ThemeModule' as 'ThemeViewController'.") }
       }
 
       fileprivate init() {}

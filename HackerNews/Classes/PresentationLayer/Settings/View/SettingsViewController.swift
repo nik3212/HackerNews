@@ -29,6 +29,10 @@ class SettingsViewController: UIViewController {
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
+        
+        tableView.register(SettingsTableViewCell.self)
+        tableView.rowHeight = UITableView.automaticDimension
+        
     }
 }
 
@@ -61,6 +65,13 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell: SettingsTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        let model = output.getModel(for: indexPath)
+        cell.setup(model: model)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

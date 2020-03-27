@@ -10,8 +10,8 @@ import Swinject
 
 final class SettingsConfigurator {
 
-    // MARK: Private Properties
-    private let assembler: Assembler
+    // MARK: Public Properties
+    let assembler: Assembler
     
     // MARK: Initialization
     init(parentAssembler: Assembler) {

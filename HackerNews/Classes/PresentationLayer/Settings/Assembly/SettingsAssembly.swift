@@ -16,9 +16,10 @@ final class SettingsModuleAssembly: Assembly {
             return interactor
         }
 
-        container.register(SettingsRouter.self) { (_, viewController: SettingsViewController) in
+        container.register(SettingsRouter.self) { (resolver, viewController: SettingsViewController) in
             let router = SettingsRouter()
             router.transitionHandler = viewController
+            router.themeConfigurator = resolver.resolve(ThemeConfigurator.self)
             return router
         }
 
@@ -33,9 +34,14 @@ final class SettingsModuleAssembly: Assembly {
         }
 
         container.register(SettingsViewController.self) { resolver in
-            let viewController = R.storyboard.settingsModule().instantiateViewController(type: SettingsViewController.self)
+            let viewController = R.storyboard.settings().instantiateViewController(type: SettingsViewController.self)
             viewController.output = resolver.resolve(SettingsPresenter.self, argument: viewController)
             return viewController
+        }
+        
+        container.register(ThemeConfigurator.self) { resolver in
+            let parentAssembler = resolver.resolve(SettingsConfigurator.self)?.assembler
+            return ThemeConfigurator(parentAssembler: parentAssembler!)
         }
     }
 }

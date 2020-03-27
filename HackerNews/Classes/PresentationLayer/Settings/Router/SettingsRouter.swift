@@ -9,10 +9,16 @@
 import Foundation
 
 class SettingsRouter {
+    // MARK: Public Properties
     weak var transitionHandler: TransitionHandler?
+    var themeConfigurator: ThemeConfigurator?
 }
 
 // MARK: SettingsRouterInput
 extension SettingsRouter: SettingsRouterInput {
-
+    func showThemeModule() {
+        transitionHandler?.openModule({ viewController in
+            self.themeConfigurator?.configure()?.present(from: viewController)
+        })
+    }
 }

@@ -7,5 +7,5 @@
 //
 
 protocol SettingsRouterInput {
-    
+    func showThemeModule()
 }

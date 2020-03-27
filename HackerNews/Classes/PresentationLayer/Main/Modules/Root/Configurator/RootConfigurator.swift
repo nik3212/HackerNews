@@ -12,7 +12,7 @@ import Swinject
 final class RootConfigurator {
     
     // MARK: Private Properties
-    private let assembler: Assembler
+    let assembler: Assembler
     
     // MARK: Intialization
     init(parentAssembler: Assembler) {

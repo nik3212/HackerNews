@@ -12,7 +12,7 @@ import Swinject
 final class MainTabBarConfigurator {
     
     // MARK: Private Properties
-    private let assembler: Assembler
+    let assembler: Assembler
     
     // MARK: Initialization
     init(parentAssembler: Assembler) {

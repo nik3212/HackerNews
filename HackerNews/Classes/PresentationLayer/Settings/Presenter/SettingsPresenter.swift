@@ -15,7 +15,13 @@ class SettingsPresenter {
     var router: SettingsRouterInput!
     
     // MARK: Private Properties
-    private var cells: [[Int]] = []
+    private var cells: [[SettingsCellModel]] = [
+        [SettingsCellModel(icon: UIImage(), title: "Theme", description: "", type: .themes)]
+    ]
+    
+    enum Section: String {
+        case theme = "Theme"
+    }
 }
 
 // MARK: SettingsViewOutput
@@ -33,11 +39,20 @@ extension SettingsPresenter: SettingsViewOutput {
     }
     
     func getTitleForHeader(in section: Int) -> String {
-        return ""
+        return Section.theme.rawValue
     }
     
     func didSelectRow(at indexPath: IndexPath) {
+        let cell = cells[indexPath.section][indexPath.row]
         
+        switch cell.type {
+        case .themes:
+            router.showThemeModule()
+        }
+    }
+    
+    func getModel(for indexPath: IndexPath) -> SettingsCellModel {
+        return cells[indexPath.section][indexPath.row]
     }
 }
 

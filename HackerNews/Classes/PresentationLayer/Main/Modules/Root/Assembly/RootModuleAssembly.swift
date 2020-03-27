@@ -20,5 +20,10 @@ final class RootModuleAssembly: Assembly {
             
             return splitViewController
         }
+        
+        container.register(MainTabBarConfigurator.self) { resolver in
+            let parentAssembler = resolver.resolve(RootConfigurator.self)?.assembler
+            return MainTabBarConfigurator(parentAssembler: parentAssembler!)
+        }
     }
 }
