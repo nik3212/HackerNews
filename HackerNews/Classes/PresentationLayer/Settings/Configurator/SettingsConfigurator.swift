@@ -22,7 +22,7 @@ final class SettingsConfigurator {
 // MARK: TabBarViewProtocol
 extension SettingsConfigurator: TabBarViewProtocol {
     var icon: UIImage? {
-        return R.image.news()
+        return R.image.settings()
     }
     
     var title: String? {

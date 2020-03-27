@@ -21,7 +21,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>101</string>
+	<string>104</string>
 	<key>Fabric</key>
 	<dict>
 		<key>Kits</key>
