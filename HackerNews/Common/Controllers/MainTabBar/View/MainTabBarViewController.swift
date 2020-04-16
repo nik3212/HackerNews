@@ -11,13 +11,30 @@ import UIKit
 final class MainTabBarViewController: UITabBarController {
     
     // MARK: Public Properties
-    var theme: Theme!
+    private var theme: Theme!
+    private var output: MainTabBarViewOutput!
+    
+    // MARK: Initialization
+    init(theme: Theme, output: MainTabBarViewOutput) {
+        self.theme = theme
+        self.output = output
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: View Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        update(theme: theme)
+        output.viewIsReady()
     }
 }
+
+// MARK: MainTabBarViewInput
+extension MainTabBarViewController: MainTabBarViewInput { }
 
 // MARK: ThemeUpdatable
 extension MainTabBarViewController: ThemeUpdatable {

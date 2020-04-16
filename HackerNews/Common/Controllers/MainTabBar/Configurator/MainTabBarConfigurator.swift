@@ -21,31 +21,9 @@ final class MainTabBarConfigurator {
     
     // MARK: Public Methods
     func configure() -> MainTabBarViewController {
-        let modules: [TabBarViewProtocol] = [StoriesConfigurator(parentAssembler: assembler),
-                                             SettingsConfigurator(parentAssembler: assembler)]
-        let mainTabBarVC = MainTabBarViewController()
-        mainTabBarVC.theme = ThemeManager.shared.theme
-        var viewControllers: [UIViewController] = []
-        
-        for module in modules {
-            viewControllers.append(setupPageController(module: module))
+        guard let viewController = assembler.resolver.resolve(MainTabBarViewController.self) else {
+            fatalError("Cann't resolve MainTabBarViewController")
         }
-        
-        mainTabBarVC.viewControllers = viewControllers
-        
-        return mainTabBarVC
-    }
-    
-    // MARK: Private Methods
-    fileprivate func setupPageController(module: TabBarViewProtocol) -> UIViewController {
-        let item = UITabBarItem()
-        item.image = module.icon
-        item.title = module.title
-        
-        let controller = module.configureViewController()
-        controller.tabBarItem = item
-        controller.title = item.title
-
-        return controller
+        return viewController
     }
 }

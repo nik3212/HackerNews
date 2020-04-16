@@ -63,6 +63,10 @@
 		5ACB43D424484BA00010465B /* ThemeUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43D324484BA00010465B /* ThemeUpdatable.swift */; };
 		5ACB43D9244855F30010465B /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43D8244855F30010465B /* Weak.swift */; };
 		5ACB43DB244862500010465B /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43DA244862500010465B /* ImageType.swift */; };
+		5ACB43DD244883E90010465B /* Optional+Throwable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43DC244883E90010465B /* Optional+Throwable.swift */; };
+		5ACB43DF244886E30010465B /* MainTabBarViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43DE244886E30010465B /* MainTabBarViewOutput.swift */; };
+		5ACB43E22448872A0010465B /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43E12448872A0010465B /* MainTabBarPresenter.swift */; };
+		5ACB43E42448875C0010465B /* MainTabBarViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43E32448875C0010465B /* MainTabBarViewInput.swift */; };
 		5AE2EDCD24103C9B0011A198 /* RootModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */; };
 		5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */; };
 		5AE2EDD424103EED0011A198 /* MainTabBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDD324103EED0011A198 /* MainTabBarConfigurator.swift */; };
@@ -204,6 +208,10 @@
 		5ACB43D324484BA00010465B /* ThemeUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUpdatable.swift; sourceTree = "<group>"; };
 		5ACB43D8244855F30010465B /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		5ACB43DA244862500010465B /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
+		5ACB43DC244883E90010465B /* Optional+Throwable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Throwable.swift"; sourceTree = "<group>"; };
+		5ACB43DE244886E30010465B /* MainTabBarViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewOutput.swift; sourceTree = "<group>"; };
+		5ACB43E12448872A0010465B /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
+		5ACB43E32448875C0010465B /* MainTabBarViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewInput.swift; sourceTree = "<group>"; };
 		5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleAssembly.swift; sourceTree = "<group>"; };
 		5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootConfigurator.swift; sourceTree = "<group>"; };
 		5AE2EDD324103EED0011A198 /* MainTabBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarConfigurator.swift; sourceTree = "<group>"; };
@@ -532,6 +540,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		5ACB43E02448871F0010465B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5ACB43E12448872A0010465B /* MainTabBarPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		5AE2EDC424103B450011A198 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +633,7 @@
 		5AE2EDD124103ED20011A198 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				5ACB43E02448871F0010465B /* Presenter */,
 				5AE2EDDB2410409A0011A198 /* View */,
 				5AE2EDD524103F100011A198 /* Assembly */,
 				5AE2EDD224103EDC0011A198 /* Configurator */,
@@ -653,6 +670,8 @@
 			isa = PBXGroup;
 			children = (
 				5AE2EDDC241040A40011A198 /* MainTabBarViewController.swift */,
+				5ACB43DE244886E30010465B /* MainTabBarViewOutput.swift */,
+				5ACB43E32448875C0010465B /* MainTabBarViewInput.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -964,6 +983,7 @@
 				D07205302130A17100E4B1ED /* UIViewControllerFactory.swift */,
 				5ACB43D8244855F30010465B /* Weak.swift */,
 				5ACB43DA244862500010465B /* ImageType.swift */,
+				5ACB43DC244883E90010465B /* Optional+Throwable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1396,6 +1416,7 @@
 				D072052D2130A13800E4B1ED /* UITableView+.swift in Sources */,
 				5AE2EDE4241046730011A198 /* TransitionHandler.swift in Sources */,
 				5AE2EDE2241046210011A198 /* UINavigationController+.swift in Sources */,
+				5ACB43E42448875C0010465B /* MainTabBarViewInput.swift in Sources */,
 				5A52212124479D01003B799D /* ThemeSelectableTableViewCell.swift in Sources */,
 				D072052B2130A11A00E4B1ED /* ReusableView.swift in Sources */,
 				5ACB43DB244862500010465B /* ImageType.swift in Sources */,
@@ -1410,6 +1431,7 @@
 				5AE2EDDA241040420011A198 /* TabBarViewProtocol.swift in Sources */,
 				5AE2EDD424103EED0011A198 /* MainTabBarConfigurator.swift in Sources */,
 				D07204F421309FC600E4B1ED /* AppDelegate.swift in Sources */,
+				5ACB43DD244883E90010465B /* Optional+Throwable.swift in Sources */,
 				5A435C0F243A2E0B009C5355 /* Stylesheet.swift in Sources */,
 				5A00D8A2244655560013B3F5 /* Themeable.swift in Sources */,
 				5A5C0AA0241ECB7D007B4FCF /* ServiceLocatorConfigurator.swift in Sources */,
@@ -1427,10 +1449,12 @@
 				C72C67A3801D1099E2E78982 /* StoriesAssembly.swift in Sources */,
 				5AE2EDE0241045D60011A198 /* Presentable.swift in Sources */,
 				37B144B44710E04D53D38B1F /* SettingsViewInput.swift in Sources */,
+				5ACB43DF244886E30010465B /* MainTabBarViewOutput.swift in Sources */,
 				5D7937310DC67C2D0A5D7B26 /* SettingsViewOutput.swift in Sources */,
 				841F0F20A6C107848D230D68 /* SettingsViewController.swift in Sources */,
 				85FD344F5BC1934F615CFAC9 /* SettingsPresenter.swift in Sources */,
 				5A9C966724425E35002AC0F5 /* Font+.swift in Sources */,
+				5ACB43E22448872A0010465B /* MainTabBarPresenter.swift in Sources */,
 				385B495311D6CBD5EB3F44E7 /* SettingsInteractorInput.swift in Sources */,
 				437795427873CF1A213CABF6 /* SettingsInteractorOutput.swift in Sources */,
 				53E3C81A7457949576309607 /* SettingsInteractor.swift in Sources */,

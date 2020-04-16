@@ -35,6 +35,13 @@ extension StoriesConfigurator: TabBarViewProtocol {
             fatalError("StoriesViewController shouldn't be nil")
         }
         
+        let item = UITabBarItem()
+        item.image = icon
+        item.title = title
+        
+        viewController.tabBarItem = item
+        viewController.title = item.title
+        
         return UINavigationController(rootViewController: viewController)
     }
 }

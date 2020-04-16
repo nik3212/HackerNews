@@ -23,6 +23,7 @@ final class ThemeViewController: UIViewController {
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        update(theme: theme)
         tableView.register(ThemeSelectableTableViewCell.self)
         tableView.tableFooterView = UIView()
         output.viewIsReady()
