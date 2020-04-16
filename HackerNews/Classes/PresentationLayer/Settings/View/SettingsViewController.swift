@@ -10,6 +10,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    // MARK: Constants
+    enum SettingsConstants {
+        static let defaultCellHeight: CGFloat = 48.0
+    }
+    
     // MARK: IBOutlets
     @IBOutlet private var tableView: UITableView!
     
@@ -31,8 +36,7 @@ class SettingsViewController: UIViewController {
         }
         
         tableView.register(SettingsTableViewCell.self)
-        tableView.rowHeight = UITableView.automaticDimension
-        
+        tableView.rowHeight = SettingsConstants.defaultCellHeight
     }
 }
 
@@ -68,10 +72,14 @@ extension SettingsViewController: UITableViewDataSource {
         let cell: SettingsTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         let model = output.getModel(for: indexPath)
         cell.setup(model: model)
+        
+        //let cell = UITableViewCell()
+        //cell.textLabel?.text = model.title
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return SettingsConstants.defaultCellHeight
     }
 }

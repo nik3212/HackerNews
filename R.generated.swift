@@ -100,8 +100,8 @@ struct R: Rswift.Validatable {
     static let settings = _R.storyboard.settings()
     /// Storyboard `Stories`.
     static let stories = _R.storyboard.stories()
-    /// Storyboard `ThemeModule`.
-    static let themeModule = _R.storyboard.themeModule()
+    /// Storyboard `Theme`.
+    static let theme = _R.storyboard.theme()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -132,9 +132,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "ThemeModule", bundle: ...)`
-    static func themeModule(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.themeModule)
+    /// `UIStoryboard(name: "Theme", bundle: ...)`
+    static func theme(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.theme)
     }
     #endif
 
@@ -142,42 +142,74 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.file` struct is generated, and contains static references to 6 files.
+  /// This `R.file` struct is generated, and contains static references to 10 files.
   struct file {
-    /// Resource file `OpenSans-Bold.ttf`.
-    static let openSansBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "OpenSans-Bold", pathExtension: "ttf")
-    /// Resource file `OpenSans-Light.ttf`.
-    static let openSansLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "OpenSans-Light", pathExtension: "ttf")
-    /// Resource file `OpenSans-Regular.ttf`.
-    static let openSansRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "OpenSans-Regular", pathExtension: "ttf")
-    /// Resource file `OpenSans-Semibold.ttf`.
-    static let openSansSemiboldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "OpenSans-Semibold", pathExtension: "ttf")
+    /// Resource file `Poppins-Bold.ttf`.
+    static let poppinsBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-Bold", pathExtension: "ttf")
+    /// Resource file `Poppins-ExtraBold.ttf`.
+    static let poppinsExtraBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-ExtraBold", pathExtension: "ttf")
+    /// Resource file `Poppins-ExtraLight.ttf`.
+    static let poppinsExtraLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-ExtraLight", pathExtension: "ttf")
+    /// Resource file `Poppins-Italic.ttf`.
+    static let poppinsItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-Italic", pathExtension: "ttf")
+    /// Resource file `Poppins-Light.ttf`.
+    static let poppinsLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-Light", pathExtension: "ttf")
+    /// Resource file `Poppins-Medium.ttf`.
+    static let poppinsMediumTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-Medium", pathExtension: "ttf")
+    /// Resource file `Poppins-Regular.ttf`.
+    static let poppinsRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-Regular", pathExtension: "ttf")
+    /// Resource file `Poppins-SemiBold.ttf`.
+    static let poppinsSemiBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-SemiBold", pathExtension: "ttf")
     /// Resource file `fabric.apikey`.
     static let fabricApikey = Rswift.FileResource(bundle: R.hostingBundle, name: "fabric", pathExtension: "apikey")
     /// Resource file `fabric.buildsecret`.
     static let fabricBuildsecret = Rswift.FileResource(bundle: R.hostingBundle, name: "fabric", pathExtension: "buildsecret")
 
-    /// `bundle.url(forResource: "OpenSans-Bold", withExtension: "ttf")`
-    static func openSansBoldTtf(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.openSansBoldTtf
+    /// `bundle.url(forResource: "Poppins-Bold", withExtension: "ttf")`
+    static func poppinsBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.poppinsBoldTtf
       return fileResource.bundle.url(forResource: fileResource)
     }
 
-    /// `bundle.url(forResource: "OpenSans-Light", withExtension: "ttf")`
-    static func openSansLightTtf(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.openSansLightTtf
+    /// `bundle.url(forResource: "Poppins-ExtraBold", withExtension: "ttf")`
+    static func poppinsExtraBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.poppinsExtraBoldTtf
       return fileResource.bundle.url(forResource: fileResource)
     }
 
-    /// `bundle.url(forResource: "OpenSans-Regular", withExtension: "ttf")`
-    static func openSansRegularTtf(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.openSansRegularTtf
+    /// `bundle.url(forResource: "Poppins-ExtraLight", withExtension: "ttf")`
+    static func poppinsExtraLightTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.poppinsExtraLightTtf
       return fileResource.bundle.url(forResource: fileResource)
     }
 
-    /// `bundle.url(forResource: "OpenSans-Semibold", withExtension: "ttf")`
-    static func openSansSemiboldTtf(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.openSansSemiboldTtf
+    /// `bundle.url(forResource: "Poppins-Italic", withExtension: "ttf")`
+    static func poppinsItalicTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.poppinsItalicTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Poppins-Light", withExtension: "ttf")`
+    static func poppinsLightTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.poppinsLightTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Poppins-Medium", withExtension: "ttf")`
+    static func poppinsMediumTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.poppinsMediumTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Poppins-Regular", withExtension: "ttf")`
+    static func poppinsRegularTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.poppinsRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Poppins-SemiBold", withExtension: "ttf")`
+    static func poppinsSemiBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.poppinsSemiBoldTtf
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -196,48 +228,80 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.font` struct is generated, and contains static references to 4 fonts.
+  /// This `R.font` struct is generated, and contains static references to 8 fonts.
   struct font: Rswift.Validatable {
-    /// Font `OpenSans-Bold`.
-    static let openSansBold = Rswift.FontResource(fontName: "OpenSans-Bold")
-    /// Font `OpenSans-Light`.
-    static let openSansLight = Rswift.FontResource(fontName: "OpenSans-Light")
-    /// Font `OpenSans-Semibold`.
-    static let openSansSemibold = Rswift.FontResource(fontName: "OpenSans-Semibold")
-    /// Font `OpenSans`.
-    static let openSans = Rswift.FontResource(fontName: "OpenSans")
+    /// Font `Poppins-Bold`.
+    static let poppinsBold = Rswift.FontResource(fontName: "Poppins-Bold")
+    /// Font `Poppins-ExtraBold`.
+    static let poppinsExtraBold = Rswift.FontResource(fontName: "Poppins-ExtraBold")
+    /// Font `Poppins-ExtraLight`.
+    static let poppinsExtraLight = Rswift.FontResource(fontName: "Poppins-ExtraLight")
+    /// Font `Poppins-Italic`.
+    static let poppinsItalic = Rswift.FontResource(fontName: "Poppins-Italic")
+    /// Font `Poppins-Light`.
+    static let poppinsLight = Rswift.FontResource(fontName: "Poppins-Light")
+    /// Font `Poppins-Medium`.
+    static let poppinsMedium = Rswift.FontResource(fontName: "Poppins-Medium")
+    /// Font `Poppins-Regular`.
+    static let poppinsRegular = Rswift.FontResource(fontName: "Poppins-Regular")
+    /// Font `Poppins-SemiBold`.
+    static let poppinsSemiBold = Rswift.FontResource(fontName: "Poppins-SemiBold")
 
-    /// `UIFont(name: "OpenSans", size: ...)`
-    static func openSans(size: CGFloat) -> UIKit.UIFont? {
-      return UIKit.UIFont(resource: openSans, size: size)
+    /// `UIFont(name: "Poppins-Bold", size: ...)`
+    static func poppinsBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: poppinsBold, size: size)
     }
 
-    /// `UIFont(name: "OpenSans-Bold", size: ...)`
-    static func openSansBold(size: CGFloat) -> UIKit.UIFont? {
-      return UIKit.UIFont(resource: openSansBold, size: size)
+    /// `UIFont(name: "Poppins-ExtraBold", size: ...)`
+    static func poppinsExtraBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: poppinsExtraBold, size: size)
     }
 
-    /// `UIFont(name: "OpenSans-Light", size: ...)`
-    static func openSansLight(size: CGFloat) -> UIKit.UIFont? {
-      return UIKit.UIFont(resource: openSansLight, size: size)
+    /// `UIFont(name: "Poppins-ExtraLight", size: ...)`
+    static func poppinsExtraLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: poppinsExtraLight, size: size)
     }
 
-    /// `UIFont(name: "OpenSans-Semibold", size: ...)`
-    static func openSansSemibold(size: CGFloat) -> UIKit.UIFont? {
-      return UIKit.UIFont(resource: openSansSemibold, size: size)
+    /// `UIFont(name: "Poppins-Italic", size: ...)`
+    static func poppinsItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: poppinsItalic, size: size)
+    }
+
+    /// `UIFont(name: "Poppins-Light", size: ...)`
+    static func poppinsLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: poppinsLight, size: size)
+    }
+
+    /// `UIFont(name: "Poppins-Medium", size: ...)`
+    static func poppinsMedium(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: poppinsMedium, size: size)
+    }
+
+    /// `UIFont(name: "Poppins-Regular", size: ...)`
+    static func poppinsRegular(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: poppinsRegular, size: size)
+    }
+
+    /// `UIFont(name: "Poppins-SemiBold", size: ...)`
+    static func poppinsSemiBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: poppinsSemiBold, size: size)
     }
 
     static func validate() throws {
-      if R.font.openSans(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'OpenSans' could not be loaded, is 'OpenSans-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
-      if R.font.openSansBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'OpenSans-Bold' could not be loaded, is 'OpenSans-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
-      if R.font.openSansLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'OpenSans-Light' could not be loaded, is 'OpenSans-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }
-      if R.font.openSansSemibold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'OpenSans-Semibold' could not be loaded, is 'OpenSans-Semibold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.poppinsBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Poppins-Bold' could not be loaded, is 'Poppins-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.poppinsExtraBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Poppins-ExtraBold' could not be loaded, is 'Poppins-ExtraBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.poppinsExtraLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Poppins-ExtraLight' could not be loaded, is 'Poppins-ExtraLight.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.poppinsItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Poppins-Italic' could not be loaded, is 'Poppins-Italic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.poppinsLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Poppins-Light' could not be loaded, is 'Poppins-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.poppinsMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Poppins-Medium' could not be loaded, is 'Poppins-Medium.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.poppinsRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Poppins-Regular' could not be loaded, is 'Poppins-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.poppinsSemiBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Poppins-SemiBold' could not be loaded, is 'Poppins-SemiBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
     }
 
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 7 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
     /// Image `Ask`.
     static let ask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Ask")
@@ -253,6 +317,8 @@ struct R: Rswift.Validatable {
     static let settings = Rswift.ImageResource(bundle: R.hostingBundle, name: "Settings")
     /// Image `Show`.
     static let show = Rswift.ImageResource(bundle: R.hostingBundle, name: "Show")
+    /// Image `ThemeIcon`.
+    static let themeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ThemeIcon")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Ask", bundle: ..., traitCollection: ...)`
@@ -303,43 +369,22 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ThemeIcon", bundle: ..., traitCollection: ...)`
+    static func themeIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.themeIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
-    /// Nib `CommentTableViewCell`.
-    static let commentTableViewCell = _R.nib._CommentTableViewCell()
-    /// Nib `LoadingTableViewCell`.
-    static let loadingTableViewCell = _R.nib._LoadingTableViewCell()
-    /// Nib `NewsTableViewCell`.
-    static let newsTableViewCell = _R.nib._NewsTableViewCell()
     /// Nib `SettingsTableViewCell`.
     static let settingsTableViewCell = _R.nib._SettingsTableViewCell()
-
-    #if os(iOS) || os(tvOS)
-    /// `UINib(name: "CommentTableViewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.commentTableViewCell) instead")
-    static func commentTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.commentTableViewCell)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UINib(name: "LoadingTableViewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.loadingTableViewCell) instead")
-    static func loadingTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.loadingTableViewCell)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UINib(name: "NewsTableViewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.newsTableViewCell) instead")
-    static func newsTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.newsTableViewCell)
-    }
-    #endif
+    /// Nib `ThemeSelectableTableViewCell`.
+    static let themeSelectableTableViewCell = _R.nib._ThemeSelectableTableViewCell()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "SettingsTableViewCell", in: bundle)`
@@ -349,33 +394,31 @@ struct R: Rswift.Validatable {
     }
     #endif
 
-    static func commentTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CommentTableViewCell? {
-      return R.nib.commentTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CommentTableViewCell
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ThemeSelectableTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.themeSelectableTableViewCell) instead")
+    static func themeSelectableTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.themeSelectableTableViewCell)
     }
-
-    static func loadingTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LoadingTableViewCell? {
-      return R.nib.loadingTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LoadingTableViewCell
-    }
-
-    static func newsTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> NewsTableViewCell? {
-      return R.nib.newsTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NewsTableViewCell
-    }
+    #endif
 
     static func settingsTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsTableViewCell? {
       return R.nib.settingsTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsTableViewCell
     }
 
+    static func themeSelectableTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ThemeSelectableTableViewCell? {
+      return R.nib.themeSelectableTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ThemeSelectableTableViewCell
+    }
+
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `LoadingTableViewCell`.
-    static let loadingTableViewCell: Rswift.ReuseIdentifier<LoadingTableViewCell> = Rswift.ReuseIdentifier(identifier: "LoadingTableViewCell")
-    /// Reuse identifier `NewsTableViewCell`.
-    static let newsTableViewCell: Rswift.ReuseIdentifier<NewsTableViewCell> = Rswift.ReuseIdentifier(identifier: "NewsTableViewCell")
     /// Reuse identifier `SettingsTableViewCell`.
     static let settingsTableViewCell: Rswift.ReuseIdentifier<SettingsTableViewCell> = Rswift.ReuseIdentifier(identifier: "SettingsTableViewCell")
+    /// Reuse identifier `ThemeSelectableTableViewCell`.
+    static let themeSelectableTableViewCell: Rswift.ReuseIdentifier<ThemeSelectableTableViewCell> = Rswift.ReuseIdentifier(identifier: "ThemeSelectableTableViewCell")
 
     fileprivate init() {}
   }
@@ -396,64 +439,12 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
-    try nib.validate()
-    #endif
-    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
 
   #if os(iOS) || os(tvOS)
-  struct nib: Rswift.Validatable {
-    static func validate() throws {
-      try _NewsTableViewCell.validate()
-    }
-
-    struct _CommentTableViewCell: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "CommentTableViewCell"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CommentTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CommentTableViewCell
-      }
-
-      fileprivate init() {}
-    }
-
-    struct _LoadingTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
-      typealias ReusableType = LoadingTableViewCell
-
-      let bundle = R.hostingBundle
-      let identifier = "LoadingTableViewCell"
-      let name = "LoadingTableViewCell"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LoadingTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LoadingTableViewCell
-      }
-
-      fileprivate init() {}
-    }
-
-    struct _NewsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
-      typealias ReusableType = NewsTableViewCell
-
-      let bundle = R.hostingBundle
-      let identifier = "NewsTableViewCell"
-      let name = "NewsTableViewCell"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> NewsTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NewsTableViewCell
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "Comments", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Comments' is used in nib 'NewsTableViewCell', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-      }
-
-      fileprivate init() {}
-    }
-
+  struct nib {
     struct _SettingsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = SettingsTableViewCell
 
@@ -463,6 +454,20 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsTableViewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _ThemeSelectableTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = ThemeSelectableTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "ThemeSelectableTableViewCell"
+      let name = "ThemeSelectableTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ThemeSelectableTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ThemeSelectableTableViewCell
       }
 
       fileprivate init() {}
@@ -488,7 +493,7 @@ struct _R: Rswift.Validatable {
       try stories.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try themeModule.validate()
+      try theme.validate()
       #endif
     }
 
@@ -566,9 +571,9 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct themeModule: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct theme: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
-      let name = "ThemeModule"
+      let name = "Theme"
       let themeViewController = StoryboardViewControllerResource<ThemeViewController>(identifier: "ThemeViewController")
 
       func themeViewController(_: Void = ()) -> ThemeViewController? {
@@ -578,7 +583,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.themeModule().themeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'themeViewController' could not be loaded from storyboard 'ThemeModule' as 'ThemeViewController'.") }
+        if _R.storyboard.theme().themeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'themeViewController' could not be loaded from storyboard 'Theme' as 'ThemeViewController'.") }
       }
 
       fileprivate init() {}

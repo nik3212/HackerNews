@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ThemeRouter {
     weak var transitionHandler: TransitionHandler?
@@ -14,5 +14,9 @@ class ThemeRouter {
 
 // MARK: ThemeRouterInput
 extension ThemeRouter: ThemeRouterInput {
-
+    func dismiss() {
+        transitionHandler?.openModule({ viewController in
+            viewController.navigationController?.popViewController(animated: true)
+        })
+    }
 }

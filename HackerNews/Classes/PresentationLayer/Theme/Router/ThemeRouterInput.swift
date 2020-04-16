@@ -7,5 +7,5 @@
 //
 
 protocol ThemeRouterInput {
-    
+    func dismiss()
 }

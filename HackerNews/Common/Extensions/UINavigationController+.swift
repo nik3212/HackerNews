@@ -10,9 +10,9 @@ import UIKit
 
 extension UINavigationController {
     func configureDefaultNavigationBar() {
-        navigationBar.setBackgroundImage(UIImage.imageWithColor(color: .white), for: .default)
-        navigationBar.shadowImage = UIImage.imageWithColor(color: .white)
-        navigationBar.isTranslucent = false
+//        navigationBar.setBackgroundImage(UIImage.imageWithColor(color: .white), for: .default)
+//        navigationBar.shadowImage = UIImage.imageWithColor(color: .white)
+//        navigationBar.isTranslucent = false
         navigationBar.backgroundColor = .white
 //        navigationBar.backIndicatorImage = R.image.backNavigation()
 //        navigationBar.backIndicatorTransitionMaskImage = R.image.backNavigation()

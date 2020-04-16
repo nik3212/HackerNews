@@ -6,6 +6,7 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
-protocol ThemeViewInput: class, Presentable {
-    func setupInitialState()
+protocol ThemeViewInput: class, Presentable, ThemeUpdatable {
+    func setupInitialState(title: String)
+    func reloadData()
 }

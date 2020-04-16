@@ -22,19 +22,21 @@ final class ThemeModuleAssembly: Assembly {
             return router
         }
 
-        container.register(ThemeModuleInput.self) { (resolver, viewController: ThemeViewController) in 
+        container.register(ThemeModuleInput.self) { (resolver, viewController: ThemeViewController) in
             let presenter = ThemePresenter()
 
             presenter.view = viewController
             presenter.interactor = resolver.resolve(ThemeInteractor.self, argument: presenter)
             presenter.router = resolver.resolve(ThemeRouter.self, argument: viewController)
-
+            presenter.themeManager = resolver.resolve(ThemeManager.self)
+            
             return presenter
         }
 
         container.register(ThemeViewController.self) { resolver in
-            let viewController = R.storyboard.themeModule().instantiateViewController(type: ThemeViewController.self)
+            let viewController = R.storyboard.theme().instantiateViewController(type: ThemeViewController.self)
             viewController.output = resolver.resolve(ThemeModuleInput.self, argument: viewController) as? ThemePresenter
+            viewController.theme = resolver.resolve(ThemeManager.self)?.theme
             return viewController
         }
     }

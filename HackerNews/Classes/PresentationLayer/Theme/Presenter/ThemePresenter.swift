@@ -13,12 +13,36 @@ class ThemePresenter {
     weak var view: ThemeViewInput!
     var interactor: ThemeInteractorInput!
     var router: ThemeRouterInput!
+    var themeManager: ThemeManagerProtocol!
+    
+    // MARK: Private Properties
+    private var themes: [(title: String, theme: Theme)] = []
 }
 
 // MARK: ThemeViewOutput
 extension ThemePresenter: ThemeViewOutput {
+    func didSelectRow(at indexPath: IndexPath) {
+        themeManager.theme = themes[indexPath.row].theme
+        router.dismiss()
+    }
+    
     func viewIsReady() {
-        view.setupInitialState()
+        view.setupInitialState(title: "Themes")
+        themeManager.addObserver(self)
+        themes = themeManager.themes.map({ ($0.rawValue, $0) })
+        view.reloadData()
+    }
+    
+    func numberOfRows(in section: Int) -> Int {
+        return themes.count
+    }
+    
+    func numberOfSections() -> Int {
+        return 1
+    }
+    
+    func getModel(for indexPath: IndexPath) -> String {
+        return themes[indexPath.row].title
     }
 }
 
@@ -31,5 +55,12 @@ extension ThemePresenter: ThemeInteractorOutput {
 extension ThemePresenter: ThemeModuleInput {
     func present(from viewController: UIViewController) {
         view.present(from: viewController)
+    }
+}
+
+// MARK: ThemeObserver
+extension ThemePresenter: ThemeObserver {
+    func themeDidChange(_ theme: Theme) {
+        view.update(theme: theme)
     }
 }

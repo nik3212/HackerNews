@@ -9,10 +9,11 @@
 import Foundation
 
 class ThemeInteractor {
+    // MARK: Public Properties
     weak var output: ThemePresenter!
 }
 
 // MARK: ThemeInteractorInput
 extension ThemeInteractor: ThemeInteractorInput {
-
+    
 }

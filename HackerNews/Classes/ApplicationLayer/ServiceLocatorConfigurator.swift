@@ -18,6 +18,9 @@ final class ServiceLocatorConfigurator {
     
     // MARK: Initialization
     init() {
+        container.register(ThemeManager.self) { _ in
+            return ThemeManager.shared
+        }
         assembler = Assembler(container: container)
         assembler.apply(assembly: ServiceLocatorAssembly())
     }

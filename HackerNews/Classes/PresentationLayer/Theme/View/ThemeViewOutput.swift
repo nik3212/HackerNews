@@ -6,6 +6,12 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
+import Foundation
+
 protocol ThemeViewOutput: class {
     func viewIsReady()
+    func didSelectRow(at indexPath: IndexPath)
+    func numberOfRows(in section: Int) -> Int
+    func numberOfSections() -> Int
+    func getModel(for indexPath: IndexPath) -> String
 }

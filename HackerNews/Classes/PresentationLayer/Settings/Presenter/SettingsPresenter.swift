@@ -16,7 +16,7 @@ class SettingsPresenter {
     
     // MARK: Private Properties
     private var cells: [[SettingsCellModel]] = [
-        [SettingsCellModel(icon: UIImage(), title: "Theme", description: "", type: .themes)]
+        [SettingsCellModel(icon: R.image.themeIcon(), title: "Theme", type: .themes)]
     ]
     
     enum Section: String {

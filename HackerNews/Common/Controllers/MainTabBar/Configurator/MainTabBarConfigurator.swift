@@ -24,6 +24,7 @@ final class MainTabBarConfigurator {
         let modules: [TabBarViewProtocol] = [StoriesConfigurator(parentAssembler: assembler),
                                              SettingsConfigurator(parentAssembler: assembler)]
         let mainTabBarVC = MainTabBarViewController()
+        mainTabBarVC.theme = ThemeManager.shared.theme
         var viewControllers: [UIViewController] = []
         
         for module in modules {
