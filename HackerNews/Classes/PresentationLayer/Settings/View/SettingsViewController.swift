@@ -21,6 +21,8 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        update(theme: theme)
+        tableView.tableFooterView = UIView()
         output.viewIsReady()
     }
 

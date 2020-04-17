@@ -166,7 +166,15 @@ struct Stylesheet {
     
     enum TableView {
         private static let base: Style<UITableView> = Style {
-           $0.separatorStyle = .none
+           $0.separatorStyle = .singleLine
+        }
+        
+        private static let lightSeparator: Style<UITableView> = Style {
+            $0.separatorColor = .lightGray
+        }
+        
+        private static let darkSeparator: Style<UITableView> = Style {
+            $0.separatorColor = .darkGray
         }
 
         private static let darkBackground: Style<UITableView> = Style {
@@ -179,7 +187,7 @@ struct Stylesheet {
             $0.indicatorStyle = .black
         }
         
-        static let light = Style<UITableView>.compose(base, lightBackground)
-        static let dark = Style<UITableView>.compose(base, darkBackground)
+        static let light = Style<UITableView>.compose(base, lightBackground, lightSeparator)
+        static let dark = Style<UITableView>.compose(base, darkBackground, darkSeparator)
     }
 }
