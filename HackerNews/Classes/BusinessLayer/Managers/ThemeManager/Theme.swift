@@ -10,10 +10,10 @@ import UIKit
 
 enum Theme: String {
     /// Light theme
-    case light
+    case light = "Light"
     
     /// Dark theme
-    case dark
+    case dark = "Dark"
     
     /// <#Description#>
     static let `default` = Theme.dark

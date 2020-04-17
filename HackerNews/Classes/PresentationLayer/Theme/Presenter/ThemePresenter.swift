@@ -27,9 +27,9 @@ extension ThemePresenter: ThemeViewOutput {
     }
     
     func viewIsReady() {
-        view.setupInitialState(title: "Themes")
+        view.setupInitialState(title: "Themes".localized())
         themeManager.addObserver(self)
-        themes = themeManager.themes.map({ ($0.rawValue, $0) })
+        themes = themeManager.themes.map({ ($0.rawValue.localized(), $0) })
         view.reloadData()
     }
     
@@ -47,7 +47,7 @@ extension ThemePresenter: ThemeViewOutput {
     }
     
     func titleForHeader(in section: Int) -> String {
-        return "Оформление"
+        return "Appearance".localized()
     }
 }
 
