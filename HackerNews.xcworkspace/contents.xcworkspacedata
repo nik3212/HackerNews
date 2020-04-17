@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:/Users/nikitavasilev/Desktop/Applications for iOS/HackerNews/Scripts">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/nikitavasilev/Desktop/Applications for iOS/HackerNews/Templates">
-   </FileRef>
+   <Group
+      location = "group:Sourcery"
+      name = "Sourcery">
+      <Group
+         location = "group:Scripts"
+         name = "Scripts">
+         <FileRef
+            location = "group:SourceryGeneratorWatch.command">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Templates"
+         name = "Templates">
+         <FileRef
+            location = "group:ItemRepresentable.stencil">
+         </FileRef>
+      </Group>
+   </Group>
    <Group
       location = "group:Features"
       name = "Features">

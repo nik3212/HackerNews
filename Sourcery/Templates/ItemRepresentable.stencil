@@ -1,0 +1,18 @@
+{% for type in types.all|annotated:"ItemRepresentable" %}
+// sourcery:inline:auto:{{ type.name }}.ItemRepresentable
+extension {{ type.name }}: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        {% for variable in type.storedVariables %}
+        case {{ variable.name }} = "{{ variable.name }}"
+        {% endfor %}
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        {% for variable in type.storedVariables %}
+        {{ variable.name }} = try container.decode({{ variable.unwrappedTypeName }}.self, forKey: .{{ variable.name }})
+        {% endfor %}
+    }
+}
+// sourcery:end
+{% endfor %}

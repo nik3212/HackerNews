@@ -5,12 +5,11 @@
 //  Created by Никита Васильев on 29/08/2018.
 //  Copyright © 2018 Никита Васильев. All rights reserved.
 //
-
+//
 import Foundation
-import Firebase
 
 // sourcery: ItemRepresentable
-public class Item {
+public struct Item {
     
     // MARK: - Properties
     
@@ -30,7 +29,7 @@ public class Item {
     public var score: Int?
     
     /// true if the item is deleted.
-    public var isDeleted: Bool?
+    public var isDeleted: Bool
     
     /// The type of item. One of "job", "story", "comment", "poll", or "pollopt".
     public var type: [String]?
@@ -42,7 +41,7 @@ public class Item {
     public var text: String?
     
     /// true if the item is dead.
-    public var isDead: Bool?
+    public var isDead: Bool
     
     /// The comment's parent: either another comment or the relevant story.
     public var parent: Int?
@@ -57,37 +56,45 @@ public class Item {
     public var parts: [Int]?
     
     /// In the case of stories or polls, the total comment count.
-    public var descendants: Int?
+    public var descendants: Int?    
+}
     
-    // MARK: - Initialization
-
-    // sourcery:inline:auto:Item.ItemRepresentable
-    public required init?(snapshot: FDataSnapshot) {
-        guard let values = snapshot.value as? [String: AnyObject] else { return nil }
-        by = values["by"] as? String
-        id = values["id"] as? Int
-        url = values["url"] as? String
-        title = values["title"] as? String
-        score = values["score"] as? Int
-        isDeleted = values["isDeleted"] as? Bool
-        type = values["type"] as? [String]
-        time = values["time"] as? Int
-        text = values["text"] as? String
-        isDead = values["isDead"] as? Bool
-        parent = values["parent"] as? Int
-        poll = values["poll"] as? Int
-        kids = values["kids"] as? [Int]
-        parts = values["parts"] as? [Int]
-        descendants = values["descendants"] as? Int
+// sourcery:inline:auto:Item.ItemRepresentable
+extension Item: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case by = "by"
+        case id = "id"
+        case url = "url"
+        case title = "title"
+        case score = "score"
+        case isDeleted = "isDeleted"
+        case type = "type"
+        case time = "time"
+        case text = "text"
+        case isDead = "isDead"
+        case parent = "parent"
+        case poll = "poll"
+        case kids = "kids"
+        case parts = "parts"
+        case descendants = "descendants"
     }
-   // sourcery:end
-
-}
-
-// MARK: - Equatable
-
-extension Item: Equatable {
-    public static func == (lhs: Item, rhs: Item) -> Bool {
-        return lhs.id == rhs.id
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        by = try container.decode(String.self, forKey: .by)
+        id = try container.decode(Int.self, forKey: .id)
+        url = try container.decode(String.self, forKey: .url)
+        title = try container.decode(String.self, forKey: .title)
+        score = try container.decode(Int.self, forKey: .score)
+        isDeleted = try container.decode(Bool.self, forKey: .isDeleted)
+        type = try container.decode([String].self, forKey: .type)
+        time = try container.decode(Int.self, forKey: .time)
+        text = try container.decode(String.self, forKey: .text)
+        isDead = try container.decode(Bool.self, forKey: .isDead)
+        parent = try container.decode(Int.self, forKey: .parent)
+        poll = try container.decode(Int.self, forKey: .poll)
+        kids = try container.decode([Int].self, forKey: .kids)
+        parts = try container.decode([Int].self, forKey: .parts)
+        descendants = try container.decode(Int.self, forKey: .descendants)
     }
 }
+// sourcery:end

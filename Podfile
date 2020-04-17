@@ -20,12 +20,9 @@ def analitics_pod
     pod 'Crashlytics'
 end
 
-def net_pods
-    pod 'Firebase', '2.5.0'
-end
-
 def other_pods
     pod 'SwiftLint'
+    pod 'Sourcery'
 end
 
 def test_pods
@@ -38,7 +35,6 @@ target :HackerNews do
     app_pods
     di_pods
     analitics_pod
-    net_pods
     other_pods
 end
 
@@ -50,12 +46,10 @@ end
 
 target :NetworkManager do
     xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
-    net_pods
 end
 
 target :NetworkManagerTests do
     xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
-    net_pods
 end
 
 post_install do |installer|
