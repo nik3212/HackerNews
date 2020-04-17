@@ -9,24 +9,6 @@
 import UIKit
 
 extension UIImage {
-    enum Asset: String {
-        case appIcon = "AppIcon"
-        case earth = "Earth"
-        case news = "News"
-        case ask = "Ask"
-        case show = "Show"
-        
-        var image: UIImage {
-            return UIImage(asset: self)
-        }
-    }
-    
-    convenience init!(asset: Asset) {
-        self.init(named: asset.rawValue)
-    }
-}
-
-extension UIImage {
     class func imageWithColor(color: UIColor) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1.0, height: 0.5)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)

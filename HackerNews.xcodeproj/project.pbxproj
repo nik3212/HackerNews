@@ -598,6 +598,28 @@
 			path = ListData;
 			sourceTree = "<group>";
 		};
+		5A8BF198244A243C00215883 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6F1BA349F19C9A2E833041AD /* Theme */,
+				5A8BF199244A244300215883 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5A8BF199244A244300215883 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6A8B5540D2AF6417A560F91D /* Assembly */,
+				750568379C9702DD8CEB6CF3 /* Configurator */,
+				B3E1253FC3E95FF62EFE7583 /* Interactor */,
+				E5CFC53F02B307E3C1CE3226 /* Presenter */,
+				33F5257E0620ED9C2F5B0838 /* Router */,
+				C97C569A10F809DFFA9F89E1 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		5A9C966824425E62002AC0F5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -642,7 +664,6 @@
 				5AE2EDC824103C330011A198 /* Main */,
 				2CEA7D26636B60D4D590C779 /* Stories */,
 				C26D41CD92E58E7F27B1529B /* Settings */,
-				6F1BA349F19C9A2E833041AD /* Theme */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -919,12 +940,7 @@
 		C26D41CD92E58E7F27B1529B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				6A8B5540D2AF6417A560F91D /* Assembly */,
-				750568379C9702DD8CEB6CF3 /* Configurator */,
-				B3E1253FC3E95FF62EFE7583 /* Interactor */,
-				E5CFC53F02B307E3C1CE3226 /* Presenter */,
-				33F5257E0620ED9C2F5B0838 /* Router */,
-				C97C569A10F809DFFA9F89E1 /* View */,
+				5A8BF198244A243C00215883 /* Modules */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
