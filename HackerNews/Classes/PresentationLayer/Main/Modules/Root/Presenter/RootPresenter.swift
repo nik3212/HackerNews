@@ -23,6 +23,7 @@ final class RootPresenter {
 // MARK: RootViewOutput
 extension RootPresenter: RootViewOutput {
     func viewIsReady() {
+        view.setupInitialState(theme: themeManager.theme)
         themeManager.addObserver(self)
     }
 }

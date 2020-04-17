@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol RootViewInput: class, ThemeUpdatable { }
+protocol RootViewInput: class, ThemeUpdatable {
+    func setupInitialState(theme: Theme)
+}

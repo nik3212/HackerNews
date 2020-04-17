@@ -18,7 +18,7 @@ class SettingsPresenter {
     weak var view: SettingsViewInput!
     var interactor: SettingsInteractorInput!
     var router: SettingsRouterInput!
-    var themeManager: ThemeManagerProtocol?
+    var themeManager: ThemeManagerProtocol!
     
     // MARK: Private Properties
     private var cells: [SettingsListSections: [SettingsListData]] = [
@@ -29,7 +29,7 @@ class SettingsPresenter {
 // MARK: SettingsViewOutput
 extension SettingsPresenter: SettingsViewOutput {
     func viewIsReady() {
-        view.setupInitialState(title: SettingsConstants.title)
+        view.setupInitialState(title: SettingsConstants.title, theme: themeManager.theme)
         themeManager?.addObserver(self)
     }
     
@@ -64,7 +64,9 @@ extension SettingsPresenter: SettingsViewOutput {
                 router.openURL(url)
             }
         case .rate:
-            break
+            if let url = URL(string: Constants.Links.appstoreURL) {
+                router.openURL(url)
+            }
         }
     }
     
@@ -79,7 +81,7 @@ extension SettingsPresenter: SettingsViewOutput {
         switch model {
         case .themes:
             return SettingsCellModel(icon: model.icon, title: model.title,
-                                     info: themeManager?.theme.rawValue.localized(),
+                                     info: themeManager.theme.rawValue.localized(),
                                      navigatable: model.navigable)
         case .help, .rate:
             return SettingsCellModel(icon: model.icon, title: model.title,

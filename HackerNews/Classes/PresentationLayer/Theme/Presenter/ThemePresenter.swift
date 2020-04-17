@@ -27,7 +27,7 @@ extension ThemePresenter: ThemeViewOutput {
     }
     
     func viewIsReady() {
-        view.setupInitialState(title: "Themes".localized())
+        view.setupInitialState(title: ThemeConstants.title, theme: themeManager.theme)
         themeManager.addObserver(self)
         themes = themeManager.themes.map({ ($0.rawValue.localized(), $0) })
         view.reloadData()
@@ -47,7 +47,7 @@ extension ThemePresenter: ThemeViewOutput {
     }
     
     func titleForHeader(in section: Int) -> String {
-        return "Appearance".localized()
+        return ThemeConstants.appearanceTitle
     }
 }
 
@@ -67,5 +67,13 @@ extension ThemePresenter: ThemeModuleInput {
 extension ThemePresenter: ThemeObserver {
     func themeDidChange(_ theme: Theme) {
         view.update(theme: theme)
+    }
+}
+
+// MARK: Constants
+extension ThemePresenter {
+    private enum ThemeConstants {
+        static let title: String = "Themes".localized()
+        static let appearanceTitle: String = "Appearance".localized()
     }
 }

@@ -15,7 +15,9 @@ final class ThemeViewController: UIViewController {
 
     // MARK: Public Properties
     var output: ThemeViewOutput!
-    var theme: Theme!
+    
+    // MARK: Private Properties
+    private var theme: Theme?
     
     // MARK: Life Cycle
     override func viewDidLoad() {
@@ -23,7 +25,6 @@ final class ThemeViewController: UIViewController {
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
         }
-        update(theme: theme)
         tableView.register(ThemeSelectableTableViewCell.self)
         tableView.tableFooterView = UIView()
         output.viewIsReady()
@@ -32,8 +33,10 @@ final class ThemeViewController: UIViewController {
 
 // MARK: ThemeViewInput
 extension ThemeViewController: ThemeViewInput {
-    func setupInitialState(title: String) {
+    func setupInitialState(title: String, theme: Theme) {
         self.title = title
+        self.theme = theme
+        update(theme: theme)
     }
     
     func reloadData() {
@@ -78,11 +81,22 @@ extension ThemeViewController: UITableViewDataSource {
         let model = output.getModel(for: indexPath)
         cell.title = model.title
         cell.accessoryType = model.isSelected ? .checkmark : .none
-        cell.apply(theme: theme)
+        
+        if let theme = theme {
+            cell.apply(theme: theme)
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return Metric.cellHeight
+    }
+}
+
+// MARK: Constants
+extension ThemeViewController {
+    private enum Metric {
+       static let cellHeight: CGFloat = 48.0
     }
 }

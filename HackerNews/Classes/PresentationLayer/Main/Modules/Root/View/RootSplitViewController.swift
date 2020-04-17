@@ -11,12 +11,12 @@ import UIKit
 class RootSplitViewController: UISplitViewController {
     
     // MARK: Public Properties
-    var theme: Theme!
     var output: RootViewOutput!
     
     // MARK: Private Properties
     private var statusBarStyle: UIStatusBarStyle = .default
-
+    private var theme: Theme?
+    
     // MARK: Override Properties
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return statusBarStyle
@@ -25,17 +25,22 @@ class RootSplitViewController: UISplitViewController {
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        update(theme: theme)
         output.viewIsReady()
     }
 }
 
 // MARK: RootViewInput
-extension RootSplitViewController: RootViewInput { }
+extension RootSplitViewController: RootViewInput {
+    func setupInitialState(theme: Theme) {
+        self.theme = theme
+        update(theme: theme)
+    }
+}
 
 // MARK: ThemeUpdatable
 extension RootSplitViewController: ThemeUpdatable {
     func update(theme: Theme) {
+        self.theme = theme
         theme.view.apply(to: view)
         statusBarStyle = theme.statusBar
         setNeedsStatusBarAppearanceUpdate()

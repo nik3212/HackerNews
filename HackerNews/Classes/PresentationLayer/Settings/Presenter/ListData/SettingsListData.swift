@@ -22,7 +22,7 @@ enum SettingsListSections: Int, CaseIterable {
     }
 }
 
-enum SettingsListData: CaseIterable {
+enum SettingsListData {
     case themes
     case help
     case rate
@@ -54,7 +54,7 @@ enum SettingsListData: CaseIterable {
         case .help:
             return R.image.help()
         case .rate:
-            return nil
+            return R.image.rate()
         }
     }
 }

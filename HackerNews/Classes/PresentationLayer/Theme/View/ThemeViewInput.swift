@@ -7,6 +7,6 @@
 //
 
 protocol ThemeViewInput: class, Presentable, ThemeUpdatable {
-    func setupInitialState(title: String)
+    func setupInitialState(title: String, theme: Theme)
     func reloadData()
 }

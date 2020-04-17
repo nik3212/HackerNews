@@ -37,7 +37,6 @@ final class SettingsModuleAssembly: Assembly {
         container.register(SettingsViewController.self) { resolver in
             let viewController = R.storyboard.settings().instantiateViewController(type: SettingsViewController.self)
             viewController.output = resolver.resolve(SettingsPresenter.self, argument: viewController)
-            viewController.theme = resolver.resolve(ThemeManager.self)?.theme
             return viewController
         }
         

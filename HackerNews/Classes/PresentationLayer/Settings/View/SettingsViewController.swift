@@ -15,7 +15,9 @@ final class SettingsViewController: UIViewController {
     
     // MARK: Public Properties
     var output: SettingsViewOutput!
-    var theme: Theme!
+    
+    // MARK: Private Properties
+    private var theme: Theme?
     
     // MARK: Life Cycle
     override func viewDidLoad() {
@@ -33,15 +35,15 @@ final class SettingsViewController: UIViewController {
         
         tableView.register(SettingsTableViewCell.self)
         tableView.tableFooterView = UIView()
-        
-        update(theme: theme)
     }
 }
 
 // MARK: SettingsViewInput
 extension SettingsViewController: SettingsViewInput {
-    func setupInitialState(title: String) {
+    func setupInitialState(title: String, theme: Theme) {
         self.title = title
+        self.theme = theme
+        update(theme: theme)
     }
 }
 
@@ -72,7 +74,10 @@ extension SettingsViewController: UITableViewDataSource {
         
         let cell: SettingsTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.setup(model: model)
-        cell.apply(theme: theme)
+        
+        if let theme = theme {
+            cell.apply(theme: theme)
+        }
         
         return cell
     }
@@ -83,8 +88,8 @@ extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView, let textLabel = headerView.textLabel {
-            theme.tableViewHeader.apply(to: headerView)
-            theme.baseTableViewHeaderTitle.apply(to: textLabel)
+            theme?.tableViewHeader.apply(to: headerView)
+            theme?.baseTableViewHeaderTitle.apply(to: textLabel)
         }
     }
 }

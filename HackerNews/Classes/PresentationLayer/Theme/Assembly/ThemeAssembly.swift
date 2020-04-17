@@ -36,7 +36,6 @@ final class ThemeModuleAssembly: Assembly {
         container.register(ThemeViewController.self) { resolver in
             let viewController = R.storyboard.theme().instantiateViewController(type: ThemeViewController.self)
             viewController.output = resolver.resolve(ThemeModuleInput.self, argument: viewController) as? ThemePresenter
-            viewController.theme = resolver.resolve(ThemeManager.self)?.theme
             return viewController
         }
     }
