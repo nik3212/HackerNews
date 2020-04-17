@@ -53,6 +53,7 @@
 		5A8BF1772449D79600215883 /* RootViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF1762449D79600215883 /* RootViewInput.swift */; };
 		5A8BF1792449D7A500215883 /* RootViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF1782449D7A500215883 /* RootViewOutput.swift */; };
 		5A8BF17C2449D7BF00215883 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF17B2449D7BF00215883 /* RootPresenter.swift */; };
+		5A8BF1902449F00E00215883 /* SettingsListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF18F2449F00E00215883 /* SettingsListData.swift */; };
 		5A94A2E92439383D00918198 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A94A2E82439383D00918198 /* Constants.swift */; };
 		5A9C965224425B4A002AC0F5 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A9C963E24425B2F002AC0F5 /* Poppins-Bold.ttf */; };
 		5A9C965424425B4A002AC0F5 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A9C964324425B30002AC0F5 /* Poppins-ExtraBold.ttf */; };
@@ -206,6 +207,8 @@
 		5A8BF1762449D79600215883 /* RootViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewInput.swift; sourceTree = "<group>"; };
 		5A8BF1782449D7A500215883 /* RootViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewOutput.swift; sourceTree = "<group>"; };
 		5A8BF17B2449D7BF00215883 /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
+		5A8BF18F2449F00E00215883 /* SettingsListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListData.swift; sourceTree = "<group>"; };
+		5A8BF194244A111000215883 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A94A2E82439383D00918198 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5A9C963E24425B2F002AC0F5 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		5A9C963F24425B2F002AC0F5 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
@@ -585,6 +588,14 @@
 				5A8BF17B2449D7BF00215883 /* RootPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5A8BF18C2449EFAF00215883 /* ListData */ = {
+			isa = PBXGroup;
+			children = (
+				5A8BF18F2449F00E00215883 /* SettingsListData.swift */,
+			);
+			path = ListData;
 			sourceTree = "<group>";
 		};
 		5A9C966824425E62002AC0F5 /* Fonts */ = {
@@ -1118,6 +1129,7 @@
 		E5CFC53F02B307E3C1CE3226 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				5A8BF18C2449EFAF00215883 /* ListData */,
 				DBD6806965BB5158014D0AAB /* SettingsPresenter.swift */,
 			);
 			path = Presenter;
@@ -1486,6 +1498,7 @@
 				5A8BF16E2449AC3F00215883 /* String+Localized.swift in Sources */,
 				D072052F2130A15200E4B1ED /* UITableViewCell+.swift in Sources */,
 				5A94A2E92439383D00918198 /* Constants.swift in Sources */,
+				5A8BF1902449F00E00215883 /* SettingsListData.swift in Sources */,
 				5A7347E5242E9549005B394F /* SettingsTableViewCell.swift in Sources */,
 				5AE2EDD724103F1D0011A198 /* MainTabBarAssembly.swift in Sources */,
 				5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */,
@@ -1600,6 +1613,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5A8BF16B2449ABBD00215883 /* ru */,
+				5A8BF194244A111000215883 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

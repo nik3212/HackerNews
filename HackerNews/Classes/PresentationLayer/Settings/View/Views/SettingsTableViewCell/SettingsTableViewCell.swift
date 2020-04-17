@@ -18,14 +18,8 @@ struct SettingsCellModel {
     /// A `String` value that contains the right text.
     let info: String?
     
-    /// A `Type` value that contains the cell type.
-    let type: CellType
-}
-
-extension SettingsCellModel {
-    enum CellType {
-        case themes
-    }
+    /// A `Bool` value that contains the state of visible disclosure indicator.
+    let navigatable: Bool
 }
 
 final class SettingsTableViewCell: UITableViewCell {
@@ -55,6 +49,7 @@ final class SettingsTableViewCell: UITableViewCell {
         iconView.image = model.icon
         titleLabel.text = model.title
         infoLabel.text = model.info
+        accessoryType = model.navigatable ? .disclosureIndicator : .none
     }
     
     /// Apply theme to cell.

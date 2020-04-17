@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class SettingsRouter {
     // MARK: Public Properties
@@ -20,5 +20,9 @@ extension SettingsRouter: SettingsRouterInput {
         transitionHandler?.openModule({ viewController in
             self.themeConfigurator?.configure()?.present(from: viewController)
         })
+    }
+    
+    func openURL(_ url: URL) {
+        UIApplication.shared.open(url)
     }
 }

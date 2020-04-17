@@ -12,7 +12,7 @@ protocol SettingsViewOutput: class {
     func viewIsReady()
     func getNumberOfRows(in section: Int) -> Int
     func getNumberOfSections() -> Int
-    func getTitleForHeader(in section: Int) -> String
+    func getTitleForHeader(in section: Int) -> String?
     func didSelectRow(at indexPath: IndexPath)
-    func getModel(for indexPath: IndexPath) -> SettingsCellModel
+    func getModel(for indexPath: IndexPath) -> SettingsCellModel?
 }

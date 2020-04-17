@@ -1,2 +1,9 @@
-"Li" = "Light";
-"dark" = "Dark";
+"settings.themes.header" = "Themes";
+
+"settings.help.header" = "Help";
+
+"settings.themes.title" = "Themes";
+
+"settings.help.title" = "Help";
+
+"settings.help.rate" = "Rate Us";

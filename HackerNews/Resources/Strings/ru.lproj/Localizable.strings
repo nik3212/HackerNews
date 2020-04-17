@@ -11,3 +11,13 @@
 "News" = "Новости";
 
 "Appearance" = "Оформление";
+
+"settings.themes.header" = "Темы";
+
+"settings.help.header" = "Помощь";
+
+"settings.themes.title" = "Темы";
+
+"settings.help.title" = "Помощь";
+
+"settings.help.rate" = "Оценить приложение";

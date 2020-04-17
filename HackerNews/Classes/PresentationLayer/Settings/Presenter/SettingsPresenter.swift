@@ -9,6 +9,11 @@
 import UIKit
 
 class SettingsPresenter {
+    
+    private enum SettingsConstants {
+        static let title: String = "Settings".localized()
+    }
+    
     // MARK: Public Properties
     weak var view: SettingsViewInput!
     var interactor: SettingsInteractorInput!
@@ -16,46 +21,70 @@ class SettingsPresenter {
     var themeManager: ThemeManagerProtocol?
     
     // MARK: Private Properties
-    private var cells: [[SettingsCellModel]] {
-        return [ [SettingsCellModel(icon: R.image.themeIcon(), title: "Theme".localized(),
-                                    info: themeManager?.theme.rawValue.localized(), type: .themes)] ]
-    }
-    
-    enum Section: String {
-        case theme = "Theme"
-    }
+    private var cells: [SettingsListSections: [SettingsListData]] = [
+        .themes: [.themes], .help: [.help, .rate]
+    ]
 }
 
 // MARK: SettingsViewOutput
 extension SettingsPresenter: SettingsViewOutput {
     func viewIsReady() {
-        view.setupInitialState(title: "Settings".localized())
+        view.setupInitialState(title: SettingsConstants.title)
         themeManager?.addObserver(self)
     }
     
     func getNumberOfRows(in section: Int) -> Int {
-        return cells[section].count
+        if let tableSection = SettingsListSections(rawValue: section), let data = cells[tableSection] {
+            return data.count
+        }
+        return 0
     }
     
     func getNumberOfSections() -> Int {
-        return cells.count
+        return SettingsListSections.allCases.count
     }
     
-    func getTitleForHeader(in section: Int) -> String {
-        return Section.theme.rawValue.localized()
+    func getTitleForHeader(in section: Int) -> String? {
+        return SettingsListSections(rawValue: section)?.title
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        let cell = cells[indexPath.section][indexPath.row]
+        guard let section = SettingsListSections(rawValue: indexPath.section),
+            let cellsData = cells[section] else {
+            return
+        }
         
-        switch cell.type {
+        let cell = cellsData[indexPath.row]
+        
+        switch cell {
         case .themes:
             router.showThemeModule()
+        case .help:
+            if let url = URL(string: Constants.Links.feedbackURL) {
+                router.openURL(url)
+            }
+        case .rate:
+            break
         }
     }
     
-    func getModel(for indexPath: IndexPath) -> SettingsCellModel {
-        return cells[indexPath.section][indexPath.row]
+    func getModel(for indexPath: IndexPath) -> SettingsCellModel? {
+        guard let section = SettingsListSections(rawValue: indexPath.section),
+            let data = cells[section] else {
+            return nil
+        }
+        
+        let model = data[indexPath.row]
+        
+        switch model {
+        case .themes:
+            return SettingsCellModel(icon: model.icon, title: model.title,
+                                     info: themeManager?.theme.rawValue.localized(),
+                                     navigatable: model.navigable)
+        case .help, .rate:
+            return SettingsCellModel(icon: model.icon, title: model.title,
+                                     info: nil, navigatable: model.navigable)
+        }
     }
 }
 
@@ -64,6 +93,7 @@ extension SettingsPresenter: SettingsInteractorOutput {
 
 }
 
+// MARK: ThemeObserver
 extension SettingsPresenter: ThemeObserver {
     func themeDidChange(_ theme: Theme) {
         view.update(theme: theme)

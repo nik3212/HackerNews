@@ -68,10 +68,12 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let model = output.getModel(for: indexPath) else { return UITableViewCell() }
+        
         let cell: SettingsTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        let model = output.getModel(for: indexPath)
         cell.setup(model: model)
         cell.apply(theme: theme)
+        
         return cell
     }
     

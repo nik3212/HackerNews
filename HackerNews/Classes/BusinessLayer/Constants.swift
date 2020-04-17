@@ -12,4 +12,8 @@ struct Constants {
     struct Settings {
         static let theme: String = "Theme"
     }
+    
+    struct Links {
+        static let feedbackURL: String = "https://www.github.com/nik3212/HackerNews"
+    }
 }

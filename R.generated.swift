@@ -301,7 +301,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 8 images.
+  /// This `R.image` struct is generated, and contains static references to 9 images.
   struct image {
     /// Image `Ask`.
     static let ask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Ask")
@@ -309,6 +309,8 @@ struct R: Rswift.Validatable {
     static let comments = Rswift.ImageResource(bundle: R.hostingBundle, name: "Comments")
     /// Image `Earth`.
     static let earth = Rswift.ImageResource(bundle: R.hostingBundle, name: "Earth")
+    /// Image `Help`.
+    static let help = Rswift.ImageResource(bundle: R.hostingBundle, name: "Help")
     /// Image `LanuchScreenIcon`.
     static let lanuchScreenIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "LanuchScreenIcon")
     /// Image `News`.
@@ -338,6 +340,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Earth", bundle: ..., traitCollection: ...)`
     static func earth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.earth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Help", bundle: ..., traitCollection: ...)`
+    static func help(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.help, compatibleWith: traitCollection)
     }
     #endif
 
@@ -450,140 +459,102 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
     struct localizable {
-      /// ru translation: Настройки
+      /// en translation: Help
       ///
-      /// Locales: ru
-      static let settings = Rswift.StringResource(key: "Settings", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Новости
+      /// Locales: ru, en
+      static let settingsHelpHeader = Rswift.StringResource(key: "settings.help.header", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      /// en translation: Help
       ///
-      /// Locales: ru
-      static let news = Rswift.StringResource(key: "News", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Оформление
+      /// Locales: ru, en
+      static let settingsHelpTitle = Rswift.StringResource(key: "settings.help.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      /// en translation: Rate Us
       ///
-      /// Locales: ru
-      static let appearance = Rswift.StringResource(key: "Appearance", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Светлая
+      /// Locales: ru, en
+      static let settingsHelpRate = Rswift.StringResource(key: "settings.help.rate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      /// en translation: Themes
       ///
-      /// Locales: ru
-      static let light = Rswift.StringResource(key: "Light", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Тема
+      /// Locales: ru, en
+      static let settingsThemesHeader = Rswift.StringResource(key: "settings.themes.header", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      /// en translation: Themes
       ///
-      /// Locales: ru
-      static let theme = Rswift.StringResource(key: "Theme", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Темная
-      ///
-      /// Locales: ru
-      static let dark = Rswift.StringResource(key: "Dark", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Темы
-      ///
-      /// Locales: ru
-      static let themes = Rswift.StringResource(key: "Themes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// Locales: ru, en
+      static let settingsThemesTitle = Rswift.StringResource(key: "settings.themes.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
 
-      /// ru translation: Настройки
+      /// en translation: Help
       ///
-      /// Locales: ru
-      static func settings(preferredLanguages: [String]? = nil) -> String {
+      /// Locales: ru, en
+      static func settingsHelpHeader(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Settings", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("settings.help.header", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "Settings"
+          return "settings.help.header"
         }
 
-        return NSLocalizedString("Settings", bundle: bundle, comment: "")
+        return NSLocalizedString("settings.help.header", bundle: bundle, comment: "")
       }
 
-      /// ru translation: Новости
+      /// en translation: Help
       ///
-      /// Locales: ru
-      static func news(preferredLanguages: [String]? = nil) -> String {
+      /// Locales: ru, en
+      static func settingsHelpTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("News", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("settings.help.title", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "News"
+          return "settings.help.title"
         }
 
-        return NSLocalizedString("News", bundle: bundle, comment: "")
+        return NSLocalizedString("settings.help.title", bundle: bundle, comment: "")
       }
 
-      /// ru translation: Оформление
+      /// en translation: Rate Us
       ///
-      /// Locales: ru
-      static func appearance(preferredLanguages: [String]? = nil) -> String {
+      /// Locales: ru, en
+      static func settingsHelpRate(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Appearance", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("settings.help.rate", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "Appearance"
+          return "settings.help.rate"
         }
 
-        return NSLocalizedString("Appearance", bundle: bundle, comment: "")
+        return NSLocalizedString("settings.help.rate", bundle: bundle, comment: "")
       }
 
-      /// ru translation: Светлая
+      /// en translation: Themes
       ///
-      /// Locales: ru
-      static func light(preferredLanguages: [String]? = nil) -> String {
+      /// Locales: ru, en
+      static func settingsThemesHeader(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Light", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("settings.themes.header", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "Light"
+          return "settings.themes.header"
         }
 
-        return NSLocalizedString("Light", bundle: bundle, comment: "")
+        return NSLocalizedString("settings.themes.header", bundle: bundle, comment: "")
       }
 
-      /// ru translation: Тема
+      /// en translation: Themes
       ///
-      /// Locales: ru
-      static func theme(preferredLanguages: [String]? = nil) -> String {
+      /// Locales: ru, en
+      static func settingsThemesTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Theme", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("settings.themes.title", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "Theme"
+          return "settings.themes.title"
         }
 
-        return NSLocalizedString("Theme", bundle: bundle, comment: "")
-      }
-
-      /// ru translation: Темная
-      ///
-      /// Locales: ru
-      static func dark(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Dark", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "Dark"
-        }
-
-        return NSLocalizedString("Dark", bundle: bundle, comment: "")
-      }
-
-      /// ru translation: Темы
-      ///
-      /// Locales: ru
-      static func themes(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Themes", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "Themes"
-        }
-
-        return NSLocalizedString("Themes", bundle: bundle, comment: "")
+        return NSLocalizedString("settings.themes.title", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
