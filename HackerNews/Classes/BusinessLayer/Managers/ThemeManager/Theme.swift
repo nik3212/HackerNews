@@ -64,6 +64,15 @@ extension Theme {
         }
     }
     
+    var infoSettingsTitle: Style<UILabel> {
+        switch self {
+        case .dark:
+            return Stylesheet.Label.infoSettingsText
+        case .light:
+            return Stylesheet.Label.infoSettingsText
+        }
+    }
+    
     var tableView: Style<UITableView> {
         switch self {
         case .dark:
@@ -79,6 +88,19 @@ extension Theme {
             return Stylesheet.View.dark
         case .light:
             return Stylesheet.View.light
+        }
+    }
+    
+    var statusBar: UIStatusBarStyle {
+        switch self {
+        case .dark:
+            return .lightContent
+        case .light:
+            if #available(iOS 13.0, *) {
+                return .darkContent
+            } else {
+                return .default
+            }
         }
     }
 }

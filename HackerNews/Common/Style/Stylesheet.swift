@@ -21,8 +21,8 @@ struct Stylesheet {
         }
         
         private static let white: Style<UINavigationBar> = Style {
-            $0.barTintColor = Colors.lightGray
-            $0.backgroundColor = Colors.lightGray
+            $0.barTintColor = Colors.warmGray
+            $0.backgroundColor = Colors.warmGray
         }
         
         private static let whiteText: Style<UINavigationBar> = Style {
@@ -116,8 +116,13 @@ struct Stylesheet {
             $0.textColor = Colors.darkGray
         }
         
+        private static let gray: Style<UILabel> = Style {
+            $0.textColor = Colors.gray
+        }
+        
         static let lightSettingsBaseText = Style.compose(text1, darkGray)
         static let darkSettingsBaseText = Style.compose(text1, white)
+        static let infoSettingsText = Style.compose(text1, gray)
     }
     
     enum View {

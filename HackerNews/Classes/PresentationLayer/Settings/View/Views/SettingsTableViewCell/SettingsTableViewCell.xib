@@ -9,37 +9,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsTableViewCell" rowHeight="128" id="ja8-7w-sed" customClass="SettingsTableViewCell" customModule="HackerNews" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsTableViewCell" rowHeight="128" id="ja8-7w-sed" customClass="SettingsTableViewCell" customModule="HackerNews" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="463" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ja8-7w-sed" id="pta-GZ-uDF">
-                <rect key="frame" x="0.0" y="0.0" width="463" height="90"/>
+                <rect key="frame" x="0.0" y="0.0" width="432" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6bm-9S-0jW">
-                        <rect key="frame" x="22" y="34" width="22" height="22"/>
+                        <rect key="frame" x="20" y="34" width="22" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="IXo-Qg-o6F"/>
                             <constraint firstAttribute="width" constant="22" id="rz8-bC-OLn"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx6-nR-E96">
-                        <rect key="frame" x="64" y="35" width="42" height="20"/>
+                        <rect key="frame" x="57" y="35" width="42" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91d-j8-Pte">
+                        <rect key="frame" x="375" y="34.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="91d-j8-Pte" secondAttribute="trailing" constant="15" id="3jo-yj-OOv"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cx6-nR-E96" secondAttribute="trailing" constant="20" id="PKR-Pk-lTJ"/>
                     <constraint firstItem="Cx6-nR-E96" firstAttribute="centerY" secondItem="pta-GZ-uDF" secondAttribute="centerY" id="SAT-1j-4rc"/>
-                    <constraint firstItem="Cx6-nR-E96" firstAttribute="leading" secondItem="6bm-9S-0jW" secondAttribute="trailing" constant="20" id="ZwD-BQ-O1t"/>
-                    <constraint firstItem="6bm-9S-0jW" firstAttribute="leading" secondItem="pta-GZ-uDF" secondAttribute="leading" constant="22" id="rH6-bV-fsj"/>
+                    <constraint firstItem="Cx6-nR-E96" firstAttribute="leading" secondItem="6bm-9S-0jW" secondAttribute="trailing" constant="15" id="ZwD-BQ-O1t"/>
+                    <constraint firstItem="91d-j8-Pte" firstAttribute="centerY" secondItem="pta-GZ-uDF" secondAttribute="centerY" id="hPy-0X-eFA"/>
+                    <constraint firstItem="6bm-9S-0jW" firstAttribute="leading" secondItem="pta-GZ-uDF" secondAttribute="leading" constant="20" id="rH6-bV-fsj"/>
                     <constraint firstItem="6bm-9S-0jW" firstAttribute="centerY" secondItem="pta-GZ-uDF" secondAttribute="centerY" id="y2q-Ft-LuV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="iconView" destination="6bm-9S-0jW" id="WGR-HJ-TQO"/>
+                <outlet property="infoLabel" destination="91d-j8-Pte" id="iXK-P1-m3D"/>
                 <outlet property="titleLabel" destination="Cx6-nR-E96" id="nYp-yT-IdT"/>
             </connections>
             <point key="canvasLocation" x="148.55072463768118" y="97.433035714285708"/>

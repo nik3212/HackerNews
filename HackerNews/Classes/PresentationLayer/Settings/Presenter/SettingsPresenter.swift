@@ -13,11 +13,13 @@ class SettingsPresenter {
     weak var view: SettingsViewInput!
     var interactor: SettingsInteractorInput!
     var router: SettingsRouterInput!
+    var themeManager: ThemeManagerProtocol?
     
     // MARK: Private Properties
-    private var cells: [[SettingsCellModel]] = [
-        [SettingsCellModel(icon: R.image.themeIcon(), title: "Theme", type: .themes)]
-    ]
+    private var cells: [[SettingsCellModel]] {
+        return [ [SettingsCellModel(icon: R.image.themeIcon(), title: "Theme".localized(),
+                                    info: themeManager?.theme.rawValue.localized(), type: .themes)] ]
+    }
     
     enum Section: String {
         case theme = "Theme"
@@ -27,7 +29,8 @@ class SettingsPresenter {
 // MARK: SettingsViewOutput
 extension SettingsPresenter: SettingsViewOutput {
     func viewIsReady() {
-        view.setupInitialState()
+        view.setupInitialState(title: "Settings".localized())
+        themeManager?.addObserver(self)
     }
     
     func getNumberOfRows(in section: Int) -> Int {
@@ -39,7 +42,7 @@ extension SettingsPresenter: SettingsViewOutput {
     }
     
     func getTitleForHeader(in section: Int) -> String {
-        return Section.theme.rawValue
+        return Section.theme.rawValue.localized()
     }
     
     func didSelectRow(at indexPath: IndexPath) {
@@ -59,4 +62,10 @@ extension SettingsPresenter: SettingsViewOutput {
 // MARK: SettingsInteractorOutput
 extension SettingsPresenter: SettingsInteractorOutput {
 
+}
+
+extension SettingsPresenter: ThemeObserver {
+    func themeDidChange(_ theme: Theme) {
+        view.update(theme: theme)
+    }
 }

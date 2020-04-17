@@ -9,6 +9,10 @@
 import UIKit
 
 extension UINavigationController {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return ThemeManager.shared.theme.statusBar
+    }
+    
     func configureDefaultNavigationBar() {
 //        navigationBar.setBackgroundImage(UIImage.imageWithColor(color: .white), for: .default)
 //        navigationBar.shadowImage = UIImage.imageWithColor(color: .white)

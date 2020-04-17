@@ -6,6 +6,6 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
-protocol SettingsViewInput: class, Presentable {
-    func setupInitialState()
+protocol SettingsViewInput: class, Presentable, ThemeUpdatable {
+    func setupInitialState(title: String)
 }

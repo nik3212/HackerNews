@@ -10,10 +10,13 @@ import Swinject
 
 final class RootModuleAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(UISplitViewController.self) { (_, firstVC: MainTabBarViewController, secondVC: UIViewController) in
-            let splitViewController = UISplitViewController()
+        container.register(RootSplitViewController.self) { (resolver, firstVC: MainTabBarViewController, secondVC: UIViewController) in
+            let splitViewController = RootSplitViewController()
+            splitViewController.theme = resolver.resolve(ThemeManager.self)?.theme
+            splitViewController.output = resolver.resolve(RootPresenter.self, argument: splitViewController)
+            
             let navigationSecondViewController = UINavigationController(rootViewController: secondVC)
-    
+            
             splitViewController.viewControllers = [firstVC, navigationSecondViewController]
             splitViewController.preferredPrimaryColumnWidthFraction = 1 / 3
             splitViewController.preferredDisplayMode = .primaryOverlay
@@ -24,6 +27,12 @@ final class RootModuleAssembly: Assembly {
         container.register(MainTabBarConfigurator.self) { resolver in
             let parentAssembler = resolver.resolve(RootConfigurator.self)?.assembler
             return MainTabBarConfigurator(parentAssembler: parentAssembler.unwrap())
+        }
+        
+        container.register(RootPresenter.self) { (resolver, viewController: RootSplitViewController) in
+            let themeManager = resolver.resolve(ThemeManager.self).unwrap()
+            let presenter = RootPresenter(view: viewController, themeManager: themeManager)
+            return presenter
         }
     }
 }

@@ -40,12 +40,7 @@ extension SettingsConfigurator: TabBarViewProtocol {
         
         viewController.tabBarItem = item
         viewController.title = item.title
-        
-        let navigation = UINavigationController(rootViewController: viewController)
-        //navigation.configureDefaultNavigationBar()
-    
-        //ThemeManager.shared.theme.navigationBar.apply(to: navigation.navigationBar)
-        
-        return navigation
+
+        return UINavigationController(rootViewController: viewController)
     }
 }

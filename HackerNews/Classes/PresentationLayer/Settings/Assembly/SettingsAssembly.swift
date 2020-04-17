@@ -29,13 +29,15 @@ final class SettingsModuleAssembly: Assembly {
             presenter.view = viewController
             presenter.interactor = resolver.resolve(SettingsInteractor.self, argument: presenter)
             presenter.router = resolver.resolve(SettingsRouter.self, argument: viewController)
-
+            presenter.themeManager = resolver.resolve(ThemeManager.self)
+            
             return presenter
         }
 
         container.register(SettingsViewController.self) { resolver in
             let viewController = R.storyboard.settings().instantiateViewController(type: SettingsViewController.self)
             viewController.output = resolver.resolve(SettingsPresenter.self, argument: viewController)
+            viewController.theme = resolver.resolve(ThemeManager.self)?.theme
             return viewController
         }
         

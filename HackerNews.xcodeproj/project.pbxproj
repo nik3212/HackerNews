@@ -49,6 +49,10 @@
 		5A7347EB242EA926005B394F /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7347EA242EA926005B394F /* SettingsManager.swift */; };
 		5A8BF1682449ABAB00215883 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A8BF16A2449ABAB00215883 /* Localizable.strings */; };
 		5A8BF16E2449AC3F00215883 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF16D2449AC3F00215883 /* String+Localized.swift */; };
+		5A8BF1752449D78900215883 /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF1742449D78900215883 /* RootSplitViewController.swift */; };
+		5A8BF1772449D79600215883 /* RootViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF1762449D79600215883 /* RootViewInput.swift */; };
+		5A8BF1792449D7A500215883 /* RootViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF1782449D7A500215883 /* RootViewOutput.swift */; };
+		5A8BF17C2449D7BF00215883 /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF17B2449D7BF00215883 /* RootPresenter.swift */; };
 		5A94A2E92439383D00918198 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A94A2E82439383D00918198 /* Constants.swift */; };
 		5A9C965224425B4A002AC0F5 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A9C963E24425B2F002AC0F5 /* Poppins-Bold.ttf */; };
 		5A9C965424425B4A002AC0F5 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A9C964324425B30002AC0F5 /* Poppins-ExtraBold.ttf */; };
@@ -198,6 +202,10 @@
 		5A8BF1652449AB5600215883 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		5A8BF16B2449ABBD00215883 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A8BF16D2449AC3F00215883 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		5A8BF1742449D78900215883 /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
+		5A8BF1762449D79600215883 /* RootViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewInput.swift; sourceTree = "<group>"; };
+		5A8BF1782449D7A500215883 /* RootViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewOutput.swift; sourceTree = "<group>"; };
+		5A8BF17B2449D7BF00215883 /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		5A94A2E82439383D00918198 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5A9C963E24425B2F002AC0F5 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		5A9C963F24425B2F002AC0F5 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
@@ -561,6 +569,24 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		5A8BF1732449D77A00215883 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A8BF1742449D78900215883 /* RootSplitViewController.swift */,
+				5A8BF1762449D79600215883 /* RootViewInput.swift */,
+				5A8BF1782449D7A500215883 /* RootViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5A8BF17A2449D7B700215883 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5A8BF17B2449D7BF00215883 /* RootPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		5A9C966824425E62002AC0F5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +665,8 @@
 		5AE2EDCA24103C400011A198 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				5A8BF17A2449D7B700215883 /* Presenter */,
+				5A8BF1732449D77A00215883 /* View */,
 				5AE2EDCE24103CCC0011A198 /* Configurator */,
 				5AE2EDCB24103C520011A198 /* Assembly */,
 			);
@@ -1480,10 +1508,12 @@
 				FAEE86FF44686D0C9C73A091 /* StoriesInteractor.swift in Sources */,
 				5A9C966D2442608E002AC0F5 /* Colors.swift in Sources */,
 				A2973A58E5B273EFDDA3199A /* StoriesRouterInput.swift in Sources */,
+				5A8BF1792449D7A500215883 /* RootViewOutput.swift in Sources */,
 				2C5287CA0F51E7CC0998F056 /* StoriesRouter.swift in Sources */,
 				C72C67A3801D1099E2E78982 /* StoriesAssembly.swift in Sources */,
 				5AE2EDE0241045D60011A198 /* Presentable.swift in Sources */,
 				37B144B44710E04D53D38B1F /* SettingsViewInput.swift in Sources */,
+				5A8BF1752449D78900215883 /* RootSplitViewController.swift in Sources */,
 				5ACB43DF244886E30010465B /* MainTabBarViewOutput.swift in Sources */,
 				5D7937310DC67C2D0A5D7B26 /* SettingsViewOutput.swift in Sources */,
 				841F0F20A6C107848D230D68 /* SettingsViewController.swift in Sources */,
@@ -1498,10 +1528,12 @@
 				74A73D457753C052AE5B8A6F /* SettingsRouter.swift in Sources */,
 				80A064256ECA8ACEA6CAB352 /* SettingsAssembly.swift in Sources */,
 				5A9C966524425D07002AC0F5 /* Fonts.swift in Sources */,
+				5A8BF17C2449D7BF00215883 /* RootPresenter.swift in Sources */,
 				F82094BAB4970E016398315E /* SettingsConfigurator.swift in Sources */,
 				8AA0F3452ED1C28896F8CDA8 /* ThemeViewInput.swift in Sources */,
 				E4D5B4ABDCD0124D7352915F /* ThemeViewOutput.swift in Sources */,
 				7C9258D74C6FC05A982ECDAE /* ThemeViewController.swift in Sources */,
+				5A8BF1772449D79600215883 /* RootViewInput.swift in Sources */,
 				7618E63336284456181FC902 /* ThemePresenter.swift in Sources */,
 				2B5AC3B732D57493E958B015 /* ThemeInteractorInput.swift in Sources */,
 				AA1B09AF7685666005E3B301 /* ThemeInteractorOutput.swift in Sources */,

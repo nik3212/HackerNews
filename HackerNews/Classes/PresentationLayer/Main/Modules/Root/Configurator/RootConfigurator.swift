@@ -24,7 +24,7 @@ final class RootConfigurator {
         let mainTabBarController = MainTabBarConfigurator(parentAssembler: assembler).configure()
         let secondViewController = UIViewController()
         
-        if let viewController = assembler.resolver.resolve(UISplitViewController.self, arguments: mainTabBarController, secondViewController) {
+        if let viewController = assembler.resolver.resolve(RootSplitViewController.self, arguments: mainTabBarController, secondViewController) {
             window.rootViewController = viewController
             window.makeKeyAndVisible()
         }

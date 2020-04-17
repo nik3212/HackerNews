@@ -35,7 +35,7 @@ final class ThemeSelectableTableViewCell: UITableViewCell {
     
     /// Apply theme to cell.
     ///
-    /// - Parameter theme: <#theme description#>
+    /// - Parameter theme: A `Theme` value that contains the current application theme.
     func apply(theme: Theme) {
         theme.cell.apply(to: self)
         theme.baseSettingsTitle.apply(to: titleLabel)
