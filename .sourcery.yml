@@ -1,5 +1,5 @@
 sources:
     - Features/NetworkManager/NetworkManager/Models
 templates:
-    - Templates/
+    - Sourcery/Templates
 output: Features/NetworkManager/NetworkManager/Models
