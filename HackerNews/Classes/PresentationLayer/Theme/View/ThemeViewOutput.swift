@@ -13,6 +13,6 @@ protocol ThemeViewOutput: class {
     func didSelectRow(at indexPath: IndexPath)
     func numberOfRows(in section: Int) -> Int
     func numberOfSections() -> Int
-    func getModel(for indexPath: IndexPath) -> String
+    func getModel(for indexPath: IndexPath) -> (title: String, isSelected: Bool)
     func titleForHeader(in section: Int) -> String
 }

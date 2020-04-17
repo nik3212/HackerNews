@@ -540,6 +540,13 @@
 			path = Colors;
 			sourceTree = "<group>";
 		};
+		5A8BF1632449AAAE00215883 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		5A9C966824425E62002AC0F5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1010,6 +1017,7 @@
 		D07205322130A21500E4B1ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A8BF1632449AAAE00215883 /* Strings */,
 				3860B556219F2DD800D2CC03 /* Keys */,
 				D07205392130ABA400E4B1ED /* Fonts */,
 				D07204FA21309FC900E4B1ED /* Assets.xcassets */,

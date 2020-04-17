@@ -41,8 +41,9 @@ extension ThemePresenter: ThemeViewOutput {
         return 1
     }
     
-    func getModel(for indexPath: IndexPath) -> String {
-        return themes[indexPath.row].title
+    func getModel(for indexPath: IndexPath) -> (title: String, isSelected: Bool) {
+        let isSelected = themeManager.theme == themes[indexPath.row].theme
+        return (title: themes[indexPath.row].title, isSelected: isSelected)
     }
     
     func titleForHeader(in section: Int) -> String {

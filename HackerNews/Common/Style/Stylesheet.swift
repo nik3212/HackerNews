@@ -134,11 +134,13 @@ struct Stylesheet {
         static let light: Style<UITableViewCell> = Style {
             $0.selectedBackgroundView?.backgroundColor = .lightGray
             $0.backgroundColor = Colors.white
+            $0.tintColor = Colors.lightOrange
         }
         
         static let dark: Style<UITableViewCell> = Style {
             $0.selectedBackgroundView?.backgroundColor = .darkGray
             $0.backgroundColor = Colors.darkGray
+            $0.tintColor = Colors.darkOrange
         }
     }
     

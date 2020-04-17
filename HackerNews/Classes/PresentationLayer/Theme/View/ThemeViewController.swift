@@ -53,6 +53,10 @@ extension ThemeViewController: UITableViewDelegate {
         output.didSelectRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -72,7 +76,8 @@ extension ThemeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ThemeSelectableTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         let model = output.getModel(for: indexPath)
-        cell.title = model
+        cell.title = model.title
+        cell.accessoryType = model.isSelected ? .checkmark : .none
         cell.apply(theme: theme)
         return cell
     }
