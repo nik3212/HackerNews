@@ -123,6 +123,8 @@ struct Stylesheet {
         static let lightSettingsBaseText = Style.compose(text1, darkGray)
         static let darkSettingsBaseText = Style.compose(text1, white)
         static let infoSettingsText = Style.compose(text1, gray)
+        static let darkTableViewHeaderText = Style.compose(white)
+        static let lightTableViewHeaderText = Style.compose(darkGray)
     }
     
     enum View {
@@ -189,5 +191,15 @@ struct Stylesheet {
         
         static let light = Style<UITableView>.compose(base, lightBackground, lightSeparator)
         static let dark = Style<UITableView>.compose(base, darkBackground, darkSeparator)
+    }
+    
+    enum tableViewHeader {
+        static let light: Style<UITableViewHeaderFooterView> = Style {
+            $0.contentView.backgroundColor = Colors.greyish
+        }
+        
+        static let dark: Style<UITableViewHeaderFooterView> = Style {
+            $0.contentView.backgroundColor = Colors.greyishBrown
+        }
     }
 }

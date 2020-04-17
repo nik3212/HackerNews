@@ -73,6 +73,15 @@ extension Theme {
         }
     }
     
+    var baseTableViewHeaderTitle: Style<UILabel> {
+        switch self {
+        case .dark:
+            return Stylesheet.Label.darkTableViewHeaderText
+        case .light:
+            return Stylesheet.Label.lightTableViewHeaderText
+        }
+    }
+    
     var infoSettingsTitle: Style<UILabel> {
         switch self {
         case .dark:
@@ -88,6 +97,15 @@ extension Theme {
             return Stylesheet.TableView.dark
         case .light:
             return Stylesheet.TableView.light
+        }
+    }
+    
+    var tableViewHeader: Style<UITableViewHeaderFooterView> {
+        switch self {
+        case .dark:
+            return Stylesheet.tableViewHeader.dark
+        case .light:
+            return Stylesheet.tableViewHeader.light
         }
     }
     

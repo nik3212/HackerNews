@@ -21,8 +21,6 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        update(theme: theme)
-        tableView.tableFooterView = UIView()
         output.viewIsReady()
     }
 
@@ -34,6 +32,8 @@ final class SettingsViewController: UIViewController {
         }
         
         tableView.register(SettingsTableViewCell.self)
+        tableView.tableFooterView = UIView()
+        
         update(theme: theme)
     }
 }
@@ -79,6 +79,13 @@ extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Metric.cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView, let textLabel = headerView.textLabel {
+            theme.tableViewHeader.apply(to: headerView)
+            theme.baseTableViewHeaderTitle.apply(to: textLabel)
+        }
     }
 }
 

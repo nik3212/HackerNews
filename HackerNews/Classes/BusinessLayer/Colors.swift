@@ -21,6 +21,14 @@ enum Colors {
         return .fromRGB(43, 43, 43)
     }()
     
+    static let greyish: UIColor = {
+        return .fromRGB(229, 229, 229)
+    }()
+    
+    static let greyishBrown: UIColor = {
+        return .fromRGB(50, 50, 50)
+    }()
+    
     static let gray: UIColor = {
         return .fromRGB(112, 112, 112)
     }()
