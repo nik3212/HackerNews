@@ -17,12 +17,12 @@ final class ThemeViewController: UIViewController {
     var output: ThemeViewOutput!
     var theme: Theme!
     
-    // MARK: Private Properties
-    private var isAutomaticSectionHidden = false
-
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        }
         update(theme: theme)
         tableView.register(ThemeSelectableTableViewCell.self)
         tableView.tableFooterView = UIView()
@@ -57,6 +57,10 @@ extension ThemeViewController: UITableViewDelegate {
 
 // MARK: UITableViewDataSource
 extension ThemeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return output.titleForHeader(in: section)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return output.numberOfSections()
     }

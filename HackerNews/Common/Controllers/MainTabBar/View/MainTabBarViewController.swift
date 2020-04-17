@@ -40,5 +40,15 @@ extension MainTabBarViewController: MainTabBarViewInput { }
 extension MainTabBarViewController: ThemeUpdatable {
     func update(theme: Theme) {
         theme.tabBar.apply(to: self.tabBar)
+        theme.view.apply(to: self.view)
+        
+        guard let viewControllers = viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let navController = viewController as? UINavigationController {
+                theme.navigationBar.apply(to: navController.navigationBar)
+                theme.view.apply(to: navController.view)
+            }
+        }
     }
 }

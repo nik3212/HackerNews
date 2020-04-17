@@ -44,6 +44,10 @@ extension ThemePresenter: ThemeViewOutput {
     func getModel(for indexPath: IndexPath) -> String {
         return themes[indexPath.row].title
     }
+    
+    func titleForHeader(in section: Int) -> String {
+        return "Оформление"
+    }
 }
 
 // MARK: ThemeInteractorOutput

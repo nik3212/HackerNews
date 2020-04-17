@@ -44,4 +44,8 @@ enum Colors {
     static let darkOrange: UIColor = {
         return .fromRGB(255, 159, 10)
     }()
+    
+    static let gray20: UIColor = {
+        return .fromRGBA(199, 201, 209, 0.2)
+    }()
 }

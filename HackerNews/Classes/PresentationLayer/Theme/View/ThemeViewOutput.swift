@@ -14,4 +14,5 @@ protocol ThemeViewOutput: class {
     func numberOfRows(in section: Int) -> Int
     func numberOfSections() -> Int
     func getModel(for indexPath: IndexPath) -> String
+    func titleForHeader(in section: Int) -> String
 }

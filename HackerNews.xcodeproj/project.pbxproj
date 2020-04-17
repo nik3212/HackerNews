@@ -67,6 +67,7 @@
 		5ACB43DF244886E30010465B /* MainTabBarViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43DE244886E30010465B /* MainTabBarViewOutput.swift */; };
 		5ACB43E22448872A0010465B /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43E12448872A0010465B /* MainTabBarPresenter.swift */; };
 		5ACB43E42448875C0010465B /* MainTabBarViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43E32448875C0010465B /* MainTabBarViewInput.swift */; };
+		5ACB43E7244896A50010465B /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43E6244896A50010465B /* BaseNavigationController.swift */; };
 		5AE2EDCD24103C9B0011A198 /* RootModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */; };
 		5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */; };
 		5AE2EDD424103EED0011A198 /* MainTabBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDD324103EED0011A198 /* MainTabBarConfigurator.swift */; };
@@ -212,6 +213,7 @@
 		5ACB43DE244886E30010465B /* MainTabBarViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewOutput.swift; sourceTree = "<group>"; };
 		5ACB43E12448872A0010465B /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		5ACB43E32448875C0010465B /* MainTabBarViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewInput.swift; sourceTree = "<group>"; };
+		5ACB43E6244896A50010465B /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleAssembly.swift; sourceTree = "<group>"; };
 		5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootConfigurator.swift; sourceTree = "<group>"; };
 		5AE2EDD324103EED0011A198 /* MainTabBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarConfigurator.swift; sourceTree = "<group>"; };
@@ -530,6 +532,14 @@
 			path = SettingsManager;
 			sourceTree = "<group>";
 		};
+		5A8BF15D2449A55800215883 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				D07205242130A09C00E4B1ED /* Color+.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		5A9C966824425E62002AC0F5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +556,14 @@
 				5ACB43E12448872A0010465B /* MainTabBarPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5ACB43E5244896920010465B /* BaseNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				5ACB43E6244896A50010465B /* BaseNavigationController.swift */,
+			);
+			path = BaseNavigationController;
 			sourceTree = "<group>";
 		};
 		5AE2EDC424103B450011A198 /* Classes */ = {
@@ -661,6 +679,7 @@
 		5AE2EDD82410400F0011A198 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5ACB43E5244896920010465B /* BaseNavigationController */,
 				5AE2EDD124103ED20011A198 /* MainTabBar */,
 			);
 			path = Controllers;
@@ -960,7 +979,7 @@
 		D07205222130A03800E4B1ED /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D07205242130A09C00E4B1ED /* Color+.swift */,
+				5A8BF15D2449A55800215883 /* Colors */,
 				3867CB6E215FB264003C0658 /* Date+.swift */,
 				38F796992198A2710083EFEF /* String+.swift */,
 				D07205262130A0AF00E4B1ED /* UIImage+.swift */,
@@ -1426,6 +1445,7 @@
 				5A7347E5242E9549005B394F /* SettingsTableViewCell.swift in Sources */,
 				5AE2EDD724103F1D0011A198 /* MainTabBarAssembly.swift in Sources */,
 				5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */,
+				5ACB43E7244896A50010465B /* BaseNavigationController.swift in Sources */,
 				5A6FF6C324182BDF003F9B9D /* StoriesConfigurator.swift in Sources */,
 				38F7969A2198A2710083EFEF /* String+.swift in Sources */,
 				5AE2EDDA241040420011A198 /* TabBarViewProtocol.swift in Sources */,

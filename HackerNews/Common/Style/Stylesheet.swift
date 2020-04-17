@@ -13,7 +13,7 @@ struct Stylesheet {
         private static let base: Style<UINavigationBar> = Style {
             $0.isTranslucent = false
             $0.titleTextAttributes = [.font: FontStyle.header3.font]
-            $0.tintColor = Colors.white
+            $0.tintColor = Colors.lightOrange
             
             if #available (iOS 11.0, *) {
                 $0.largeTitleTextAttributes = [.font: FontStyle.header1.font]
@@ -21,25 +21,26 @@ struct Stylesheet {
         }
         
         private static let white: Style<UINavigationBar> = Style {
-            $0.barTintColor = Colors.white
+            $0.barTintColor = Colors.lightGray
+            $0.backgroundColor = Colors.lightGray
         }
         
         private static let whiteText: Style<UINavigationBar> = Style {
             guard var attributes = $0.titleTextAttributes else { return }
-            attributes[.foregroundColor] = Colors.white
+            attributes[.foregroundColor] = Colors.lightGray
             $0.titleTextAttributes = attributes
         }
         
         private static let whiteLargeTitleText: Style<UINavigationBar> = Style {
             guard #available(iOS 11.0, *), var attributes = $0.largeTitleTextAttributes else { return }
-            attributes[.foregroundColor] = Colors.white
-            $0.titleTextAttributes = attributes
+            attributes[.foregroundColor] = Colors.lightGray
+            $0.largeTitleTextAttributes = attributes
         }
         
         private static let blackLargeTitleText: Style<UINavigationBar> = Style {
             guard #available(iOS 11.0, *), var attributes = $0.largeTitleTextAttributes else { return }
             attributes[.foregroundColor] = Colors.black
-            $0.titleTextAttributes = attributes
+            $0.largeTitleTextAttributes = attributes
         }
         
         private static let blackText: Style<UINavigationBar> = Style {
@@ -50,10 +51,19 @@ struct Stylesheet {
         
         private static let black: Style<UINavigationBar> = Style {
             $0.barTintColor = Colors.black
+            $0.backgroundColor = Colors.black
         }
         
-        static let dark: Style<UINavigationBar> = Style.compose(base, black, whiteText, whiteLargeTitleText)
-        static let light: Style<UINavigationBar> = Style.compose(base, white, blackText, blackLargeTitleText)
+        private static let noHairline: Style<UINavigationBar> = Style {
+            $0.shadowImage = UIImage()
+        }
+        
+        private static let hairline: Style<UINavigationBar> = Style {
+            $0.shadowImage = UIImage.imageWithColor(color: Colors.gray20)
+        }
+        
+        static let dark: Style<UINavigationBar> = Style.compose(base, black, whiteText, whiteLargeTitleText, noHairline)
+        static let light: Style<UINavigationBar> = Style.compose(base, white, blackText, blackLargeTitleText, hairline)
     }
 
     enum TabBar {
@@ -122,10 +132,12 @@ struct Stylesheet {
     
     enum Cell {
         static let light: Style<UITableViewCell> = Style {
+            $0.selectedBackgroundView?.backgroundColor = .lightGray
             $0.backgroundColor = Colors.white
         }
         
         static let dark: Style<UITableViewCell> = Style {
+            $0.selectedBackgroundView?.backgroundColor = .darkGray
             $0.backgroundColor = Colors.darkGray
         }
     }

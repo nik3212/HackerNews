@@ -23,7 +23,7 @@ final class RootModuleAssembly: Assembly {
         
         container.register(MainTabBarConfigurator.self) { resolver in
             let parentAssembler = resolver.resolve(RootConfigurator.self)?.assembler
-            return MainTabBarConfigurator(parentAssembler: parentAssembler!)
+            return MainTabBarConfigurator(parentAssembler: parentAssembler.unwrap())
         }
     }
 }

@@ -41,7 +41,7 @@ final class SettingsModuleAssembly: Assembly {
         
         container.register(ThemeConfigurator.self) { resolver in
             let parentAssembler = resolver.resolve(SettingsConfigurator.self)?.assembler
-            return ThemeConfigurator(parentAssembler: parentAssembler!)
+            return ThemeConfigurator(parentAssembler: parentAssembler.unwrap())
         }
     }
 }
