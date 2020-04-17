@@ -8,8 +8,8 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
-    
+final class SettingsViewController: UIViewController {
+        
     // MARK: IBOutlets
     @IBOutlet private var tableView: UITableView!
     
@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
     private func setup() {
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
-            self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.navigationItem.largeTitleDisplayMode = .never
         }
         
         tableView.register(SettingsTableViewCell.self)
@@ -74,7 +74,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return Metric.cellHeight
     }
 }
 
@@ -85,5 +85,12 @@ extension SettingsViewController: ThemeUpdatable {
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
         tableView.reloadData()
+    }
+}
+
+// MARK: Constants
+extension SettingsViewController {
+    private enum Metric {
+       static let cellHeight: CGFloat = 48.0
     }
 }

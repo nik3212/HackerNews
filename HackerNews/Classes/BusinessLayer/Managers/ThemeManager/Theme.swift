@@ -46,12 +46,21 @@ extension Theme {
         }
     }
     
-    var cell: Style<UITableViewCell> {
+    var cellOne: Style<UITableViewCell> {
         switch self {
         case .dark:
-            return Stylesheet.Cell.dark
+            return Stylesheet.Cell.darkWithOrangeTint
         case .light:
-            return Stylesheet.Cell.light
+            return Stylesheet.Cell.lightWithOrangeTint
+        }
+    }
+    
+    var cellTwo: Style<UITableViewCell> {
+        switch self {
+        case .dark:
+            return Stylesheet.Cell.darkWithGrayTint
+        case .light:
+            return Stylesheet.Cell.lightWithGrayTint
         }
     }
     

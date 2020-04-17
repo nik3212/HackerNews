@@ -136,17 +136,32 @@ struct Stylesheet {
     }
     
     enum Cell {
-        static let light: Style<UITableViewCell> = Style {
+        private static let white: Style<UITableViewCell> = Style {
             $0.selectedBackgroundView?.backgroundColor = .lightGray
             $0.backgroundColor = Colors.white
+        }
+        
+        private static let dark: Style<UITableViewCell> = Style {
+            $0.selectedBackgroundView?.backgroundColor = .darkGray
+            $0.backgroundColor = Colors.darkGray
+        }
+        
+        private static let lightOrangeTint: Style<UITableViewCell> = Style {
             $0.tintColor = Colors.lightOrange
         }
         
-        static let dark: Style<UITableViewCell> = Style {
-            $0.selectedBackgroundView?.backgroundColor = .darkGray
-            $0.backgroundColor = Colors.darkGray
+        private static let darkOrangeTint: Style<UITableViewCell> = Style {
             $0.tintColor = Colors.darkOrange
         }
+        
+        private static let grayTint: Style<UITableViewCell> = Style {
+            $0.tintColor = Colors.gray
+        }
+        
+        static let lightWithOrangeTint = Style.compose(white, lightOrangeTint)
+        static let darkWithOrangeTint = Style.compose(dark, darkOrangeTint)
+        static let lightWithGrayTint = Style.compose(white, grayTint)
+        static let darkWithGrayTint = Style.compose(dark, grayTint)
     }
     
     enum TableView {

@@ -61,7 +61,7 @@ final class SettingsTableViewCell: UITableViewCell {
     /// 
     /// - Parameter theme: A `Theme` value that contains the current application theme.
     func apply(theme: Theme) {
-        theme.cell.apply(to: self)
+        theme.cellTwo.apply(to: self)
         theme.baseSettingsTitle.apply(to: titleLabel)
         theme.infoSettingsTitle.apply(to: infoLabel)
     }
