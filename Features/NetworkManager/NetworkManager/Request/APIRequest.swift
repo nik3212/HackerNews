@@ -12,7 +12,7 @@ public class APIRequest<Resource: APIResource> {
     
     // MARK: Public Properties
 
-    let session: URLSession
+    let session: NetworkSession
     let resource: Resource
     
     /// Create a new `APIRequest` instance.
@@ -20,7 +20,7 @@ public class APIRequest<Resource: APIResource> {
     /// - Parameters:
     ///   - resource: An `APIResource` resource object that provides the URL, cache policy, request type, body data or body stream, and so on.
     ///   - session: A `URLSession` value that contains the current HTTP session.
-    public init(resource: Resource, session: URLSession = .shared) {
+    public init(resource: Resource, session: NetworkSession = URLSession.shared) {
         self.resource = resource
         self.session = session
     }

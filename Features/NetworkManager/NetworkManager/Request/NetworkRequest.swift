@@ -20,7 +20,7 @@ protocol NetworkRequest: AnyObject {
     associatedtype ModelType
     
     /// A `URLSession` value that contains the current HTTP session.
-    var session: URLSession { get }
+    var session: NetworkSession { get }
     
     /// Decode object to model.
     ///

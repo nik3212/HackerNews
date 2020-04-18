@@ -39,10 +39,6 @@ public protocol APIResource {
 }
 
 public extension APIResource {
-    var headers: Parameters? {
-        return nil
-    }
-    
     var bodyParameters: Parameters? {
         return nil
     }

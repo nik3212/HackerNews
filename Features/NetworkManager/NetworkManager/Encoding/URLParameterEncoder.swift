@@ -1,5 +1,5 @@
 //
-//  ParameterEncoder.swift
+//  URLParameterEncoder.swift
 //  NetworkManager
 //
 //  Created by Никита Васильев on 18.04.2020.
