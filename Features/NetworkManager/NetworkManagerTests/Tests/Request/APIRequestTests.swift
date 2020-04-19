@@ -13,17 +13,12 @@ class APIRequestTests: XCTestCase {
     
     // MARK: Private Properties
     private let resource = MockResource()
-    private let model = MockModel(id: "123", name: "Max")
     private var apiRequest: APIRequest<MockResource>!
-    private var session: NetworkSession!
     
     // MARK: Initialization
     override func setUp() {
         super.setUp()
-        
-        let data = try? JSONEncoder().encode(model)
-        session = MockNetworkSession(data: data, urlResponse: nil, error: nil)
-        apiRequest = APIRequest(resource: resource, session: session)
+        apiRequest = APIRequest(resource: resource)
     }
     
     override func tearDown() {
@@ -31,65 +26,14 @@ class APIRequestTests: XCTestCase {
     }
 
     // MARK: Tests
-    func testThatAPIRequestInitCorrect() throws {
-        XCTAssertTrue(session === apiRequest.session, "session and network should be equal")
+    func testThatAPIRequestInitCorrect() {
         XCTAssertEqual(resource, apiRequest.resource, "resource in apiRequest should be equal to resource")
     }
     
-    func testThatDecodingResponseIsCorrect() {
-        apiRequest.load(resource, completion: { mock in
-            XCTAssertEqual(mock, self.model, "mock should be equal to self.mock")
-        }) { error in
-            XCTFail(error.localizedDescription)
-        }
-    }
-    
-    func testThatDecodingResponseFailedWhenDataIsCorrupt() {
-        let session = MockNetworkSession(data: nil, urlResponse: nil, error: nil)
-        let apiRequest = APIRequest(resource: resource, session: session)
-        
-        apiRequest.load(resource, completion: { model in
-            XCTFail("Loading ")
-        }) { error in
-            if case NetworkError.decodingFailed = error {
-                XCTAssert(true)
-                return
-            }
-            XCTFail("error should be equal to NetworkError.decodingFailed")
-        }
-    }
-    
-    func testThatDecodingResponseFailedWhenErrorOccured() {
-        let data = try? JSONEncoder().encode(model)
-        let session = MockNetworkSession(data: data, urlResponse: nil, error: NetworkError.decodingFailed)
-        let apiRequest = APIRequest(resource: resource, session: session)
-        
-        apiRequest.load(resource, completion: { model in
-            XCTFail("Loading ")
-        }) { error in
-            if case NetworkError.decodingFailed = error {
-                XCTAssert(true)
-                return
-            }
-            XCTFail("error should be equal to NetworkError.decodingFailed")
-        }
-    }
-    
-    func testThatLoadingFailedWhenAPIResourceParametersIsCorrupt() {
-        let corruptResource = MockCorruptParametersModel()
-        apiRequest.load(corruptResource, completion: { _ in
-            XCTFail("Loading with corrupt resource should be failed")
-        }) { _ in
-            XCTAssert(true)
-        }
-    }
-    
-    func testThatLoadingFailedWhenAPIResourceParametersWithHeaderIsCorrupt() {
-        let corruptResource = MockCorruptParametersWithHeaderResource()
-        apiRequest.load(corruptResource, completion: { _ in
-            XCTFail("Loading with corrupt resource should be failed")
-        }) { _ in
-            XCTAssert(true)
-        }
+    func testThatURLRequestBuildSuccessfully() throws {
+        let request = try XCTUnwrap(apiRequest.buildRequest())
+        let fullURL = try XCTUnwrap(request.url, "urlRequest url is nil")
+        let resourceURL = resource.baseURL.appendingPathComponent(resource.path)
+        XCTAssertEqual(fullURL.absoluteString.sorted(), resourceURL.absoluteString.sorted(), "request url is not correct")
     }
 }

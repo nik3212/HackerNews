@@ -16,8 +16,10 @@ public protocol NetworkSession: class {
     ///   - completionHandler: The completion handler to call when the load request is complete. This handler is executed on the delegate queue.
     func dataTask(with request: URLRequest,
                   completionHandler: @escaping (Data?, URLResponse?, Swift.Error?) -> Swift.Void) -> URLSessionDataTask
+    
+    /// Asynchronously calls a completion callback with all tasks in a session
+    func getAllTasks(completionHandler: @escaping ([URLSessionTask]) -> Void)
 }
 
 // MARK: NetworkSession
 extension URLSession: NetworkSession { }
-

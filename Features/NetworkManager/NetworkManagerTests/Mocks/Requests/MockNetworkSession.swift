@@ -24,6 +24,10 @@ final class MockNetworkSession {
 
 // MARK: NetworkSession
 extension MockNetworkSession: NetworkSession {
+    func getAllTasks(completionHandler: @escaping ([URLSessionTask]) -> Void) {
+        
+    }
+    
     func dataTask(with request: URLRequest,
                   completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         self.request = request

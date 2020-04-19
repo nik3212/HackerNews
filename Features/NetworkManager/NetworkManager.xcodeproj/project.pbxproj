@@ -24,6 +24,10 @@
 		5A5A8123244B960500BF554D /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A8122244B960500BF554D /* MockModel.swift */; };
 		5A5A8125244BA3D800BF554D /* MockCorruptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A8124244BA3D800BF554D /* MockCorruptModel.swift */; };
 		5A5A8127244BA5FD00BF554D /* MockCorruptParametersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A8126244BA5FD00BF554D /* MockCorruptParametersModel.swift */; };
+		5A8054CD244CB665005E4F96 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054CC244CB665005E4F96 /* NetworkManager.swift */; };
+		5A8054D0244CC0AD005E4F96 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054CF244CC0AD005E4F96 /* NetworkError.swift */; };
+		5A8054D2244CC1EE005E4F96 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054D1244CC1EE005E4F96 /* NetworkManagerProtocol.swift */; };
+		5A8054D6244CC322005E4F96 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054D5244CC322005E4F96 /* NetworkManagerTests.swift */; };
 		6656BEBD045976CA2CEC4AE3 /* Pods_NetworkManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7529AD9DE31E87E29A292FBF /* Pods_NetworkManagerTests.framework */; };
 		872E5E0096182FF74FFD0912 /* Pods_NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6396BAC443EB0FD6D4A57DB /* Pods_NetworkManager.framework */; };
 		D0FA2E3D21373CCC00C073A3 /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FA2E3321373CCC00C073A3 /* NetworkManager.framework */; };
@@ -60,6 +64,10 @@
 		5A5A8122244B960500BF554D /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		5A5A8124244BA3D800BF554D /* MockCorruptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCorruptModel.swift; sourceTree = "<group>"; };
 		5A5A8126244BA5FD00BF554D /* MockCorruptParametersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCorruptParametersModel.swift; sourceTree = "<group>"; };
+		5A8054CC244CB665005E4F96 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5A8054CF244CC0AD005E4F96 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		5A8054D1244CC1EE005E4F96 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		5A8054D5244CC322005E4F96 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		5EA4D6BA42570055750886FD /* Pods-NetworkManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManagerTests.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-NetworkManagerTests/Pods-NetworkManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		7529AD9DE31E87E29A292FBF /* Pods_NetworkManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1326FB6653D5411D03275E7 /* Pods-NetworkManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManager.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,8 +159,9 @@
 		5A5A8128244BAB8E00BF554D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				5A5A8116244B899F00BF554D /* Request */,
 				5A1CADF7244B5992002D0114 /* Encoding */,
+				5A8054D4244CC318005E4F96 /* Manager */,
+				5A5A8116244B899F00BF554D /* Request */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -182,6 +191,31 @@
 				5A5A8122244B960500BF554D /* MockModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5A8054CE244CC01D005E4F96 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5A8054CC244CB665005E4F96 /* NetworkManager.swift */,
+				5A8054D1244CC1EE005E4F96 /* NetworkManagerProtocol.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		5A8054D4244CC318005E4F96 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5A8054D5244CC322005E4F96 /* NetworkManagerTests.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		5A8054D7244CC847005E4F96 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5A8054CF244CC0AD005E4F96 /* NetworkError.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		7689145F0EFA253BA66799C6 /* Pods */ = {
@@ -218,7 +252,9 @@
 		D0FA2E3521373CCC00C073A3 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				5A8054D7244CC847005E4F96 /* Common */,
 				5A1CADEC244B4BA8002D0114 /* Encoding */,
+				5A8054CE244CC01D005E4F96 /* Manager */,
 				5A1CADED244B4BBC002D0114 /* Request */,
 				5A1CADEB244B4B67002D0114 /* Service */,
 				D0FA2E3721373CCC00C073A3 /* Info.plist */,
@@ -398,7 +434,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A8054D2244CC1EE005E4F96 /* NetworkManagerProtocol.swift in Sources */,
+				5A8054CD244CB665005E4F96 /* NetworkManager.swift in Sources */,
 				5A1CADD8244AF3E7002D0114 /* NetworkRequest.swift in Sources */,
+				5A8054D0244CC0AD005E4F96 /* NetworkError.swift in Sources */,
 				5A1CADE6244B2210002D0114 /* HTTPMethod.swift in Sources */,
 				5A1CADE4244B1412002D0114 /* JSONParameterEncoder.swift in Sources */,
 				5A1CADE8244B3D8B002D0114 /* HTTPTask.swift in Sources */,
@@ -413,6 +452,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A8054D6244CC322005E4F96 /* NetworkManagerTests.swift in Sources */,
 				5A1CADF6244B598D002D0114 /* JSONParameterEncoderTests.swift in Sources */,
 				5A5A8127244BA5FD00BF554D /* MockCorruptParametersModel.swift in Sources */,
 				5A5A8115244B82D500BF554D /* URLParameterEncoderTests.swift in Sources */,

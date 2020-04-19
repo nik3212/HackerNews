@@ -8,62 +8,12 @@
 
 import Foundation
 
-/// Network errors
-public enum NetworkError: String, Error {
-    case encodingFailed = "Parameter encoding failed."
-    case decodingFailed = "Parameter decoding failed."
-    case missingURL = "URL is nil."
-}
-
 /// Network request
-protocol NetworkRequest: AnyObject {
-    associatedtype ModelType
+protocol NetworkRequest {
+    associatedtype Resource: APIResource
     
-    /// A `URLSession` value that contains the current HTTP session.
-    var session: NetworkSession { get }
-    
-    /// Decode object to model.
-    ///
-    /// - Parameter data: A `Data` value that represents the object.
-    ///
-    /// - Returns: The value that contains decoded object.
-    func decode(_ data: Data) -> ModelType?
-    
-    /// Creates a task that retrieves the contents of a URL based on the specified URL request object, and calls a handler upon completion.
-    ///
-    /// - Parameter completion: A block object to be executed when the load ends.
-    /// - Parameter fail: A block object to be execute when the load fails.
-    func load(withCompletion completion: @escaping (ModelType) -> Void, fail: @escaping (Error) -> Void)
-}
-
-extension NetworkRequest {
-    /// Creates a task that retrieves the contents of a URL based on the specified URL request object, and calls a handler upon completion.
-    ///
-    /// - Parameters:
-    ///   - apiResource: An `APIResource` resource object that provides the URL, cache policy, request type, body data or body stream, and so on.
-    ///   - completion: A block object to be executed when the load ends.
-    ///   - fail: A block object to be execute when the load fails.
-    func load<T: APIResource>(_ apiResource: T, completion: @escaping (ModelType) -> Void, fail: @escaping (Error) -> Void) {
-        guard let request = try? buildRequest(from: apiResource) else {
-            fail(NetworkError.missingURL)
-            return
-        }
-        
-        let task = session.dataTask(with: request) { [weak self] (data: Data?, _, error: Error?) in
-            if let error = error {
-                fail(error)
-                return
-            }
-            
-            guard let data = data, let model = self?.decode(data) else {
-                fail(NetworkError.decodingFailed)
-                return
-            }
-
-            completion(model)
-        }
-        task.resume()
-    }
+    /// An `APIResource` resource object that provides the URL, cache policy, request type, body data or body stream, and so on.
+    var resource: Resource { get }
     
     /// Build `URLRequest` from resource.
     ///
@@ -72,7 +22,11 @@ extension NetworkRequest {
     /// - Returns: A URL load request that is independent of protocol or URL scheme.
     ///
     /// - Throws: `NetworkError.encodingFailed`.
-    private func buildRequest<T: APIResource>(from resource: T) throws -> URLRequest? {
+    func buildRequest() throws -> URLRequest?
+}
+
+extension NetworkRequest {
+    func buildRequest() throws -> URLRequest? {
         var request = URLRequest(url: resource.baseURL.appendingPathComponent(resource.path),
                                  cachePolicy: resource.cachePolicy,
                                  timeoutInterval: resource.timeout)
