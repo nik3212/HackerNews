@@ -12,5 +12,5 @@ protocol HNServiceProtocol {
     func loadTopStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void)
     func loadNewStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void)
     func loadBestStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void)
-    func loadItems(with ids: [Int], completion: @escaping ([ItemModel]) -> Void, fail: @escaping (Error) -> Void)
+    func loadNews(with ids: [Int], completion: @escaping ([NewsModel]) -> Void, fail: @escaping (Error) -> Void)
 }

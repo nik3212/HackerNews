@@ -13,11 +13,12 @@ class StoriesPresenter {
     weak var view: StoriesViewInput!
     var interactor: StoriesInteractorInput!
     var router: StoriesRouterInput!
+    var themeManager: ThemeManagerProtocol!
     
     // MARK: Private Properties
     private var storyType: StoryType = .new
     private var ids: [Int] = []
-    private var items: [ItemModel] = []
+    private var items: [NewsModel] = []
     
     // MARK: Private Methods
     private func changeNavigationTitle(with storyType: StoryType) {
@@ -34,9 +35,19 @@ class StoriesPresenter {
 
 // MARK: StoriesViewOutput
 extension StoriesPresenter: StoriesViewOutput {
+    func numberOfRows() -> Int {
+        return items.count
+    }
+    
+    func getModel(for row: Int) -> NewsModel {
+        return items[row]
+    }
+    
     func viewIsReady() {
+        view.setupInitialState(theme: themeManager.theme)
         changeNavigationTitle(with: storyType)
         interactor.loadStories()
+        themeManager?.addObserver(self)
     }
 }
 
@@ -51,7 +62,7 @@ extension StoriesPresenter: StoriesInteractorOutput {
         
     }
     
-    func loadItemsSuccess(_ items: [ItemModel]) {
+    func loadItemsSuccess(_ items: [NewsModel]) {
         
     }
     
@@ -65,5 +76,12 @@ extension StoriesPresenter {
         case new = "New"
         case top = "Top"
         case best = "Best"
+    }
+}
+
+// MARK: ThemeObserver
+extension StoriesPresenter: ThemeObserver {
+    func themeDidChange(_ theme: Theme) {
+        view.update(theme: theme)
     }
 }

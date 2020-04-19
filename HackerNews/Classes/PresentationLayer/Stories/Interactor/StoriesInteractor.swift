@@ -9,7 +9,8 @@
 import Foundation
 
 class StoriesInteractor {
-    weak var output: StoriesInteractorOutput!
+    // MARK: Public Properties
+    weak var output: StoriesInteractorOutput?
     var networkService: HNServiceProtocol?
 }
 
@@ -17,17 +18,17 @@ class StoriesInteractor {
 extension StoriesInteractor: StoriesInteractorInput {
     func loadStories() {
         networkService?.loadTopStories(completion: { [weak self] ids in
-            self?.output.loadTopStoriesSuccess(ids: ids)
+            self?.output?.loadTopStoriesSuccess(ids: ids)
         }, fail: { [weak self] error in
-            self?.output.loadTopStoriesFailed(error: error)
+            self?.output?.loadTopStoriesFailed(error: error)
         })
     }
     
     func loadNews(with ids: [Int]) {
-        networkService?.loadItems(with: ids, completion: { [weak self] news in
-            self?.output.loadItemsSuccess(news)
+        networkService?.loadNews(with: ids, completion: { [weak self] news in
+            self?.output?.loadItemsSuccess(news)
         }, fail: { [weak self] error in
-            self?.output.loadItemsFailed(error: error)
+            self?.output?.loadItemsFailed(error: error)
         })
     }
 }

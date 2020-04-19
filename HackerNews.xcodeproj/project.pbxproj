@@ -57,6 +57,10 @@
 		5A8054D9244CC954005E4F96 /* NewStoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054D8244CC954005E4F96 /* NewStoriesResource.swift */; };
 		5A8054DB244CC962005E4F96 /* BestStoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054DA244CC962005E4F96 /* BestStoriesResource.swift */; };
 		5A8054DD244CCB91005E4F96 /* ItemResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054DC244CCB91005E4F96 /* ItemResource.swift */; };
+		5A8054E3244CD641005E4F96 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054E2244CD641005E4F96 /* NewsModel.swift */; };
+		5A8054E5244CD739005E4F96 /* NewsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054E4244CD739005E4F96 /* NewsResource.swift */; };
+		5A8054E9244CD98B005E4F96 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054E8244CD98B005E4F96 /* StoryTableViewCell.swift */; };
+		5A8054EB244CD9A0005E4F96 /* StoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A8054EA244CD9A0005E4F96 /* StoryTableViewCell.xib */; };
 		5A8BF1682449ABAB00215883 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A8BF16A2449ABAB00215883 /* Localizable.strings */; };
 		5A8BF16E2449AC3F00215883 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF16D2449AC3F00215883 /* String+Localized.swift */; };
 		5A8BF1752449D78900215883 /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BF1742449D78900215883 /* RootSplitViewController.swift */; };
@@ -219,6 +223,10 @@
 		5A8054D8244CC954005E4F96 /* NewStoriesResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStoriesResource.swift; sourceTree = "<group>"; };
 		5A8054DA244CC962005E4F96 /* BestStoriesResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestStoriesResource.swift; sourceTree = "<group>"; };
 		5A8054DC244CCB91005E4F96 /* ItemResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemResource.swift; sourceTree = "<group>"; };
+		5A8054E2244CD641005E4F96 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		5A8054E4244CD739005E4F96 /* NewsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResource.swift; sourceTree = "<group>"; };
+		5A8054E8244CD98B005E4F96 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		5A8054EA244CD9A0005E4F96 /* StoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryTableViewCell.xib; sourceTree = "<group>"; };
 		5A8BF1642449AB5400215883 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5A8BF1652449AB5600215883 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		5A8BF16B2449ABBD00215883 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -377,6 +385,7 @@
 		06EB26021A911C3F1836ECC3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5A8054E6244CD963005E4F96 /* Views */,
 				5AE2EDE9241048000011A198 /* Stories.storyboard */,
 				6C54504D79E3203454D65767 /* StoriesViewInput.swift */,
 				5263AF6EF05EEDA880DA524F /* StoriesViewOutput.swift */,
@@ -611,6 +620,7 @@
 				5A8054D8244CC954005E4F96 /* NewStoriesResource.swift */,
 				5A8054DA244CC962005E4F96 /* BestStoriesResource.swift */,
 				5A8054DC244CCB91005E4F96 /* ItemResource.swift */,
+				5A8054E4244CD739005E4F96 /* NewsResource.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -627,8 +637,26 @@
 			isa = PBXGroup;
 			children = (
 				5A1CADEF244B4BF7002D0114 /* Item.swift */,
+				5A8054E2244CD641005E4F96 /* NewsModel.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		5A8054E6244CD963005E4F96 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A8054E7244CD974005E4F96 /* StoryTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5A8054E7244CD974005E4F96 /* StoryTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5A8054E8244CD98B005E4F96 /* StoryTableViewCell.swift */,
+				5A8054EA244CD9A0005E4F96 /* StoryTableViewCell.xib */,
+			);
+			path = StoryTableViewCell;
 			sourceTree = "<group>";
 		};
 		5A8BF15D2449A55800215883 /* Colors */ = {
@@ -1398,6 +1426,7 @@
 				5A9C965824425B4A002AC0F5 /* Poppins-Italic.ttf in Resources */,
 				5A9C965B24425B4A002AC0F5 /* Poppins-Medium.ttf in Resources */,
 				5AE2EDEA241048000011A198 /* Stories.storyboard in Resources */,
+				5A8054EB244CD9A0005E4F96 /* StoryTableViewCell.xib in Resources */,
 				5A9C965424425B4A002AC0F5 /* Poppins-ExtraBold.ttf in Resources */,
 				71D3EE6174A29CCC96AF27FC /* Settings.storyboard in Resources */,
 				4EFF808EC08E9CCA2D33FC20 /* Theme.storyboard in Resources */,
@@ -1610,6 +1639,7 @@
 				5AE2EDD724103F1D0011A198 /* MainTabBarAssembly.swift in Sources */,
 				5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */,
 				5A6FF6C324182BDF003F9B9D /* StoriesConfigurator.swift in Sources */,
+				5A8054E5244CD739005E4F96 /* NewsResource.swift in Sources */,
 				5A8054D9244CC954005E4F96 /* NewStoriesResource.swift in Sources */,
 				38F7969A2198A2710083EFEF /* String+.swift in Sources */,
 				5AE2EDDA241040420011A198 /* TabBarViewProtocol.swift in Sources */,
@@ -1640,6 +1670,7 @@
 				841F0F20A6C107848D230D68 /* SettingsViewController.swift in Sources */,
 				85FD344F5BC1934F615CFAC9 /* SettingsPresenter.swift in Sources */,
 				5A9C966724425E35002AC0F5 /* Font+.swift in Sources */,
+				5A8054E9244CD98B005E4F96 /* StoryTableViewCell.swift in Sources */,
 				5ACB43E22448872A0010465B /* MainTabBarPresenter.swift in Sources */,
 				385B495311D6CBD5EB3F44E7 /* SettingsInteractorInput.swift in Sources */,
 				437795427873CF1A213CABF6 /* SettingsInteractorOutput.swift in Sources */,
@@ -1660,6 +1691,7 @@
 				7618E63336284456181FC902 /* ThemePresenter.swift in Sources */,
 				2B5AC3B732D57493E958B015 /* ThemeInteractorInput.swift in Sources */,
 				AA1B09AF7685666005E3B301 /* ThemeInteractorOutput.swift in Sources */,
+				5A8054E3244CD641005E4F96 /* NewsModel.swift in Sources */,
 				96808C88C39A94F772EAE01F /* ThemeInteractor.swift in Sources */,
 				F5A0C84E03E8AD683E2A10AB /* ThemeRouterInput.swift in Sources */,
 				42DDF700C568557D9721B39E /* ThemeRouter.swift in Sources */,

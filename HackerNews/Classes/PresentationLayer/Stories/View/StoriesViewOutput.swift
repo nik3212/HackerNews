@@ -8,4 +8,6 @@
 
 protocol StoriesViewOutput: class {
     func viewIsReady()
+    func numberOfRows() -> Int
+    func getModel(for row: Int) -> NewsModel
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
-protocol StoriesViewInput: class, Presentable {
-    func setupInitialState()
+protocol StoriesViewInput: class, Presentable, ThemeUpdatable {
+    func setupInitialState(theme: Theme)
     func changeNavigationTitle(with title: String)
 }

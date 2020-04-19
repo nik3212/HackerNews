@@ -29,7 +29,8 @@ final class StoriesModuleAssembly: Assembly {
             presenter.view = viewController
             presenter.interactor = resolver.resolve(StoriesInteractor.self, argument: presenter)
             presenter.router = resolver.resolve(StoriesRouter.self, argument: viewController)
-
+            presenter.themeManager = resolver.resolve(ThemeManager.self)
+            
             return presenter
         }
 
