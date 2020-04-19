@@ -21,6 +21,11 @@ final class ServiceLocatorConfigurator {
         container.register(ThemeManager.self) { _ in
             return ThemeManager.shared
         }
+        
+        container.register(HNServiceProtocol.self) { _ in
+            return HNService()
+        }
+        
         assembler = Assembler(container: container)
         assembler.apply(assembly: ServiceLocatorAssembly())
     }

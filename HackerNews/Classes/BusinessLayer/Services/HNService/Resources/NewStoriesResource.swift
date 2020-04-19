@@ -1,5 +1,5 @@
 //
-//  TopStoriesResource.swift
+//  NewStoriesResource.swift
 //  HackerNews
 //
 //  Created by Никита Васильев on 19.04.2020.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-final class TopStoriesResource: BaseResource<[Int]> {
+final class NewStoriesResource: BaseResource<[Int]> {
     override var path: String {
-        return Constants.Endpoints.topStories
+        return Constants.Endpoints.newStories
     }
 }

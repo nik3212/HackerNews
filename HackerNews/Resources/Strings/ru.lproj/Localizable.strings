@@ -10,6 +10,12 @@
 
 "News" = "Новости";
 
+"New" = "Новое";
+
+"Top" = "Популярное";
+
+"Best" = "Лучшее";
+
 "Appearance" = "Оформление";
 
 "settings.themes.header" = "Темы";

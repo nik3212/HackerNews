@@ -7,5 +7,9 @@
 //
 
 protocol StoriesInteractorOutput: class {
-
+    func loadTopStoriesSuccess(ids: [Int])
+    func loadTopStoriesFailed(error: Error)
+    
+    func loadItemsSuccess(_ items: [ItemModel])
+    func loadItemsFailed(error: Error)
 }

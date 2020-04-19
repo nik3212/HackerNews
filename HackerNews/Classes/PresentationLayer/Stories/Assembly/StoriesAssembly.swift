@@ -10,9 +10,10 @@ import Swinject
 
 final class StoriesModuleAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(StoriesInteractor.self) { (_, presenter: StoriesPresenter) in 
+        container.register(StoriesInteractor.self) { (resolver, presenter: StoriesPresenter) in
             let interactor = StoriesInteractor()
             interactor.output = presenter
+            interactor.networkService = resolver.resolve(HNServiceProtocol.self)
             return interactor
         }
 

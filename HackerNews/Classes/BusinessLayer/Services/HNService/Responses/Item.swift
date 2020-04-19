@@ -9,7 +9,7 @@
 import Foundation
 
 // sourcery: ItemRepresentable
-public struct Item {
+public struct ItemModel {
     
     // MARK: - Properties
     
@@ -60,7 +60,7 @@ public struct Item {
 }
     
 // sourcery:inline:auto:Item.ItemRepresentable
-extension Item: Decodable {
+extension ItemModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case by
         case id

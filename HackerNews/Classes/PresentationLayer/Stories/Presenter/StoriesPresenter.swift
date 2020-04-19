@@ -15,17 +15,19 @@ class StoriesPresenter {
     var router: StoriesRouterInput!
     
     // MARK: Private Properties
-    private var storyType: StoryType = .news
+    private var storyType: StoryType = .new
+    private var ids: [Int] = []
+    private var items: [ItemModel] = []
     
     // MARK: Private Methods
     private func changeNavigationTitle(with storyType: StoryType) {
         switch storyType {
-        case .news:
-            view.changeNavigationTitle(with: "News")
+        case .new:
+            view.changeNavigationTitle(with: StoryType.new.rawValue.localized())
         case .best:
-            view.changeNavigationTitle(with: "Best")
+            view.changeNavigationTitle(with: StoryType.best.rawValue.localized())
         case .top:
-            view.changeNavigationTitle(with: "Top")
+            view.changeNavigationTitle(with: StoryType.top.rawValue.localized())
         }
     }
 }
@@ -34,14 +36,34 @@ class StoriesPresenter {
 extension StoriesPresenter: StoriesViewOutput {
     func viewIsReady() {
         changeNavigationTitle(with: storyType)
+        interactor.loadStories()
     }
 }
 
 // MARK: StoriesInteractorOutput
 extension StoriesPresenter: StoriesInteractorOutput {
-    enum StoryType {
-        case news
-        case top
-        case best
+    func loadTopStoriesSuccess(ids: [Int]) {
+        self.ids = ids
+        interactor.loadNews(with: ids)
+    }
+    
+    func loadTopStoriesFailed(error: Error) {
+        
+    }
+    
+    func loadItemsSuccess(_ items: [ItemModel]) {
+        
+    }
+    
+    func loadItemsFailed(error: Error) {
+        
+    }
+}
+
+extension StoriesPresenter {
+    enum StoryType: String {
+        case new = "New"
+        case top = "Top"
+        case best = "Best"
     }
 }

@@ -7,5 +7,6 @@
 //
 
 protocol StoriesInteractorInput {
-
+    func loadStories()
+    func loadNews(with ids: [Int])
 }
