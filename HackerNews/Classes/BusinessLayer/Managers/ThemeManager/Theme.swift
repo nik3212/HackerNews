@@ -64,6 +64,15 @@ extension Theme {
         }
     }
     
+    var postCell: Style<UITableViewCell> {
+        switch self {
+        case .dark:
+            return Stylesheet.Cell.darkPostCell
+        case .light:
+            return Stylesheet.Cell.lightPostCell
+        }
+    }
+    
     var postTitle: Style<UILabel> {
         switch self {
         case .dark:

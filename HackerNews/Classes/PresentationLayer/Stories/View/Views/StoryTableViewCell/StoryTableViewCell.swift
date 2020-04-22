@@ -63,7 +63,7 @@ final class StoryTableViewCell: UITableViewCell {
     func apply(theme: Theme) {
         self.theme = theme
         theme.postTitle.apply(to: titleLabel)
-        theme.cellTwo.apply(to: self)
+        theme.postCell.apply(to: self)
     }
 }
 
