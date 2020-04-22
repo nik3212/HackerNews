@@ -7,21 +7,24 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class StoryTableViewCell: UITableViewCell {
     
     // MARK: IBOutlets
-    @IBOutlet private var previewImageView: UIImageView!
+    @IBOutlet private var previewImageView: HNImageView!
     @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var linkLabel: UILabel!
-    @IBOutlet private var timeLabel: UILabel!
-    @IBOutlet private var scoreLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
     @IBOutlet private var commentButton: UIButton!
+    @IBOutlet private var titleView: UIView!
     
     // MARK: Public Properties
     
-    /// <#Description#>
+    /// A block object to executed when comment tapped.
     var commentAction: (() -> Void)?
+
+    // MARK: Private Properties
+    private var theme: Theme?
     
     // MARK: Initialization
     override func awakeFromNib() {
@@ -34,25 +37,33 @@ final class StoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: true)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        previewImageView.cancel()
+    }
+    
     // MARK: Public Methods
     
     /// Set model data to the cell.
     ///
     /// - Parameter model: A `NewsModel` value that contains the cell data.
     func setup(model: NewsModel) {
+        if let urlString = model.url {
+            previewImageView.setImage(from: URL(string: urlString))
+        }
         titleLabel.text = model.title
-        linkLabel.text = model.url
-        scoreLabel.text = String(describing: model.score)
+        descriptionLabel.attributedText = theme?.postDescriptionTitle(score: model.score.map(String.init),
+                                                                      username: model.by,
+                                                                      time: model.newsPublishTime())
     }
     
     /// Apply theme to cell.
     ///
     /// - Parameter theme: A `Theme` value that contains the current application theme.
     func apply(theme: Theme) {
+        self.theme = theme
+        theme.postTitle.apply(to: titleLabel)
         theme.cellTwo.apply(to: self)
-//        theme.cellTwo.apply(to: self)
-//        theme.baseSettingsTitle.apply(to: titleLabel)
-//        theme.infoSettingsTitle.apply(to: infoLabel)
     }
 }
 

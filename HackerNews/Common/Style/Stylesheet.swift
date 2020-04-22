@@ -37,12 +37,28 @@ struct Stylesheet {
             $0.largeTitleTextAttributes = attributes
         }
         
+        private static let lightAppearance: Style<UINavigationBar> = Style {
+            guard #available(iOS 13.0, *) else { return }
+            let apperance = makeLightAppearance()
+            $0.compactAppearance = apperance
+            $0.scrollEdgeAppearance = apperance
+            $0.standardAppearance = apperance
+        }
+        
+        private static let darkAppearance: Style<UINavigationBar> = Style {
+            guard #available(iOS 13.0, *) else { return }
+            let apperance = makeDarkAppearance()
+            $0.compactAppearance = apperance
+            $0.scrollEdgeAppearance = apperance
+            $0.standardAppearance = apperance
+        }
+        
         private static let blackLargeTitleText: Style<UINavigationBar> = Style {
             guard #available(iOS 11.0, *), var attributes = $0.largeTitleTextAttributes else { return }
             attributes[.foregroundColor] = Colors.black
             $0.largeTitleTextAttributes = attributes
         }
-        
+                
         private static let blackText: Style<UINavigationBar> = Style {
             guard var attributes = $0.titleTextAttributes else { return }
             attributes[.foregroundColor] = Colors.black
@@ -62,8 +78,26 @@ struct Stylesheet {
             $0.shadowImage = UIImage.imageWithColor(color: Colors.gray20)
         }
         
-        static let dark: Style<UINavigationBar> = Style.compose(base, black, whiteText, whiteLargeTitleText, noHairline)
-        static let light: Style<UINavigationBar> = Style.compose(base, white, blackText, blackLargeTitleText, hairline)
+        @available(iOS 13.0, *)
+        private static func makeLightAppearance() -> UINavigationBarAppearance {
+            let apperance = UINavigationBarAppearance()
+            apperance.backgroundColor = Colors.warmGray
+            apperance.titleTextAttributes = [.foregroundColor: Colors.black]
+            apperance.largeTitleTextAttributes = [.foregroundColor: Colors.black]
+            return apperance
+        }
+        
+        @available(iOS 13.0, *)
+        private static func makeDarkAppearance() -> UINavigationBarAppearance {
+            let apperance = UINavigationBarAppearance()
+            apperance.backgroundColor = Colors.black
+            apperance.titleTextAttributes = [.foregroundColor: Colors.lightGray]
+            apperance.largeTitleTextAttributes = [.foregroundColor: Colors.lightGray]
+            return apperance
+        }
+        
+        static let dark: Style<UINavigationBar> = Style.compose(base, black, whiteText, whiteLargeTitleText, noHairline, darkAppearance)
+        static let light: Style<UINavigationBar> = Style.compose(base, white, blackText, blackLargeTitleText, hairline, lightAppearance)
     }
 
     enum TabBar {
@@ -125,6 +159,8 @@ struct Stylesheet {
         static let infoSettingsText = Style.compose(text1, gray)
         static let darkTableViewHeaderText = Style.compose(white)
         static let lightTableViewHeaderText = Style.compose(darkGray)
+        static let lightPostTitleText = Style.compose(text1, gray)
+        static let darkPostTitleText = Style.compose(text1, white)
     }
     
     enum View {
@@ -200,6 +236,16 @@ struct Stylesheet {
         
         static let dark: Style<UITableViewHeaderFooterView> = Style {
             $0.contentView.backgroundColor = Colors.greyishBrown
+        }
+    }
+    
+    enum AttributedString {
+        static func postDescription(icon: UIImage, color: UIColor) -> NSAttributedString {
+            return NSAttributedString.attributedString(from: icon, color: color)
+        }
+        
+        static func postDescription(string: String, color: UIColor) -> NSAttributedString {
+            return string.attributedString(textAlignment: .left, textColor: color, font: FontStyle.text3.font)
         }
     }
 }

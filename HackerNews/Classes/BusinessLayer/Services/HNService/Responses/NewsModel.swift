@@ -27,8 +27,12 @@ struct NewsModel {
     
     /// The ids of the item's comments, in ranked display order.
     var kids: [Int]?
+    
+    /// Creation date of the item, in Unix Time.
+    var time: Int?
 }
 
+// MARK: Decodable
 extension NewsModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case id
@@ -37,6 +41,7 @@ extension NewsModel: Decodable {
         case by
         case url
         case kids
+        case time
     }
     
     init(from decoder: Decoder) throws {
@@ -47,5 +52,14 @@ extension NewsModel: Decodable {
         by = try? container.decode(String.self, forKey: .by)
         url = try? container.decode(String.self, forKey: .url)
         kids = try? container.decode([Int].self, forKey: .kids)
+        time = try? container.decode(Int.self, forKey: .time)
+    }
+}
+
+extension NewsModel {
+    func newsPublishTime() -> String? {
+        guard let time = time else { return nil }
+        let date = Date(timeIntervalSince1970: TimeInterval(time))
+        return Date().timeAgo(from: date)
     }
 }

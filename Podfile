@@ -13,6 +13,8 @@ end
 
 def app_pods
     pod 'R.swift'
+    pod 'Kingfisher'
+    pod "SkeletonView"
 end
 
 def analitics_pod

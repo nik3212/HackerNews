@@ -9,4 +9,8 @@
 protocol StoriesViewInput: class, Presentable, ThemeUpdatable {
     func setupInitialState(theme: Theme)
     func changeNavigationTitle(with title: String)
+    func reloadData()
+    func showAnimatedSkeleton()
+    func hideAnimatedSkeleton()
+    func hideRefreshControl()
 }

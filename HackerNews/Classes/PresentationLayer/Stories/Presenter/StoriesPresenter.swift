@@ -20,6 +20,11 @@ class StoriesPresenter {
     private var ids: [Int] = []
     private var items: [NewsModel] = []
     
+    private var loadingIds: [Int] {
+        let count = self.items.count
+        return Array(ids[safe:count..<count + StoriesConstants.loadItemsCountPerOnce])
+    }
+    
     // MARK: Private Methods
     private func changeNavigationTitle(with storyType: StoryType) {
         switch storyType {
@@ -45,17 +50,27 @@ extension StoriesPresenter: StoriesViewOutput {
     
     func viewIsReady() {
         view.setupInitialState(theme: themeManager.theme)
+        view.showAnimatedSkeleton()
         changeNavigationTitle(with: storyType)
         interactor.loadStories()
         themeManager?.addObserver(self)
+    }
+    
+    func didSelectRow(at row: Int) {
+        
+    }
+    
+    func prefetch(at indexPath: IndexPath) {
+        guard !items.isEmpty, indexPath.row >= items.count - 1 else { return }
+        interactor.loadNews(with: loadingIds)
     }
 }
 
 // MARK: StoriesInteractorOutput
 extension StoriesPresenter: StoriesInteractorOutput {
     func loadTopStoriesSuccess(ids: [Int]) {
-        self.ids = ids
-        interactor.loadNews(with: ids)
+        self.ids = ids.sorted(by: { $0 > $1 })
+        interactor.loadNews(with: loadingIds)
     }
     
     func loadTopStoriesFailed(error: Error) {
@@ -63,14 +78,26 @@ extension StoriesPresenter: StoriesInteractorOutput {
     }
     
     func loadItemsSuccess(_ items: [NewsModel]) {
-        
+        self.items.append(contentsOf: items)
+        view.hideAnimatedSkeleton()
+        view.reloadData()
+        view.hideRefreshControl()
     }
     
     func loadItemsFailed(error: Error) {
         
     }
+    
+    func refreshStories() {
+        ids.removeAll()
+        items.removeAll()
+        view.reloadData()
+        view.showAnimatedSkeleton()
+        interactor.loadStories()
+    }
 }
 
+// MARK: StoryType
 extension StoriesPresenter {
     enum StoryType: String {
         case new = "New"
@@ -83,5 +110,12 @@ extension StoriesPresenter {
 extension StoriesPresenter: ThemeObserver {
     func themeDidChange(_ theme: Theme) {
         view.update(theme: theme)
+    }
+}
+
+// MARK: Constants
+extension StoriesPresenter {
+    private enum StoriesConstants {
+        static let loadItemsCountPerOnce: Int = 20
     }
 }

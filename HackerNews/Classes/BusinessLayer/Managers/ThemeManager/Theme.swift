@@ -64,6 +64,15 @@ extension Theme {
         }
     }
     
+    var postTitle: Style<UILabel> {
+        switch self {
+        case .dark:
+            return Stylesheet.Label.darkPostTitleText
+        case .light:
+            return Stylesheet.Label.lightPostTitleText
+        }
+    }
+    
     var baseSettingsTitle: Style<UILabel> {
         switch self {
         case .dark:
@@ -129,6 +138,33 @@ extension Theme {
                 return .default
             }
         }
+    }
+
+    func postDescriptionTitle(score: String?, username: String?, time: String?) -> NSAttributedString {
+        let baseColor = self == .dark ? Colors.lightGray : Colors.darkGray
+        let dotString = Stylesheet.AttributedString.postDescription(string: " • ", color: baseColor)
+        
+        var results: [NSAttributedString] = []
+        
+        if let score = score {
+            if let icon = R.image.pointsIcon() {
+                results.append(Stylesheet.AttributedString.postDescription(icon: icon, color: baseColor))
+                results.append(NSAttributedString(string: " "))
+            }
+            results.append(Stylesheet.AttributedString.postDescription(string: score, color: baseColor))
+            results.append(dotString)
+        }
+        
+        if let username = username {
+            results.append(Stylesheet.AttributedString.postDescription(string: username, color: baseColor))
+            results.append(dotString)
+        }
+        
+        if let time = time {
+            results.append(Stylesheet.AttributedString.postDescription(string: time, color: baseColor))
+        }
+
+        return results.reduce(NSAttributedString()) { $0 + $1 }
     }
 }
 // swiftlint:enable file_lenght

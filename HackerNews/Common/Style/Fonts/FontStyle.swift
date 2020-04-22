@@ -22,6 +22,12 @@ enum FontStyle: String {
     /// Regular 17
     case text1
     
+    /// Regular 13
+    case text2
+    
+    /// Regular 12
+    case text3
+    
     ///
     var font: UIFont {
         switch self {
@@ -33,6 +39,10 @@ enum FontStyle: String {
             return .semiBold >>> medium
         case .text1:
             return .regular >>> medium
+        case .text2:
+            return .regular >>> normalsize
+        case .text3:
+            return .regular >>> small
         }
     }
     
