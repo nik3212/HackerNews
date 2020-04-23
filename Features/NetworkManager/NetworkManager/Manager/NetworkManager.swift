@@ -36,16 +36,22 @@ extension NetworkManager: NetworkManagerProtocol {
         
         let task = session.dataTask(with: urlRequest) { (data: Data?, _, error: Error?) in
             if let error = error {
-                fail(error)
+                DispatchQueue.main.async {
+                    fail(error)
+                }
                 return
             }
             
             guard let data = data, let model = try? JSONDecoder().decode(R.ModelType.self, from: data) else {
-                fail(NetworkError.decodingFailed)
+                DispatchQueue.main.async {
+                    fail(NetworkError.decodingFailed)
+                }
                 return
             }
 
-            completion(model)
+            DispatchQueue.main.async {
+                completion(model)
+            }
         }
         task.resume()
     }

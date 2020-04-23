@@ -19,7 +19,7 @@ class StoriesPresenter {
     private var storyType: StoryType = .new
     private var ids: [Int] = []
     private var items: [NewsModel] = []
-    
+
     private var loadingIds: [Int] {
         let count = self.items.count
         return Array(ids[safe:count..<count + StoriesConstants.loadItemsCountPerOnce])
@@ -41,7 +41,7 @@ class StoriesPresenter {
 // MARK: StoriesViewOutput
 extension StoriesPresenter: StoriesViewOutput {
     func numberOfRows() -> Int {
-        return items.count
+        return 10//items.count
     }
     
     func getModel(for row: Int) -> NewsModel {
@@ -63,6 +63,7 @@ extension StoriesPresenter: StoriesViewOutput {
     func prefetch(at indexPath: IndexPath) {
         guard !items.isEmpty, indexPath.row >= items.count - 1 else { return }
         interactor.loadNews(with: loadingIds)
+        print("PREFETCH")
     }
 }
 
@@ -78,10 +79,10 @@ extension StoriesPresenter: StoriesInteractorOutput {
     }
     
     func loadItemsSuccess(_ items: [NewsModel]) {
-        self.items.append(contentsOf: items)
+        self.items.append(contentsOf: items.sorted(by: { $0.id > $1.id }))
         view.hideAnimatedSkeleton()
-        view.reloadData()
         view.hideRefreshControl()
+        view.reloadData()
     }
     
     func loadItemsFailed(error: Error) {

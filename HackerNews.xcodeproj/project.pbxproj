@@ -83,6 +83,9 @@
 		5A9C966D2442608E002AC0F5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C966C2442608E002AC0F5 /* Colors.swift */; };
 		5AA02BEA244F658400B5B15F /* String+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA02BE9244F658400B5B15F /* String+Attributed.swift */; };
 		5AAC9112245090C60041006F /* Array+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC9111245090C60041006F /* Array+Range.swift */; };
+		5AAC91202450E8830041006F /* HNImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC911F2450E8830041006F /* HNImageView.swift */; };
+		5AAC91232450E89F0041006F /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC91222450E89F0041006F /* SkeletonCell.swift */; };
+		5AAC91252450E8A90041006F /* SkeletonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC91242450E8A90041006F /* SkeletonCell.xib */; };
 		5ACB43D424484BA00010465B /* ThemeUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43D324484BA00010465B /* ThemeUpdatable.swift */; };
 		5ACB43D9244855F30010465B /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43D8244855F30010465B /* Weak.swift */; };
 		5ACB43DB244862500010465B /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43DA244862500010465B /* ImageType.swift */; };
@@ -90,7 +93,6 @@
 		5ACB43DF244886E30010465B /* MainTabBarViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43DE244886E30010465B /* MainTabBarViewOutput.swift */; };
 		5ACB43E22448872A0010465B /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43E12448872A0010465B /* MainTabBarPresenter.swift */; };
 		5ACB43E42448875C0010465B /* MainTabBarViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43E32448875C0010465B /* MainTabBarViewInput.swift */; };
-		5AD9C031244E3C5E007F8769 /* HNImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9C030244E3C5E007F8769 /* HNImageView.swift */; };
 		5AE2EDCD24103C9B0011A198 /* RootModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */; };
 		5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */; };
 		5AE2EDD424103EED0011A198 /* MainTabBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDD324103EED0011A198 /* MainTabBarConfigurator.swift */; };
@@ -255,6 +257,9 @@
 		5A9C966C2442608E002AC0F5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5AA02BE9244F658400B5B15F /* String+Attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributed.swift"; sourceTree = "<group>"; };
 		5AAC9111245090C60041006F /* Array+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Range.swift"; sourceTree = "<group>"; };
+		5AAC911F2450E8830041006F /* HNImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNImageView.swift; sourceTree = "<group>"; };
+		5AAC91222450E89F0041006F /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
+		5AAC91242450E8A90041006F /* SkeletonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkeletonCell.xib; sourceTree = "<group>"; };
 		5ACB43D324484BA00010465B /* ThemeUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUpdatable.swift; sourceTree = "<group>"; };
 		5ACB43D8244855F30010465B /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		5ACB43DA244862500010465B /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
@@ -262,7 +267,6 @@
 		5ACB43DE244886E30010465B /* MainTabBarViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewOutput.swift; sourceTree = "<group>"; };
 		5ACB43E12448872A0010465B /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		5ACB43E32448875C0010465B /* MainTabBarViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewInput.swift; sourceTree = "<group>"; };
-		5AD9C030244E3C5E007F8769 /* HNImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HNImageView.swift; path = ../../../../../../HNImageView.swift; sourceTree = "<group>"; };
 		5AE2EDCC24103C9B0011A198 /* RootModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleAssembly.swift; sourceTree = "<group>"; };
 		5AE2EDCF24103CDB0011A198 /* RootConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootConfigurator.swift; sourceTree = "<group>"; };
 		5AE2EDD324103EED0011A198 /* MainTabBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarConfigurator.swift; sourceTree = "<group>"; };
@@ -749,6 +753,23 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		5AAC911D2450E82E0041006F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5AAC91212450E8940041006F /* LoadingCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5AAC91212450E8940041006F /* LoadingCell */ = {
+			isa = PBXGroup;
+			children = (
+				5AAC91222450E89F0041006F /* SkeletonCell.swift */,
+				5AAC91242450E8A90041006F /* SkeletonCell.xib */,
+			);
+			path = LoadingCell;
+			sourceTree = "<group>";
+		};
 		5ACB43E02448871F0010465B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,7 +781,8 @@
 		5AD9C02F244E3C50007F8769 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5AD9C030244E3C5E007F8769 /* HNImageView.swift */,
+				5AAC911F2450E8830041006F /* HNImageView.swift */,
+				5AAC911D2450E82E0041006F /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1444,6 +1466,7 @@
 				5A9C965B24425B4A002AC0F5 /* Poppins-Medium.ttf in Resources */,
 				5AE2EDEA241048000011A198 /* Stories.storyboard in Resources */,
 				5A8054EB244CD9A0005E4F96 /* StoryTableViewCell.xib in Resources */,
+				5AAC91252450E8A90041006F /* SkeletonCell.xib in Resources */,
 				5A9C965424425B4A002AC0F5 /* Poppins-ExtraBold.ttf in Resources */,
 				71D3EE6174A29CCC96AF27FC /* Settings.storyboard in Resources */,
 				4EFF808EC08E9CCA2D33FC20 /* Theme.storyboard in Resources */,
@@ -1636,6 +1659,7 @@
 				D07205272130A0AF00E4B1ED /* UIImage+.swift in Sources */,
 				5AE2EDDD241040A40011A198 /* MainTabBarViewController.swift in Sources */,
 				3867CB6F215FB264003C0658 /* Date+.swift in Sources */,
+				5AAC91232450E89F0041006F /* SkeletonCell.swift in Sources */,
 				D07205312130A17100E4B1ED /* UIViewControllerFactory.swift in Sources */,
 				5AE2EDCD24103C9B0011A198 /* RootModuleAssembly.swift in Sources */,
 				5AAC9112245090C60041006F /* Array+Range.swift in Sources */,
@@ -1669,6 +1693,7 @@
 				5A5C0AA0241ECB7D007B4FCF /* ServiceLocatorConfigurator.swift in Sources */,
 				5A435C0D243A286A009C5355 /* Theme.swift in Sources */,
 				4FBF586447B5D27D3FFE8695 /* StoriesViewInput.swift in Sources */,
+				5AAC91202450E8830041006F /* HNImageView.swift in Sources */,
 				D746902D625B40CF3177A9A3 /* StoriesViewOutput.swift in Sources */,
 				CB02B826066E9E278B544AB0 /* StoriesViewController.swift in Sources */,
 				D078561297ACC3EAD4FC08EA /* StoriesPresenter.swift in Sources */,
@@ -1679,7 +1704,6 @@
 				A2973A58E5B273EFDDA3199A /* StoriesRouterInput.swift in Sources */,
 				5A8BF1792449D7A500215883 /* RootViewOutput.swift in Sources */,
 				2C5287CA0F51E7CC0998F056 /* StoriesRouter.swift in Sources */,
-				5AD9C031244E3C5E007F8769 /* HNImageView.swift in Sources */,
 				C72C67A3801D1099E2E78982 /* StoriesAssembly.swift in Sources */,
 				5AE2EDE0241045D60011A198 /* Presentable.swift in Sources */,
 				37B144B44710E04D53D38B1F /* SettingsViewInput.swift in Sources */,

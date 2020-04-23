@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SkeletonView
+import EmptyDataSet_Swift
 
 class StoriesViewController: UIViewController {
     
@@ -20,7 +20,8 @@ class StoriesViewController: UIViewController {
     // MARK: Private Properties
     private var refreshControl = UIRefreshControl()
     private var theme: Theme?
-
+    private var showSkeleton: Bool = false
+    
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,21 +36,16 @@ class StoriesViewController: UIViewController {
         }
         
         tableView.register(StoryTableViewCell.self)
+        tableView.register(SkeletonCell.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = Metrics.estimatedRowHeight
-        tableView.isSkeletonable = true
         tableView.prefetchDataSource = self
         tableView.refreshControl = refreshControl
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         refreshControl.addTarget(self, action: #selector(refreshStories(_:)), for: .valueChanged)
         
         self.extendedLayoutIncludesOpaqueBars = true
-    }
-    
-    private func configureSkeleton() {
-        let gradient = SkeletonGradient(baseColor: .gray)
-        let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
-        view.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
-        view.isSkeletonable = true
     }
 }
 
@@ -69,11 +65,11 @@ extension StoriesViewController: StoriesViewInput {
     }
 
     func showAnimatedSkeleton() {
-        configureSkeleton()
+        showSkeleton = true
     }
     
     func hideAnimatedSkeleton() {
-        view.hideSkeleton()
+        showSkeleton = false
     }
     
     func hideRefreshControl() {
@@ -99,24 +95,32 @@ extension StoriesViewController: UITableViewDelegate {
 }
 
 // MARK: UITableViewDataSource
-extension StoriesViewController: SkeletonTableViewDataSource {
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return StoryTableViewCell.reuseIdentifier
+extension StoriesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? SkeletonCell {
+            cell.slide(to: .right)
+        }
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if showSkeleton {
+            let cell: SkeletonCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+            if let theme = theme { cell.apply(theme: theme) }
+            return cell
+        }
+        
         let cell: StoryTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         let model = output.getModel(for: indexPath.row)
 
-        if let theme = theme {
-            cell.apply(theme: theme)
-        }
+        print("\(indexPath.row)")
+        print(output.getModel(for: indexPath.row))
         
-        cell.hideSkeleton()
+        if let theme = theme { cell.apply(theme: theme) }
+
         cell.setup(model: model)
         
         return cell
@@ -127,13 +131,29 @@ extension StoriesViewController: SkeletonTableViewDataSource {
     }
 }
 
+// MARK: EmptyDataSetSource
+extension StoriesViewController: EmptyDataSetSource {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return nil
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return nil
+    }
+}
+
+// MARK: EmptyDataSetDelegate
+extension StoriesViewController: EmptyDataSetDelegate {
+    
+}
+
 // MARK: ThemeUpdatable
 extension StoriesViewController: ThemeUpdatable {
     func update(theme: Theme) {
         self.theme = theme
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
-        tableView.visibleCells.forEach { ($0 as? StoryTableViewCell)?.apply(theme: theme) }
+        tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Skeleton
 
 enum Theme: String {
     /// Light theme
@@ -148,7 +149,24 @@ extension Theme {
             }
         }
     }
+    
+    var skeleton: Style<GradientContainerView> {
+        switch self {
+        case .dark:
+            return Stylesheet.Skeleton.dark
+        case .light:
+            return Stylesheet.Skeleton.light
+        }
+    }
 
+//    func emptyTitle(title: String) -> NSAttributedString {
+//        
+//    }
+//    
+//    func emptyDescription(text: String) -> NSAttributedString {
+//        
+//    }
+//    
     func postDescriptionTitle(score: String?, username: String?, time: String?) -> NSAttributedString {
         let baseColor = self == .dark ? Colors.lightGray : Colors.darkGray
         let dotString = Stylesheet.AttributedString.postDescription(string: " • ", color: baseColor)

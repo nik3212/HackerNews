@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Skeleton
 
 struct Stylesheet {
     enum NavigationBar {
@@ -170,6 +171,20 @@ struct Stylesheet {
         
         static let dark: Style<UIView> = Style {
             $0.backgroundColor = Colors.black
+        }
+    }
+    
+    enum Skeleton {
+        static let light: Style<GradientContainerView> = Style {
+            $0.gradientLayer.colors = [Colors.greyish.cgColor,
+                                       Colors.warmGrayLight.cgColor,
+                                       Colors.greyish.cgColor]
+        }
+        
+        static let dark: Style<GradientContainerView> = Style {
+            $0.gradientLayer.colors = [Colors.greyishBrown.cgColor,
+                                       Colors.gray.cgColor,
+                                       Colors.greyishBrown.cgColor]
         }
     }
     

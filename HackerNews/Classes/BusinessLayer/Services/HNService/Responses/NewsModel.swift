@@ -11,7 +11,7 @@ import Foundation
 struct NewsModel {
     
     /// The item's unique id.
-    let id: Int?
+    let id: Int
     
     /// The title of the story, poll or job.
     let title: String?
@@ -46,7 +46,7 @@ extension NewsModel: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try? container.decode(Int.self, forKey: .id)
+        id = try container.decode(Int.self, forKey: .id)
         title = try? container.decode(String.self, forKey: .title)
         score = try? container.decode(Int.self, forKey: .score)
         by = try? container.decode(String.self, forKey: .by)

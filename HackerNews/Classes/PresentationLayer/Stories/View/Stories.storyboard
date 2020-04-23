@@ -19,9 +19,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="APs-f6-HXH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="jGj-gt-ec7" id="1X3-L8-1O6"/>
                                     <outlet property="delegate" destination="jGj-gt-ec7" id="aDz-Cz-R1l"/>
@@ -35,9 +32,6 @@
                             <constraint firstItem="HhK-QP-Upz" firstAttribute="bottom" secondItem="APs-f6-HXH" secondAttribute="bottom" id="Zb9-LD-hle"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HhK-QP-Upz"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="APs-f6-HXH" id="PCb-He-T8h"/>

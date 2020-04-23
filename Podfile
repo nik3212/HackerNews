@@ -14,7 +14,8 @@ end
 def app_pods
     pod 'R.swift'
     pod 'Kingfisher'
-    pod "SkeletonView"
+    pod "Skeleton"
+    pod 'EmptyDataSet-Swift', '~> 5.0.0'
 end
 
 def analitics_pod

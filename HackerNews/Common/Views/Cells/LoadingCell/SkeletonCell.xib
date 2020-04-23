@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkeletonCell" rowHeight="172" id="2HJ-vS-En9" customClass="SkeletonCell" customModule="HackerNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="172"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2HJ-vS-En9" id="BDc-xe-dIX">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="172"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pf3-21-OCX">
+                        <rect key="frame" x="15" y="8" width="345" height="156"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLM-eQ-kPp" customClass="GradientContainerView" customModule="Skeleton">
+                                <rect key="frame" x="0.0" y="48" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.87563550469999996" blue="0.87565046550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8su-n9-Zbt"/>
+                                    <constraint firstAttribute="width" constant="60" id="Y1X-dj-BzB"/>
+                                    <constraint firstAttribute="width" secondItem="vLM-eQ-kPp" secondAttribute="height" multiplier="60:60" id="kFd-mv-AeR"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DFI-J9-0aG">
+                                <rect key="frame" x="72" y="59.5" width="273" height="37"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoX-11-hWe" customClass="GradientContainerView" customModule="Skeleton">
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="16"/>
+                                        <color key="backgroundColor" red="0.87450980389999999" green="0.87563550469999996" blue="0.87565046550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="ETa-Tk-mDZ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOT-rJ-GGL" customClass="GradientContainerView" customModule="Skeleton">
+                                        <rect key="frame" x="0.0" y="21" width="273" height="16"/>
+                                        <color key="backgroundColor" red="0.87450980389999999" green="0.87563550469999996" blue="0.87565046550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="SRk-9l-Ivg"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pf3-21-OCX" firstAttribute="top" secondItem="BDc-xe-dIX" secondAttribute="top" constant="8" id="ZWt-zn-5nO"/>
+                    <constraint firstAttribute="trailing" secondItem="pf3-21-OCX" secondAttribute="trailing" constant="15" id="agK-bJ-to1"/>
+                    <constraint firstAttribute="bottom" secondItem="pf3-21-OCX" secondAttribute="bottom" constant="8" id="deU-rg-tLu"/>
+                    <constraint firstItem="pf3-21-OCX" firstAttribute="leading" secondItem="BDc-xe-dIX" secondAttribute="leading" constant="15" id="fyr-lU-UQe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outletCollection property="gradientViews" destination="vLM-eQ-kPp" collectionClass="NSMutableArray" id="T4f-gQ-Z8k"/>
+                <outletCollection property="gradientViews" destination="WoX-11-hWe" collectionClass="NSMutableArray" id="Fer-rN-AA8"/>
+                <outletCollection property="gradientViews" destination="lOT-rJ-GGL" collectionClass="NSMutableArray" id="toF-53-ETT"/>
+            </connections>
+            <point key="canvasLocation" x="-89.130434782608702" y="-29.464285714285712"/>
+        </tableViewCell>
+    </objects>
+</document>
