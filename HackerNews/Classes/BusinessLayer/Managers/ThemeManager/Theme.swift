@@ -83,6 +83,15 @@ extension Theme {
         }
     }
     
+    var refreshControl: Style<UIRefreshControl> {
+        switch self {
+        case .dark:
+            return Stylesheet.RefreshControl.dark
+        case .light:
+            return Stylesheet.RefreshControl.light
+        }
+    }
+    
     var baseSettingsTitle: Style<UILabel> {
         switch self {
         case .dark:
@@ -122,9 +131,9 @@ extension Theme {
     var tableViewHeader: Style<UITableViewHeaderFooterView> {
         switch self {
         case .dark:
-            return Stylesheet.tableViewHeader.dark
+            return Stylesheet.TableViewHeader.dark
         case .light:
-            return Stylesheet.tableViewHeader.light
+            return Stylesheet.TableViewHeader.light
         }
     }
     

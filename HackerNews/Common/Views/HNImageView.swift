@@ -95,7 +95,7 @@ final class HNImageView: UIView {
     }
     
     private func setPlaceholder() {
-        let placeholderImage = R.image.ask()
+        let placeholderImage = R.image.placeholderIcon()
         
         DispatchQueue.main.async {
             self.contentMode = .center

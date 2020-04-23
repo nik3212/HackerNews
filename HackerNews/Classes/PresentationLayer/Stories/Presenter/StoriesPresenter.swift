@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum SkeletonState {
+    case enabled
+    case disabled
+}
+
 class StoriesPresenter {
     // MARK: Public Properties
     weak var view: StoriesViewInput!
@@ -17,9 +22,16 @@ class StoriesPresenter {
     
     // MARK: Private Properties
     private var storyType: StoryType = .new
+    private var skeletonState: SkeletonState = .disabled
     private var ids: [Int] = []
     private var items: [NewsModel] = []
-
+    private var models: [AlertActionModel] {
+        return [AlertActionModel(title: "New", style: .default, action: { [weak self] in self?.storyType = .new }),
+                AlertActionModel(title: "Top", style: .default, action: { [weak self] in self?.storyType = .top }),
+                AlertActionModel(title: "Best", style: .default, action: { [weak self] in self?.storyType = .best }),
+                AlertActionModel(title: "Cancel", style: .cancel, action: nil)]
+    }
+    
     private var loadingIds: [Int] {
         let count = self.items.count
         return Array(ids[safe:count..<count + StoriesConstants.loadItemsCountPerOnce])
@@ -41,7 +53,7 @@ class StoriesPresenter {
 // MARK: StoriesViewOutput
 extension StoriesPresenter: StoriesViewOutput {
     func numberOfRows() -> Int {
-        return 10//items.count
+        return skeletonState == .enabled ? StoriesConstants.skeletonCount : items.count
     }
     
     func getModel(for row: Int) -> NewsModel {
@@ -49,11 +61,11 @@ extension StoriesPresenter: StoriesViewOutput {
     }
     
     func viewIsReady() {
-        view.setupInitialState(theme: themeManager.theme)
-        view.showAnimatedSkeleton()
+        view.setupInitialState(theme: themeManager.theme, leftNavigationButtonImage: .filter)
         changeNavigationTitle(with: storyType)
         interactor.loadStories()
         themeManager?.addObserver(self)
+        skeletonState = .enabled
     }
     
     func didSelectRow(at row: Int) {
@@ -63,14 +75,17 @@ extension StoriesPresenter: StoriesViewOutput {
     func prefetch(at indexPath: IndexPath) {
         guard !items.isEmpty, indexPath.row >= items.count - 1 else { return }
         interactor.loadNews(with: loadingIds)
-        print("PREFETCH")
+    }
+    
+    func leftNivagtionBarButtonTapped() {
+        router.openFilterModule(with: models)
     }
 }
 
 // MARK: StoriesInteractorOutput
 extension StoriesPresenter: StoriesInteractorOutput {
     func loadTopStoriesSuccess(ids: [Int]) {
-        self.ids = ids.sorted(by: { $0 > $1 })
+        self.ids = ids
         interactor.loadNews(with: loadingIds)
     }
     
@@ -80,9 +95,12 @@ extension StoriesPresenter: StoriesInteractorOutput {
     
     func loadItemsSuccess(_ items: [NewsModel]) {
         self.items.append(contentsOf: items.sorted(by: { $0.id > $1.id }))
-        view.hideAnimatedSkeleton()
+        skeletonState = .disabled
         view.hideRefreshControl()
-        view.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.view.reloadData()
+        }
     }
     
     func loadItemsFailed(error: Error) {
@@ -92,9 +110,13 @@ extension StoriesPresenter: StoriesInteractorOutput {
     func refreshStories() {
         ids.removeAll()
         items.removeAll()
+        skeletonState = .enabled
         view.reloadData()
-        view.showAnimatedSkeleton()
         interactor.loadStories()
+    }
+    
+    func getSkeletonState() -> SkeletonState {
+        return skeletonState
     }
 }
 
@@ -118,5 +140,6 @@ extension StoriesPresenter: ThemeObserver {
 extension StoriesPresenter {
     private enum StoriesConstants {
         static let loadItemsCountPerOnce: Int = 20
+        static let skeletonCount: Int = 10
     }
 }

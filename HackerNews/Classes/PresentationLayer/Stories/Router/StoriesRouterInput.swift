@@ -7,5 +7,5 @@
 //
 
 protocol StoriesRouterInput {
-    
+    func openFilterModule(with models: [AlertActionModel])
 }

@@ -256,7 +256,17 @@ struct Stylesheet {
         static let dark = Style<UITableView>.compose(base, darkBackground, darkSeparator)
     }
     
-    enum tableViewHeader {
+    enum RefreshControl {
+        static let light: Style<UIRefreshControl> = Style {
+            $0.tintColor = UIColor.darkGray
+        }
+        
+        static let dark: Style<UIRefreshControl> = Style {
+            $0.tintColor = UIColor.lightGray
+        }
+    }
+    
+    enum TableViewHeader {
         static let light: Style<UITableViewHeaderFooterView> = Style {
             $0.contentView.backgroundColor = Colors.greyish
         }

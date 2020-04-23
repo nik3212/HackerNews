@@ -11,8 +11,10 @@ import Foundation
 protocol StoriesViewOutput: class {
     func viewIsReady()
     func prefetch(at indexPath: IndexPath)
-    func numberOfRows() -> Int
-    func getModel(for row: Int) -> NewsModel
     func didSelectRow(at row: Int)
+    func numberOfRows() -> Int
     func refreshStories()
+    func leftNivagtionBarButtonTapped()
+    func getModel(for row: Int) -> NewsModel
+    func getSkeletonState() -> SkeletonState
 }

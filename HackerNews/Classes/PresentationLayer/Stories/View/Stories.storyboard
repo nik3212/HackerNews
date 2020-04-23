@@ -33,6 +33,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HhK-QP-Upz"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
                         <outlet property="tableView" destination="APs-f6-HXH" id="PCb-He-T8h"/>
                     </connections>

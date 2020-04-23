@@ -86,6 +86,7 @@
 		5AAC91202450E8830041006F /* HNImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC911F2450E8830041006F /* HNImageView.swift */; };
 		5AAC91232450E89F0041006F /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC91222450E89F0041006F /* SkeletonCell.swift */; };
 		5AAC91252450E8A90041006F /* SkeletonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC91242450E8A90041006F /* SkeletonCell.xib */; };
+		5AB25D8D2451ADD2009C05ED /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB25D8C2451ADD0009C05ED /* UIViewController+.swift */; };
 		5ACB43D424484BA00010465B /* ThemeUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43D324484BA00010465B /* ThemeUpdatable.swift */; };
 		5ACB43D9244855F30010465B /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43D8244855F30010465B /* Weak.swift */; };
 		5ACB43DB244862500010465B /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB43DA244862500010465B /* ImageType.swift */; };
@@ -260,6 +261,7 @@
 		5AAC911F2450E8830041006F /* HNImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNImageView.swift; sourceTree = "<group>"; };
 		5AAC91222450E89F0041006F /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 		5AAC91242450E8A90041006F /* SkeletonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkeletonCell.xib; sourceTree = "<group>"; };
+		5AB25D8C2451ADD0009C05ED /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		5ACB43D324484BA00010465B /* ThemeUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUpdatable.swift; sourceTree = "<group>"; };
 		5ACB43D8244855F30010465B /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		5ACB43DA244862500010465B /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
@@ -1204,6 +1206,7 @@
 				D07205262130A0AF00E4B1ED /* UIImage+.swift */,
 				5AE2EDE1241046210011A198 /* UINavigationController+.swift */,
 				5AAC9111245090C60041006F /* Array+Range.swift */,
+				5AB25D8C2451ADD0009C05ED /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1668,6 +1671,7 @@
 				5AE2EDE2241046210011A198 /* UINavigationController+.swift in Sources */,
 				5A8054DB244CC962005E4F96 /* BestStoriesResource.swift in Sources */,
 				5ACB43E42448875C0010465B /* MainTabBarViewInput.swift in Sources */,
+				5AB25D8D2451ADD2009C05ED /* UIViewController+.swift in Sources */,
 				5A52212124479D01003B799D /* ThemeSelectableTableViewCell.swift in Sources */,
 				D072052B2130A11A00E4B1ED /* ReusableView.swift in Sources */,
 				5ACB43DB244862500010465B /* ImageType.swift in Sources */,

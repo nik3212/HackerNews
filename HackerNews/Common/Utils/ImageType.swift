@@ -15,11 +15,14 @@ protocol ImageType {
 
 enum Image: ImageType {
     case settings
+    case filter
     
     var resource: UIImage? {
         switch self {
         case .settings:
             return R.image.settings()
+        case .filter:
+            return R.image.filterIcon()
         }
     }
     

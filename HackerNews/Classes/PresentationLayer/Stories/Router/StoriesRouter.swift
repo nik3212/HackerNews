@@ -9,10 +9,15 @@
 import Foundation
 
 class StoriesRouter {
+    // MARK: Public Properties
     weak var transitionHandler: TransitionHandler?
 }
 
 // MARK: StoriesRouterInput
 extension StoriesRouter: StoriesRouterInput {
-
+    func openFilterModule(with models: [AlertActionModel]) {
+        transitionHandler?.openModule({ viewController in
+            viewController.showActionSheet(actions: models)
+        })
+    }
 }

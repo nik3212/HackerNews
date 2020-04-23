@@ -34,7 +34,6 @@ class StoriesViewController: UIViewController {
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
-        
         tableView.register(StoryTableViewCell.self)
         tableView.register(SkeletonCell.self)
         tableView.rowHeight = UITableView.automaticDimension
@@ -47,13 +46,22 @@ class StoriesViewController: UIViewController {
         
         self.extendedLayoutIncludesOpaqueBars = true
     }
+    
+    private func configureLeftNivagtionBarButton(with image: Image) {
+        let button = UIBarButtonItem(image: image.resource,
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(leftNivagtionBarButtonTapped(_:)))
+        navigationItem.leftBarButtonItem = button
+    }
 }
 
 // MARK: StoriesViewInput
-extension StoriesViewController: StoriesViewInput {
-    func setupInitialState(theme: Theme) {
+extension StoriesViewController: StoriesViewInput {    
+    func setupInitialState(theme: Theme, leftNavigationButtonImage: Image) {
         self.theme = theme
         update(theme: theme)
+        configureLeftNivagtionBarButton(with: leftNavigationButtonImage)
     }
     
     func changeNavigationTitle(with title: String) {
@@ -63,17 +71,17 @@ extension StoriesViewController: StoriesViewInput {
     func reloadData() {
         tableView.reloadData()
     }
+    
+    func setScrollEnabled(to state: Bool) {
+        tableView.isScrollEnabled = state
+    }
 
-    func showAnimatedSkeleton() {
-        showSkeleton = true
-    }
-    
-    func hideAnimatedSkeleton() {
-        showSkeleton = false
-    }
-    
     func hideRefreshControl() {
         tableView.refreshControl?.endRefreshing()
+    }
+    
+    func isLoading() -> Bool {
+        return showSkeleton
     }
 }
 
@@ -82,6 +90,7 @@ extension StoriesViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             output.prefetch(at: indexPath)
+            print(indexPath)
         }
     }
 }
@@ -107,7 +116,7 @@ extension StoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if showSkeleton {
+        if output.getSkeletonState() == .enabled {
             let cell: SkeletonCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             if let theme = theme { cell.apply(theme: theme) }
             return cell
@@ -116,9 +125,6 @@ extension StoriesViewController: UITableViewDataSource {
         let cell: StoryTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         let model = output.getModel(for: indexPath.row)
 
-        print("\(indexPath.row)")
-        print(output.getModel(for: indexPath.row))
-        
         if let theme = theme { cell.apply(theme: theme) }
 
         cell.setup(model: model)
@@ -153,6 +159,7 @@ extension StoriesViewController: ThemeUpdatable {
         self.theme = theme
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
+        theme.refreshControl.apply(to: refreshControl)
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
     }
 }
@@ -168,5 +175,9 @@ extension StoriesViewController {
 extension StoriesViewController {
     @objc func refreshStories(_ sender: UIRefreshControl) {
         output.refreshStories()
+    }
+    
+    @objc func leftNivagtionBarButtonTapped(_ sender: UIBarButtonItem) {
+        output.leftNivagtionBarButtonTapped()
     }
 }
