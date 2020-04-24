@@ -16,6 +16,7 @@ enum SkeletonState {
 class StoriesPresenter {
     // MARK: Public Properties
     weak var view: StoriesViewInput!
+    weak var output: StoriesModuleOutput?
     var interactor: StoriesInteractorInput!
     var router: StoriesRouterInput!
     var themeManager: ThemeManagerProtocol!
@@ -69,12 +70,14 @@ extension StoriesPresenter: StoriesViewOutput {
     }
     
     func didSelectRow(at row: Int) {
-        
+        guard let urlString = items[row].url, let url = URL(string: urlString) else { return }
+        router?.showPost(by: url)
     }
     
     func prefetch(at indexPath: IndexPath) {
         guard !items.isEmpty, indexPath.row >= items.count - 1 else { return }
-        interactor.loadNews(with: loadingIds)
+        //interactor.loadNews(with: loadingIds)
+        print("Prefetch")
     }
     
     func leftNivagtionBarButtonTapped() {

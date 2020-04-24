@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03191514B8D87600475FDFDC /* PostViewerRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D4D2ECB92FD7A1560375 /* PostViewerRouterTests.swift */; };
+		095DE3023C594866B21EB83F /* PostViewerConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35586B0CF0FFCBBFF920B17 /* PostViewerConfiguratorTests.swift */; };
 		0D1603CAFAEA30A156862ED1 /* SettingsConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB1BC9C41A88EF3EA1E8B3 /* SettingsConfiguratorTests.swift */; };
 		0E95E3FEBFD9EFBA7A696CFD /* ThemeModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D7F843BFB3D0ECBFC7E16D /* ThemeModuleInput.swift */; };
 		0EC6C9C75C06A1962156C50B /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F10F7222A47FB417E6C4588 /* Pods_HackerNews.framework */; };
+		104AD31C4AB7AB4DBDAE8675 /* PostViewerRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98A66B20B565AFC79FE1AA4 /* PostViewerRouterInput.swift */; };
 		11247932183A52868E71490D /* ThemeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C822CF4F21F2BE3AD24BF1 /* ThemeViewTests.swift */; };
 		1735864EEEEE601B855C3A57 /* ThemeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7913C10E5D047B6F6F12 /* ThemeAssembly.swift */; };
 		1AFA6585B5891D01D02A3D1F /* SettingsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481BE5B37B60EBEA91C05322 /* SettingsPresenterTests.swift */; };
@@ -28,11 +31,13 @@
 		38BF9C08215D494F0080C57C /* NetworkManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38F7969A2198A2710083EFEF /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F796992198A2710083EFEF /* String+.swift */; };
 		3C63C91DAA87693F4AF304FD /* StoriesConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D49B681E9B168FE7B4F96 /* StoriesConfiguratorTests.swift */; };
+		4146AC48A20E6EF0DA2D639D /* PostViewerViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381E80E87EC1E64A8375C5D5 /* PostViewerViewOutput.swift */; };
 		42DDF700C568557D9721B39E /* ThemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4653D7772D620D3CBF1B1 /* ThemeRouter.swift */; };
 		437795427873CF1A213CABF6 /* SettingsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949A91778A123B5EF93CC54 /* SettingsInteractorOutput.swift */; };
 		4D878B9B487FDD6CA0B50886 /* ThemeRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30051C967D26D38780E7A57 /* ThemeRouterTests.swift */; };
 		4EFF808EC08E9CCA2D33FC20 /* Theme.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C923B096F47F2D687D4445C3 /* Theme.storyboard */; };
 		4FBF586447B5D27D3FFE8695 /* StoriesViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54504D79E3203454D65767 /* StoriesViewInput.swift */; };
+		514DB75C1FABC4D1F3B1F37C /* PostViewerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D0224E4125D49E633CF8A5 /* PostViewerAssembly.swift */; };
 		53E3C81A7457949576309607 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A682BDFD6027AEE7D726F878 /* SettingsInteractor.swift */; };
 		5A00D8A2244655560013B3F5 /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00D8A1244655560013B3F5 /* Themeable.swift */; };
 		5A1CADF1244B4BF8002D0114 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1CADEF244B4BF7002D0114 /* Item.swift */; };
@@ -82,6 +87,7 @@
 		5A9C966724425E35002AC0F5 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C966624425E35002AC0F5 /* Font+.swift */; };
 		5A9C966D2442608E002AC0F5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C966C2442608E002AC0F5 /* Colors.swift */; };
 		5AA02BEA244F658400B5B15F /* String+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA02BE9244F658400B5B15F /* String+Attributed.swift */; };
+		5AA2461524522FF100887D09 /* PostViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AA2461424522FF100887D09 /* PostViewer.storyboard */; };
 		5AAC9112245090C60041006F /* Array+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC9111245090C60041006F /* Array+Range.swift */; };
 		5AAC91202450E8830041006F /* HNImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC911F2450E8830041006F /* HNImageView.swift */; };
 		5AAC91232450E89F0041006F /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC91222450E89F0041006F /* SkeletonCell.swift */; };
@@ -113,19 +119,29 @@
 		79C0892943C9CCCC93DE4683 /* ThemeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9357ED5A64187C76057B33B /* ThemeInteractorTests.swift */; };
 		7ACEA30CDD9C2EC5E4304163 /* StoriesRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EAC67E1A9739CA65400E95 /* StoriesRouterTests.swift */; };
 		7C9258D74C6FC05A982ECDAE /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EFB1FA6087E3BE89323CEB /* ThemeViewController.swift */; };
+		7D9882311E11ECCF36D6D339 /* PostViewerInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C7AD2E0ECD61ADCFE8E21 /* PostViewerInteractorTests.swift */; };
 		80A064256ECA8ACEA6CAB352 /* SettingsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BAEAE1E6A9BDB269B528B7 /* SettingsAssembly.swift */; };
 		841F0F20A6C107848D230D68 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173DA34D18916D6FCA182FA3 /* SettingsViewController.swift */; };
+		84E360EB7B757082AD123E54 /* PostViewerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA2A0DF0A717185B592A6D /* PostViewerModuleInput.swift */; };
 		85FD344F5BC1934F615CFAC9 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6806965BB5158014D0AAB /* SettingsPresenter.swift */; };
 		87235FA1D54F1BBD55496993 /* StoriesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25768042F1949ED23D54DF4 /* StoriesViewTests.swift */; };
 		8AA0F3452ED1C28896F8CDA8 /* ThemeViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254B44A617EBDBDEC696224C /* ThemeViewInput.swift */; };
 		9217DDCCAA0BF7EACAFA0B62 /* StoriesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5688482AF43266B89E7A0A7B /* StoriesInteractorInput.swift */; };
+		940678F9F2204D252CA748C0 /* PostViewerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F53E5E5CC0A8A90D42FC9 /* PostViewerInteractor.swift */; };
 		96808C88C39A94F772EAE01F /* ThemeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E27AFCA2403A03ED302C2C /* ThemeInteractor.swift */; };
 		A2973A58E5B273EFDDA3199A /* StoriesRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58FA4A86F5D21BC625349CD /* StoriesRouterInput.swift */; };
+		A8FDAFA0323D3B109F41B788 /* PostViewerInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29D095115D033F8DD578CC2 /* PostViewerInteractorOutput.swift */; };
+		A9AAF69357EF4BB9B8501493 /* PostViewerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7985932A9D15215BCAE7A141 /* PostViewerPresenter.swift */; };
 		AA1B09AF7685666005E3B301 /* ThemeInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D0CD9C2060043398C027 /* ThemeInteractorOutput.swift */; };
+		AA58C55DB378C1456563D17E /* PostViewerInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98312C5B381997A14659482A /* PostViewerInteractorInput.swift */; };
 		B2A18F8423F3459CE46FDCE1 /* StoriesInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED532098A8A2AF98ED6E80 /* StoriesInteractorOutput.swift */; };
 		B375711E66BCACF11B39AFFF /* SettingsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9694DB55717A8BA99A82C027 /* SettingsRouterInput.swift */; };
+		B712534657A925E2770C4FCB /* PostViewerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56297C9489167666B853FE53 /* PostViewerRouter.swift */; };
 		B7A71D6D5CC68FEAB62EC9C3 /* ThemeConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B757722416640AE5DA2D5B6 /* ThemeConfiguratorTests.swift */; };
 		BCBA5819B2598079B48DDA9C /* ThemeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08F6F4829CAEB8EF67D15A /* ThemeConfigurator.swift */; };
+		BD2683DD0413A741DB6D2D6D /* PostViewerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1C93816530E00B432A327B /* PostViewerViewTests.swift */; };
+		C4D6DD715D41F6EB014CBE86 /* PostViewerAssemblyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B21DC5A233E67973C5C0B /* PostViewerAssemblyTests.swift */; };
+		C67F4E9D22D0736C6B94DF7B /* PostViewerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E2EE599B53B9CA87F81E3 /* PostViewerConfigurator.swift */; };
 		C72C67A3801D1099E2E78982 /* StoriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A4FDD125295BD464D56161 /* StoriesAssembly.swift */; };
 		CB02B826066E9E278B544AB0 /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9175C3D9C3474F09BEE4F /* StoriesViewController.swift */; };
 		CB877EC84D37205766B4EC6D /* Pods_HackerNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF3412A178EA5EB164E53D3 /* Pods_HackerNewsTests.framework */; };
@@ -146,12 +162,15 @@
 		D12DE9103766E9D49A9F2B37 /* SettingsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C322EE9386899B3C63540FAD /* SettingsViewTests.swift */; };
 		D746902D625B40CF3177A9A3 /* StoriesViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5263AF6EF05EEDA880DA524F /* StoriesViewOutput.swift */; };
 		E4D5B4ABDCD0124D7352915F /* ThemeViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AE570ED443C0AA530DDBC6 /* ThemeViewOutput.swift */; };
+		E4EEBEA8B6578784517C357D /* PostViewerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331D9543529347D6C996D37 /* PostViewerPresenterTests.swift */; };
 		EDE03E5231E7355B1352B22D /* StoriesAssemblyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C465F457451BB047F53DF5D7 /* StoriesAssemblyTests.swift */; };
 		EF0A179C2312F9F08DD9B53B /* SettingsAssemblyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B05D558803A1AD4B7FABDB /* SettingsAssemblyTests.swift */; };
+		EF200C46977915E743D61B02 /* PostViewerViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFE0AE290D946AB4E374202 /* PostViewerViewInput.swift */; };
 		EF595E98A7E35C576C647499 /* StoriesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3B924ABCD34C1BE81504C /* StoriesInteractorTests.swift */; };
 		F5A0C84E03E8AD683E2A10AB /* ThemeRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC01CE435879B2D5F78B13 /* ThemeRouterInput.swift */; };
 		F82094BAB4970E016398315E /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1D9B7E0433BA1D3C63F7D /* SettingsConfigurator.swift */; };
 		FAEE86FF44686D0C9C73A091 /* StoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A76C4A1BBE4B4F8C6FCEC3 /* StoriesInteractor.swift */; };
+		FC42EC76AA4D93F78F81E201 /* PostViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3102BE567A120FD20578109 /* PostViewerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +212,8 @@
 		254B44A617EBDBDEC696224C /* ThemeViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeViewInput.swift; sourceTree = "<group>"; };
 		2BD9175C3D9C3474F09BEE4F /* StoriesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
 		2C08F6F4829CAEB8EF67D15A /* ThemeConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeConfigurator.swift; sourceTree = "<group>"; };
+		2C1C93816530E00B432A327B /* PostViewerViewTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerViewTests.swift; sourceTree = "<group>"; };
+		381E80E87EC1E64A8375C5D5 /* PostViewerViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerViewOutput.swift; sourceTree = "<group>"; };
 		384F0820219E07D30029ADDD /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		3860B557219F2DD800D2CC03 /* fabric.buildsecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.buildsecret; sourceTree = "<group>"; };
 		3860B558219F2DD800D2CC03 /* fabric.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.apikey; sourceTree = "<group>"; };
@@ -201,10 +222,12 @@
 		38F796992198A2710083EFEF /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3B757722416640AE5DA2D5B6 /* ThemeConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeConfiguratorTests.swift; sourceTree = "<group>"; };
 		3F2AA6A6FB80106F288FEE85 /* Pods-HackerNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.debug.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.debug.xcconfig"; sourceTree = "<group>"; };
+		4331D9543529347D6C996D37 /* PostViewerPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerPresenterTests.swift; sourceTree = "<group>"; };
 		481BE5B37B60EBEA91C05322 /* SettingsPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsPresenterTests.swift; sourceTree = "<group>"; };
 		5263AF6EF05EEDA880DA524F /* StoriesViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesViewOutput.swift; sourceTree = "<group>"; };
 		54EFB1FA6087E3BE89323CEB /* ThemeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		559CCB6107A00A4B58CBC7A5 /* ThemeAssemblyTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeAssemblyTests.swift; sourceTree = "<group>"; };
+		56297C9489167666B853FE53 /* PostViewerRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerRouter.swift; sourceTree = "<group>"; };
 		5688482AF43266B89E7A0A7B /* StoriesInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesInteractorInput.swift; sourceTree = "<group>"; };
 		5A00D8A1244655560013B3F5 /* Themeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
 		5A1CADEF244B4BF7002D0114 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -257,6 +280,7 @@
 		5A9C966624425E35002AC0F5 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		5A9C966C2442608E002AC0F5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5AA02BE9244F658400B5B15F /* String+Attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributed.swift"; sourceTree = "<group>"; };
+		5AA2461424522FF100887D09 /* PostViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostViewer.storyboard; sourceTree = "<group>"; };
 		5AAC9111245090C60041006F /* Array+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Range.swift"; sourceTree = "<group>"; };
 		5AAC911F2450E8830041006F /* HNImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNImageView.swift; sourceTree = "<group>"; };
 		5AAC91222450E89F0041006F /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
@@ -287,8 +311,10 @@
 		75288D891967908B4B1CF34C /* StoriesRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesRouter.swift; sourceTree = "<group>"; };
 		756C7453871B7DB5374C91D0 /* SettingsViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewInput.swift; sourceTree = "<group>"; };
 		7830BC11140D5520485785C7 /* Pods-HackerNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewsTests.debug.xcconfig"; path = "Target Support Files/Pods-HackerNewsTests/Pods-HackerNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7985932A9D15215BCAE7A141 /* PostViewerPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerPresenter.swift; sourceTree = "<group>"; };
 		7AD3B924ABCD34C1BE81504C /* StoriesInteractorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesInteractorTests.swift; sourceTree = "<group>"; };
 		7AECF0419410CC923AC4242E /* SettingsViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewOutput.swift; sourceTree = "<group>"; };
+		7B0B21DC5A233E67973C5C0B /* PostViewerAssemblyTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerAssemblyTests.swift; sourceTree = "<group>"; };
 		7F10F7222A47FB417E6C4588 /* Pods_HackerNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84559136E2CC1694F565A308 /* SettingsInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsInteractorInput.swift; sourceTree = "<group>"; };
 		84DB1BC9C41A88EF3EA1E8B3 /* SettingsConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsConfiguratorTests.swift; sourceTree = "<group>"; };
@@ -297,23 +323,30 @@
 		87973D774E9854C755CEE98C /* Pods-HackerNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewsTests.release.xcconfig"; path = "Target Support Files/Pods-HackerNewsTests/Pods-HackerNewsTests.release.xcconfig"; sourceTree = "<group>"; };
 		880050B23E0763C56310A265 /* SettingsRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsRouterTests.swift; sourceTree = "<group>"; };
 		88D4AD8613343B832D8C6308 /* ThemePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemePresenter.swift; sourceTree = "<group>"; };
+		8AFE0AE290D946AB4E374202 /* PostViewerViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerViewInput.swift; sourceTree = "<group>"; };
 		9694DB55717A8BA99A82C027 /* SettingsRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsRouterInput.swift; sourceTree = "<group>"; };
+		98312C5B381997A14659482A /* PostViewerInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerInteractorInput.swift; sourceTree = "<group>"; };
 		98EAC67E1A9739CA65400E95 /* StoriesRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesRouterTests.swift; sourceTree = "<group>"; };
 		A30051C967D26D38780E7A57 /* ThemeRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeRouterTests.swift; sourceTree = "<group>"; };
+		A611D4D2ECB92FD7A1560375 /* PostViewerRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerRouterTests.swift; sourceTree = "<group>"; };
 		A682BDFD6027AEE7D726F878 /* SettingsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		A6B05D558803A1AD4B7FABDB /* SettingsAssemblyTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsAssemblyTests.swift; sourceTree = "<group>"; };
 		A8A4FDD125295BD464D56161 /* StoriesAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesAssembly.swift; sourceTree = "<group>"; };
 		B0E27AFCA2403A03ED302C2C /* ThemeInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeInteractor.swift; sourceTree = "<group>"; };
+		B3102BE567A120FD20578109 /* PostViewerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerViewController.swift; sourceTree = "<group>"; };
 		B3A76C4A1BBE4B4F8C6FCEC3 /* StoriesInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesInteractor.swift; sourceTree = "<group>"; };
 		B74DFCA04DB8F96532311217 /* Pods-HackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.release.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.release.xcconfig"; sourceTree = "<group>"; };
 		B8CC01CE435879B2D5F78B13 /* ThemeRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeRouterInput.swift; sourceTree = "<group>"; };
 		BAE4653D7772D620D3CBF1B1 /* ThemeRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeRouter.swift; sourceTree = "<group>"; };
 		BAF3412A178EA5EB164E53D3 /* Pods_HackerNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7D49B681E9B168FE7B4F96 /* StoriesConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesConfiguratorTests.swift; sourceTree = "<group>"; };
+		C00E2EE599B53B9CA87F81E3 /* PostViewerConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerConfigurator.swift; sourceTree = "<group>"; };
 		C0D7F843BFB3D0ECBFC7E16D /* ThemeModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeModuleInput.swift; sourceTree = "<group>"; };
+		C29D095115D033F8DD578CC2 /* PostViewerInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerInteractorOutput.swift; sourceTree = "<group>"; };
 		C322EE9386899B3C63540FAD /* SettingsViewTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewTests.swift; sourceTree = "<group>"; };
 		C465F457451BB047F53DF5D7 /* StoriesAssemblyTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesAssemblyTests.swift; sourceTree = "<group>"; };
 		C58FA4A86F5D21BC625349CD /* StoriesRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesRouterInput.swift; sourceTree = "<group>"; };
+		C63F53E5E5CC0A8A90D42FC9 /* PostViewerInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerInteractor.swift; sourceTree = "<group>"; };
 		C8FD75009999F70D8BED054F /* Settings.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C923B096F47F2D687D4445C3 /* Theme.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Theme.storyboard; sourceTree = "<group>"; };
 		C9357ED5A64187C76057B33B /* ThemeInteractorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeInteractorTests.swift; sourceTree = "<group>"; };
@@ -336,13 +369,18 @@
 		D072052E2130A15200E4B1ED /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 		D07205302130A17100E4B1ED /* UIViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerFactory.swift; sourceTree = "<group>"; };
 		D349D0CD9C2060043398C027 /* ThemeInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeInteractorOutput.swift; sourceTree = "<group>"; };
+		D35586B0CF0FFCBBFF920B17 /* PostViewerConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerConfiguratorTests.swift; sourceTree = "<group>"; };
 		D636BD0FA1E64C87B4348CAC /* SettingsInteractorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsInteractorTests.swift; sourceTree = "<group>"; };
+		D98A66B20B565AFC79FE1AA4 /* PostViewerRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerRouterInput.swift; sourceTree = "<group>"; };
 		DBD6806965BB5158014D0AAB /* SettingsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		DCED8BB0967B1933D8335489 /* StoriesPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesPresenter.swift; sourceTree = "<group>"; };
 		DCF23845D0D60ECAF198876E /* ThemeInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeInteractorInput.swift; sourceTree = "<group>"; };
 		E25768042F1949ED23D54DF4 /* StoriesViewTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesViewTests.swift; sourceTree = "<group>"; };
+		E70C7AD2E0ECD61ADCFE8E21 /* PostViewerInteractorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerInteractorTests.swift; sourceTree = "<group>"; };
 		EABC193D2B780816BABAF6D7 /* ThemePresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemePresenterTests.swift; sourceTree = "<group>"; };
+		EEEA2A0DF0A717185B592A6D /* PostViewerModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerModuleInput.swift; sourceTree = "<group>"; };
 		F6AE570ED443C0AA530DDBC6 /* ThemeViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeViewOutput.swift; sourceTree = "<group>"; };
+		F9D0224E4125D49E633CF8A5 /* PostViewerAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostViewerAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +452,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		255F0F3052AC54A0261AE8E7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4331D9543529347D6C996D37 /* PostViewerPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		2CEA7D26636B60D4D590C779 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +481,15 @@
 				B3A76C4A1BBE4B4F8C6FCEC3 /* StoriesInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		31608D80708B505E11420B77 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D98A66B20B565AFC79FE1AA4 /* PostViewerRouterInput.swift */,
+				56297C9489167666B853FE53 /* PostViewerRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		33F5257E0620ED9C2F5B0838 /* Router */ = {
@@ -477,6 +532,14 @@
 				98EAC67E1A9739CA65400E95 /* StoriesRouterTests.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		48590154070F13FF3DB938D5 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				7B0B21DC5A233E67973C5C0B /* PostViewerAssemblyTests.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		51265A8D36D0DA1622A208BB /* Interactor */ = {
@@ -815,6 +878,7 @@
 				5AE2EDC824103C330011A198 /* Main */,
 				2CEA7D26636B60D4D590C779 /* Stories */,
 				C26D41CD92E58E7F27B1529B /* Settings */,
+				BAA380497F589666A2313783 /* PostViewer */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -937,12 +1001,33 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		644A0A4516D1DC15DBB6911C /* PostViewer */ = {
+			isa = PBXGroup;
+			children = (
+				48590154070F13FF3DB938D5 /* Assembly */,
+				76240F2B1C7E1575A6D5104A /* View */,
+				D7C9750BE0D6830A1A1DFB84 /* Interactor */,
+				255F0F3052AC54A0261AE8E7 /* Presenter */,
+				D1677F933F3EB0EFB7CA29C7 /* Router */,
+				F72222C5F20665DE78294062 /* Configurator */,
+			);
+			path = PostViewer;
+			sourceTree = "<group>";
+		};
 		6920FF250F4B00CBCD6E23D8 /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
 				84DB1BC9C41A88EF3EA1E8B3 /* SettingsConfiguratorTests.swift */,
 			);
 			path = Configurator;
+			sourceTree = "<group>";
+		};
+		69236793B08298E0A7C592F4 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				F9D0224E4125D49E633CF8A5 /* PostViewerAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		6A8B5540D2AF6417A560F91D /* Assembly */ = {
@@ -989,6 +1074,14 @@
 				86A1D9B7E0433BA1D3C63F7D /* SettingsConfigurator.swift */,
 			);
 			path = Configurator;
+			sourceTree = "<group>";
+		};
+		76240F2B1C7E1575A6D5104A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C1C93816530E00B432A327B /* PostViewerViewTests.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		78602166658AE59F2654534E /* Configurator */ = {
@@ -1058,6 +1151,24 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		A4E53952962E73D9239C422F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				98312C5B381997A14659482A /* PostViewerInteractorInput.swift */,
+				C29D095115D033F8DD578CC2 /* PostViewerInteractorOutput.swift */,
+				C63F53E5E5CC0A8A90D42FC9 /* PostViewerInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		AA46BC0F893C7586D6748F63 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7985932A9D15215BCAE7A141 /* PostViewerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		B3E1253FC3E95FF62EFE7583 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1066,6 +1177,19 @@
 				A682BDFD6027AEE7D726F878 /* SettingsInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		BAA380497F589666A2313783 /* PostViewer */ = {
+			isa = PBXGroup;
+			children = (
+				C56E94D4A7DB731A96717EE2 /* View */,
+				AA46BC0F893C7586D6748F63 /* Presenter */,
+				A4E53952962E73D9239C422F /* Interactor */,
+				31608D80708B505E11420B77 /* Router */,
+				69236793B08298E0A7C592F4 /* Assembly */,
+				D22641A25B5736CDB314BE95 /* Configurator */,
+			);
+			path = PostViewer;
 			sourceTree = "<group>";
 		};
 		BF1CFA0B924B072CD4984313 /* View */ = {
@@ -1095,6 +1219,17 @@
 				5A8BF198244A243C00215883 /* Modules */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		C56E94D4A7DB731A96717EE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8AFE0AE290D946AB4E374202 /* PostViewerViewInput.swift */,
+				381E80E87EC1E64A8375C5D5 /* PostViewerViewOutput.swift */,
+				B3102BE567A120FD20578109 /* PostViewerViewController.swift */,
+				5AA2461424522FF100887D09 /* PostViewer.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C6BA8318124D62871DF0FCE3 /* Configurator */ = {
@@ -1170,6 +1305,7 @@
 				C2570B1A87F07AE586E2A92C /* Stories */,
 				EE3CB5B53F2B7A16F50CD2FA /* Settings */,
 				00F38B09D4B98C61F5590884 /* Theme */,
+				644A0A4516D1DC15DBB6911C /* PostViewer */,
 			);
 			path = HackerNewsTests;
 			sourceTree = "<group>";
@@ -1281,12 +1417,37 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D1677F933F3EB0EFB7CA29C7 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A611D4D2ECB92FD7A1560375 /* PostViewerRouterTests.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		D22641A25B5736CDB314BE95 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				C00E2EE599B53B9CA87F81E3 /* PostViewerConfigurator.swift */,
+				EEEA2A0DF0A717185B592A6D /* PostViewerModuleInput.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 		D6992840279A502F9163DA87 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
 				020C7913C10E5D047B6F6F12 /* ThemeAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		D7C9750BE0D6830A1A1DFB84 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E70C7AD2E0ECD61ADCFE8E21 /* PostViewerInteractorTests.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		DD7F98E770A0C5A7291E2E46 /* Router */ = {
@@ -1330,6 +1491,14 @@
 				C923B096F47F2D687D4445C3 /* Theme.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F72222C5F20665DE78294062 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				D35586B0CF0FFCBBFF920B17 /* PostViewerConfiguratorTests.swift */,
+			);
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 		F7BBA7FD73C0C57982AF8E1E /* Router */ = {
@@ -1463,6 +1632,7 @@
 				5A7347E7242E9562005B394F /* SettingsTableViewCell.xib in Resources */,
 				D07204F921309FC600E4B1ED /* Main.storyboard in Resources */,
 				3860B559219F2DD800D2CC03 /* fabric.buildsecret in Resources */,
+				5AA2461524522FF100887D09 /* PostViewer.storyboard in Resources */,
 				5A9C965924425B4A002AC0F5 /* Poppins-Light.ttf in Resources */,
 				5A9C965224425B4A002AC0F5 /* Poppins-Bold.ttf in Resources */,
 				5A9C965824425B4A002AC0F5 /* Poppins-Italic.ttf in Resources */,
@@ -1749,6 +1919,18 @@
 				0E95E3FEBFD9EFBA7A696CFD /* ThemeModuleInput.swift in Sources */,
 				5A8054DD244CCB91005E4F96 /* ItemResource.swift in Sources */,
 				5A8054C7244C99B5005E4F96 /* HNServiceProtocol.swift in Sources */,
+				EF200C46977915E743D61B02 /* PostViewerViewInput.swift in Sources */,
+				4146AC48A20E6EF0DA2D639D /* PostViewerViewOutput.swift in Sources */,
+				FC42EC76AA4D93F78F81E201 /* PostViewerViewController.swift in Sources */,
+				A9AAF69357EF4BB9B8501493 /* PostViewerPresenter.swift in Sources */,
+				AA58C55DB378C1456563D17E /* PostViewerInteractorInput.swift in Sources */,
+				A8FDAFA0323D3B109F41B788 /* PostViewerInteractorOutput.swift in Sources */,
+				940678F9F2204D252CA748C0 /* PostViewerInteractor.swift in Sources */,
+				104AD31C4AB7AB4DBDAE8675 /* PostViewerRouterInput.swift in Sources */,
+				B712534657A925E2770C4FCB /* PostViewerRouter.swift in Sources */,
+				514DB75C1FABC4D1F3B1F37C /* PostViewerAssembly.swift in Sources */,
+				C67F4E9D22D0736C6B94DF7B /* PostViewerConfigurator.swift in Sources */,
+				84E360EB7B757082AD123E54 /* PostViewerModuleInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1774,6 +1956,12 @@
 				38AB0BDD12801ED62ABDAA88 /* ThemePresenterTests.swift in Sources */,
 				4D878B9B487FDD6CA0B50886 /* ThemeRouterTests.swift in Sources */,
 				B7A71D6D5CC68FEAB62EC9C3 /* ThemeConfiguratorTests.swift in Sources */,
+				C4D6DD715D41F6EB014CBE86 /* PostViewerAssemblyTests.swift in Sources */,
+				BD2683DD0413A741DB6D2D6D /* PostViewerViewTests.swift in Sources */,
+				7D9882311E11ECCF36D6D339 /* PostViewerInteractorTests.swift in Sources */,
+				E4EEBEA8B6578784517C357D /* PostViewerPresenterTests.swift in Sources */,
+				03191514B8D87600475FDFDC /* PostViewerRouterTests.swift in Sources */,
+				095DE3023C594866B21EB83F /* PostViewerConfiguratorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

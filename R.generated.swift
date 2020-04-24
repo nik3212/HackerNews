@@ -90,12 +90,14 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `PostViewer`.
+    static let postViewer = _R.storyboard.postViewer()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
     /// Storyboard `Stories`.
@@ -114,6 +116,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "PostViewer", bundle: ...)`
+    static func postViewer(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.postViewer)
     }
     #endif
 
@@ -767,6 +776,9 @@ struct _R: Rswift.Validatable {
       try main.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try postViewer.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try settings.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -804,6 +816,26 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct postViewer: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "PostViewer"
+      let postViewerViewController = StoryboardViewControllerResource<PostViewerViewController>(identifier: "PostViewerViewController")
+
+      func postViewerViewController(_: Void = ()) -> PostViewerViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: postViewerViewController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.postViewer().postViewerViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'postViewerViewController' could not be loaded from storyboard 'PostViewer' as 'PostViewerViewController'.") }
       }
 
       fileprivate init() {}
