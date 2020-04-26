@@ -277,6 +277,14 @@ struct Stylesheet {
     }
     
     enum AttributedString {
+        static func commentTitle(string: String, color: UIColor) -> NSAttributedString {
+            return string.attributedString(textAlignment: .left, textColor: color, font: FontStyle.text3.font)
+        }
+        
+        static func commentText(string: String, color: UIColor) -> NSAttributedString {
+            return string.attributedString(withLetterSpacing: 0.2, lineHeight: 8.0, textAlignment: .left, textColor: color, font: FontStyle.text2.font)
+        }
+        
         static func postDescription(icon: UIImage, color: UIColor) -> NSAttributedString {
             return NSAttributedString.attributedString(from: icon, color: color)
         }

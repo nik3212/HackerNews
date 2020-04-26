@@ -7,7 +7,11 @@
 //
 
 import UIKit
-import Kingfisher
+
+protocol StoryTableViewCellDelegate: class {
+    /// A block object to executed when image tapped.
+    func imageDidTapped(cell: StoryTableViewCell)
+}
 
 final class StoryTableViewCell: UITableViewCell {
     
@@ -15,14 +19,11 @@ final class StoryTableViewCell: UITableViewCell {
     @IBOutlet private var previewImageView: HNImageView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
-    @IBOutlet private var commentButton: UIButton!
-    @IBOutlet private var titleView: UIView!
+    @IBOutlet private var contentStackView: UIStackView!
     
     // MARK: Public Properties
+    weak var delegate: StoryTableViewCellDelegate?
     
-    /// A block object to executed when comment tapped.
-    var commentAction: (() -> Void)?
-
     // MARK: Private Properties
     private var theme: Theme?
     
@@ -30,6 +31,7 @@ final class StoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectedBackgroundView = UIView()
+        createRecognizer()
     }
     
     // MARK: Override
@@ -47,7 +49,7 @@ final class StoryTableViewCell: UITableViewCell {
     /// Set model data to the cell.
     ///
     /// - Parameter model: A `NewsModel` value that contains the cell data.
-    func setup(model: NewsModel) {
+    func setup(model: PostModel) {
         if let urlString = model.url {
             previewImageView.setImage(from: URL(string: urlString))
         }
@@ -55,6 +57,9 @@ final class StoryTableViewCell: UITableViewCell {
         descriptionLabel.attributedText = theme?.postDescriptionTitle(score: model.score.map(String.init),
                                                                       username: model.by,
                                                                       time: model.newsPublishTime())
+        titleLabel.layer.masksToBounds = false
+        descriptionLabel.layer.masksToBounds = false
+        contentStackView.layoutIfNeeded()
     }
     
     /// Apply theme to cell.
@@ -64,12 +69,20 @@ final class StoryTableViewCell: UITableViewCell {
         self.theme = theme
         theme.postTitle.apply(to: titleLabel)
         theme.postCell.apply(to: self)
+        theme.view.apply(to: titleLabel)
+        theme.view.apply(to: descriptionLabel)
+    }
+    
+    // MARK: Private Methods
+    private func createRecognizer() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imageDidTap))
+        previewImageView.addGestureRecognizer(tap)
     }
 }
 
 // MARK: IBAction
 extension StoryTableViewCell {
-    @IBAction private func commentButtonDidTap(_ sender: UIButton) {
-        commentAction?()
+    @objc func imageDidTap() {
+        self.delegate?.imageDidTapped(cell: self)
     }
 }

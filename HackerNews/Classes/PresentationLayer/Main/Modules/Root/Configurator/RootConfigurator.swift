@@ -22,7 +22,7 @@ final class RootConfigurator {
     // MARK: Public Methods
     func installIntoWindow(_ window: UIWindow) {
         let mainTabBarController = MainTabBarConfigurator(parentAssembler: assembler).configure()
-        let secondViewController = UINavigationController(rootViewController: mainTabBarController)//PostViewerConfigurator(parentAssembler: assembler).configure()
+        let secondViewController = UIViewController()
         
         if let viewController = assembler.resolver.resolve(RootSplitViewController.self, arguments: mainTabBarController, secondViewController) {
             window.rootViewController = viewController

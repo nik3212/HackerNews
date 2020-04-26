@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NewsModel {
+struct PostModel {
     
     /// The item's unique id.
     let id: Int
@@ -26,14 +26,14 @@ struct NewsModel {
     let url: String?
     
     /// The ids of the item's comments, in ranked display order.
-    var kids: [Int]?
+    var kids: [Int]
     
     /// Creation date of the item, in Unix Time.
     var time: Int?
 }
 
 // MARK: Decodable
-extension NewsModel: Decodable {
+extension PostModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case id
         case title
@@ -51,12 +51,12 @@ extension NewsModel: Decodable {
         score = try? container.decode(Int.self, forKey: .score)
         by = try? container.decode(String.self, forKey: .by)
         url = try? container.decode(String.self, forKey: .url)
-        kids = try? container.decode([Int].self, forKey: .kids)
+        kids = (try? container.decode([Int].self, forKey: .kids)) ?? []
         time = try? container.decode(Int.self, forKey: .time)
     }
 }
 
-extension NewsModel {
+extension PostModel {
     func newsPublishTime() -> String? {
         guard let time = time else { return nil }
         let date = Date(timeIntervalSince1970: TimeInterval(time))

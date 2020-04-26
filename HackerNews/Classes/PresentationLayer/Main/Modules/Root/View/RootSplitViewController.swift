@@ -25,6 +25,7 @@ class RootSplitViewController: UISplitViewController {
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        preferredDisplayMode = .allVisible
         output.viewIsReady()
     }
 }

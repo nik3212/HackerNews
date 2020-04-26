@@ -10,21 +10,14 @@ import Swinject
 
 final class RootModuleAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(RootSplitViewController.self) { (resolver, firstVC: MainTabBarViewController, secondVC: UINavigationController) in
+        container.register(RootSplitViewController.self) { (resolver, firstVC: MainTabBarViewController, secondVC: UIViewController) in
             let splitViewController = RootSplitViewController()
             splitViewController.output = resolver.resolve(RootPresenter.self, argument: splitViewController)
             
             splitViewController.viewControllers = [firstVC, secondVC]
-            //splitViewController.preferredPrimaryColumnWidthFraction = 2 / 3
-            //splitViewController.preferredDisplayMode = .primaryOverlay
-            
+            splitViewController.preferredPrimaryColumnWidthFraction = 1 / 3
+
             return splitViewController
-        }
-        
-        container.register(RootRouter.self) { (_, viewController: RootSplitViewController) in
-            let router = RootRouter()
-            router.transitionHandler = viewController
-            return router
         }
         
         container.register(MainTabBarConfigurator.self) { resolver in
@@ -32,9 +25,9 @@ final class RootModuleAssembly: Assembly {
             return MainTabBarConfigurator(parentAssembler: parentAssembler.unwrap())
         }
         
-        container.register(PostViewerConfigurator.self) { resolver in
+        container.register(CommentsConfigurator.self) { resolver in
             let parentAssembler = resolver.resolve(RootConfigurator.self)?.assembler
-            return PostViewerConfigurator(parentAssembler: parentAssembler.unwrap())
+            return CommentsConfigurator(parentAssembler: parentAssembler.unwrap())
         }
         
         container.register(RootPresenter.self) { (resolver, viewController: RootSplitViewController) in

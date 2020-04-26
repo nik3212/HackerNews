@@ -29,6 +29,11 @@ class StoriesViewController: UIViewController {
         output.viewIsReady()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.invalidateIntrinsicContentSize()
+    }
+    
     // MARK: Private Methods
     private func setup() {
         if #available(iOS 11.0, *) {
@@ -90,7 +95,6 @@ extension StoriesViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             output.prefetch(at: indexPath)
-            print(indexPath)
         }
     }
 }
@@ -128,6 +132,7 @@ extension StoriesViewController: UITableViewDataSource {
         if let theme = theme { cell.apply(theme: theme) }
 
         cell.setup(model: model)
+        cell.delegate = self
         
         return cell
     }
@@ -151,6 +156,13 @@ extension StoriesViewController: EmptyDataSetSource {
 // MARK: EmptyDataSetDelegate
 extension StoriesViewController: EmptyDataSetDelegate {
     
+}
+
+extension StoriesViewController: StoryTableViewCellDelegate {
+    func imageDidTapped(cell: StoryTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        output.didSelectImage(at: indexPath.row)
+    }
 }
 
 // MARK: ThemeUpdatable

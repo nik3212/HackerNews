@@ -11,7 +11,7 @@ import SafariServices
 class StoriesRouter {
     // MARK: Public Properties
     weak var transitionHandler: TransitionHandler?
-    var postViewer: PostViewerModuleInput?
+    var commentsConfigurator: CommentsConfigurator?
 }
 
 // MARK: StoriesRouterInput
@@ -22,11 +22,19 @@ extension StoriesRouter: StoriesRouterInput {
         })
     }
     
-    func showPost(by url: URL) {
+    func openCommentsModule(for post: PostModel) {
+        transitionHandler?.openModule({ [weak self] viewController in
+            guard let commentsVC = self?.commentsConfigurator?.configure(post: post) else { return }
+            let navigationVC = UINavigationController(rootViewController: commentsVC)
+            viewController.showDetailViewController(navigationVC, sender: nil)
+        })
+    }
+    
+    func openStories(from url: String) {
         transitionHandler?.openModule({ viewController in
-            guard let splitViewController = viewController.splitViewController as? RootSplitViewController else { return }
-            let safariViewController = SFSafariViewController(url: url)
-            splitViewController.showDetailViewController(safariViewController, sender: nil)
+            guard let url = URL(string: url) else { return }
+            let safariVC = SFSafariViewController(url: url)
+            viewController.present(safariVC, animated: true, completion: nil)
         })
     }
 }

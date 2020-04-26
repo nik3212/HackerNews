@@ -17,6 +17,15 @@ extension UITableView {
         return cell
     }
     
+    func dequeueReusableCell(forIndexPath indexPath: IndexPath, with model: BaseCellViewModel) -> UITableViewCell {
+        let cellIdentifier = String(describing: type(of: model).cellClass)
+        let cell = dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        
+        model.setup(cell)
+        
+        return cell
+    }
+    
     func viewForHeader<T: UIView>(_: T.Type) -> T where T: NibLoadableView {
         guard let header = Bundle.main.loadNibNamed(T.NibName,
                                                     owner: self,

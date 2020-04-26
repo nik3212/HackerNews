@@ -12,9 +12,10 @@ protocol StoriesViewOutput: class {
     func viewIsReady()
     func prefetch(at indexPath: IndexPath)
     func didSelectRow(at row: Int)
+    func didSelectImage(at row: Int)
     func numberOfRows() -> Int
     func refreshStories()
     func leftNivagtionBarButtonTapped()
-    func getModel(for row: Int) -> NewsModel
+    func getModel(for row: Int) -> PostModel
     func getSkeletonState() -> SkeletonState
 }

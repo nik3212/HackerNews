@@ -25,7 +25,7 @@ extension StoriesInteractor: StoriesInteractorInput {
     }
     
     func loadNews(with ids: [Int]) {
-        networkService?.loadNews(with: ids, completion: { [weak self] news in
+        networkService?.loadPosts(with: ids, completion: { [weak self] news in
             self?.output?.loadItemsSuccess(news)
         }, fail: { [weak self] error in
             self?.output?.loadItemsFailed(error: error)

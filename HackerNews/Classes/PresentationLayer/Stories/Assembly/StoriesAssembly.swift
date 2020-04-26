@@ -17,9 +17,10 @@ final class StoriesModuleAssembly: Assembly {
             return interactor
         }
 
-        container.register(StoriesRouter.self) { (_, viewController: StoriesViewController) in
+        container.register(StoriesRouter.self) { (resolver, viewController: StoriesViewController) in
             let router = StoriesRouter()
             router.transitionHandler = viewController
+            router.commentsConfigurator = resolver.resolve(CommentsConfigurator.self)
             return router
         }
 

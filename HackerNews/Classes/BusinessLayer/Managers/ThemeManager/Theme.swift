@@ -175,7 +175,24 @@ extension Theme {
 //    func emptyDescription(text: String) -> NSAttributedString {
 //        
 //    }
-//    
+//
+    
+    func commentTitle(username: String, time: String) -> NSAttributedString {
+        let usernameColor = self == .dark ? Colors.lightOrange : Colors.darkOrange
+        let timeColor = self == .dark ? Colors.lightGray : Colors.darkGray
+        let dotString = Stylesheet.AttributedString.postDescription(string: " • ", color: timeColor)
+        
+        let attributedUsername = Stylesheet.AttributedString.commentTitle(string: username, color: usernameColor)
+        let attributedTime = Stylesheet.AttributedString.commentTitle(string: time, color: timeColor)
+        
+        return attributedUsername + dotString + attributedTime
+    }
+    
+    func commentText(text: String) -> NSAttributedString {
+        let textColor = self == .dark ? Colors.lightGray : Colors.darkGray
+        return Stylesheet.AttributedString.commentText(string: text, color: textColor)
+    }
+    
     func postDescriptionTitle(score: String?, username: String?, time: String?) -> NSAttributedString {
         let baseColor = self == .dark ? Colors.lightGray : Colors.darkGray
         let dotString = Stylesheet.AttributedString.postDescription(string: " • ", color: baseColor)

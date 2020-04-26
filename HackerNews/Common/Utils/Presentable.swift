@@ -24,6 +24,7 @@ protocol Presentable {
     func dismissModal(animated: Bool, completion: @escaping () -> Void)
     func popToRoot()
     func showInContainer(container: UIView, in viewController: UIViewController)
+    func showDetail(from viewController: UIViewController)
 }
 
 extension Presentable where Self: UIViewController {
@@ -100,5 +101,9 @@ extension Presentable where Self: UIViewController {
     
     func popToRoot() {
         viewController.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func showDetail(from viewController: UIViewController) {
+        viewController.showDetailViewController(self, sender: nil)
     }
 }

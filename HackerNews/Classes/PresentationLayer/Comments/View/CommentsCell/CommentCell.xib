@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="133" id="bP6-5z-ble" customClass="CommentCell" customModule="HackerNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="133"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bP6-5z-ble" id="K07-NR-BoT">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="133"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoE-cn-hop">
+                        <rect key="frame" x="15" y="8" width="384" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="69L-jI-xkx">
+                        <rect key="frame" x="15" y="36.5" width="384" height="88.5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="69L-jI-xkx" secondAttribute="trailing" constant="15" id="34j-vq-c3r"/>
+                    <constraint firstItem="69L-jI-xkx" firstAttribute="leading" secondItem="K07-NR-BoT" secondAttribute="leading" constant="15" id="43Q-4e-GyQ"/>
+                    <constraint firstItem="69L-jI-xkx" firstAttribute="top" secondItem="EoE-cn-hop" secondAttribute="bottom" constant="8" id="A5A-KX-Kbd"/>
+                    <constraint firstAttribute="trailing" secondItem="EoE-cn-hop" secondAttribute="trailing" constant="15" id="atm-Af-vhk"/>
+                    <constraint firstItem="EoE-cn-hop" firstAttribute="top" secondItem="K07-NR-BoT" secondAttribute="top" constant="8" id="kFv-pu-uNg"/>
+                    <constraint firstAttribute="bottom" secondItem="69L-jI-xkx" secondAttribute="bottom" constant="8" id="oYJ-rg-OVD"/>
+                    <constraint firstItem="EoE-cn-hop" firstAttribute="leading" secondItem="K07-NR-BoT" secondAttribute="leading" constant="15" id="xbJ-te-GyZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textView" destination="69L-jI-xkx" id="KaQ-nN-Me4"/>
+                <outlet property="textViewLeadingConstraint" destination="43Q-4e-GyQ" id="7tm-cs-9NV"/>
+                <outlet property="titleLabel" destination="EoE-cn-hop" id="C4d-pQ-YKg"/>
+                <outlet property="titleLabelLeadingConstraint" destination="xbJ-te-GyZ" id="xUV-a9-d1i"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="113.50446428571428"/>
+        </tableViewCell>
+    </objects>
+</document>

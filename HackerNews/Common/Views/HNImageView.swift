@@ -64,7 +64,7 @@ final class HNImageView: UIView {
             switch result {
             case .success(let imageResult):
                 DispatchQueue.main.async {
-                    self.contentMode = .scaleAspectFill
+                    self.contentMode = .center
                     self.imageView.image = imageResult.image
                 }
             default: break
@@ -92,6 +92,7 @@ final class HNImageView: UIView {
         ])
         
         layer.cornerRadius = cornerRadius
+        clipsToBounds = true
     }
     
     private func setPlaceholder() {

@@ -10,5 +10,6 @@ import Foundation
 
 protocol StoriesRouterInput {
     func openFilterModule(with models: [AlertActionModel])
-    func showPost(by url: URL)
+    func openCommentsModule(for post: PostModel)
+    func openStories(from url: String)
 }

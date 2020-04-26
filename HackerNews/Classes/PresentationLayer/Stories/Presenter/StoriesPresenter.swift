@@ -16,7 +16,6 @@ enum SkeletonState {
 class StoriesPresenter {
     // MARK: Public Properties
     weak var view: StoriesViewInput!
-    weak var output: StoriesModuleOutput?
     var interactor: StoriesInteractorInput!
     var router: StoriesRouterInput!
     var themeManager: ThemeManagerProtocol!
@@ -25,7 +24,7 @@ class StoriesPresenter {
     private var storyType: StoryType = .new
     private var skeletonState: SkeletonState = .disabled
     private var ids: [Int] = []
-    private var items: [NewsModel] = []
+    private var stories: [PostModel] = []
     private var models: [AlertActionModel] {
         return [AlertActionModel(title: "New", style: .default, action: { [weak self] in self?.storyType = .new }),
                 AlertActionModel(title: "Top", style: .default, action: { [weak self] in self?.storyType = .top }),
@@ -34,7 +33,7 @@ class StoriesPresenter {
     }
     
     private var loadingIds: [Int] {
-        let count = self.items.count
+        let count = self.stories.count
         return Array(ids[safe:count..<count + StoriesConstants.loadItemsCountPerOnce])
     }
     
@@ -54,11 +53,11 @@ class StoriesPresenter {
 // MARK: StoriesViewOutput
 extension StoriesPresenter: StoriesViewOutput {
     func numberOfRows() -> Int {
-        return skeletonState == .enabled ? StoriesConstants.skeletonCount : items.count
+        return skeletonState == .enabled ? StoriesConstants.skeletonCount : stories.count
     }
     
-    func getModel(for row: Int) -> NewsModel {
-        return items[row]
+    func getModel(for row: Int) -> PostModel {
+        return stories[row]
     }
     
     func viewIsReady() {
@@ -70,14 +69,17 @@ extension StoriesPresenter: StoriesViewOutput {
     }
     
     func didSelectRow(at row: Int) {
-        guard let urlString = items[row].url, let url = URL(string: urlString) else { return }
-        router?.showPost(by: url)
+        router.openCommentsModule(for: stories[row])
+    }
+    
+    func didSelectImage(at row: Int) {
+        guard let url = stories[row].url else { return }
+        router.openStories(from: url)
     }
     
     func prefetch(at indexPath: IndexPath) {
-        guard !items.isEmpty, indexPath.row >= items.count - 1 else { return }
-        //interactor.loadNews(with: loadingIds)
-        print("Prefetch")
+        guard !stories.isEmpty, indexPath.row >= stories.count - 1 else { return }
+        interactor.loadNews(with: loadingIds)
     }
     
     func leftNivagtionBarButtonTapped() {
@@ -96,14 +98,11 @@ extension StoriesPresenter: StoriesInteractorOutput {
         
     }
     
-    func loadItemsSuccess(_ items: [NewsModel]) {
-        self.items.append(contentsOf: items.sorted(by: { $0.id > $1.id }))
+    func loadItemsSuccess(_ items: [PostModel]) {
+        self.stories.append(contentsOf: items.sorted(by: { $0.id > $1.id }))
         skeletonState = .disabled
         view.hideRefreshControl()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.view.reloadData()
-        }
+        view.reloadData()
     }
     
     func loadItemsFailed(error: Error) {
@@ -112,7 +111,7 @@ extension StoriesPresenter: StoriesInteractorOutput {
     
     func refreshStories() {
         ids.removeAll()
-        items.removeAll()
+        stories.removeAll()
         skeletonState = .enabled
         view.reloadData()
         interactor.loadStories()

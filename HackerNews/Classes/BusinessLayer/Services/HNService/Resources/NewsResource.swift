@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class NewsResource: BaseResource<NewsModel> {
+final class NewsResource: BaseResource<PostModel> {
     // MARK: Public Properties
     
     /// A `Int` value that contains the item id.

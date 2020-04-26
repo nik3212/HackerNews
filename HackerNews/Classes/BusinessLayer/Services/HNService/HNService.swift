@@ -28,8 +28,51 @@ extension HNService: HNServiceProtocol {
         load(resource: resource, completion: completion, fail: fail)
     }
     
-    func loadNews(with ids: [Int], completion: @escaping ([NewsModel]) -> Void, fail: @escaping (Error) -> Void) {
+    func loadPosts(with ids: [Int], completion: @escaping ([PostModel]) -> Void, fail: @escaping (Error) -> Void) {
         let resources = ids.map(NewsResource.init)
         load(resources: resources, completion: completion, fail: fail)
+    }
+    
+    func loadPost(with id: Int, completion: @escaping (PostModel) -> Void, fail: @escaping (Error) -> Void) {
+        let resource = NewsResource(id: id)
+        load(resource: resource, completion: completion, fail: fail)
+    }
+    
+    func loadComment(with id: Int, completion: @escaping (CommentModel) -> Void, fail: @escaping (Error) -> Void) {
+        let resource = CommentResource(id: id)
+        load(resource: resource, completion: completion, fail: fail)
+    }
+    
+    func loadComments(with id: Int, completion: @escaping (CommentModel) -> Void, fail: @escaping (Error) -> Void) {
+        loadComment(with: id, completion: { comment in
+            var commentObject = comment
+            
+            guard !commentObject.kids.isEmpty else {
+                completion(commentObject)
+                return
+            }
+            
+            var subcomments: [CommentModel] = []
+            
+            let group = DispatchGroup()
+            
+            for id in comment.kids {
+                group.enter()
+                self.loadComments(with: id, completion: { model in
+                    subcomments.append(model)
+                    group.leave()
+                }) { error in
+                    fail(error)
+                    return
+                }
+            }
+            
+            group.notify(queue: .main) {
+                commentObject.comments = subcomments
+                completion(commentObject)
+            }
+        }, fail: { error in
+            fail(error)
+        })
     }
 }

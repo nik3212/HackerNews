@@ -10,6 +10,6 @@ protocol StoriesInteractorOutput: class {
     func loadTopStoriesSuccess(ids: [Int])
     func loadTopStoriesFailed(error: Error)
     
-    func loadItemsSuccess(_ items: [NewsModel])
+    func loadItemsSuccess(_ items: [PostModel])
     func loadItemsFailed(error: Error)
 }

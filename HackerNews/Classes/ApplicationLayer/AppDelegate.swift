@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Fabric
-import Crashlytics
+//import Fabric
+//import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder {
@@ -38,15 +38,15 @@ extension AppDelegate: UIApplicationDelegate {
     }
     
     private func loadFabricKeys() {
-        if let resourceURL = Bundle.main.url(forResource: "fabric.apikey", withExtension: nil) {
-            do {
-                let fabricAPIKey = try String.init(contentsOf: resourceURL)
-                let fabricAPIKeyTrimmed = fabricAPIKey.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                Crashlytics.start(withAPIKey: fabricAPIKeyTrimmed)
-            } catch {
-                print("Failed to initialize Fabric")
-            }
-        }
+//        if let resourceURL = Bundle.main.url(forResource: "fabric.apikey", withExtension: nil) {
+//            do {
+//                let fabricAPIKey = try String.init(contentsOf: resourceURL)
+//                let fabricAPIKeyTrimmed = fabricAPIKey.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+//                Crashlytics.start(withAPIKey: fabricAPIKeyTrimmed)
+//            } catch {
+//                print("Failed to initialize Fabric")
+//            }
+//        }
     }
 }
 
