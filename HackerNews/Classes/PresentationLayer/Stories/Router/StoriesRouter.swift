@@ -24,9 +24,10 @@ extension StoriesRouter: StoriesRouterInput {
     
     func openCommentsModule(for post: PostModel) {
         transitionHandler?.openModule({ [weak self] viewController in
-            guard let commentsVC = self?.commentsConfigurator?.configure(post: post) else { return }
-            let navigationVC = UINavigationController(rootViewController: commentsVC)
-            viewController.showDetailViewController(navigationVC, sender: nil)
+            guard let commentsViewController = self?.commentsConfigurator?.configure(post: post) else { return }
+
+            let nv = UINavigationController(rootViewController: commentsViewController)
+            viewController.showDetailViewController(nv, sender: nil)
         })
     }
     

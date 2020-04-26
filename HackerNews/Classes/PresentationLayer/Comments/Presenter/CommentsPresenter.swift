@@ -25,10 +25,10 @@ class CommentsPresenter {
     // MARK: Private Methods
     private func fetchComments() {
         guard let id = commentIds.dequeue(), loadingCommentId == nil else { return }
-        DispatchQueue.global(qos: .background).async {
+        //DispatchQueue.global(qos: .userInitiated).async {
             self.loadingCommentId = id
             self.interactor.fetchComments(for: id)
-        }
+        //}
     }
     
     private func prepareComments(from comment: CommentModel) {
@@ -66,10 +66,10 @@ class CommentsPresenter {
         
         self.loadingCommentId = nil
         
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
             self.view.hideActivityIndicator()
             self.view.insertRows(at: indexPaths)
-        }
+        //}
     }
     
     private func getComments(from tuple: (graph: [CommentModel], level: Int), to comments: inout [CommentModel]) {
@@ -88,7 +88,6 @@ extension CommentsPresenter: CommentsViewOutput {
         view.showActivityIndicator()
         view.update(theme: themeManager.theme)
         themeManager.addObserver(self)
-        view.reloadData()
         commentIds.enqueue(post.kids)
         fetchComments()
     }

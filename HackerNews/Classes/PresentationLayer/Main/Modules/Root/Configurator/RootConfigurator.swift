@@ -22,7 +22,7 @@ final class RootConfigurator {
     // MARK: Public Methods
     func installIntoWindow(_ window: UIWindow) {
         let mainTabBarController = MainTabBarConfigurator(parentAssembler: assembler).configure()
-        let secondViewController = UIViewController()
+        let secondViewController = CommentsConfigurator(parentAssembler: assembler).configure(post: PostModel(id: 10, title: "dfhusdf", score: 12, by: "fsdoijfs", url: "fsoejfi", kids: [], time: 123)).unwrap()
         
         if let viewController = assembler.resolver.resolve(RootSplitViewController.self, arguments: mainTabBarController, secondViewController) {
             window.rootViewController = viewController

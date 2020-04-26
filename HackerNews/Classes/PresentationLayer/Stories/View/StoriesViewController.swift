@@ -38,7 +38,9 @@ class StoriesViewController: UIViewController {
     private func setup() {
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationItem.largeTitleDisplayMode = .never
         }
+        
         tableView.register(StoryTableViewCell.self)
         tableView.register(SkeletonCell.self)
         tableView.rowHeight = UITableView.automaticDimension

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 class CommentsViewController: UIViewController {
     
@@ -20,20 +21,40 @@ class CommentsViewController: UIViewController {
     private var theme: Theme?
     private var activityIndicator = UIActivityIndicatorView()
     
+    private lazy var loadingFooterView: UIView = {
+        let view = UIView()
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.color = .black
+        view.addSubview(activityIndicator)
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         configureActivityIndicator()
         output.viewIsReady()
+        self.navigationItem.leftItemsSupplementBackButton = true
     }
     
     private func setup() {
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        }
+        
         tableView.register(StoryTableViewCell.self)
         tableView.register(SkeletonCell.self)
         tableView.register(CommentCell.self)
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
+        
+        if #available(iOS 11.0, *) {
+            tableView.estimatedRowHeight = UITableView.automaticDimension
+        } else {
+            tableView.estimatedRowHeight = Metrics.estimatedRowHeight
+        }
+        
+        tableView.emptyDataSetSource = self
     }
     
     private func configureActivityIndicator() {
@@ -70,6 +91,14 @@ extension CommentsViewController: CommentsViewInput {
     
     func insertRows(at indexPaths: [IndexPath]) {
         tableView.insertRows(at: indexPaths, with: .automatic)
+    }
+    
+    func showFooterView() {
+        
+    }
+    
+    func hideFooterView() {
+        
     }
 }
 
@@ -112,6 +141,17 @@ extension CommentsViewController: ThemeUpdatable {
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
+    }
+}
+
+// MARK: EmptyDataSetSource
+extension CommentsViewController: EmptyDataSetSource {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return nil
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return nil
     }
 }
 

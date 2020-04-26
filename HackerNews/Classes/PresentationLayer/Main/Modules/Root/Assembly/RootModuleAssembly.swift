@@ -10,11 +10,11 @@ import Swinject
 
 final class RootModuleAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(RootSplitViewController.self) { (resolver, firstVC: MainTabBarViewController, secondVC: UIViewController) in
+        container.register(RootSplitViewController.self) { (resolver, firstVC: MainTabBarViewController, secondVC: CommentsViewController) in
             let splitViewController = RootSplitViewController()
             splitViewController.output = resolver.resolve(RootPresenter.self, argument: splitViewController)
             
-            splitViewController.viewControllers = [firstVC, secondVC]
+            splitViewController.viewControllers = [firstVC, UINavigationController(rootViewController: secondVC)]
             splitViewController.preferredPrimaryColumnWidthFraction = 1 / 3
 
             return splitViewController
