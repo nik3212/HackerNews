@@ -983,8 +983,8 @@
 			children = (
 				5A5A8130244BAE5A00BF554D /* Services */,
 				5A7347E8242EA915005B394F /* Managers */,
-				5A94A2E82439383D00918198 /* Constants.swift */,
 				5A9C966C2442608E002AC0F5 /* Colors.swift */,
+				5A94A2E82439383D00918198 /* Constants.swift */,
 			);
 			path = BusinessLayer;
 			sourceTree = "<group>";

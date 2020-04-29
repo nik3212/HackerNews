@@ -63,7 +63,12 @@ class StoriesPresenter {
         ids.removeAll()
         stories.removeAll()
         skeletonState = .enabled
-        view.reloadData()
+        //view.reloadData()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//            self.view.reloadData()
+//        }
+        
+        //view.reloadData()
     }
     
     private func showError(_ error: Error) {
@@ -141,13 +146,7 @@ extension StoriesPresenter: StoriesInteractorOutput {
         self.stories.append(contentsOf: items.sorted(by: { $0.id > $1.id }))
         view.setUserInteractorEnabled(to: true)
         skeletonState = .disabled
-//        view.hideRefreshControl()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.view.hideRefreshControl()
-        }
-        
-        self.view.reloadData()
+        view.hideRefreshControl()
         //view.reloadData()
     }
     
