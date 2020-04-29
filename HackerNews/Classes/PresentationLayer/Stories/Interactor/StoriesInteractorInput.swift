@@ -7,6 +7,8 @@
 //
 
 protocol StoriesInteractorInput {
-    func loadStories()
-    func loadNews(with ids: [Int])
+    func fetchTopStories()
+    func fetchBestStories()
+    func fetchNewStories()
+    func fetchPosts(with ids: [Int])
 }

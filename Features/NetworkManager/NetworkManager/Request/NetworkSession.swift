@@ -19,7 +19,14 @@ public protocol NetworkSession: class {
     
     /// Asynchronously calls a completion callback with all tasks in a session
     func getAllTasks(completionHandler: @escaping ([URLSessionTask]) -> Void)
+    
+    /// <#Description#>
+    func cancelAllTasks()
 }
 
 // MARK: NetworkSession
-extension URLSession: NetworkSession { }
+extension URLSession: NetworkSession {
+    public func cancelAllTasks() {
+        self.getAllTasks { $0.forEach { $0.cancel() } }
+    }
+}

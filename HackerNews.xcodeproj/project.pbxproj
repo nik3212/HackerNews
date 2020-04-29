@@ -96,6 +96,7 @@
 		5AAC91202450E8830041006F /* HNImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC911F2450E8830041006F /* HNImageView.swift */; };
 		5AAC91232450E89F0041006F /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC91222450E89F0041006F /* SkeletonCell.swift */; };
 		5AAC91252450E8A90041006F /* SkeletonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC91242450E8A90041006F /* SkeletonCell.xib */; };
+		5AB1139B2456253700332B5F /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1139A2456253700332B5F /* LoadingFooterView.swift */; };
 		5AB25D8D2451ADD2009C05ED /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB25D8C2451ADD0009C05ED /* UIViewController+.swift */; };
 		5AC0CC272454710E0060F5C9 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0CC262454710E0060F5C9 /* CommentCell.swift */; };
 		5AC0CC29245472610060F5C9 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC0CC28245472610060F5C9 /* CommentCell.xib */; };
@@ -304,6 +305,7 @@
 		5AAC911F2450E8830041006F /* HNImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNImageView.swift; sourceTree = "<group>"; };
 		5AAC91222450E89F0041006F /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 		5AAC91242450E8A90041006F /* SkeletonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkeletonCell.xib; sourceTree = "<group>"; };
+		5AB1139A2456253700332B5F /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		5AB25D8C2451ADD0009C05ED /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		5AC0CC262454710E0060F5C9 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		5AC0CC28245472610060F5C9 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
@@ -902,6 +904,14 @@
 			path = LoadingCell;
 			sourceTree = "<group>";
 		};
+		5AB113992456252400332B5F /* LoadingFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				5AB1139A2456253700332B5F /* LoadingFooterView.swift */,
+			);
+			path = LoadingFooterView;
+			sourceTree = "<group>";
+		};
 		5AC0CC25245470FF0060F5C9 /* CommentsCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -930,6 +940,7 @@
 		5AD9C02F244E3C50007F8769 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5AB113992456252400332B5F /* LoadingFooterView */,
 				5AAC911F2450E8830041006F /* HNImageView.swift */,
 				5AAC911D2450E82E0041006F /* Cells */,
 			);
@@ -1948,6 +1959,7 @@
 				D07205312130A17100E4B1ED /* UIViewControllerFactory.swift in Sources */,
 				5AE2EDCD24103C9B0011A198 /* RootModuleAssembly.swift in Sources */,
 				5AAC9112245090C60041006F /* Array+Range.swift in Sources */,
+				5AB1139B2456253700332B5F /* LoadingFooterView.swift in Sources */,
 				D072052D2130A13800E4B1ED /* UITableView+.swift in Sources */,
 				5AE2EDE4241046730011A198 /* TransitionHandler.swift in Sources */,
 				5A25EF3E2455894A00AC7C56 /* CommentCellViewModel.swift in Sources */,

@@ -55,4 +55,8 @@ extension NetworkManager: NetworkManagerProtocol {
         }
         task.resume()
     }
+    
+    func cancelAllTasks() {
+        
+    }
 }

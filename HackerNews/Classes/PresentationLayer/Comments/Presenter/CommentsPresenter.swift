@@ -68,6 +68,7 @@ class CommentsPresenter {
         
         //DispatchQueue.main.async {
             self.view.hideActivityIndicator()
+        self.view.hideFooterView()
             self.view.insertRows(at: indexPaths)
         //}
     }
@@ -88,8 +89,13 @@ extension CommentsPresenter: CommentsViewOutput {
         view.showActivityIndicator()
         view.update(theme: themeManager.theme)
         themeManager.addObserver(self)
-        commentIds.enqueue(post.kids)
-        fetchComments()
+        
+        if post.kids.isEmpty {
+            view.hideActivityIndicator()
+        } else {
+            commentIds.enqueue(post.kids)
+            fetchComments()
+        }
     }
     
     func numbersOfSection() -> Int {
@@ -138,6 +144,7 @@ extension CommentsPresenter: CommentsViewOutput {
         let isLastRow = sectionType == .comments && indexPath.row == comments.count - 1
         
         if isLastRow && !commentIds.isEmpty {
+            view.showFooterView()
             fetchComments()
         }
     }

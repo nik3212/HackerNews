@@ -126,6 +126,31 @@ struct Stylesheet {
         }
     }
     
+    enum SegmentedControl {
+        private static var lightText: Style<UISegmentedControl> = Style {
+            $0.setTitleTextAttributes([.foregroundColor: Colors.white], for: .normal)
+        }
+        
+        private static var darkText: Style<UISegmentedControl> = Style {
+            $0.setTitleTextAttributes([.foregroundColor: Colors.black], for: .normal)
+        }
+        
+        private static var lightTintColor: Style<UISegmentedControl> = Style {
+            if #available(iOS 13.0, *) {
+                $0.selectedSegmentTintColor = Colors.white
+            }
+        }
+        
+        private static var darkTintColor: Style<UISegmentedControl> = Style {
+            if #available(iOS 13.0, *) {
+                $0.selectedSegmentTintColor = Colors.darkGray
+            }
+        }
+        
+        static var light: Style = Style.compose(darkText, lightTintColor)
+        static var dark: Style = Style.compose(lightText, darkTintColor)
+    }
+    
     enum Label {
         private static let header1: Style<UILabel> = Style {
             $0.font = FontStyle.header1.font
@@ -165,6 +190,14 @@ struct Stylesheet {
     }
     
     enum View {
+        static let alertLight: Style<UIView> = Style {
+            $0.tintColor = Colors.darkOrange
+        }
+        
+        static let alertDark: Style<UIView> = Style {
+            $0.tintColor = Colors.lightOrange
+        }
+        
         static let light: Style<UIView> = Style {
             $0.backgroundColor = Colors.lightGray
         }
@@ -282,7 +315,9 @@ struct Stylesheet {
         }
         
         static func commentText(string: String, color: UIColor) -> NSAttributedString {
-            return string.attributedString(withLetterSpacing: 0.2, lineHeight: 8.0, textAlignment: .left, textColor: color, font: FontStyle.text2.font)
+            return string.attributedString(withLetterSpacing: 0.2, lineHeight: 8.0,
+                                           textAlignment: .left, textColor: color,
+                                           font: FontStyle.text2.font)
         }
         
         static func postDescription(icon: UIImage, color: UIColor) -> NSAttributedString {
@@ -291,6 +326,14 @@ struct Stylesheet {
         
         static func postDescription(string: String, color: UIColor) -> NSAttributedString {
             return string.attributedString(textAlignment: .left, textColor: color, font: FontStyle.text3.font)
+        }
+        
+        static func emptySetTitle(string: String, color: UIColor) -> NSAttributedString {
+            return string.attributedString(textAlignment: .center, textColor: color, font: FontStyle.header2.font)
+        }
+        
+        static func emptySetDescription(string: String, color: UIColor) -> NSAttributedString {
+            return string.attributedString(textAlignment: .center, textColor: color, font: FontStyle.text3.font)
         }
     }
 }

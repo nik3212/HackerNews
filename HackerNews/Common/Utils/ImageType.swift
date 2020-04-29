@@ -16,6 +16,7 @@ protocol ImageType {
 enum Image: ImageType {
     case settings
     case filter
+    case connectionError
     
     var resource: UIImage? {
         switch self {
@@ -23,11 +24,12 @@ enum Image: ImageType {
             return R.image.settings()
         case .filter:
             return R.image.filterIcon()
+        case .connectionError:
+            return R.image.connectionErrorIcon()
         }
     }
     
     var resourceWhileSelected: UIImage? {
         return nil
     }
-    
 }

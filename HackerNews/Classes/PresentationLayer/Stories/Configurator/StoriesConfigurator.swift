@@ -27,7 +27,7 @@ extension StoriesConfigurator: TabBarViewProtocol {
     }
     
     var title: String? {
-        return "News"
+        return "Stories"
     }
     
     func configureViewController() -> UIViewController {

@@ -47,6 +47,15 @@ extension Theme {
         }
     }
     
+    var segmentedControl: Style<UISegmentedControl> {
+        switch self {
+        case .dark:
+            return Stylesheet.SegmentedControl.dark
+        case .light:
+            return Stylesheet.SegmentedControl.light
+        }
+    }
+    
     var cellOne: Style<UITableViewCell> {
         switch self {
         case .dark:
@@ -168,14 +177,15 @@ extension Theme {
         }
     }
 
-//    func emptyTitle(title: String) -> NSAttributedString {
-//        
-//    }
-//    
-//    func emptyDescription(text: String) -> NSAttributedString {
-//        
-//    }
-//
+    func emptySetTitle(title: String) -> NSAttributedString {
+        let color = self == .dark ? Colors.lightGray : Colors.darkGray
+        return Stylesheet.AttributedString.emptySetTitle(string: title, color: color)
+    }
+    
+    func emptySetDescription(text: String) -> NSAttributedString {
+        let color = self == .dark ? Colors.lightGray : Colors.darkGray
+        return Stylesheet.AttributedString.emptySetDescription(string: text, color: color)
+    }
     
     func commentTitle(username: String, time: String) -> NSAttributedString {
         let usernameColor = self == .dark ? Colors.lightOrange : Colors.darkOrange

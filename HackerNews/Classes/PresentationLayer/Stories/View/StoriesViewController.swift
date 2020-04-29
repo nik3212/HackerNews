@@ -19,9 +19,9 @@ class StoriesViewController: UIViewController {
 
     // MARK: Private Properties
     private var refreshControl = UIRefreshControl()
+    private var segmentedControl = UISegmentedControl()
     private var theme: Theme?
-    private var showSkeleton: Bool = false
-    
+
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,28 +47,31 @@ class StoriesViewController: UIViewController {
         tableView.estimatedRowHeight = Metrics.estimatedRowHeight
         tableView.prefetchDataSource = self
         tableView.refreshControl = refreshControl
+        tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         refreshControl.addTarget(self, action: #selector(refreshStories(_:)), for: .valueChanged)
-        
-        self.extendedLayoutIncludesOpaqueBars = true
+
+        //self.extendedLayoutIncludesOpaqueBars = true
     }
     
-    private func configureLeftNivagtionBarButton(with image: Image) {
-        let button = UIBarButtonItem(image: image.resource,
-                                     style: .plain,
-                                     target: self,
-                                     action: #selector(leftNivagtionBarButtonTapped(_:)))
-        navigationItem.leftBarButtonItem = button
+    private func configureNavigationItem(with titles: [String]) {
+        for (index, title) in titles.enumerated() {
+            segmentedControl.insertSegment(withTitle: title, at: index, animated: false)
+        }
+        
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(segmentedControlDidChange(_:)), for: .valueChanged)
+        navigationItem.titleView = segmentedControl
     }
 }
 
 // MARK: StoriesViewInput
 extension StoriesViewController: StoriesViewInput {    
-    func setupInitialState(theme: Theme, leftNavigationButtonImage: Image) {
+    func setupInitialState(theme: Theme, titles: [String]) {
         self.theme = theme
         update(theme: theme)
-        configureLeftNivagtionBarButton(with: leftNavigationButtonImage)
+        configureNavigationItem(with: titles)
     }
     
     func changeNavigationTitle(with title: String) {
@@ -87,8 +90,20 @@ extension StoriesViewController: StoriesViewInput {
         tableView.refreshControl?.endRefreshing()
     }
     
-    func isLoading() -> Bool {
-        return showSkeleton
+    func setUserInteractorEnabled(to state: Bool) {
+        tableView.isUserInteractionEnabled = state
+    }
+    
+    func scrollContentToTop() {
+        if #available(iOS 11.0, *) {
+            tableView.setContentOffset(CGPoint(x: 0,
+                                               y: -tableView.adjustedContentInset.top),
+                                       animated: false)
+        } else {
+            tableView.setContentOffset(CGPoint(x: 0,
+                                               y: -tableView.contentInset.top),
+                                       animated: false)
+        }
     }
 }
 
@@ -147,11 +162,15 @@ extension StoriesViewController: UITableViewDataSource {
 // MARK: EmptyDataSetSource
 extension StoriesViewController: EmptyDataSetSource {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return nil
+        return theme?.emptySetTitle(title: output.getEmptyDataSetTitle())
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return nil
+        return theme?.emptySetDescription(text: output.getEmptyDataSetDecription())
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return output.getEmptyDataSetImage().resource
     }
 }
 
@@ -174,6 +193,7 @@ extension StoriesViewController: ThemeUpdatable {
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
         theme.refreshControl.apply(to: refreshControl)
+        theme.segmentedControl.apply(to: segmentedControl)
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
     }
 }
@@ -191,7 +211,7 @@ extension StoriesViewController {
         output.refreshStories()
     }
     
-    @objc func leftNivagtionBarButtonTapped(_ sender: UIBarButtonItem) {
-        output.leftNivagtionBarButtonTapped()
+    @objc func segmentedControlDidChange(_ sender: UISegmentedControl) {
+        output.segmentedControlDidChange(to: sender.selectedSegmentIndex)
     }
 }

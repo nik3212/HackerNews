@@ -322,12 +322,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 13 images.
+  /// This `R.image` struct is generated, and contains static references to 14 images.
   struct image {
     /// Image `Ask`.
     static let ask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Ask")
     /// Image `Comments`.
     static let comments = Rswift.ImageResource(bundle: R.hostingBundle, name: "Comments")
+    /// Image `ConnectionErrorIcon`.
+    static let connectionErrorIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ConnectionErrorIcon")
     /// Image `Earth`.
     static let earth = Rswift.ImageResource(bundle: R.hostingBundle, name: "Earth")
     /// Image `FilterIcon`.
@@ -362,6 +364,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Comments", bundle: ..., traitCollection: ...)`
     static func comments(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.comments, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ConnectionErrorIcon", bundle: ..., traitCollection: ...)`
+    static func connectionErrorIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.connectionErrorIcon, compatibleWith: traitCollection)
     }
     #endif
 

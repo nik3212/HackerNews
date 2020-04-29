@@ -7,9 +7,15 @@
 //
 
 protocol StoriesInteractorOutput: class {
-    func loadTopStoriesSuccess(ids: [Int])
-    func loadTopStoriesFailed(error: Error)
+    func fetchTopStoriesSuccess(ids: [Int])
+    func fetchTopStoriesFailed(error: Error)
     
-    func loadItemsSuccess(_ items: [PostModel])
-    func loadItemsFailed(error: Error)
+    func fetchBestStoriesSuccess(ids: [Int])
+    func fetchBestStoriesFailed(error: Error)
+    
+    func fetchNewStoriesSuccess(ids: [Int])
+    func fetchNewStoriesFailed(error: Error)
+    
+    func fetchItemsSuccess(_ items: [PostModel])
+    func fetchItemsFailed(error: Error)
 }

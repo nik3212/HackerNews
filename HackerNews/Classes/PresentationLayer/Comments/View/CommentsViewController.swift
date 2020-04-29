@@ -94,11 +94,13 @@ extension CommentsViewController: CommentsViewInput {
     }
     
     func showFooterView() {
-        
+        let view = LoadingFooterView()
+        view.isAnimating = true
+        tableView.tableFooterView = view
     }
     
     func hideFooterView() {
-        
+        tableView.tableFooterView = nil
     }
 }
 
