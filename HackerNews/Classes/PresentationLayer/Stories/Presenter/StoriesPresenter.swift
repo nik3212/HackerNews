@@ -33,17 +33,6 @@ class StoriesPresenter {
     }
     
     // MARK: Private Methods
-    private func changeNavigationTitle(with storyType: StoryType) {
-        switch storyType {
-        case .new:
-            view.changeNavigationTitle(with: StoryType.new.rawValue.localized())
-        case .best:
-            view.changeNavigationTitle(with: StoryType.best.rawValue.localized())
-        case .top:
-            view.changeNavigationTitle(with: StoryType.top.rawValue.localized())
-        }
-    }
-    
     private func fetchStories(by type: StoryType) {
         self.storyType = type
         
@@ -63,12 +52,7 @@ class StoriesPresenter {
         ids.removeAll()
         stories.removeAll()
         skeletonState = .enabled
-        //view.reloadData()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-//            self.view.reloadData()
-//        }
-        
-        //view.reloadData()
+        view.reloadData()
     }
     
     private func showError(_ error: Error) {
@@ -89,10 +73,10 @@ extension StoriesPresenter: StoriesViewOutput {
     }
     
     func viewIsReady() {
-        view.setupInitialState(theme: themeManager.theme,
+        view.setupInitialState(title: StoriesConstants.title.localized(),
+                               theme: themeManager.theme,
                                titles: StoryType.allCases.map { $0.rawValue.localized() })
         view.setUserInteractorEnabled(to: false)
-        changeNavigationTitle(with: storyType)
         themeManager?.addObserver(self)
         skeletonState = .enabled
         fetchStories(by: storyType)
@@ -146,8 +130,8 @@ extension StoriesPresenter: StoriesInteractorOutput {
         self.stories.append(contentsOf: items.sorted(by: { $0.id > $1.id }))
         view.setUserInteractorEnabled(to: true)
         skeletonState = .disabled
+        view.reloadData()
         view.hideRefreshControl()
-        //view.reloadData()
     }
     
     func fetchItemsFailed(error: Error) {
@@ -167,11 +151,10 @@ extension StoriesPresenter: StoriesInteractorOutput {
         let type = StoryType.allCases[index]
         backToInitialState()
         fetchStories(by: type)
-        changeNavigationTitle(with: type)
     }
     
     func getEmptyDataSetTitle() -> String {
-        return "No news to show"
+        return StoriesConstants.emptyTitle.localized()
     }
     
     func getEmptyDataSetDecription() -> String {
@@ -204,5 +187,8 @@ extension StoriesPresenter {
     private enum StoriesConstants {
         static let loadItemsCountPerOnce: Int = 20
         static let skeletonCount: Int = 10
+        
+        static let title: String = "Stories"
+        static let emptyTitle: String = "No stories to show"
     }
 }

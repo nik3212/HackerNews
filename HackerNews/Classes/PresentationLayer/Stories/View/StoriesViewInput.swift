@@ -7,8 +7,7 @@
 //
 
 protocol StoriesViewInput: class, Presentable, ThemeUpdatable {
-    func setupInitialState(theme: Theme, titles: [String])
-    func changeNavigationTitle(with title: String)
+    func setupInitialState(title: String, theme: Theme, titles: [String])
     func setUserInteractorEnabled(to state: Bool)
     func scrollContentToTop()
     func reloadData()

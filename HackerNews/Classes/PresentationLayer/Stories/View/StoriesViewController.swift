@@ -9,16 +9,16 @@
 import UIKit
 import EmptyDataSet_Swift
 
-class StoriesViewController: UITableViewController {
+class StoriesViewController: UIViewController {
     
     // MARK: IBOutlets
-    //@IBOutlet private var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
     // MARK: Public Properties
     var output: StoriesViewOutput!
 
     // MARK: Private Properties
-    //private var refreshControl = UIRefreshControl()
+    private var refreshControl = UIRefreshControl()
     private var segmentedControl = UISegmentedControl()
     private var theme: Theme?
     
@@ -40,17 +40,17 @@ class StoriesViewController: UITableViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationItem.largeTitleDisplayMode = .never
         }
-        refreshControl = UIRefreshControl()
+        
         tableView.register(StoryTableViewCell.self)
         tableView.register(SkeletonCell.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = Metrics.estimatedRowHeight
         tableView.prefetchDataSource = self
-        //tableView.refreshControl = refreshControl
+        tableView.refreshControl = refreshControl
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
-        refreshControl?.addTarget(self, action: #selector(refreshStories(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshStories(_:)), for: .valueChanged)
     
         extendedLayoutIncludesOpaqueBars = true
     }
@@ -68,16 +68,13 @@ class StoriesViewController: UITableViewController {
 
 // MARK: StoriesViewInput
 extension StoriesViewController: StoriesViewInput {    
-    func setupInitialState(theme: Theme, titles: [String]) {
+    func setupInitialState(title: String, theme: Theme, titles: [String]) {
+        self.title = title
         self.theme = theme
         update(theme: theme)
         configureNavigationItem(with: titles)
     }
-    
-    func changeNavigationTitle(with title: String) {
-        self.title = title
-    }
-    
+
     func reloadData() {
         tableView.reloadData()
     }
@@ -87,14 +84,7 @@ extension StoriesViewController: StoriesViewInput {
     }
 
     func hideRefreshControl() {
-        tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
-        //tableView.perform(#selector(tableView.reloadData), with: nil, afterDelay: 0.2)
-//        if #available(iOS 11.0, *) {
-//            navigationController?.navigationBar.prefersLargeTitles = true
-//            navigationController?.navigationItem.largeTitleDisplayMode = .never
-//        }
-        //tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
     func setUserInteractorEnabled(to state: Bool) {
@@ -124,26 +114,26 @@ extension StoriesViewController: UITableViewDataSourcePrefetching {
 }
 
 // MARK: UITableViewDelegate
-extension StoriesViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension StoriesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.didSelectRow(at: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 // MARK: UITableViewDataSource
-extension StoriesViewController {
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+extension StoriesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? SkeletonCell {
             cell.slide(to: .right)
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.numberOfRows()
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if output.getSkeletonState() == .enabled {
             let cell: SkeletonCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             if let theme = theme { cell.apply(theme: theme) }
@@ -161,7 +151,7 @@ extension StoriesViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
@@ -203,8 +193,9 @@ extension StoriesViewController: ThemeUpdatable {
         self.theme = theme
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
-        //theme.refreshControl.apply(to: refreshControl)
+        theme.refreshControl.apply(to: refreshControl)
         theme.segmentedControl.apply(to: segmentedControl)
+        tableView.reloadData()
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
     }
 }
