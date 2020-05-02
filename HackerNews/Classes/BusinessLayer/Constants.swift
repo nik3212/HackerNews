@@ -24,5 +24,6 @@ struct Constants {
         static let topStories = "topstories.json"
         static let bestStories = "beststories.json"
         static let newStories = "newstories.json"
+        static let askStories = "askstories.json"
     }
 }

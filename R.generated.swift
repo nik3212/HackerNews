@@ -90,8 +90,10 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
+    /// Storyboard `Ask`.
+    static let ask = _R.storyboard.ask()
     /// Storyboard `Comments`.
     static let comments = _R.storyboard.comments()
     /// Storyboard `LaunchScreen`.
@@ -104,6 +106,13 @@ struct R: Rswift.Validatable {
     static let stories = _R.storyboard.stories()
     /// Storyboard `Theme`.
     static let theme = _R.storyboard.theme()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Ask", bundle: ...)`
+    static func ask(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.ask)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Comments", bundle: ...)`
@@ -821,6 +830,9 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try ask.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try comments.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -839,6 +851,26 @@ struct _R: Rswift.Validatable {
       try theme.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct ask: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let askViewController = StoryboardViewControllerResource<AskViewController>(identifier: "AskViewController")
+      let bundle = R.hostingBundle
+      let name = "Ask"
+
+      func askViewController(_: Void = ()) -> AskViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: askViewController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.ask().askViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'askViewController' could not be loaded from storyboard 'Ask' as 'AskViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct comments: Rswift.StoryboardResourceType, Rswift.Validatable {
