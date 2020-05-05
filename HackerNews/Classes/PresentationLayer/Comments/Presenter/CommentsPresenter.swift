@@ -91,6 +91,7 @@ extension CommentsPresenter: CommentsViewOutput {
         themeManager.addObserver(self)
         
         if post.kids.isEmpty {
+            view.displayMessage(text: CommentsConstants.noComments.localized())
             view.hideActivityIndicator()
         } else {
             commentIds.enqueue(post.kids)
@@ -182,6 +183,7 @@ extension CommentsPresenter: ThemeObserver {
 extension CommentsPresenter {
     private enum CommentsConstants {
         static let title: String = "Comments"
+        static let noComments: String = "No comments"
     }
 }
 

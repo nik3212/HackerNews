@@ -203,6 +203,11 @@ extension Theme {
         return Stylesheet.AttributedString.commentText(string: text, color: textColor)
     }
     
+    func noCommentsText(text: String) -> NSAttributedString {
+        let textColor = self == .dark ? Colors.lightGray : Colors.darkGray
+        return Stylesheet.AttributedString.noCommentsText(string: text, color: textColor)
+    }
+    
     func postDescriptionTitle(score: String?, username: String?, time: String?) -> NSAttributedString {
         let baseColor = self == .dark ? Colors.lightGray : Colors.darkGray
         let dotString = Stylesheet.AttributedString.postDescription(string: " • ", color: baseColor)

@@ -320,6 +320,13 @@ struct Stylesheet {
                                            font: FontStyle.text2.font)
         }
         
+        static func noCommentsText(string: String, color: UIColor) -> NSAttributedString {
+            return string.attributedString(withLetterSpacing: 0.2,
+                                           textAlignment: .center,
+                                           textColor: color,
+                                           font: FontStyle.header3.font)
+        }
+        
         static func postDescription(icon: UIImage, color: UIColor) -> NSAttributedString {
             return NSAttributedString.attributedString(from: icon, color: color)
         }

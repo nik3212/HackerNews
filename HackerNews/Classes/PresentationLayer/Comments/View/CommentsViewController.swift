@@ -77,6 +77,17 @@ extension CommentsViewController: CommentsViewInput {
         self.title = title
     }
     
+    func displayMessage(text: String) {
+        let backgroundView = UIView()
+        let textLabel = UILabel()
+        
+        textLabel.attributedText = theme?.noCommentsText(text: text)
+        
+        view.setView(textLabel)
+        
+        tableView.backgroundView = backgroundView
+    }
+    
     func reloadData() {
         tableView.reloadData()
     }
@@ -128,7 +139,7 @@ extension CommentsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension//output.heightForRow(at: indexPath)
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

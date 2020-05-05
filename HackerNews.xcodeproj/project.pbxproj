@@ -144,6 +144,7 @@
 		5AE95B632461EABD00DAA009 /* ShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B572461EABD00DAA009 /* ShowRouter.swift */; };
 		5AE95B642461EABD00DAA009 /* ShowRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B582461EABD00DAA009 /* ShowRouterInput.swift */; };
 		5AE95B662461EC8F00DAA009 /* ShowStoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B652461EC8E00DAA009 /* ShowStoriesResource.swift */; };
+		5AE95B682461F49C00DAA009 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B672461F49C00DAA009 /* UIView+.swift */; };
 		5B0998C646723B5947C437B4 /* AskConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23B904BB8CDEC999FB411A /* AskConfiguratorTests.swift */; };
 		5B977A68F14DD980E8B899C6 /* AskRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693F55FDA9925B1BCF7D40B /* AskRouterTests.swift */; };
 		5CBE8D8383348E881F3F800A /* CommentsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E29D3A2F2C24826F905C2A /* CommentsConfigurator.swift */; };
@@ -383,6 +384,7 @@
 		5AE95B572461EABD00DAA009 /* ShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRouter.swift; sourceTree = "<group>"; };
 		5AE95B582461EABD00DAA009 /* ShowRouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRouterInput.swift; sourceTree = "<group>"; };
 		5AE95B652461EC8E00DAA009 /* ShowStoriesResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStoriesResource.swift; sourceTree = "<group>"; };
+		5AE95B672461F49C00DAA009 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		5B0973524E7C669B5C27E93D /* StoriesPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesPresenterTests.swift; sourceTree = "<group>"; };
 		6C54504D79E3203454D65767 /* StoriesViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesViewInput.swift; sourceTree = "<group>"; };
 		6EED532098A8A2AF98ED6E80 /* StoriesInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesInteractorOutput.swift; sourceTree = "<group>"; };
@@ -1675,6 +1677,7 @@
 				5AE2EDE1241046210011A198 /* UINavigationController+.swift */,
 				5AAC9111245090C60041006F /* Array+Range.swift */,
 				5AB25D8C2451ADD0009C05ED /* UIViewController+.swift */,
+				5AE95B672461F49C00DAA009 /* UIView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2294,6 +2297,7 @@
 				385B495311D6CBD5EB3F44E7 /* SettingsInteractorInput.swift in Sources */,
 				437795427873CF1A213CABF6 /* SettingsInteractorOutput.swift in Sources */,
 				5AD8D5982453363F00D7E1F1 /* CommentResource.swift in Sources */,
+				5AE95B682461F49C00DAA009 /* UIView+.swift in Sources */,
 				53E3C81A7457949576309607 /* SettingsInteractor.swift in Sources */,
 				5ACA6C472454E2C2007E89BF /* Queue.swift in Sources */,
 				B375711E66BCACF11B39AFFF /* SettingsRouterInput.swift in Sources */,

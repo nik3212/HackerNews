@@ -10,6 +10,7 @@ import Foundation
 
 protocol CommentsViewInput: class, Presentable, ThemeUpdatable {
     func setupInitialState(title: String)
+    func displayMessage(text: String)
     func reloadData()
     func showActivityIndicator()
     func hideActivityIndicator()
