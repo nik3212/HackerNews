@@ -33,6 +33,11 @@ extension HNService: HNServiceProtocol {
         load(resource: resource, completion: completion, fail: fail)
     }
     
+    func loadShowStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
+        let resource = ShowStoriesResource()
+        load(resource: resource, completion: completion, fail: fail)
+    }
+    
     func loadPosts(with ids: [Int], completion: @escaping ([PostModel]) -> Void, fail: @escaping (Error) -> Void) {
         let resources = ids.map(NewsResource.init)
         load(resources: resources, completion: completion, fail: fail)

@@ -131,6 +131,19 @@
 		5AE2EDE4241046730011A198 /* TransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDE3241046730011A198 /* TransitionHandler.swift */; };
 		5AE2EDE8241047660011A198 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2EDE7241047650011A198 /* R.generated.swift */; };
 		5AE2EDEA241048000011A198 /* Stories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE2EDE9241048000011A198 /* Stories.storyboard */; };
+		5AE95B592461EABD00DAA009 /* ShowAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B482461EABD00DAA009 /* ShowAssembly.swift */; };
+		5AE95B5A2461EABD00DAA009 /* ShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B4A2461EABD00DAA009 /* ShowPresenter.swift */; };
+		5AE95B5B2461EABD00DAA009 /* ShowViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B4C2461EABD00DAA009 /* ShowViewInput.swift */; };
+		5AE95B5C2461EABD00DAA009 /* ShowViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B4D2461EABD00DAA009 /* ShowViewOutput.swift */; };
+		5AE95B5D2461EABD00DAA009 /* Show.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE95B4E2461EABD00DAA009 /* Show.storyboard */; };
+		5AE95B5E2461EABD00DAA009 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B4F2461EABD00DAA009 /* ShowViewController.swift */; };
+		5AE95B5F2461EABD00DAA009 /* ShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B512461EABD00DAA009 /* ShowConfigurator.swift */; };
+		5AE95B602461EABD00DAA009 /* ShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B532461EABD00DAA009 /* ShowInteractor.swift */; };
+		5AE95B612461EABD00DAA009 /* ShowInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B542461EABD00DAA009 /* ShowInteractorOutput.swift */; };
+		5AE95B622461EABD00DAA009 /* ShowInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B552461EABD00DAA009 /* ShowInteractorInput.swift */; };
+		5AE95B632461EABD00DAA009 /* ShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B572461EABD00DAA009 /* ShowRouter.swift */; };
+		5AE95B642461EABD00DAA009 /* ShowRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B582461EABD00DAA009 /* ShowRouterInput.swift */; };
+		5AE95B662461EC8F00DAA009 /* ShowStoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B652461EC8E00DAA009 /* ShowStoriesResource.swift */; };
 		5B0998C646723B5947C437B4 /* AskConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23B904BB8CDEC999FB411A /* AskConfiguratorTests.swift */; };
 		5B977A68F14DD980E8B899C6 /* AskRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693F55FDA9925B1BCF7D40B /* AskRouterTests.swift */; };
 		5CBE8D8383348E881F3F800A /* CommentsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E29D3A2F2C24826F905C2A /* CommentsConfigurator.swift */; };
@@ -357,6 +370,19 @@
 		5AE2EDE3241046730011A198 /* TransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionHandler.swift; sourceTree = "<group>"; };
 		5AE2EDE7241047650011A198 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		5AE2EDE9241048000011A198 /* Stories.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stories.storyboard; sourceTree = "<group>"; };
+		5AE95B482461EABD00DAA009 /* ShowAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAssembly.swift; sourceTree = "<group>"; };
+		5AE95B4A2461EABD00DAA009 /* ShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPresenter.swift; sourceTree = "<group>"; };
+		5AE95B4C2461EABD00DAA009 /* ShowViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewInput.swift; sourceTree = "<group>"; };
+		5AE95B4D2461EABD00DAA009 /* ShowViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewOutput.swift; sourceTree = "<group>"; };
+		5AE95B4E2461EABD00DAA009 /* Show.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Show.storyboard; sourceTree = "<group>"; };
+		5AE95B4F2461EABD00DAA009 /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		5AE95B512461EABD00DAA009 /* ShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowConfigurator.swift; sourceTree = "<group>"; };
+		5AE95B532461EABD00DAA009 /* ShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInteractor.swift; sourceTree = "<group>"; };
+		5AE95B542461EABD00DAA009 /* ShowInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInteractorOutput.swift; sourceTree = "<group>"; };
+		5AE95B552461EABD00DAA009 /* ShowInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInteractorInput.swift; sourceTree = "<group>"; };
+		5AE95B572461EABD00DAA009 /* ShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRouter.swift; sourceTree = "<group>"; };
+		5AE95B582461EABD00DAA009 /* ShowRouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRouterInput.swift; sourceTree = "<group>"; };
+		5AE95B652461EC8E00DAA009 /* ShowStoriesResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStoriesResource.swift; sourceTree = "<group>"; };
 		5B0973524E7C669B5C27E93D /* StoriesPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesPresenterTests.swift; sourceTree = "<group>"; };
 		6C54504D79E3203454D65767 /* StoriesViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesViewInput.swift; sourceTree = "<group>"; };
 		6EED532098A8A2AF98ED6E80 /* StoriesInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesInteractorOutput.swift; sourceTree = "<group>"; };
@@ -860,13 +886,14 @@
 		5A8054C5244C99A5005E4F96 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5A8054BF244C8FF0005E4F96 /* TopStoriesResource.swift */,
-				5A8054D8244CC954005E4F96 /* NewStoriesResource.swift */,
+				5A030951245E138C0004D669 /* AskStoriesResource.swift */,
 				5A8054DA244CC962005E4F96 /* BestStoriesResource.swift */,
+				5AD8D5972453363F00D7E1F1 /* CommentResource.swift */,
 				5A8054DC244CCB91005E4F96 /* ItemResource.swift */,
 				5A8054E4244CD739005E4F96 /* NewsResource.swift */,
-				5AD8D5972453363F00D7E1F1 /* CommentResource.swift */,
-				5A030951245E138C0004D669 /* AskStoriesResource.swift */,
+				5A8054D8244CC954005E4F96 /* NewStoriesResource.swift */,
+				5AE95B652461EC8E00DAA009 /* ShowStoriesResource.swift */,
+				5A8054BF244C8FF0005E4F96 /* TopStoriesResource.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1081,6 +1108,7 @@
 		5AE2EDC624103C0C0011A198 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				5AE95B462461EABD00DAA009 /* Show */,
 				5AE2EDC824103C330011A198 /* Main */,
 				2CEA7D26636B60D4D590C779 /* Stories */,
 				C26D41CD92E58E7F27B1529B /* Settings */,
@@ -1188,6 +1216,73 @@
 				5ACB43E32448875C0010465B /* MainTabBarViewInput.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5AE95B462461EABD00DAA009 /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				5AE95B472461EABD00DAA009 /* Assembly */,
+				5AE95B492461EABD00DAA009 /* Presenter */,
+				5AE95B4B2461EABD00DAA009 /* View */,
+				5AE95B502461EABD00DAA009 /* Configurator */,
+				5AE95B522461EABD00DAA009 /* Interactor */,
+				5AE95B562461EABD00DAA009 /* Router */,
+			);
+			path = Show;
+			sourceTree = "<group>";
+		};
+		5AE95B472461EABD00DAA009 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				5AE95B482461EABD00DAA009 /* ShowAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		5AE95B492461EABD00DAA009 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5AE95B4A2461EABD00DAA009 /* ShowPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5AE95B4B2461EABD00DAA009 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5AE95B4C2461EABD00DAA009 /* ShowViewInput.swift */,
+				5AE95B4D2461EABD00DAA009 /* ShowViewOutput.swift */,
+				5AE95B4E2461EABD00DAA009 /* Show.storyboard */,
+				5AE95B4F2461EABD00DAA009 /* ShowViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5AE95B502461EABD00DAA009 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				5AE95B512461EABD00DAA009 /* ShowConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		5AE95B522461EABD00DAA009 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				5AE95B532461EABD00DAA009 /* ShowInteractor.swift */,
+				5AE95B542461EABD00DAA009 /* ShowInteractorOutput.swift */,
+				5AE95B552461EABD00DAA009 /* ShowInteractorInput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		5AE95B562461EABD00DAA009 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				5AE95B572461EABD00DAA009 /* ShowRouter.swift */,
+				5AE95B582461EABD00DAA009 /* ShowRouterInput.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		5F7B60CE9584FD15023856EF /* Interactor */ = {
@@ -1940,6 +2035,7 @@
 				71D3EE6174A29CCC96AF27FC /* Settings.storyboard in Resources */,
 				4EFF808EC08E9CCA2D33FC20 /* Theme.storyboard in Resources */,
 				5A8BF1682449ABAB00215883 /* Localizable.strings in Resources */,
+				5AE95B5D2461EABD00DAA009 /* Show.storyboard in Resources */,
 				5A9C965E24425B4A002AC0F5 /* Poppins-SemiBold.ttf in Resources */,
 				5A9C965D24425B4A002AC0F5 /* Poppins-Regular.ttf in Resources */,
 			);
@@ -2119,11 +2215,13 @@
 				D07205252130A09C00E4B1ED /* Color+.swift in Sources */,
 				5A435C0B243A27F5009C5355 /* ThemeManager.swift in Sources */,
 				5AE2EDE8241047660011A198 /* R.generated.swift in Sources */,
+				5AE95B5A2461EABD00DAA009 /* ShowPresenter.swift in Sources */,
 				5A1CADF1244B4BF8002D0114 /* Item.swift in Sources */,
 				5A1CADF2244B4BF8002D0114 /* CommentModel.swift in Sources */,
 				D07205292130A10400E4B1ED /* NibLoadableView.swift in Sources */,
 				5ACB43D9244855F30010465B /* Weak.swift in Sources */,
 				384F0821219E07D30029ADDD /* Alertable.swift in Sources */,
+				5AE95B602461EABD00DAA009 /* ShowInteractor.swift in Sources */,
 				5A5C0AA2241ECBF9007B4FCF /* ServiceLocatorAssembly.swift in Sources */,
 				D07205272130A0AF00E4B1ED /* UIImage+.swift in Sources */,
 				5AE2EDDD241040A40011A198 /* MainTabBarViewController.swift in Sources */,
@@ -2142,6 +2240,7 @@
 				5AB25D8D2451ADD2009C05ED /* UIViewController+.swift in Sources */,
 				5A52212124479D01003B799D /* ThemeSelectableTableViewCell.swift in Sources */,
 				D072052B2130A11A00E4B1ED /* ReusableView.swift in Sources */,
+				5AE95B592461EABD00DAA009 /* ShowAssembly.swift in Sources */,
 				5ACB43DB244862500010465B /* ImageType.swift in Sources */,
 				5A435C11243A2E34009C5355 /* Style.swift in Sources */,
 				5A8BF16E2449AC3F00215883 /* String+Localized.swift in Sources */,
@@ -2153,12 +2252,14 @@
 				5AE2EDD724103F1D0011A198 /* MainTabBarAssembly.swift in Sources */,
 				5AE2EDD024103CDB0011A198 /* RootConfigurator.swift in Sources */,
 				5A6FF6C324182BDF003F9B9D /* StoriesConfigurator.swift in Sources */,
+				5AE95B622461EABD00DAA009 /* ShowInteractorInput.swift in Sources */,
 				5A8054E5244CD739005E4F96 /* NewsResource.swift in Sources */,
 				5A8054D9244CC954005E4F96 /* NewStoriesResource.swift in Sources */,
 				38F7969A2198A2710083EFEF /* String+.swift in Sources */,
 				5A25EF3C2455888700AC7C56 /* PostCellViewModel.swift in Sources */,
 				5AE2EDDA241040420011A198 /* TabBarViewProtocol.swift in Sources */,
 				5AE2EDD424103EED0011A198 /* MainTabBarConfigurator.swift in Sources */,
+				5AE95B612461EABD00DAA009 /* ShowInteractorOutput.swift in Sources */,
 				D07204F421309FC600E4B1ED /* AppDelegate.swift in Sources */,
 				5ACB43DD244883E90010465B /* Optional+Throwable.swift in Sources */,
 				5A435C0F243A2E0B009C5355 /* Stylesheet.swift in Sources */,
@@ -2179,6 +2280,7 @@
 				2C5287CA0F51E7CC0998F056 /* StoriesRouter.swift in Sources */,
 				C72C67A3801D1099E2E78982 /* StoriesAssembly.swift in Sources */,
 				5AE2EDE0241045D60011A198 /* Presentable.swift in Sources */,
+				5AE95B5F2461EABD00DAA009 /* ShowConfigurator.swift in Sources */,
 				37B144B44710E04D53D38B1F /* SettingsViewInput.swift in Sources */,
 				5A8BF1752449D78900215883 /* RootSplitViewController.swift in Sources */,
 				5ACB43DF244886E30010465B /* MainTabBarViewOutput.swift in Sources */,
@@ -2188,6 +2290,7 @@
 				5A9C966724425E35002AC0F5 /* Font+.swift in Sources */,
 				5A8054E9244CD98B005E4F96 /* StoryTableViewCell.swift in Sources */,
 				5ACB43E22448872A0010465B /* MainTabBarPresenter.swift in Sources */,
+				5AE95B632461EABD00DAA009 /* ShowRouter.swift in Sources */,
 				385B495311D6CBD5EB3F44E7 /* SettingsInteractorInput.swift in Sources */,
 				437795427873CF1A213CABF6 /* SettingsInteractorOutput.swift in Sources */,
 				5AD8D5982453363F00D7E1F1 /* CommentResource.swift in Sources */,
@@ -2221,6 +2324,7 @@
 				BCBA5819B2598079B48DDA9C /* ThemeConfigurator.swift in Sources */,
 				0E95E3FEBFD9EFBA7A696CFD /* ThemeModuleInput.swift in Sources */,
 				5A8054DD244CCB91005E4F96 /* ItemResource.swift in Sources */,
+				5AE95B642461EABD00DAA009 /* ShowRouterInput.swift in Sources */,
 				5A8054C7244C99B5005E4F96 /* HNServiceProtocol.swift in Sources */,
 				99FF3F4214BEF893002901F4 /* CommentsViewInput.swift in Sources */,
 				7E61868B4DA2FA7FB7E7C37C /* CommentsViewOutput.swift in Sources */,
@@ -2229,11 +2333,14 @@
 				6D4A7BBE429B8E09377B7DE7 /* CommentsPresenter.swift in Sources */,
 				D266EC5FA8619EC9119612B6 /* CommentsInteractorInput.swift in Sources */,
 				B29F0F598619422FE8A87738 /* CommentsInteractorOutput.swift in Sources */,
+				5AE95B5C2461EABD00DAA009 /* ShowViewOutput.swift in Sources */,
 				7C61D1FC15958476BCBDB865 /* CommentsInteractor.swift in Sources */,
 				5A030952245E138C0004D669 /* AskStoriesResource.swift in Sources */,
 				946BE207880921E25E93302B /* CommentsRouterInput.swift in Sources */,
+				5AE95B662461EC8F00DAA009 /* ShowStoriesResource.swift in Sources */,
 				23B60C899980EFD06CDBEFE6 /* CommentsRouter.swift in Sources */,
 				AAE00CC387A3A7599BFDA77F /* CommentsAssembly.swift in Sources */,
+				5AE95B5B2461EABD00DAA009 /* ShowViewInput.swift in Sources */,
 				5CBE8D8383348E881F3F800A /* CommentsConfigurator.swift in Sources */,
 				227D42543579B790BDF32914 /* CommentsModuleInput.swift in Sources */,
 				C7962CBDD46D587E89376D35 /* AskViewInput.swift in Sources */,
@@ -2247,6 +2354,7 @@
 				371084FF27906C3D0A7BC2D8 /* AskRouter.swift in Sources */,
 				B471A543631F20DC94F88612 /* AskAssembly.swift in Sources */,
 				8A88E5A132E12BB475A03AA4 /* AskConfigurator.swift in Sources */,
+				5AE95B5E2461EABD00DAA009 /* ShowViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

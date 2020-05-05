@@ -20,6 +20,11 @@ final class MainTabBarModuleAssembly: Assembly {
             return AskConfigurator(parentAssembler: parentAssembler.unwrap())
         }
         
+        container.register(ShowConfigurator.self) { resolver in
+            let parentAssembler = resolver.resolve(MainTabBarConfigurator.self)?.assembler
+            return ShowConfigurator(parentAssembler: parentAssembler.unwrap())
+        }
+        
         container.register(SettingsConfigurator.self) { resolver in
             let parentAssembler = resolver.resolve(MainTabBarConfigurator.self)?.assembler
             return SettingsConfigurator(parentAssembler: parentAssembler.unwrap())
@@ -38,6 +43,7 @@ final class MainTabBarModuleAssembly: Assembly {
         container.register(MainTabBarViewController.self) { resolver in
             let storiesViewController = resolver.resolve(StoriesConfigurator.self).unwrap().configureViewController()
             let askViewController = resolver.resolve(AskConfigurator.self).unwrap().configureViewController()
+            let showViewController = resolver.resolve(ShowConfigurator.self).unwrap().configureViewController()
             let settingsViewController = resolver.resolve(SettingsConfigurator.self).unwrap().configureViewController()
             
             let theme = resolver.resolve(ThemeManager.self).unwrap().theme
@@ -45,7 +51,7 @@ final class MainTabBarModuleAssembly: Assembly {
             
             let viewController = MainTabBarViewController(theme: theme, output: output)
             
-            viewController.viewControllers = [storiesViewController, askViewController, settingsViewController]
+            viewController.viewControllers = [storiesViewController, askViewController, showViewController, settingsViewController]
             
             return viewController
         }

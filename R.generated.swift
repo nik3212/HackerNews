@@ -90,7 +90,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
   struct storyboard {
     /// Storyboard `Ask`.
     static let ask = _R.storyboard.ask()
@@ -102,6 +102,8 @@ struct R: Rswift.Validatable {
     static let main = _R.storyboard.main()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
+    /// Storyboard `Show`.
+    static let show = _R.storyboard.show()
     /// Storyboard `Stories`.
     static let stories = _R.storyboard.stories()
     /// Storyboard `Theme`.
@@ -139,6 +141,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Settings", bundle: ...)`
     static func settings(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.settings)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Show", bundle: ...)`
+    static func show(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.show)
     }
     #endif
 
@@ -845,6 +854,9 @@ struct _R: Rswift.Validatable {
       try settings.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try show.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try stories.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -939,6 +951,26 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.settings().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Settings' as 'SettingsViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct show: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Show"
+      let showViewController = StoryboardViewControllerResource<ShowViewController>(identifier: "ShowViewController")
+
+      func showViewController(_: Void = ()) -> ShowViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: showViewController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.show().showViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'showViewController' could not be loaded from storyboard 'Show' as 'ShowViewController'.") }
       }
 
       fileprivate init() {}
