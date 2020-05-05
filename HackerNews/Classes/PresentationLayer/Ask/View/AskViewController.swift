@@ -59,6 +59,12 @@ extension AskViewController: UITableViewDelegate {
 
 // MARK: UITableViewDataSource
 extension AskViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? SkeletonCell {
+            cell.slide(to: .right)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = output.getModel(for: indexPath)
         return tableView.dequeueReusableCell(forIndexPath: indexPath, with: model)
@@ -128,6 +134,7 @@ extension AskViewController: ThemeUpdatable {
         theme.view.apply(to: view)
         theme.refreshControl.apply(to: refreshControl)
         theme.tableView.apply(to: tableView)
+        tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
     }
 }
 
