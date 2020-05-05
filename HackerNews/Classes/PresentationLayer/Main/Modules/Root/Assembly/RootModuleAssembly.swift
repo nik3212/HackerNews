@@ -10,7 +10,7 @@ import Swinject
 
 final class RootModuleAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(RootSplitViewController.self) { (resolver, firstVC: MainTabBarViewController, secondVC: CommentsViewController) in
+        container.register(RootSplitViewController.self) { (resolver, firstVC: MainTabBarViewController, secondVC: UIViewController) in
             let splitViewController = RootSplitViewController()
             splitViewController.output = resolver.resolve(RootPresenter.self, argument: splitViewController)
             
