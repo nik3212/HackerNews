@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class AskRouter {
     weak var transitionHandler: TransitionHandler?
@@ -17,7 +17,10 @@ final class AskRouter {
 extension AskRouter: AskRouterInput {
     func openCommentsModule(for post: PostModel) {
         transitionHandler?.openModule({ [weak self] viewController in
-            self?.commentsConfigurator?.configure(post: post)?.present(from: viewController)
+            guard let commentsViewController = self?.commentsConfigurator?.configure(post: post) else { return }
+
+            let nv = UINavigationController(rootViewController: commentsViewController)
+            viewController.showDetailViewController(nv, sender: nil)
         })
     }
 }
