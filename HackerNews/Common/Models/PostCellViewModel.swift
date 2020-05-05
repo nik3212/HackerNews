@@ -16,7 +16,7 @@ struct PostCellViewModel {
 // MARK: BaseCellViewModel
 extension PostCellViewModel: CellViewModel {
     func setup(on cell: StoryTableViewCell) {
-        cell.setup(model: post)
         cell.apply(theme: theme)
+        cell.setup(model: post)
     }
 }
