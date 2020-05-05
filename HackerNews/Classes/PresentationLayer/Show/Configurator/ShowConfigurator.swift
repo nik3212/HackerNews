@@ -23,7 +23,7 @@ final class ShowConfigurator {
 // MARK: TabBarViewProtocol
 extension ShowConfigurator: TabBarViewProtocol {
     var icon: UIImage? {
-        return R.image.news()
+        return R.image.show()
     }
     
     var title: String? {

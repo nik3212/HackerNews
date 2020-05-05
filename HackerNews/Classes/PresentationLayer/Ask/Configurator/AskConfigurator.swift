@@ -23,7 +23,7 @@ final class AskConfigurator {
 // MARK: TabBarViewProtocol
 extension AskConfigurator: TabBarViewProtocol {
     var icon: UIImage? {
-        return R.image.news()
+        return R.image.ask()
     }
     
     var title: String? {

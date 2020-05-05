@@ -34,12 +34,11 @@ extension StoriesInteractor: StoriesInteractorInput {
     }
     
     func fetchNewStories() {
-        output?.fetchNewStoriesFailed(error: NetworkError.encodingFailed)
-//        networkService?.loadNewStories(completion: { [weak self] ids in
-//            self?.output?.fetchNewStoriesSuccess(ids: ids)
-//            }, fail: { [weak self] error in
-//            self?.output?.fetchNewStoriesFailed(error: error)
-//        })
+        networkService?.loadNewStories(completion: { [weak self] ids in
+            self?.output?.fetchNewStoriesSuccess(ids: ids)
+            }, fail: { [weak self] error in
+            self?.output?.fetchNewStoriesFailed(error: error)
+        })
     }
     
     func fetchPosts(with ids: [Int]) {
