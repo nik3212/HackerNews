@@ -68,8 +68,11 @@ extension StoriesPresenter: StoriesViewOutput {
         return skeletonState == .enabled ? StoriesConstants.skeletonCount : stories.count
     }
     
-    func getModel(for row: Int) -> PostModel {
-        return stories[row]
+    func getModel(for indexPath: IndexPath) -> BaseCellViewModel {
+        if skeletonState == .enabled {
+            return SkeletonCellViewModel(theme: themeManager.theme)
+        }
+        return PostCellViewModel(post: stories[indexPath.row], theme: themeManager.theme)
     }
     
     func viewIsReady() {

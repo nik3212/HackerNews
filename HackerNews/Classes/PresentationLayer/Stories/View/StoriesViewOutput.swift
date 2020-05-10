@@ -15,7 +15,7 @@ protocol StoriesViewOutput: class {
     func didSelectImage(at row: Int)
     func numberOfRows() -> Int
     func refreshStories()
-    func getModel(for row: Int) -> PostModel
+    func getModel(for indexPath: IndexPath) -> BaseCellViewModel
     func getSkeletonState() -> SkeletonState
     func segmentedControlDidChange(to index: Int)
     func getEmptyDataSetTitle() -> String

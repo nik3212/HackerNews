@@ -134,21 +134,8 @@ extension StoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if output.getSkeletonState() == .enabled {
-            let cell: SkeletonCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            if let theme = theme { cell.apply(theme: theme) }
-            return cell
-        }
-        
-        let cell: StoryTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        let model = output.getModel(for: indexPath.row)
-
-        if let theme = theme { cell.apply(theme: theme) }
-
-        cell.setup(model: model)
-        cell.delegate = self
-        
-        return cell
+        let model = output.getModel(for: indexPath)
+        return tableView.dequeueReusableCell(forIndexPath: indexPath, with: model)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
