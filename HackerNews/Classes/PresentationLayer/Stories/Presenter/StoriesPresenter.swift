@@ -75,7 +75,9 @@ extension StoriesPresenter: StoriesViewOutput {
         if skeletonState == .enabled {
             return SkeletonCellViewModel(theme: themeManager.theme)
         }
-        return PostCellViewModel(post: stories[indexPath.row], theme: themeManager.theme)
+        return PostCellViewModel(post: stories[indexPath.row],
+                                 theme: themeManager.theme,
+                                 placeholderImage: .placeholder)
     }
     
     func viewIsReady() {

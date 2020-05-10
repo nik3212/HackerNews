@@ -11,12 +11,13 @@ import Foundation
 struct PostCellViewModel {
     let post: PostModel
     let theme: Theme
+    let placeholderImage: Image
 }
 
 // MARK: BaseCellViewModel
 extension PostCellViewModel: CellViewModel {
     func setup(on cell: StoryTableViewCell) {
         cell.apply(theme: theme)
-        cell.setup(model: post)
+        cell.setup(model: post, placeholder: placeholderImage)
     }
 }

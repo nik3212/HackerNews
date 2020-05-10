@@ -17,6 +17,7 @@ enum Image: ImageType {
     case settings
     case filter
     case connectionError
+    case placeholder
     
     var resource: UIImage? {
         switch self {
@@ -26,6 +27,8 @@ enum Image: ImageType {
             return R.image.filterIcon()
         case .connectionError:
             return R.image.connectionErrorIcon()
+        case .placeholder:
+            return R.image.placeholder()
         }
     }
     

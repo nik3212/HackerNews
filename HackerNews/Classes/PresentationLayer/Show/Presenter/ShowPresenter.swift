@@ -57,7 +57,7 @@ extension ShowPresenter: ShowViewOutput {
         if skeletonState == .enabled {
             return SkeletonCellViewModel(theme: themeManager.theme)
         }
-        return PostCellViewModel(post: posts[indexPath.row], theme: themeManager.theme)
+        return PostCellViewModel(post: posts[indexPath.row], theme: themeManager.theme, placeholderImage: .placeholder)
     }
     
     func getNumberOfRow() -> Int {

@@ -18,6 +18,13 @@ final class HNImageView: UIView {
     // MARK: Public Properties
     
     /// <#Description#>
+    var placeholderImage: UIImage? = nil {
+        didSet {
+            setPlaceholder()
+        }
+    }
+    
+    /// <#Description#>
     var cornerRadius: CGFloat = 8.0 {
         didSet {
             layer.cornerRadius = cornerRadius
@@ -43,7 +50,7 @@ final class HNImageView: UIView {
     ///
     /// - Returns: <#description#>
     func setImage(from url: URL?) {
-        setPlaceholder()
+        //setPlaceholder()
         
         guard let url = url, let thumbnailURL = URL(string: Constants.Links.imageExtractorURL + (url.absoluteString)) else {
             return
@@ -96,11 +103,9 @@ final class HNImageView: UIView {
     }
     
     private func setPlaceholder() {
-        let placeholderImage = R.image.placeholderIcon()
-        
         DispatchQueue.main.async {
             self.contentMode = .center
-            self.imageView.image = placeholderImage
+            self.imageView.image = self.placeholderImage
         }
     }
 }

@@ -123,7 +123,7 @@ extension CommentsPresenter: CommentsViewOutput {
         
         switch sectionType {
         case .info:
-            return PostCellViewModel(post: post, theme: themeManager.theme)
+            return PostCellViewModel(post: post, theme: themeManager.theme, placeholderImage: .placeholder)
         case .comments:
             return CommentCellViewModel(comment: comments[indexPath.row],
                                         text: commentTexts[indexPath.row],

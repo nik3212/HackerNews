@@ -358,8 +358,8 @@ struct R: Rswift.Validatable {
     static let lanuchScreenIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "LanuchScreenIcon")
     /// Image `News`.
     static let news = Rswift.ImageResource(bundle: R.hostingBundle, name: "News")
-    /// Image `PlaceholderIcon`.
-    static let placeholderIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "PlaceholderIcon")
+    /// Image `Placeholder`.
+    static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "Placeholder")
     /// Image `PointsIcon`.
     static let pointsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "PointsIcon")
     /// Image `Rate`.
@@ -428,9 +428,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "PlaceholderIcon", bundle: ..., traitCollection: ...)`
-    static func placeholderIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.placeholderIcon, compatibleWith: traitCollection)
+    /// `UIImage(named: "Placeholder", bundle: ..., traitCollection: ...)`
+    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
     }
     #endif
 

@@ -49,7 +49,10 @@ final class StoryTableViewCell: UITableViewCell {
     /// Set model data to the cell.
     ///
     /// - Parameter model: A `NewsModel` value that contains the cell data.
-    func setup(model: PostModel) {
+    /// - Parameter placeholder: <#placeholder description#>
+    func setup(model: PostModel, placeholder: Image? = nil) {
+        previewImageView.placeholderImage = placeholder?.resource
+        
         if let urlString = model.url {
             previewImageView.setImage(from: URL(string: urlString))
         }
