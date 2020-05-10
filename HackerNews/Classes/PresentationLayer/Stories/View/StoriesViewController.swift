@@ -61,8 +61,16 @@ class StoriesViewController: UIViewController {
         }
         
         segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.sizeToFit()
         segmentedControl.addTarget(self, action: #selector(segmentedControlDidChange(_:)), for: .valueChanged)
         navigationItem.titleView = segmentedControl
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        segmentedControl.setNeedsLayout()
+        segmentedControl.layoutIfNeeded()
     }
 }
 
