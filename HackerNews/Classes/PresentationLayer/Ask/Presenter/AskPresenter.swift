@@ -38,6 +38,7 @@ final class AskPresenter {
 extension AskPresenter: AskViewOutput {    
     func viewIsReady() {
         view.setupInitialState(title: AskConstants.title.localized(), theme: themeManager.theme)
+        view.update(theme: themeManager.theme)
         themeManager.addObserver(self)
         skeletonState = .enabled
         interactor.fetchAskIds()

@@ -16,7 +16,7 @@ final class ShowInteractor {
 
 // MARK: ShowInteractorInput
 extension ShowInteractor: ShowInteractorInput {
-    func fetchAskIds() {
+    func fetchShowIds() {
         networkService?.loadShowStories(completion: { [weak self] ids in
             self?.output.fetchShowStoriesSuccess(ids: ids)
             }, fail: { [weak self] error in

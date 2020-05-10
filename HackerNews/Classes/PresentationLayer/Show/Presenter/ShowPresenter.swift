@@ -38,9 +38,10 @@ final class ShowPresenter {
 extension ShowPresenter: ShowViewOutput {
     func viewIsReady() {
         view.setupInitialState(title: ShowConstants.title.localized(), theme: themeManager.theme)
+        view.update(theme: themeManager.theme)
         themeManager.addObserver(self)
         skeletonState = .enabled
-        interactor.fetchAskIds()
+        interactor.fetchShowIds()
     }
     
     func didSelectRow(at row: Int) {
@@ -69,7 +70,7 @@ extension ShowPresenter: ShowViewOutput {
         ids.removeAll()
         posts.removeAll()
         view.reloadData()
-        interactor.fetchAskIds()
+        interactor.fetchShowIds()
     }
     
     func getEmptyDataSetTitle() -> String {

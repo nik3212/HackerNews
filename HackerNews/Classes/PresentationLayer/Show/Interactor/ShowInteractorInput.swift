@@ -7,6 +7,6 @@
 //
 
 protocol ShowInteractorInput {
-    func fetchAskIds()
+    func fetchShowIds()
     func fetchPosts(with ids: [Int])
 }
