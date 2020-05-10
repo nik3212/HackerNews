@@ -47,6 +47,7 @@ class StoriesPresenter {
     }
     
     private func backToInitialState() {
+        interactor.cancleRequests()
         view.setUserInteractorEnabled(to: false)
         view.scrollContentToTop()
         ids.removeAll()
@@ -56,6 +57,8 @@ class StoriesPresenter {
     }
     
     private func showError(_ error: Error) {
+        if error._code == StoriesConstants.canceledCode { return }
+        
         skeletonState = .disabled
         errorDescription = error.localizedDescription
         view.reloadData()
@@ -190,6 +193,8 @@ extension StoriesPresenter {
     private enum StoriesConstants {
         static let loadItemsCountPerOnce: Int = 20
         static let skeletonCount: Int = 10
+        
+        static let canceledCode: Int = -999
         
         static let title: String = "Stories"
         static let emptyTitle: String = "No stories to show"

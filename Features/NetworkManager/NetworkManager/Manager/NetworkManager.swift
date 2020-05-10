@@ -56,7 +56,7 @@ extension NetworkManager: NetworkManagerProtocol {
         task.resume()
     }
     
-    func cancelAllTasks() {
-        
+    public func cancelAllTasks() {
+        session.cancelAllTasks()
     }
 }

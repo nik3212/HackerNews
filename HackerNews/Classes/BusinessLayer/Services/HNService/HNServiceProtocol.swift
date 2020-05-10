@@ -16,4 +16,5 @@ protocol HNServiceProtocol {
     func loadShowStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void)
     func loadPosts(with ids: [Int], completion: @escaping ([PostModel]) -> Void, fail: @escaping (Error) -> Void)
     func loadComments(with id: Int, completion: @escaping (CommentModel) -> Void, fail: @escaping (Error) -> Void)
+    func cancelAllTasks()
 }

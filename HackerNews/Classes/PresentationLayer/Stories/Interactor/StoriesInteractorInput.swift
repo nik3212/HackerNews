@@ -11,4 +11,5 @@ protocol StoriesInteractorInput {
     func fetchBestStories()
     func fetchNewStories()
     func fetchPosts(with ids: [Int])
+    func cancleRequests()
 }

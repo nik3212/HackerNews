@@ -12,6 +12,7 @@ import NetworkManager
 protocol NetworkService {
     func load<R: APIResource>(resource: R, completion: @escaping (R.ModelType) -> Void, fail: @escaping (Error) -> Void)
     func load<R: APIResource>(resources: [R], completion: @escaping ([R.ModelType]) -> Void, fail: @escaping (Error) -> Void)
+    func cancelAllTasks()
 }
 
 class BaseService: NetworkService {
@@ -45,5 +46,9 @@ class BaseService: NetworkService {
         group.notify(queue: .main) {
             completion(responces)
         }
+    }
+    
+    func cancelAllTasks() {
+        networkManager.cancelAllTasks()
     }
 }

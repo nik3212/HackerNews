@@ -48,4 +48,8 @@ extension StoriesInteractor: StoriesInteractorInput {
             self?.output?.fetchItemsFailed(error: error)
         })
     }
+    
+    func cancleRequests() {
+        networkService?.cancelAllTasks()
+    }
 }
