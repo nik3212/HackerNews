@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.5" width="60" height="60"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="ccV-nG-Pxx"/>
+                                    <constraint firstAttribute="height" priority="999" constant="60" id="0X1-0H-eht"/>
                                     <constraint firstAttribute="width" secondItem="gH6-mf-diK" secondAttribute="height" multiplier="1:1" id="ryK-Uh-wHY"/>
                                 </constraints>
                             </view>
