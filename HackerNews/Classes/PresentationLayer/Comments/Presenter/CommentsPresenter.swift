@@ -22,6 +22,11 @@ class CommentsPresenter {
     private var comments: [CommentModel] = []
     private var loadingCommentId: Int?
     
+    // MARK: Life Cycle
+    deinit {
+        themeManager.removeObserver(self)
+    }
+    
     // MARK: Private Methods
     private func fetchComments() {
         guard let id = commentIds.dequeue(), loadingCommentId == nil else { return }

@@ -13,6 +13,7 @@ protocol ThemeManagerProtocol: AnyObject {
     var themes: [Theme] { get }
     
     func addObserver(_ observer: ThemeObserver)
+    func removeObserver(_ observer: ThemeObserver)
 }
 
 final class ThemeManager: ThemeManagerProtocol {
@@ -28,8 +29,8 @@ final class ThemeManager: ThemeManagerProtocol {
             UIView.animate(withDuration: 0.3) { [weak self] in
                 guard let `self` = self else { return }
                 
-                for observer in self.observers {
-                    guard let weakObserver = observer.value as? ThemeObserver else { return }
+                for observer in self.observers.allObjects {
+                    guard let weakObserver = observer as? ThemeObserver else { return }
                     weakObserver.themeDidChange(self.theme)
                 }
             }
@@ -41,7 +42,7 @@ final class ThemeManager: ThemeManagerProtocol {
     let themes: [Theme] = [.light, .dark]
     
     /// Contains observers.
-    private var observers = [Weak<AnyObject>]()
+    private var observers = WeakObjectSet<AnyObject>()
     
     // MARK: Intialization
     private init() { }
@@ -52,10 +53,17 @@ final class ThemeManager: ThemeManagerProtocol {
     ///
     /// - Parameter observer: A `ThemeObserver` value that contains the object that will receive notification that theme was changed.
     func addObserver(_ observer: ThemeObserver) {
-        guard !observers.contains(where: { $0.value === observer as AnyObject }) else {
+        guard !observers.contains(observer as AnyObject) else {
             return
         }
         
-        observers.append(Weak<AnyObject>(observer as AnyObject))
+        observers.append(observer as AnyObject)
+    }
+    
+    /// Remove observer from manager.
+    ///
+    /// - Parameter observer: The object to be delete.
+    func removeObserver(_ observer: ThemeObserver) {
+        observers.remove(observer as AnyObject)
     }
 }

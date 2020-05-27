@@ -50,8 +50,6 @@ final class HNImageView: UIView {
     ///
     /// - Returns: <#description#>
     func setImage(from url: URL?) {
-        //setPlaceholder()
-        
         guard let url = url, let thumbnailURL = URL(string: Constants.Links.imageExtractorURL + (url.absoluteString)) else {
             return
         }

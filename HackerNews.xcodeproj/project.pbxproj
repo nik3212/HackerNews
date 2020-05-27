@@ -61,6 +61,8 @@
 		5A435C0D243A286A009C5355 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A435C0C243A286A009C5355 /* Theme.swift */; };
 		5A435C0F243A2E0B009C5355 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A435C0E243A2E0B009C5355 /* Stylesheet.swift */; };
 		5A435C11243A2E34009C5355 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A435C10243A2E34009C5355 /* Style.swift */; };
+		5A43892F247F10EC002D3111 /* WeakObjectSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43892E247F10EC002D3111 /* WeakObjectSet.swift */; };
+		5A438931247F110B002D3111 /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A438930247F110B002D3111 /* WeakObject.swift */; };
 		5A52212124479D01003B799D /* ThemeSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52212024479D00003B799D /* ThemeSelectableTableViewCell.swift */; };
 		5A52212324479D1B003B799D /* ThemeSelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A52212224479D1B003B799D /* ThemeSelectableTableViewCell.xib */; };
 		5A5A8132244BAE6E00BF554D /* HNService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A8131244BAE6E00BF554D /* HNService.swift */; };
@@ -298,6 +300,8 @@
 		5A435C0C243A286A009C5355 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5A435C0E243A2E0B009C5355 /* Stylesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
 		5A435C10243A2E34009C5355 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		5A43892E247F10EC002D3111 /* WeakObjectSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakObjectSet.swift; sourceTree = "<group>"; };
+		5A438930247F110B002D3111 /* WeakObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
 		5A52212024479D00003B799D /* ThemeSelectableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectableTableViewCell.swift; sourceTree = "<group>"; };
 		5A52212224479D1B003B799D /* ThemeSelectableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeSelectableTableViewCell.xib; sourceTree = "<group>"; };
 		5A5A8131244BAE6E00BF554D /* HNService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNService.swift; sourceTree = "<group>"; };
@@ -779,6 +783,15 @@
 				5A00D8A1244655560013B3F5 /* Themeable.swift */,
 			);
 			path = ThemeManager;
+			sourceTree = "<group>";
+		};
+		5A43892D247F10E1002D3111 /* Weak */ = {
+			isa = PBXGroup;
+			children = (
+				5A43892E247F10EC002D3111 /* WeakObjectSet.swift */,
+				5A438930247F110B002D3111 /* WeakObject.swift */,
+			);
+			path = Weak;
 			sourceTree = "<group>";
 		};
 		5A52211E24479CD7003B799D /* Views */ = {
@@ -1685,6 +1698,7 @@
 		D07205232130A03E00E4B1ED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5A43892D247F10E1002D3111 /* Weak */,
 				5A5221312447B87C003B799D /* Themeable */,
 				384F0820219E07D30029ADDD /* Alertable.swift */,
 				D07205282130A10400E4B1ED /* NibLoadableView.swift */,
@@ -2227,6 +2241,7 @@
 				5AE95B602461EABD00DAA009 /* ShowInteractor.swift in Sources */,
 				5A5C0AA2241ECBF9007B4FCF /* ServiceLocatorAssembly.swift in Sources */,
 				D07205272130A0AF00E4B1ED /* UIImage+.swift in Sources */,
+				5A438931247F110B002D3111 /* WeakObject.swift in Sources */,
 				5AE2EDDD241040A40011A198 /* MainTabBarViewController.swift in Sources */,
 				3867CB6F215FB264003C0658 /* Date+.swift in Sources */,
 				5AAC91232450E89F0041006F /* SkeletonCell.swift in Sources */,
@@ -2324,6 +2339,7 @@
 				F5A0C84E03E8AD683E2A10AB /* ThemeRouterInput.swift in Sources */,
 				42DDF700C568557D9721B39E /* ThemeRouter.swift in Sources */,
 				5ACB43D424484BA00010465B /* ThemeUpdatable.swift in Sources */,
+				5A43892F247F10EC002D3111 /* WeakObjectSet.swift in Sources */,
 				1735864EEEEE601B855C3A57 /* ThemeAssembly.swift in Sources */,
 				BCBA5819B2598079B48DDA9C /* ThemeConfigurator.swift in Sources */,
 				0E95E3FEBFD9EFBA7A696CFD /* ThemeModuleInput.swift in Sources */,

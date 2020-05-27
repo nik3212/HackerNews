@@ -17,6 +17,10 @@ class ThemePresenter {
     
     // MARK: Private Properties
     private var themes: [(title: String, theme: Theme)] = []
+    
+    deinit {
+        themeManager.removeObserver(self)
+    }
 }
 
 // MARK: ThemeViewOutput
