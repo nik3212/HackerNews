@@ -57,6 +57,7 @@ final class WeakObjectSet<T> where T: AnyObject {
     ///
     /// - Parameter object: The object to be added to set.
     func append(_ object: T) {
+        guard !contains(object) else { return }
         objects.formUnion([WeakObject(object: object)])
     }
     
@@ -75,6 +76,6 @@ final class WeakObjectSet<T> where T: AnyObject {
     ///
     /// - Parameter object: The object to be delete.
     func remove(_ object: T) {
-        objects = objects.filter { $0.object === object }
+        objects = objects.filter { $0.object !== object }
     }
 }
