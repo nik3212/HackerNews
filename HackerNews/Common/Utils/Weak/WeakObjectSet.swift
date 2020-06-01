@@ -66,7 +66,7 @@ final class WeakObjectSet<T> where T: AnyObject {
     ///
     /// - Parameter array: The array to be added to set.
     func append(contentsOf array: [T]) {
-        objects.formUnion(array.map { WeakObject(object: $0) })
+        array.forEach { append($0) }
     }
     
     /// Remove object from set.

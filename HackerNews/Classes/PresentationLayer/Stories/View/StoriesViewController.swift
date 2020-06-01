@@ -29,6 +29,11 @@ class StoriesViewController: UIViewController {
         output.viewIsReady()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.invalidateIntrinsicContentSize()

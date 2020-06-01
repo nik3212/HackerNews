@@ -41,7 +41,7 @@ extension AskPresenter: AskViewOutput {
         view.update(theme: themeManager.theme)
         themeManager.addObserver(self)
         skeletonState = .enabled
-        interactor.fetchAskIds()
+        //interactor.fetchAskIds()
     }
     
     func didSelectRow(at row: Int) {

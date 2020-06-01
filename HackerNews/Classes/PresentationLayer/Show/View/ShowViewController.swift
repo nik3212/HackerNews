@@ -28,6 +28,11 @@ final class ShowViewController: UIViewController {
         output.viewIsReady()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
+    }
+    
     // MARK: Private Methods
     private func setup() {
         if #available(iOS 11.0, *) {
