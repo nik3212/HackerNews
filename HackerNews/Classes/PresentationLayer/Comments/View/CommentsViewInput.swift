@@ -15,6 +15,4 @@ protocol CommentsViewInput: class, Presentable, ThemeUpdatable {
     func showActivityIndicator()
     func hideActivityIndicator()
     func insertRows(at indexPaths: [IndexPath])
-    func showFooterView()
-    func hideFooterView()
 }

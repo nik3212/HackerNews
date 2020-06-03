@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EmptyDataSet_Swift
 
 class CommentsViewController: UIViewController {
     
@@ -45,7 +44,7 @@ class CommentsViewController: UIViewController {
         tableView.register(StoryTableViewCell.self)
         tableView.register(SkeletonCell.self)
         tableView.register(CommentCell.self)
-        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         
         if #available(iOS 11.0, *) {
@@ -53,8 +52,6 @@ class CommentsViewController: UIViewController {
         } else {
             tableView.estimatedRowHeight = Metrics.estimatedRowHeight
         }
-        
-        tableView.emptyDataSetSource = self
     }
     
     private func configureActivityIndicator() {
@@ -103,16 +100,6 @@ extension CommentsViewController: CommentsViewInput {
     func insertRows(at indexPaths: [IndexPath]) {
         tableView.insertRows(at: indexPaths, with: .automatic)
     }
-    
-    func showFooterView() {
-        let view = LoadingFooterView()
-        view.isAnimating = true
-        tableView.tableFooterView = view
-    }
-    
-    func hideFooterView() {
-        tableView.tableFooterView = nil
-    }
 }
 
 // MARK: UITableViewDelegte
@@ -160,17 +147,6 @@ extension CommentsViewController: ThemeUpdatable {
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
-    }
-}
-
-// MARK: EmptyDataSetSource
-extension CommentsViewController: EmptyDataSetSource {
-    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return nil
-    }
-    
-    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return nil
     }
 }
 
