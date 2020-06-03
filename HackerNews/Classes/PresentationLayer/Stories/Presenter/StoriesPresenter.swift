@@ -87,12 +87,12 @@ extension StoriesPresenter: StoriesViewOutput {
     }
     
     func viewIsReady() {
+        skeletonState = .enabled
         view.setupInitialState(title: StoriesConstants.title.localized(),
                                theme: themeManager.theme,
                                titles: StoryType.allCases.map { $0.rawValue.localized() })
         view.setUserInteractorEnabled(to: false)
         themeManager?.addObserver(self)
-        skeletonState = .enabled
         fetchStories(by: storyType)
     }
     

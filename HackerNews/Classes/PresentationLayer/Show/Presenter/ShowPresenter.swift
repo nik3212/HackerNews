@@ -37,10 +37,10 @@ final class ShowPresenter {
 // MARK: ShowViewOutput
 extension ShowPresenter: ShowViewOutput {
     func viewIsReady() {
+        skeletonState = .enabled
         view.setupInitialState(title: ShowConstants.title.localized(), theme: themeManager.theme)
         view.update(theme: themeManager.theme)
         themeManager.addObserver(self)
-        skeletonState = .enabled
         interactor.fetchShowIds()
     }
     
