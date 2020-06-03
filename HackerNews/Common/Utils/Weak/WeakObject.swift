@@ -26,13 +26,15 @@ class WeakObject<T> where T: AnyObject {
     init(object: T) {
         self.identifier = ObjectIdentifier(object)
         self.object = object
+        
+        print("Identifier: \(identifier)")
     }
 }
 
 // MARK: Equatable
 extension WeakObject: Equatable {
     static func == (lhs: WeakObject<T>, rhs: WeakObject<T>) -> Bool {
-        return lhs.object === rhs.object
+        return lhs.identifier == rhs.identifier
     }
 }
 

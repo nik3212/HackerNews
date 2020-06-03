@@ -75,6 +75,6 @@ final class WeakObjectSet<T> where T: AnyObject {
     ///
     /// - Parameter object: The object to be delete.
     func remove(_ object: T) {
-        objects = objects.filter { $0.object !== object }
+        objects.remove(WeakObject(object: object))
     }
 }
