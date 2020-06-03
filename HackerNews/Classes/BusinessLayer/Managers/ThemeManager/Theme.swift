@@ -56,6 +56,15 @@ extension Theme {
         }
     }
     
+    var activityIndicator: Style<UIActivityIndicatorView> {
+        switch self {
+        case .dark:
+            return Stylesheet.ActivityIndicator.dark
+        case .light:
+            return Stylesheet.ActivityIndicator.light
+        }
+    }
+    
     var cellOne: Style<UITableViewCell> {
         switch self {
         case .dark:

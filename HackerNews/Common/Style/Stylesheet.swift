@@ -207,6 +207,16 @@ struct Stylesheet {
         }
     }
     
+    enum ActivityIndicator {
+        static let light: Style<UIActivityIndicatorView> = Style {
+            $0.color = Colors.darkGray
+        }
+        
+        static let dark: Style<UIActivityIndicatorView> = Style {
+            $0.color = Colors.lightGray
+        }
+    }
+    
     enum Skeleton {
         static let light: Style<GradientContainerView> = Style {
             $0.gradientLayer.colors = [Colors.greyish.cgColor,

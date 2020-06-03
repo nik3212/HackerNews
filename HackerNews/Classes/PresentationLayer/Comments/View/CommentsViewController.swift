@@ -156,6 +156,7 @@ extension CommentsViewController: ThemeUpdatable {
             theme.navigationBar.apply(to: navigationBar)
         }
         
+        theme.activityIndicator.apply(to: activityIndicator)
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
