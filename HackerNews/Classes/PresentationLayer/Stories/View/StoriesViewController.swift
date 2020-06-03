@@ -173,11 +173,15 @@ extension StoriesViewController: EmptyDataSetSource {
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
         return Metrics.verticalOffset
     }
+    
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
+        return true
+    }
 }
 
 // MARK: EmptyDataSetDelegate
 extension StoriesViewController: EmptyDataSetDelegate {
-    
+
 }
 
 extension StoriesViewController: StoryTableViewCellDelegate {

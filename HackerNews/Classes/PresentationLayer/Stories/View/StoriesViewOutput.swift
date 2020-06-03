@@ -21,4 +21,5 @@ protocol StoriesViewOutput: class {
     func getEmptyDataSetTitle() -> String
     func getEmptyDataSetDecription() -> String
     func getEmptyDataSetImage() -> Image
+    func getEmptyButtonTitle() -> String
 }

@@ -34,6 +34,8 @@ extension StoriesInteractor: StoriesInteractorInput {
     }
     
     func fetchNewStories() {
+        //self.output?.fetchNewStoriesFailed(error: NetworkError.decodingFailed)
+        
         networkService?.loadNewStories(completion: { [weak self] ids in
             self?.output?.fetchNewStoriesSuccess(ids: ids)
             }, fail: { [weak self] error in

@@ -59,14 +59,20 @@ class StoriesPresenter {
     private func showError(_ error: Error) {
         if error._code == StoriesConstants.canceledCode { return }
         
+        view.setUserInteractorEnabled(to: true)
         skeletonState = .disabled
         errorDescription = error.localizedDescription
+        view.hideRefreshControl()
         view.reloadData()
     }
 }
 
 // MARK: StoriesViewOutput
 extension StoriesPresenter: StoriesViewOutput {
+    func reloadButtonDidTap() {
+        
+    }
+    
     func numberOfRows() -> Int {
         return skeletonState == .enabled ? StoriesConstants.skeletonCount : stories.count
     }
@@ -172,6 +178,14 @@ extension StoriesPresenter: StoriesInteractorOutput {
     func getEmptyDataSetImage() -> Image {
         return .connectionError
     }
+    
+    func getEmptyButtonTitle() -> String {
+        return StoriesConstants.reloadButtonTitle.localized()
+    }
+    
+    func emptyButtonDidTap() {
+        fetchStories(by: storyType)
+    }
 }
 
 // MARK: StoryType
@@ -200,5 +214,6 @@ extension StoriesPresenter {
         
         static let title: String = "Stories"
         static let emptyTitle: String = "No stories to show"
+        static let reloadButtonTitle: String = "Reload"
     }
 }

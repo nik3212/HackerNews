@@ -110,6 +110,10 @@ extension AskViewController: EmptyDataSetSource {
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
         return Metrics.verticalOffset
     }
+    
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
+        return true
+    }
 }
 
 // MARK: AskViewInput
