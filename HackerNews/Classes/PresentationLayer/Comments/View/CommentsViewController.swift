@@ -151,6 +151,11 @@ extension CommentsViewController: UITableViewDataSource {
 extension CommentsViewController: ThemeUpdatable {
     func update(theme: Theme) {
         self.theme = theme
+        
+        if let navigationBar = navigationController?.navigationBar {
+            theme.navigationBar.apply(to: navigationBar)
+        }
+        
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
