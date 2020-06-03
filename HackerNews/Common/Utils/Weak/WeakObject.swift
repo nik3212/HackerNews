@@ -12,6 +12,9 @@ class WeakObject<T> where T: AnyObject {
     
     // MARK: Private Properties
     
+    /// Identifier.
+    private let identifier: ObjectIdentifier
+    
     /// Wrapped object.
     fileprivate(set) weak var object: T?
     
@@ -21,6 +24,7 @@ class WeakObject<T> where T: AnyObject {
     ///
     /// - Parameter object: Wrapped object.
     init(object: T) {
+        self.identifier = ObjectIdentifier(object)
         self.object = object
     }
 }
@@ -35,8 +39,6 @@ extension WeakObject: Equatable {
 // MARK: Hashable
 extension WeakObject: Hashable {
     func hash(into hasher: inout Hasher) {
-        if var object = object {
-            hasher.combine(UnsafeMutablePointer<T>(&object).hashValue)
-        }
+        hasher.combine(identifier)
     }
 }
