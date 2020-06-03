@@ -47,7 +47,7 @@ class NetworkManagerTests: XCTestCase {
         let session = MockNetworkSession(data: nil, urlResponse: nil, error: nil)
         let networkManager = NetworkManager(session: session)
         
-        networkManager.fetch(resource, completion: { model in
+        networkManager.fetch(resource, completion: { _ in
             XCTFail("Loading ")
         }, fail: { error in
             if case NetworkError.decodingFailed = error {
@@ -63,15 +63,15 @@ class NetworkManagerTests: XCTestCase {
         let session = MockNetworkSession(data: data, urlResponse: nil, error: NetworkError.decodingFailed)
         let networkManager = NetworkManager(session: session)
         
-        networkManager.fetch(resource, completion: { model in
+        networkManager.fetch(resource, completion: { _ in
             XCTFail("Loading ")
-        }) { error in
+        }, fail: { error in
             if case NetworkError.decodingFailed = error {
                 XCTAssert(true)
                 return
             }
             XCTFail("error should be equal to NetworkError.decodingFailed")
-        }
+        })
     }
     
     func testThatLoadingFailedWhenAPIResourceParametersIsCorrupt() {
@@ -79,9 +79,9 @@ class NetworkManagerTests: XCTestCase {
         
         networkManager.fetch(corruptResource, completion: { _ in
             XCTFail("Loading with corrupt resource should be failed")
-        }) { error in
+        }, fail: { _ in
             XCTAssert(true)
-        }
+        })
     }
     
     func testThatLoadingFailedWhenAPIResourceParametersWithHeaderIsCorrupt() {
@@ -89,8 +89,8 @@ class NetworkManagerTests: XCTestCase {
         
         networkManager.fetch(corruptResource, completion: { _ in
             XCTFail("Loading with corrupt resource should be failed")
-        }) { error in
+        }, fail: { _ in
             XCTAssert(true)
-        }
+        })
     }
 }

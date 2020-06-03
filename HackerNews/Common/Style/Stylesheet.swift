@@ -9,6 +9,7 @@
 import UIKit
 import Skeleton
 
+// swiftlint:disable type_body_length
 struct Stylesheet {
     enum NavigationBar {
         private static let base: Style<UINavigationBar> = Style {
@@ -354,3 +355,4 @@ struct Stylesheet {
         }
     }
 }
+// swiftlint:enable type_body_length

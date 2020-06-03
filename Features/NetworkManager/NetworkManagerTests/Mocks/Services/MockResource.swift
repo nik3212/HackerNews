@@ -13,7 +13,9 @@ struct MockResource: APIResource {
     typealias ModelType = MockModel
     
     var baseURL: URL {
+        // swiftlint:disable force_unwrapping
         return URL(string: "https://test.com/")!
+        // swiftlint:enable force_unwrapping
     }
     
     var path: String {

@@ -29,7 +29,7 @@ extension UITableView {
     func viewForHeader<T: UIView>(_: T.Type) -> T where T: NibLoadableView {
         guard let header = Bundle.main.loadNibNamed(T.NibName,
                                                     owner: self,
-                                                    options: nil)!.first as? T else {
+                                                    options: nil)?.first as? T else {
                                                         fatalError("Could not loadNibNamed: \(T.NibName)")
         }
         return header

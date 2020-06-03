@@ -27,7 +27,6 @@ enum Theme: String {
     }
 }
 
-// swiftlint:disable file_length
 extension Theme {
     var navigationBar: Style<UINavigationBar> {
         switch self {
@@ -244,4 +243,3 @@ extension Theme {
         return results.reduce(NSAttributedString()) { $0 + $1 }
     }
 }
-// swiftlint:enable file_lenght

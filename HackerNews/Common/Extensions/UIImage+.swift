@@ -20,6 +20,7 @@ extension UIImage {
     }
 }
 
+// swiftlint:disable force_unwrapping
 extension UIImage {
     func withTint(color: UIColor) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
@@ -40,4 +41,4 @@ extension UIImage {
         return newImage
     }
 }
-
+// swiftlint:enable force_unwrapping

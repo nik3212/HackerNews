@@ -71,10 +71,10 @@ extension HNService: HNServiceProtocol {
                 self.loadComments(with: id, completion: { model in
                     subcomments.append(model)
                     group.leave()
-                }) { error in
+                }, fail: { error in
                     fail(error)
                     return
-                }
+                })
             }
             
             group.notify(queue: .main) {

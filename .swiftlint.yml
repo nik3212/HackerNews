@@ -5,7 +5,6 @@ opt_in_rules:
   - private_action
   - contains_over_first_not_nil
   - discouraged_object_literal
-  - discouraged_optional_boolean
   - empty_count
   - empty_string
   - identical_operands

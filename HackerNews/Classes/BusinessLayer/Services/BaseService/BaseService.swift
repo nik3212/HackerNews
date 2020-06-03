@@ -38,9 +38,9 @@ class BaseService: NetworkService {
             load(resource: resource, completion: { model in
                 responces.append(model)
                 group.leave()
-            }) { error in
+            }, fail: { error in
                 fail(error)
-            }
+            })
         }
         
         group.notify(queue: .main) {

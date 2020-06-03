@@ -14,7 +14,9 @@ struct MockCorruptParametersWithHeaderResource: APIResource {
     typealias ModelType = MockModel
     
     var baseURL: URL {
+        // swiftlint:disable force_unwrapping
         return URL(string: "https://test.com/")!
+        // swiftlint:enable force_unwrapping
     }
     
     var path: String {
@@ -33,7 +35,9 @@ struct MockCorruptParametersWithHeaderResource: APIResource {
         return ["some": "text"]
     }
     
+    // swiftlint:disable force_unwrapping
     private let corruptDataString = String(bytes: [0xD8, 0x00] as [UInt8], encoding: .utf16BigEndian)!
+    // swiftlint:enable force_unwrapping
     
     private var urlParameters: Parameters {
         return [corruptDataString: corruptDataString]
