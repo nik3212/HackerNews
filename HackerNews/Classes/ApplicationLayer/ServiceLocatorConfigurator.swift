@@ -12,9 +12,7 @@ import Swinject
 final class ServiceLocatorConfigurator {
     // MARK: Public Properties
     let assembler: Assembler
-    
-    // MARK: Private Properties
-    private let container = Container(parent: nil)
+    let container = Container(parent: nil)
     
     // MARK: Initialization
     init() {

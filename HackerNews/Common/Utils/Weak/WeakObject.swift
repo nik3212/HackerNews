@@ -26,8 +26,6 @@ class WeakObject<T> where T: AnyObject {
     init(object: T) {
         self.identifier = ObjectIdentifier(object)
         self.object = object
-        
-        print("Identifier: \(identifier)")
     }
 }
 
