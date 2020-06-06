@@ -10,8 +10,8 @@ import Foundation
 
 final class RootPresenter {
     // MARK: Private Properties
-    private unowned let view: RootViewInput
-    private let themeManager: ThemeManagerProtocol
+    unowned let view: RootViewInput
+    let themeManager: ThemeManagerProtocol
     
     // MARK: Initialization
     init(view: RootViewInput, themeManager: ThemeManagerProtocol) {

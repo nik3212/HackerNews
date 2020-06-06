@@ -11,8 +11,10 @@ import UIKit
 final class MainTabBarViewController: UITabBarController {
     
     // MARK: Public Properties
+    let output: MainTabBarViewOutput
+    
+    // MARK: Public Properties
     private var theme: Theme
-    private var output: MainTabBarViewOutput
     
     // MARK: Initialization
     init(theme: Theme, output: MainTabBarViewOutput) {
