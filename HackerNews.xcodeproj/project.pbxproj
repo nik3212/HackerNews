@@ -1769,11 +1769,11 @@
 			isa = PBXGroup;
 			children = (
 				3F8D45DA94E05083F9573FC9 /* Assembly */,
-				86FCBB2F753081B319542B3F /* View */,
+				78602166658AE59F2654534E /* Configurator */,
 				9C5EF7717DB64AB6F788A9E2 /* Interactor */,
 				10AF3DE3F260614A7751A18D /* Presenter */,
 				408D06C99C4F8E674CC20AC6 /* Router */,
-				78602166658AE59F2654534E /* Configurator */,
+				86FCBB2F753081B319542B3F /* View */,
 			);
 			path = Stories;
 			sourceTree = "<group>";

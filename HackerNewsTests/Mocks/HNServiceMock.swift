@@ -26,20 +26,35 @@ final class HNServiceMock: HNServiceProtocol {
     var loadShowStoriesCompletion: (([Int]) -> Void)?
     var loadShowStoriesFail: ((Error) -> Void)?
     
+    var loadTopStoriesCompletion: (([Int]) -> Void)?
+    var loadTopStoriesFail: ((Error) -> Void)?
+    
+    var loadBestStoriesCompletion: (([Int]) -> Void)?
+    var loadBestStoriesFail: ((Error) -> Void)?
+    
+    var loadNewStoriesCompletion: (([Int]) -> Void)?
+    var loadNewStoriesFail: ((Error) -> Void)?
+    
     var loadPostsCompletion: (([PostModel]) -> Void)?
     var loadPostsFail: ((Error) -> Void)?
     var postsIds: [Int]?
     
     func loadTopStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
         loadTopStoriesCalled = true
+        loadTopStoriesCompletion = completion
+        loadTopStoriesFail = fail
     }
     
     func loadNewStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
         loadNewStoriesCalled = true
+        loadNewStoriesCompletion = completion
+        loadNewStoriesFail = fail
     }
     
     func loadBestStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
         loadBestStoriesCalled = true
+        loadBestStoriesCompletion = completion
+        loadBestStoriesFail = fail
     }
     
     func loadAskStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {

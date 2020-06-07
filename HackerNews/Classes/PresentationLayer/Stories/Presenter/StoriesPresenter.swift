@@ -68,11 +68,7 @@ class StoriesPresenter {
 }
 
 // MARK: StoriesViewOutput
-extension StoriesPresenter: StoriesViewOutput {
-    func reloadButtonDidTap() {
-        
-    }
-    
+extension StoriesPresenter: StoriesViewOutput {    
     func numberOfRows() -> Int {
         return skeletonState == .enabled ? StoriesConstants.skeletonCount : stories.count
     }
@@ -177,14 +173,6 @@ extension StoriesPresenter: StoriesInteractorOutput {
     
     func getEmptyDataSetImage() -> Image {
         return .connectionError
-    }
-    
-    func getEmptyButtonTitle() -> String {
-        return StoriesConstants.reloadButtonTitle.localized()
-    }
-    
-    func emptyButtonDidTap() {
-        fetchStories(by: storyType)
     }
 }
 

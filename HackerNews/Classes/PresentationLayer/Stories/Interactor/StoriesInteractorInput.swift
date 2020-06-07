@@ -7,6 +7,9 @@
 //
 
 protocol StoriesInteractorInput {
+    var output: StoriesInteractorOutput? { get set }
+    var networkService: HNServiceProtocol? { get set }
+    
     func fetchTopStories()
     func fetchBestStories()
     func fetchNewStories()

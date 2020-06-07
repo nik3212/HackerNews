@@ -11,8 +11,19 @@ import Nimble
 
 @testable import HackerNews
 
-class StoriesRouterTests: QuickSpec {
+class StoriesRouterSpec: QuickSpec {
     override func spec() {
+        let viewController = UISplitViewController()
+        let router = StoriesRouter()
+        router.commentsConfigurator = CommentsConfigurator(parentAssembler: MockContainer().assembler)
+        router.transitionHandler = viewController
         
+        describe("Checking presenting modules") {
+            it("show comments module") {
+                router.openCommentsModule(for: TestData.post)
+                let vc = (viewController.viewControllers[0] as? UINavigationController)?.topViewController
+                expect(vc).to(beAKindOf(CommentsViewController.self))
+            }
+        }
     }
 }
