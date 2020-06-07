@@ -7,6 +7,8 @@
 //
 
 protocol AskViewInput: class, Presentable, ThemeUpdatable {
+    var output: AskViewOutput! { get set }
+    
     func setupInitialState(title: String, theme: Theme)
     func setUserInteractorEnabled(to state: Bool)
     func reloadData()

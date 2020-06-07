@@ -15,12 +15,13 @@ import Swinject
 class AskConfiguratorTests: QuickSpec {
     override func spec() {
         let parentAssembler = Assembler()
-        let module = AskConfigurator(parentAssembler: parentAssembler).configureViewController()
+        let viewController = AskConfigurator(parentAssembler: parentAssembler).configureViewController()
 
         describe("Check module configuration") {
             it("Module input shouldn't be nil") {
-                expect(module).notTo(beNil())
-                expect(module).to(beAKindOf(UINavigationController.self))
+                expect(viewController).notTo(beNil())
+                expect(viewController).to(beAKindOf(UINavigationController.self))
+                expect((viewController as? UINavigationController)?.topViewController).to(beAKindOf(AskViewController.self))
             }
         }
     }

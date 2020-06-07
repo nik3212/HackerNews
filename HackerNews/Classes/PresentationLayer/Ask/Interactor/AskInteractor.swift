@@ -10,7 +10,7 @@ import Foundation
 
 final class AskInteractor {
     // MARK: Public Properties
-    weak var output: AskPresenter!
+    weak var output: AskInteractorOutput!
     var networkService: HNServiceProtocol?
 }
 

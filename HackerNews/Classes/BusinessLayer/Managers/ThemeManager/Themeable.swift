@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ThemeObserver {
+protocol ThemeObserver: class {
     func themeDidChange(_ theme: Theme)
 }

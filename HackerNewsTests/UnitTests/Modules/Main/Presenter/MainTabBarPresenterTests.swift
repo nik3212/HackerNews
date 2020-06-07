@@ -13,19 +13,29 @@ import Nimble
 
 final class MainTabBarPresenterSpec: QuickSpec {
     override func spec() {
+        let themeManager = MockThemeManager()
+        let view = MainTabBarViewMock()
+        let presenter = MainTabBarPresenter()
         
+        presenter.view = view
+        presenter.themeManager = themeManager
+        
+        describe("Checking view is ready") {
+            it("setup view") {
+                presenter.viewIsReady()
+                expect(themeManager.addedObserver === presenter).to(equal(true))
+            }
+        }
     }
 }
 
 // MARK: Mocks
 extension MainTabBarPresenterSpec {
-    final class MainTabBarView: UISplitViewController, MainTabBarViewInput {
-        func setupInitialState(theme: Theme) {
-            
-        }
+    final class MainTabBarViewMock: UISplitViewController, MainTabBarViewInput {
+        var theme: Theme?
         
         func update(theme: Theme) {
-            
+            self.theme = theme
         }
     }
 }

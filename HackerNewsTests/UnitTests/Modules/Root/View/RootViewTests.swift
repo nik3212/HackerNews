@@ -13,6 +13,31 @@ import Nimble
 
 class RootViewSpec: QuickSpec {
     override func spec() {
+        let view = RootSplitViewController()
+        let output = RootViewPresenterMock()
         
+        view.output = output
+        
+        describe("Checking view configuration") {
+            it("view initializes properties") {
+                view.viewDidLoad()
+                expect(output.viewIsReadyIsCalled).to(equal(true))
+                expect(view.preferredDisplayMode).to(equal(.allVisible))
+                expect(view.delegate).toNot(beNil())
+                expect(view.delegate === view).to(equal(true))
+                expect(view.preferredStatusBarStyle).to(equal(.default))
+            }
+        }
+    }
+}
+
+// MARK: Mocks
+extension RootViewSpec {
+    final class RootViewPresenterMock: RootViewOutput {
+        var viewIsReadyIsCalled: Bool = false
+        
+        func viewIsReady() {
+            viewIsReadyIsCalled = true
+        }
     }
 }

@@ -20,5 +20,6 @@ protocol NetworkManagerProtocol {
     ///   - fail: A block object to be execute when the load fails.
     func fetch<R: APIResource>(_ resource: R, completion: @escaping (R.ModelType) -> Void, fail: @escaping (Error) -> Void)
     
+    /// Cancel all tasks.
     func cancelAllTasks()
 }

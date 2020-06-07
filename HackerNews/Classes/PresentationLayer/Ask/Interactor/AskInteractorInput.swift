@@ -7,6 +7,9 @@
 //
 
 protocol AskInteractorInput {
+    var output: AskInteractorOutput! { get set }
+    var networkService: HNServiceProtocol? { get set }
+    
     func fetchAskIds()
     func fetchPosts(with ids: [Int])
 }

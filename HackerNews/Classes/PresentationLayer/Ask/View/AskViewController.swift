@@ -19,7 +19,7 @@ final class AskViewController: UIViewController {
 
     // MARK: Private Properties
     private var refreshControl = UIRefreshControl()
-    private var theme: Theme?
+    private(set) var theme: Theme?
     
     // MARK: View Life Cycle
     override func viewDidLoad() {

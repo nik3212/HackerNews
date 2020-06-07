@@ -63,3 +63,10 @@ extension PostModel {
         return Date().timeAgo(from: date)
     }
 }
+
+// MARK: Equatable
+extension PostModel: Equatable {
+    static func == (lhs: PostModel, rhs: PostModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

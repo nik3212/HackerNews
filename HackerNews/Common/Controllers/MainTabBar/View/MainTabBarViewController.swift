@@ -14,7 +14,7 @@ final class MainTabBarViewController: UITabBarController {
     let output: MainTabBarViewOutput
     
     // MARK: Public Properties
-    private var theme: Theme
+    private(set) var theme: Theme
     
     // MARK: Initialization
     init(theme: Theme, output: MainTabBarViewOutput) {

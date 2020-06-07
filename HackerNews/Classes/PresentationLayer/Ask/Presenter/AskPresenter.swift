@@ -30,6 +30,7 @@ final class AskPresenter {
     private func showError(_ error: Error) {
         skeletonState = .disabled
         errorDescription = error.localizedDescription
+        view.setUserInteractorEnabled(to: true)
         view.reloadData()
     }
 }
@@ -39,6 +40,7 @@ extension AskPresenter: AskViewOutput {
     func viewIsReady() {
         view.setupInitialState(title: AskConstants.title.localized(), theme: themeManager.theme)
         view.update(theme: themeManager.theme)
+        view.setUserInteractorEnabled(to: false)
         themeManager.addObserver(self)
         skeletonState = .enabled
         interactor.fetchAskIds()

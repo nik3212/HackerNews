@@ -42,7 +42,7 @@ final class ThemeManager: ThemeManagerProtocol {
     let themes: [Theme] = [.light, .dark]
     
     /// Contains observers.
-    private var observers = WeakObjectSet<AnyObject>()
+    private(set) var observers = WeakObjectSet<AnyObject>()
     
     // MARK: Intialization
     private init() { }
