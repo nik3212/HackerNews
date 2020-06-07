@@ -30,6 +30,7 @@ final class ShowPresenter {
     private func showError(_ error: Error) {
         skeletonState = .disabled
         errorDescription = error.localizedDescription
+        view.setUserInteractorEnabled(to: true)
         view.reloadData()
     }
 }
@@ -38,6 +39,7 @@ final class ShowPresenter {
 extension ShowPresenter: ShowViewOutput {
     func viewIsReady() {
         view.setupInitialState(title: ShowConstants.title.localized(), theme: themeManager.theme)
+        view.setUserInteractorEnabled(to: false)
         view.update(theme: themeManager.theme)
         themeManager.addObserver(self)
         skeletonState = .enabled

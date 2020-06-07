@@ -1,9 +1,9 @@
 //
-//  AskAssemblyTests.swift
-//  HackerNews
+//  AskModuleAssemblyTests.swift
+//  HackerNewsTests
 //
-//  Created by Nikita Vasilev on 02/05/2020.
-//  Copyright © 2020 Nikita Vasilev. All rights reserved.
+//  Created by Никита Васильев on 07.06.2020.
+//  Copyright © 2020 Никита Васильев. All rights reserved.
 //
 
 import Quick
@@ -12,19 +12,19 @@ import Swinject
 
 @testable import HackerNews
 
-final class AskModuleAssemblyTests: QuickSpec {
+class AskModuleAssemblySpec: QuickSpec {
     override func spec() {
         let container = MockContainer().container
         
-        let viewController = container.resolve(AskViewController.self)
-        let presenter = viewController?.output as? AskPresenter
-        let router = presenter?.router as? AskRouter
-        let interactor = presenter?.interactor as? AskInteractor
+        let viewController = container.resolve(ShowViewController.self)
+        let presenter = viewController?.output as? ShowPresenter
+        let router = presenter?.router as? ShowRouter
+        let interactor = presenter?.interactor as? ShowInteractor
 
         describe("Checking module creation") {
-            it("Must be AskViewController") {
+            it("Must be ShowViewController") {
                 expect(viewController).toNot(beNil())
-                expect(viewController).to(beAKindOf(AskViewController.self))
+                expect(viewController).to(beAKindOf(ShowViewController.self))
             }
             
             it("Must contains correct output") {
