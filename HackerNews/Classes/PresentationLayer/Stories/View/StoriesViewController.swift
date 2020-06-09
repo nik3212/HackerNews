@@ -46,6 +46,9 @@ class StoriesViewController: UIViewController {
             navigationController?.navigationItem.largeTitleDisplayMode = .never
         }
         
+        navigationController?.navigationBar.isAccessibilityElement = true
+        navigationController?.navigationBar.accessibilityIdentifier = "storiesNavigationBar"
+        
         tableView.register(StoryTableViewCell.self)
         tableView.register(SkeletonCell.self)
         tableView.rowHeight = UITableView.automaticDimension

@@ -25,6 +25,12 @@ final class ThemeViewController: UIViewController {
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
         }
+        
+        view.accessibilityIdentifier = "themeView"
+        
+        tableView.isAccessibilityElement = true
+        tableView.accessibilityIdentifier = "themesTableView"
+        
         tableView.register(ThemeSelectableTableViewCell.self)
         tableView.tableFooterView = UIView()
         output.viewIsReady()
@@ -81,7 +87,9 @@ extension ThemeViewController: UITableViewDataSource {
         let model = output.getModel(for: indexPath)
         cell.title = model.title
         cell.accessoryType = model.isSelected ? .checkmark : .none
-        
+        cell.isAccessibilityElement = true
+        cell.accessibilityIdentifier = String(format: "themeCell_%d_%d", indexPath.section, indexPath.row)
+
         if let theme = theme {
             cell.apply(theme: theme)
         }

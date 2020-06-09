@@ -111,6 +111,13 @@
 		5A9C966724425E35002AC0F5 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C966624425E35002AC0F5 /* Font+.swift */; };
 		5A9C966D2442608E002AC0F5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C966C2442608E002AC0F5 /* Colors.swift */; };
 		5AA02BEA244F658400B5B15F /* String+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA02BE9244F658400B5B15F /* String+Attributed.swift */; };
+		5AAC707D249024BC005AFFC4 /* UITest+Helprers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC707C249024BC005AFFC4 /* UITest+Helprers.swift */; };
+		5AAC707F2490252C005AFFC4 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC707E2490252C005AFFC4 /* App.swift */; };
+		5AAC708224902C26005AFFC4 /* UITestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC708124902C26005AFFC4 /* UITestFactory.swift */; };
+		5AAC708524902CCC005AFFC4 /* SettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC708424902CCC005AFFC4 /* SettingScreen.swift */; };
+		5AAC708724902D4B005AFFC4 /* SettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC708624902D4B005AFFC4 /* SettingsUITests.swift */; };
+		5AAC708924902F88005AFFC4 /* ThemesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC708824902F88005AFFC4 /* ThemesScreen.swift */; };
+		5AAC708B24903190005AFFC4 /* StoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC708A24903190005AFFC4 /* StoryScreen.swift */; };
 		5AAC9112245090C60041006F /* Array+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC9111245090C60041006F /* Array+Range.swift */; };
 		5AAC91202450E8830041006F /* HNImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC911F2450E8830041006F /* HNImageView.swift */; };
 		5AAC91232450E89F0041006F /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC91222450E89F0041006F /* SkeletonCell.swift */; };
@@ -372,6 +379,13 @@
 		5A9C966624425E35002AC0F5 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		5A9C966C2442608E002AC0F5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5AA02BE9244F658400B5B15F /* String+Attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributed.swift"; sourceTree = "<group>"; };
+		5AAC707C249024BC005AFFC4 /* UITest+Helprers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITest+Helprers.swift"; sourceTree = "<group>"; };
+		5AAC707E2490252C005AFFC4 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		5AAC708124902C26005AFFC4 /* UITestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestFactory.swift; sourceTree = "<group>"; };
+		5AAC708424902CCC005AFFC4 /* SettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScreen.swift; sourceTree = "<group>"; };
+		5AAC708624902D4B005AFFC4 /* SettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITests.swift; sourceTree = "<group>"; };
+		5AAC708824902F88005AFFC4 /* ThemesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesScreen.swift; sourceTree = "<group>"; };
+		5AAC708A24903190005AFFC4 /* StoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryScreen.swift; sourceTree = "<group>"; };
 		5AAC9111245090C60041006F /* Array+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Range.swift"; sourceTree = "<group>"; };
 		5AAC911F2450E8830041006F /* HNImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNImageView.swift; sourceTree = "<group>"; };
 		5AAC91222450E89F0041006F /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
@@ -1096,6 +1110,34 @@
 				5A9C966224425C69002AC0F5 /* FontStyle.swift */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5AAC707B249024A4005AFFC4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5AAC707C249024BC005AFFC4 /* UITest+Helprers.swift */,
+				5AAC707E2490252C005AFFC4 /* App.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5AAC708024902C16005AFFC4 /* UITestFactory */ = {
+			isa = PBXGroup;
+			children = (
+				5AAC708324902CB6005AFFC4 /* Screens */,
+				5AAC708124902C26005AFFC4 /* UITestFactory.swift */,
+			);
+			path = UITestFactory;
+			sourceTree = "<group>";
+		};
+		5AAC708324902CB6005AFFC4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				5AAC708424902CCC005AFFC4 /* SettingScreen.swift */,
+				5AAC708824902F88005AFFC4 /* ThemesScreen.swift */,
+				5AAC708A24903190005AFFC4 /* StoryScreen.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		5AAC911D2450E82E0041006F /* Cells */ = {
@@ -1876,7 +1918,10 @@
 		D072051221309FC900E4B1ED /* HackerNewsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				5AAC708024902C16005AFFC4 /* UITestFactory */,
+				5AAC707B249024A4005AFFC4 /* Helpers */,
 				D072051321309FC900E4B1ED /* HackerNewsUITests.swift */,
+				5AAC708624902D4B005AFFC4 /* SettingsUITests.swift */,
 				D072051521309FC900E4B1ED /* Info.plist */,
 			);
 			path = HackerNewsUITests;
@@ -2637,6 +2682,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AAC708924902F88005AFFC4 /* ThemesScreen.swift in Sources */,
+				5AAC708524902CCC005AFFC4 /* SettingScreen.swift in Sources */,
+				5AAC708224902C26005AFFC4 /* UITestFactory.swift in Sources */,
+				5AAC707F2490252C005AFFC4 /* App.swift in Sources */,
+				5AAC707D249024BC005AFFC4 /* UITest+Helprers.swift in Sources */,
+				5AAC708B24903190005AFFC4 /* StoryScreen.swift in Sources */,
+				5AAC708724902D4B005AFFC4 /* SettingsUITests.swift in Sources */,
 				D072051421309FC900E4B1ED /* HackerNewsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

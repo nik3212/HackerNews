@@ -38,6 +38,9 @@ extension SettingsConfigurator: TabBarViewProtocol {
         item.image = icon
         item.title = title
         
+        item.isAccessibilityElement = true
+        item.accessibilityIdentifier = "settingsTabBarItem"
+        
         viewController.tabBarItem = item
         viewController.title = item.title
 

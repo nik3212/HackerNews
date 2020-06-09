@@ -33,6 +33,10 @@ final class SettingsViewController: UIViewController {
             navigationController?.navigationItem.largeTitleDisplayMode = .never
         }
         
+        view.accessibilityIdentifier = "settingsView"
+        tableView.isAccessibilityElement = true
+        tableView.accessibilityIdentifier = "settingsTableView"
+        
         tableView.register(SettingsTableViewCell.self)
         tableView.tableFooterView = UIView()
     }
@@ -74,7 +78,9 @@ extension SettingsViewController: UITableViewDataSource {
         
         let cell: SettingsTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.setup(model: model)
-        
+        cell.isAccessibilityElement = true
+        cell.accessibilityIdentifier = String(format: "sTCV_%d_%d", indexPath.section, indexPath.row)
+
         if let theme = theme {
             cell.apply(theme: theme)
         }

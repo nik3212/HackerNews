@@ -26,8 +26,18 @@ final class SettingsTableViewCell: UITableViewCell {
     
     // MARK: Outlets
     @IBOutlet private var iconView: UIImageView!
-    @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var infoLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel! {
+        didSet {
+            titleLabel.isAccessibilityElement = true
+            titleLabel.accessibilityIdentifier = "titleLabel"
+        }
+    }
+    @IBOutlet private var infoLabel: UILabel! {
+        didSet {
+            infoLabel.isAccessibilityElement = true
+            infoLabel.accessibilityIdentifier = "infoLabel"
+        }
+    }
     
     // MARK: Initialization
     override func awakeFromNib() {

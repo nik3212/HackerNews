@@ -9,14 +9,19 @@
 import XCTest
 
 class HackerNewsUITests: XCTestCase {
-        
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        XCUIApplication().launch()
+        App.shared.launch()
     }
     
     override func tearDown() {
         super.tearDown()
+    }
+    
+    func testStoriesScreenLoad() {
+        waitForExistence(StoriesScreen.navigationBar)
+        XCTAssertTrue(StoriesScreen.navigationBar.exists)
     }
 }
