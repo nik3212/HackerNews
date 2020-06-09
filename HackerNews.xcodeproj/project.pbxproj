@@ -553,11 +553,11 @@
 			isa = PBXGroup;
 			children = (
 				405582666EB49F385EAF9943 /* Assembly */,
-				BF1CFA0B924B072CD4984313 /* View */,
+				57FC2037D99FFC15A2FF423C /* Configurator */,
 				7DF2FB279A3CEB704F9C2957 /* Interactor */,
 				6D2F340C19BF8C42715F26FE /* Presenter */,
 				6289C622A5C242AFEFBC86F6 /* Router */,
-				57FC2037D99FFC15A2FF423C /* Configurator */,
+				BF1CFA0B924B072CD4984313 /* View */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -1995,11 +1995,11 @@
 			isa = PBXGroup;
 			children = (
 				EF3C004688BE35D018FB74CD /* Assembly */,
-				EFEC19FF2BBEFBDF77D83B3C /* View */,
+				8F455115444380D63C5240D8 /* Configurator */,
 				DBACB8CFF0C461753F0C7715 /* Interactor */,
 				1E06CF2D837EB1F31F5EDE5E /* Presenter */,
 				FB4D41DDBCCC27D81B1B84BE /* Router */,
-				8F455115444380D63C5240D8 /* Configurator */,
+				EFEC19FF2BBEFBDF77D83B3C /* View */,
 			);
 			path = Comments;
 			sourceTree = "<group>";

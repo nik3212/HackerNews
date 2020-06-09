@@ -68,5 +68,9 @@ extension TestData {
     static var post: PostModel {
         return try! JSONDecoder().decode(PostModel.self, from: TestData.storyJSON.data)
     }
+   
+    static var comment: CommentModel {
+        return try! JSONDecoder().decode(CommentModel.self, from: TestData.commentJSON.data)
+    }
     // swiftlint:enable force_try
 }

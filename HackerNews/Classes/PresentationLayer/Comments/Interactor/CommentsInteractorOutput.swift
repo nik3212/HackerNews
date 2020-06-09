@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
-protocol CommentsInteractorOutput: class {
+protocol CommentsInteractorOutput: class {    
     func fetchCommentsSuccess(_ comment: CommentModel)
     func fetchCommentsFail(error: Error)
 }

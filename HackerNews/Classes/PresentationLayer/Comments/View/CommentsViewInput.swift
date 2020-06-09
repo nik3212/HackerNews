@@ -9,6 +9,8 @@
 import Foundation
 
 protocol CommentsViewInput: class, Presentable, ThemeUpdatable {
+    var output: CommentsViewOutput! { get set }
+    
     func setupInitialState(title: String)
     func displayMessage(text: String)
     func reloadData()

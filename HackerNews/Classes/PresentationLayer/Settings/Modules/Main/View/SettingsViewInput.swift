@@ -7,5 +7,7 @@
 //
 
 protocol SettingsViewInput: class, Presentable, ThemeUpdatable {
+    var output: SettingsViewOutput! { get set }
+    
     func setupInitialState(title: String, theme: Theme)
 }

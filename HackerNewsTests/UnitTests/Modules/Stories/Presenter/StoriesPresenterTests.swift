@@ -11,7 +11,6 @@ import Nimble
 
 @testable import HackerNews
 
-// swiftlint:disable function_body_length
 final class StoriesPresenterSpec: QuickSpec {
     override func spec() {
         var view: MockView!
@@ -294,7 +293,6 @@ final class StoriesPresenterSpec: QuickSpec {
         }
     }
 }
-// swiftlint:enable function_body_length
 
 extension StoriesPresenterSpec {
     final class MockInteractor: StoriesInteractorInput {

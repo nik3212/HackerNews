@@ -39,6 +39,10 @@ final class HNServiceMock: HNServiceProtocol {
     var loadPostsFail: ((Error) -> Void)?
     var postsIds: [Int]?
     
+    var loadCommentsId: Int?
+    var loadCommentsCompletion: ((CommentModel) -> Void)?
+    var loadCommentsFail: ((Error) -> Void)?
+    
     func loadTopStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
         loadTopStoriesCalled = true
         loadTopStoriesCompletion = completion
@@ -78,6 +82,9 @@ final class HNServiceMock: HNServiceProtocol {
     
     func loadComments(with id: Int, completion: @escaping (CommentModel) -> Void, fail: @escaping (Error) -> Void) {
         loadCommentsCalled = true
+        loadCommentsId = id
+        loadCommentsCompletion = completion
+        loadCommentsFail = fail
     }
     
     func cancelAllTasks() {

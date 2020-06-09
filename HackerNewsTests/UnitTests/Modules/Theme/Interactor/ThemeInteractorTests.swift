@@ -11,12 +11,15 @@ import Nimble
 
 @testable import HackerNews
 
-class ThemeInteractorTests: QuickSpec {
+class ThemeInteractorSpec: QuickSpec {
     override func spec() {
         
     }
-    
-    class MockPresenter: ThemeInteractorOutput {
+}
+
+// MARK: Mocks
+extension ThemeInteractorSpec {
+    final class MockPresenter: ThemeInteractorOutput {
         
     }
 }

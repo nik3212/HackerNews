@@ -7,5 +7,8 @@
 //
 
 protocol CommentsInteractorInput {
+    var output: CommentsInteractorOutput! { get set }
+    var networkService: HNServiceProtocol? { get set }
+    
     func fetchComments(for id: Int)
 }

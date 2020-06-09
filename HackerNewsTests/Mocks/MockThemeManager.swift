@@ -13,7 +13,7 @@ import Foundation
 final class MockThemeManager: ThemeManagerProtocol {
     var theme: Theme = .light
     
-    var themes: [Theme] = []
+    var themes: [Theme] = ThemeManager.shared.themes
     
     var addedObserver: ThemeObserver?
     var removedObserver: ThemeObserver?

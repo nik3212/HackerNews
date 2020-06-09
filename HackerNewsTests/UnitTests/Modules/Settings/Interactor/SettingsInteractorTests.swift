@@ -11,12 +11,15 @@ import Nimble
 
 @testable import HackerNews
 
-class SettingsInteractorTests: QuickSpec {
+final class SettingsInteractorSpec: QuickSpec {
     override func spec() {
         
     }
-    
-    class MockPresenter: SettingsInteractorOutput {
+}
+
+// MARK: Mocks
+extension SettingsInteractorSpec {
+    final class MockPresenter: SettingsInteractorOutput {
         
     }
 }

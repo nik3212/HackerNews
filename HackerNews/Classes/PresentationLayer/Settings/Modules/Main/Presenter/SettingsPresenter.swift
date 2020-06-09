@@ -11,7 +11,7 @@ import UIKit
 class SettingsPresenter {
     
     private enum SettingsConstants {
-        static let title: String = "Settings".localized()
+        static let title: String = "Settings"
     }
     
     // MARK: Public Properties
@@ -29,7 +29,7 @@ class SettingsPresenter {
 // MARK: SettingsViewOutput
 extension SettingsPresenter: SettingsViewOutput {
     func viewIsReady() {
-        view.setupInitialState(title: SettingsConstants.title, theme: themeManager.theme)
+        view.setupInitialState(title: SettingsConstants.title.localized(), theme: themeManager.theme)
         themeManager?.addObserver(self)
     }
     
