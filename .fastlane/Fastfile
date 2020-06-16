@@ -4,7 +4,7 @@ lane :test do |options|
   record_mode = options[:record].nil? ? 'false' : 'true'
   scan(
     scheme: 'HackerNews',
-    devices: ['iPhone 7', 'iPhone 8 Plus'],
+    devices: ['iPhone 7', 'iPhone 11 Pro Max'],
     xcargs: "RECORD_MODE='#{record_mode}'"
   )
 end
