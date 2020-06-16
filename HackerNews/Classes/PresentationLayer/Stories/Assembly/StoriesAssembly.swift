@@ -36,7 +36,7 @@ final class StoriesModuleAssembly: Assembly {
         }
 
         container.register(StoriesViewController.self) { resolver in
-            let viewController = R.storyboard.stories().instantiateViewController(type: StoriesViewController.self)
+            let viewController = StoriesViewController()
             viewController.output = resolver.resolve(StoriesPresenter.self, argument: viewController)
             return viewController
         }

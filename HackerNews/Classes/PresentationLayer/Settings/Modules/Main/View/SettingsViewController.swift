@@ -11,13 +11,26 @@ import UIKit
 final class SettingsViewController: UIViewController {
         
     // MARK: IBOutlets
-    @IBOutlet private var tableView: UITableView!
+    //@IBOutlet private var tableView: UITableView!
     
     // MARK: Public Properties
     var output: SettingsViewOutput!
     
     // MARK: Private Properties
     private var theme: Theme?
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.isAccessibilityElement = true
+        tableView.accessibilityIdentifier = "settingsTableView"
+        tableView.register(SettingsTableViewCell.self)
+        tableView.tableFooterView = UIView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        return tableView
+    }()
     
     // MARK: Life Cycle
     override func viewDidLoad() {
@@ -34,11 +47,13 @@ final class SettingsViewController: UIViewController {
         }
         
         view.accessibilityIdentifier = "settingsView"
-        tableView.isAccessibilityElement = true
-        tableView.accessibilityIdentifier = "settingsTableView"
         
-        tableView.register(SettingsTableViewCell.self)
-        tableView.tableFooterView = UIView()
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: safeTopAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeLeadingAnchor),
+            safeTrailingAnchor.constraint(equalTo: tableView.trailingAnchor),
+            safeBottomAnchor.constraint(equalTo: tableView.bottomAnchor)
+        ])
     }
 }
 

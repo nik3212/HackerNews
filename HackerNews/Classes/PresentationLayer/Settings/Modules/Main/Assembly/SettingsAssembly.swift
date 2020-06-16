@@ -35,7 +35,7 @@ final class SettingsModuleAssembly: Assembly {
         }
 
         container.register(SettingsViewController.self) { resolver in
-            let viewController = R.storyboard.settings().instantiateViewController(type: SettingsViewController.self)
+            let viewController = SettingsViewController()//R.storyboard.settings().instantiateViewController(type: SettingsViewController.self)
             viewController.output = resolver.resolve(SettingsPresenter.self, argument: viewController)
             return viewController
         }

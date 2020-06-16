@@ -31,6 +31,11 @@ end
 def test_pods
     pod 'Nimble'
     pod 'Quick'
+    pod 'iOSSnapshotTestCase'
+end
+
+def test_ui_pods
+  pod 'iOSSnapshotTestCase'
 end
 
 target :HackerNews do
@@ -45,6 +50,11 @@ target :HackerNewsTests do
 	xcodeproj 'HackerNews.xcodeproj'
     test_pods
     di_pods
+end
+
+target :HackerNewsUITests do
+  xcodeproj 'HackerNews.xcodeproj'
+    test_ui_pods
 end
 
 target :NetworkManager do

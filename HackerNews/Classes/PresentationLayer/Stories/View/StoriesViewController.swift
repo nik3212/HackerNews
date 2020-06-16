@@ -12,12 +12,21 @@ import EmptyDataSet_Swift
 class StoriesViewController: UIViewController {
     
     // MARK: IBOutlets
-    @IBOutlet private var tableView: UITableView!
+    //@IBOutlet private var tableView: UITableView!
     
     // MARK: Public Properties
     var output: StoriesViewOutput!
 
     // MARK: Private Properties
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.prefetchDataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     private var refreshControl = UIRefreshControl()
     private var segmentedControl = UISegmentedControl()
     private var theme: Theme?
@@ -26,6 +35,7 @@ class StoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        createSubviews()
         output.viewIsReady()
     }
     
@@ -53,7 +63,6 @@ class StoriesViewController: UIViewController {
         tableView.register(SkeletonCell.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = Metrics.estimatedRowHeight
-        tableView.prefetchDataSource = self
         tableView.refreshControl = refreshControl
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
@@ -61,6 +70,17 @@ class StoriesViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshStories(_:)), for: .valueChanged)
     
         extendedLayoutIncludesOpaqueBars = true
+    }
+    
+    private func createSubviews() {
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeLeadingAnchor),
+            safeTrailingAnchor.constraint(equalTo: tableView.trailingAnchor),
+            safeBottomAnchor.constraint(equalTo: tableView.bottomAnchor)
+        ])
     }
 
     private func configureNavigationItem(with titles: [String]) {
