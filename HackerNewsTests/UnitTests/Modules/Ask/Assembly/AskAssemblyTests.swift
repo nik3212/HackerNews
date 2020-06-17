@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 import Swinject
+import HNService
 
 @testable import HackerNews
 

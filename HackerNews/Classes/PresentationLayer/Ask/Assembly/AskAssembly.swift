@@ -7,6 +7,7 @@
 //
 
 import Swinject
+import protocol HNService.HNServiceProtocol
 
 final class AskModuleAssembly: Assembly {
     func assemble(container: Container) {

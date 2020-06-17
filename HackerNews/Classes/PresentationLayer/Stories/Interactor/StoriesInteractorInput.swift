@@ -6,6 +6,8 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
+import protocol HNService.HNServiceProtocol
+
 protocol StoriesInteractorInput {
     var output: StoriesInteractorOutput? { get set }
     var networkService: HNServiceProtocol? { get set }

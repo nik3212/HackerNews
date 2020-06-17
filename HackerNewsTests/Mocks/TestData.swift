@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HNService
 
 @testable import HackerNews
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import protocol HNService.HNServiceProtocol
 
 class CommentsInteractor {
     // MARK: Public Proeprties

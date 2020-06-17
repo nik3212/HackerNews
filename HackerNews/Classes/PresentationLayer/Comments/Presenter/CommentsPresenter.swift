@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import struct HNService.CommentModel
+import struct HNService.PostModel
 
 class CommentsPresenter {
     // MARK: Public Properties

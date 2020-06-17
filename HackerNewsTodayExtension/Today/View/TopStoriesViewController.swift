@@ -8,11 +8,16 @@
 
 import UIKit
 import NotificationCenter
+import HNService
 
 final class TopStoriesViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet private var tableView: UITableView!
+    
+    // MARK: Private Properties
+    private var service = HNService()
+    private var posts: [PostModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +31,17 @@ final class TopStoriesViewController: UIViewController {
                            forCellReuseIdentifier: TopStoryTableViewCell.cellIdentifier)
         tableView.isScrollEnabled = false
     }
+    
+    private func openLink(from urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        extensionContext?.open(url, completionHandler: nil)
+    }
 }
 
 // MARK: NCWidgetProviding
 extension TopStoriesViewController: NCWidgetProviding {
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        completionHandler(NCUpdateResult.newData)
+        fetchTopStoriesIds(completionHandler: completionHandler)
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
@@ -43,24 +53,50 @@ extension TopStoriesViewController: NCWidgetProviding {
     }
 }
 
+// MARK: Loading Data
+extension TopStoriesViewController {
+    private func fetchTopStoriesIds(completionHandler: @escaping (NCUpdateResult) -> Void) {
+        service.loadTopStories(completion: { [weak self] ids in
+            self?.fetchTopStories(from: Array(ids[0..<Metrics.defaultPostCount]), completionHandler: completionHandler)
+        }, fail: { _ in
+            completionHandler(.failed)
+        })
+    }
+
+    private func fetchTopStories(from ids: [Int], completionHandler: @escaping (NCUpdateResult) -> Void) {
+        service.loadPosts(with: ids, completion: { [weak self] posts in
+            self?.posts = posts
+            self?.tableView.reloadData()
+            completionHandler(.newData)
+        }, fail: { _ in
+            completionHandler(.failed)
+        })
+    }
+}
+
 // MARK: UITableViewDelegate
 extension TopStoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let url = posts[indexPath.row].url {
+            openLink(from: url)
+        }
         
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 // MARK: UITableViewDataSource
 extension TopStoriesViewController: UITableViewDataSource {
-    // swiftlint:disable force_cast
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TopStoryTableViewCell.cellIdentifier, for: indexPath) as! TopStoryTableViewCell
-        cell.setup(title: "Test", url: "Test", rate: "123")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TopStoryTableViewCell.cellIdentifier,
+                                                       for: indexPath) as? TopStoryTableViewCell else { return UITableViewCell() }
+        let post = posts[indexPath.row]
+        cell.setup(model: post)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -73,5 +109,6 @@ extension TopStoriesViewController {
     private enum Metrics {
         static let cellHeight: CGFloat = 56.0
         static let expandedHeight: CGFloat = 448.0
+        static let defaultPostCount: Int = 8
     }
 }

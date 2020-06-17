@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 import NetworkManager
+import HNService
 
 @testable import HackerNews
 

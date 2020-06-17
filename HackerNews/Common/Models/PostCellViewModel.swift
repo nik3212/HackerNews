@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import struct HNService.PostModel
 
 struct PostCellViewModel {
     let post: PostModel

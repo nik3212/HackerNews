@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import struct HNService.PostModel
 
 protocol CommentsViewOutput: class {
     func viewIsReady()

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Nikita Vasilev. All rights reserved.
 //
 
+import struct HNService.PostModel
+
 protocol AskInteractorOutput: class {
     func fetchAskSuccess(ids: [Int])
     func fetchAskFailed(error: Error)

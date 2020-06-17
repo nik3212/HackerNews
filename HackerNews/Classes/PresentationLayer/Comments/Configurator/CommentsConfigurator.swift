@@ -7,6 +7,7 @@
 //
 
 import Swinject
+import struct HNService.PostModel
 
 final class CommentsConfigurator {
     // MARK: Private Properties

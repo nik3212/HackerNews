@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import struct HNService.CommentModel
 
 struct CommentCellViewModel {
     let comment: CommentModel

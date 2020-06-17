@@ -7,6 +7,7 @@
 //
 
 import SafariServices
+import struct HNService.PostModel
 
 class StoriesRouter {
     // MARK: Public Properties

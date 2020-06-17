@@ -23,6 +23,13 @@
       location = "group:Features"
       name = "Features">
       <Group
+         location = "container:Features/HNService/HNService"
+         name = "HNService">
+         <FileRef
+            location = "group:HNService.xcodeproj">
+         </FileRef>
+      </Group>
+      <Group
          location = "group:NetworkManager"
          name = "NetworkManager">
          <FileRef

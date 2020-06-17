@@ -49,4 +49,9 @@ extension Date {
         if secondsCount(from: date) > 0 { return "\(secondsCount(from: date)) sec ago" }
         return ""
     }
+    
+    func timeAgo(from seconds: Int) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(seconds))
+        return timeAgo(from: date)
+    }
 }

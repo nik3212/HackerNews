@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import protocol HNService.HNServiceProtocol
 
 final class AskInteractor {
     // MARK: Public Properties

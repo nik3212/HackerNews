@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import struct HNService.PostModel
 
 final class AskPresenter {
     // MARK: Public Properties

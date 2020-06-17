@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import struct HNService.PostModel
 
 protocol StoriesRouterInput {
     func openFilterModule(with models: [AlertActionModel])

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import struct HNService.CommentModel
 
 final class CommentCell: UITableViewCell {
     
@@ -30,7 +31,10 @@ final class CommentCell: UITableViewCell {
     ///
     /// - Parameter model: A `CommentModel` value that contains the cell data.
     func setup(model: CommentModel, text: String) {
-        guard let username = model.by, let time = model.commentPublishTime() else { return }
+        guard let username = model.by, let seconds = model.time else { return }
+        
+        let time = Date().timeAgo(from: seconds)
+        
         titleLabel.attributedText = theme?.commentTitle(username: username, time: time)
         textView.attributedText = theme?.commentText(text: text)
         updatePadding(with: model.level)

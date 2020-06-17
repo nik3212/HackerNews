@@ -8,6 +8,7 @@
 
 import Foundation
 import NetworkManager
+import protocol HNService.HNServiceProtocol
 
 class StoriesInteractor {
     // MARK: Public Properties

@@ -8,6 +8,7 @@
 
 import Foundation
 import Swinject
+import HNService
 
 final class ServiceLocatorConfigurator {
     // MARK: Public Properties

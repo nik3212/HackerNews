@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import struct HNService.PostModel
 
 protocol StoryTableViewCellDelegate: class {
     /// A block object to executed when image tapped.
@@ -53,13 +54,19 @@ final class StoryTableViewCell: UITableViewCell {
     func setup(model: PostModel, placeholder: Image? = nil) {
         previewImageView.placeholderImage = placeholder?.resource
         
+        var time: String = ""
+        
+        if let seconds = model.time {
+            time = Date().timeAgo(from: seconds)
+        }
+        
         if let urlString = model.url {
             previewImageView.setImage(from: URL(string: urlString))
         }
         titleLabel.text = model.title
         descriptionLabel.attributedText = theme?.postDescriptionTitle(score: model.score.map(String.init),
                                                                       username: model.by,
-                                                                      time: model.newsPublishTime())
+                                                                      time: time)
         titleLabel.layer.masksToBounds = false
         descriptionLabel.layer.masksToBounds = false
         contentStackView.layoutIfNeeded()

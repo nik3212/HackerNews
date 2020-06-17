@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import HNService
 
 @testable import HackerNews
 

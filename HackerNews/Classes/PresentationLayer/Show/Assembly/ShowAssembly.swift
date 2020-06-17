@@ -7,6 +7,7 @@
 //
 
 import Swinject
+import HNService
 
 final class ShowModuleAssembly: Assembly {
     func assemble(container: Container) {
