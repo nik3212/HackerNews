@@ -26,6 +26,23 @@
 		5AEE9BBD249AA32700929A85 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BAA249AA06400929A85 /* BaseService.swift */; };
 		5AEE9BBE249AA32900929A85 /* BaseResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BA8249AA06400929A85 /* BaseResource.swift */; };
 		5AEE9BC1249AA41700929A85 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BC0249AA41700929A85 /* Constants.swift */; };
+		5AF495AE249D5EE700E469A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BC0249AA41700929A85 /* Constants.swift */; };
+		5AF495AF249D5EE700E469A2 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B98249AA06400929A85 /* CommentModel.swift */; };
+		5AF495B0249D5EE700E469A2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B99249AA06400929A85 /* Item.swift */; };
+		5AF495B1249D5EE700E469A2 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B9A249AA06400929A85 /* PostModel.swift */; };
+		5AF495B2249D5EE700E469A2 /* AskStoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B9C249AA06400929A85 /* AskStoriesResource.swift */; };
+		5AF495B3249D5EE700E469A2 /* BestStoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B9D249AA06400929A85 /* BestStoriesResource.swift */; };
+		5AF495B4249D5EE700E469A2 /* CommentResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B9E249AA06400929A85 /* CommentResource.swift */; };
+		5AF495B5249D5EE700E469A2 /* ItemResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B9F249AA06400929A85 /* ItemResource.swift */; };
+		5AF495B6249D5EE700E469A2 /* NewsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BA0249AA06400929A85 /* NewsResource.swift */; };
+		5AF495B7249D5EE700E469A2 /* NewStoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BA1249AA06400929A85 /* NewStoriesResource.swift */; };
+		5AF495B8249D5EE700E469A2 /* ShowStoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BA2249AA06400929A85 /* ShowStoriesResource.swift */; };
+		5AF495B9249D5EE700E469A2 /* TopStoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BA3249AA06400929A85 /* TopStoriesResource.swift */; };
+		5AF495BA249D5EE700E469A2 /* HNService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BA5249AA06400929A85 /* HNService.swift */; };
+		5AF495BB249D5EE700E469A2 /* HNServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BA6249AA06400929A85 /* HNServiceProtocol.swift */; };
+		5AF495BC249D5EE700E469A2 /* BaseResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BA8249AA06400929A85 /* BaseResource.swift */; };
+		5AF495BD249D5EE700E469A2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BAA249AA06400929A85 /* BaseService.swift */; };
+		5AF495BE249D5EEC00E469A2 /* HNService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AEE9B81249A9FE900929A85 /* HNService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +78,7 @@
 		5AEE9BA8249AA06400929A85 /* BaseResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResource.swift; sourceTree = "<group>"; };
 		5AEE9BAA249AA06400929A85 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		5AEE9BC0249AA41700929A85 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5AF49579249D5D1400E469A2 /* HNService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HNService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +94,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AEE9B88249A9FE900929A85 /* HNService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AF49576249D5D1400E469A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +121,7 @@
 			children = (
 				5AEE9B7E249A9FE900929A85 /* HNService.framework */,
 				5AEE9B87249A9FE900929A85 /* HNServiceTests.xctest */,
+				5AF49579249D5D1400E469A2 /* HNService.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +219,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5AF49574249D5D1400E469A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF495BE249D5EEC00E469A2 /* HNService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +266,24 @@
 			productReference = 5AEE9B87249A9FE900929A85 /* HNServiceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5AF49578249D5D1400E469A2 /* HNService watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AF49580249D5D1400E469A2 /* Build configuration list for PBXNativeTarget "HNService watchOS" */;
+			buildPhases = (
+				5AF49574249D5D1400E469A2 /* Headers */,
+				5AF49575249D5D1400E469A2 /* Sources */,
+				5AF49576249D5D1400E469A2 /* Frameworks */,
+				5AF49577249D5D1400E469A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HNService watchOS";
+			productName = "HNService watchOS";
+			productReference = 5AF49579249D5D1400E469A2 /* HNService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -246,6 +298,9 @@
 						CreatedOnToolsVersion = 11.5;
 					};
 					5AEE9B86249A9FE900929A85 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					5AF49578249D5D1400E469A2 = {
 						CreatedOnToolsVersion = 11.5;
 					};
 				};
@@ -265,6 +320,7 @@
 			targets = (
 				5AEE9B7D249A9FE900929A85 /* HNService */,
 				5AEE9B86249A9FE900929A85 /* HNServiceTests */,
+				5AF49578249D5D1400E469A2 /* HNService watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -278,6 +334,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5AEE9B85249A9FE900929A85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AF49577249D5D1400E469A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -315,6 +378,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AEE9B8D249A9FE900929A85 /* HNServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AF49575249D5D1400E469A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF495AE249D5EE700E469A2 /* Constants.swift in Sources */,
+				5AF495AF249D5EE700E469A2 /* CommentModel.swift in Sources */,
+				5AF495B0249D5EE700E469A2 /* Item.swift in Sources */,
+				5AF495B1249D5EE700E469A2 /* PostModel.swift in Sources */,
+				5AF495B2249D5EE700E469A2 /* AskStoriesResource.swift in Sources */,
+				5AF495B3249D5EE700E469A2 /* BestStoriesResource.swift in Sources */,
+				5AF495B4249D5EE700E469A2 /* CommentResource.swift in Sources */,
+				5AF495B5249D5EE700E469A2 /* ItemResource.swift in Sources */,
+				5AF495B6249D5EE700E469A2 /* NewsResource.swift in Sources */,
+				5AF495B7249D5EE700E469A2 /* NewStoriesResource.swift in Sources */,
+				5AF495B8249D5EE700E469A2 /* ShowStoriesResource.swift in Sources */,
+				5AF495B9249D5EE700E469A2 /* TopStoriesResource.swift in Sources */,
+				5AF495BA249D5EE700E469A2 /* HNService.swift in Sources */,
+				5AF495BB249D5EE700E469A2 /* HNServiceProtocol.swift in Sources */,
+				5AF495BC249D5EE700E469A2 /* BaseResource.swift in Sources */,
+				5AF495BD249D5EE700E469A2 /* BaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +623,60 @@
 			};
 			name = Release;
 		};
+		5AF4957E249D5D1400E469A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = A8WE5LL2GU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HNService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.HNService-watchOS";
+				PRODUCT_NAME = HNService;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		5AF4957F249D5D1400E469A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = A8WE5LL2GU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HNService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.HNService-watchOS";
+				PRODUCT_NAME = HNService;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -563,6 +703,15 @@
 			buildConfigurations = (
 				5AEE9B96249A9FE900929A85 /* Debug */,
 				5AEE9B97249A9FE900929A85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AF49580249D5D1400E469A2 /* Build configuration list for PBXNativeTarget "HNService watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AF4957E249D5D1400E469A2 /* Debug */,
+				5AF4957F249D5D1400E469A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

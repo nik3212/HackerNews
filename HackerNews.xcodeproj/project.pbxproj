@@ -33,8 +33,6 @@
 		3860B55A219F2DD800D2CC03 /* fabric.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 3860B558219F2DD800D2CC03 /* fabric.apikey */; };
 		3867CB6F215FB264003C0658 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867CB6E215FB264003C0658 /* Date+.swift */; };
 		38AB0BDD12801ED62ABDAA88 /* ThemePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABC193D2B780816BABAF6D7 /* ThemePresenterTests.swift */; };
-		38BF9C07215D494F0080C57C /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; };
-		38BF9C08215D494F0080C57C /* NetworkManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF9C06215D494F0080C57C /* NetworkManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38F7969A2198A2710083EFEF /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F796992198A2710083EFEF /* String+.swift */; };
 		3C63C91DAA87693F4AF304FD /* StoriesConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D49B681E9B168FE7B4F96 /* StoriesConfiguratorTests.swift */; };
 		41A294D7045C082B25DA58AF /* CommentsAssemblyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57EB5317778D5553A2E21B9 /* CommentsAssemblyTests.swift */; };
@@ -169,17 +167,16 @@
 		5AE95B682461F49C00DAA009 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE95B672461F49C00DAA009 /* UIView+.swift */; };
 		5AEE9ADC249A851900929A85 /* TopStoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9ADB249A851900929A85 /* TopStoryTableViewCell.swift */; };
 		5AEE9ADE249A852F00929A85 /* TopStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEE9ADD249A852F00929A85 /* TopStoryTableViewCell.xib */; };
-		5AEE9BAE249AA22C00929A85 /* HNService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE9BAD249AA22C00929A85 /* HNService.framework */; };
-		5AEE9BAF249AA22C00929A85 /* HNService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE9BAD249AA22C00929A85 /* HNService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5AEE9BC6249AB22500929A85 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9BC5249AB22500929A85 /* RateView.swift */; };
-		5AEE9BFB249AB99300929A85 /* HackerNews watchOS WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5AEE9BFA249AB99300929A85 /* HackerNews watchOS WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5AEE9C01249AB99300929A85 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AEE9BFF249AB99300929A85 /* Interface.storyboard */; };
-		5AEE9C03249AB99900929A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AEE9C02249AB99900929A85 /* Assets.xcassets */; };
-		5AEE9C0A249AB99900929A85 /* HackerNews watchOS WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5AEE9C09249AB99900929A85 /* HackerNews watchOS WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5AEE9C0F249AB99900929A85 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9C0E249AB99900929A85 /* ExtensionDelegate.swift */; };
-		5AEE9C13249AB99D00929A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AEE9C12249AB99D00929A85 /* Assets.xcassets */; };
-		5AEE9C21249AB9F800929A85 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9C20249AB9F800929A85 /* InterfaceController.swift */; };
-		5AEE9C24249ABC7600929A85 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9C23249ABC7600929A85 /* CategoryCell.swift */; };
+		5AF4954F249D5CC000E469A2 /* HackerNewsWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5AF4954E249D5CC000E469A2 /* HackerNewsWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5AF49555249D5CC000E469A2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF49553249D5CC000E469A2 /* Interface.storyboard */; };
+		5AF49557249D5CC500E469A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AF49556249D5CC500E469A2 /* Assets.xcassets */; };
+		5AF4955E249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5AF4955D249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5AF49563249D5CC500E469A2 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF49562249D5CC500E469A2 /* InterfaceController.swift */; };
+		5AF49565249D5CC500E469A2 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF49564249D5CC500E469A2 /* ExtensionDelegate.swift */; };
+		5AF49567249D5CC800E469A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AF49566249D5CC800E469A2 /* Assets.xcassets */; };
+		5AF495A2249D5E2300E469A2 /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF495A1249D5E2300E469A2 /* NetworkManager.framework */; };
+		5AF495A3249D5E2300E469A2 /* NetworkManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF495A1249D5E2300E469A2 /* NetworkManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B0998C646723B5947C437B4 /* AskConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23B904BB8CDEC999FB411A /* AskConfiguratorTests.swift */; };
 		5B977A68F14DD980E8B899C6 /* AskRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693F55FDA9925B1BCF7D40B /* AskRouterTests.swift */; };
 		5CBE8D8383348E881F3F800A /* CommentsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E29D3A2F2C24826F905C2A /* CommentsConfigurator.swift */; };
@@ -261,19 +258,19 @@
 			remoteGlobalIDString = 5A8F6B022499722000484C18;
 			remoteInfo = HackerNewsTodayExtension;
 		};
-		5AEE9BFC249AB99300929A85 /* PBXContainerItemProxy */ = {
+		5AF49550249D5CC000E469A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D07204E821309FC600E4B1ED /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5AEE9BF9249AB99300929A85;
-			remoteInfo = "HackerNews watchOS WatchKit App";
+			remoteGlobalIDString = 5AF4954D249D5CC000E469A2;
+			remoteInfo = "HackerNewsWatch WatchKit App";
 		};
-		5AEE9C0B249AB99900929A85 /* PBXContainerItemProxy */ = {
+		5AF4955F249D5CC500E469A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D07204E821309FC600E4B1ED /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5AEE9C08249AB99900929A85;
-			remoteInfo = "HackerNews watchOS WatchKit Extension";
+			remoteGlobalIDString = 5AF4955C249D5CC500E469A2;
+			remoteInfo = "HackerNewsWatch WatchKit Extension";
 		};
 		D072050521309FC900E4B1ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -303,26 +300,37 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5AEE9C17249AB99D00929A85 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				5AEE9BFB249AB99300929A85 /* HackerNews watchOS WatchKit App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5AEE9C1A249AB99D00929A85 /* Embed App Extensions */ = {
+		5AF4956C249D5CC800E469A2 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				5AEE9C0A249AB99900929A85 /* HackerNews watchOS WatchKit Extension.appex in Embed App Extensions */,
+				5AF4955E249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AF49570249D5CC800E469A2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5AF4954F249D5CC000E469A2 /* HackerNewsWatch WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AF495A4249D5E2300E469A2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5AF495A3249D5E2300E469A2 /* NetworkManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D02555AC213C6F7400822BFE /* Embed Frameworks */ = {
@@ -331,8 +339,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5AEE9BAF249AA22C00929A85 /* HNService.framework in Embed Frameworks */,
-				38BF9C08215D494F0080C57C /* NetworkManager.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +363,6 @@
 		3860B557219F2DD800D2CC03 /* fabric.buildsecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.buildsecret; sourceTree = "<group>"; };
 		3860B558219F2DD800D2CC03 /* fabric.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.apikey; sourceTree = "<group>"; };
 		3867CB6E215FB264003C0658 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		38BF9C06215D494F0080C57C /* NetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F796992198A2710083EFEF /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3B757722416640AE5DA2D5B6 /* ThemeConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeConfiguratorTests.swift; sourceTree = "<group>"; };
 		3F2AA6A6FB80106F288FEE85 /* Pods-HackerNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.debug.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.debug.xcconfig"; sourceTree = "<group>"; };
@@ -497,19 +502,18 @@
 		5AE95B672461F49C00DAA009 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		5AEE9ADB249A851900929A85 /* TopStoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoryTableViewCell.swift; sourceTree = "<group>"; };
 		5AEE9ADD249A852F00929A85 /* TopStoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopStoryTableViewCell.xib; sourceTree = "<group>"; };
-		5AEE9BAD249AA22C00929A85 /* HNService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HNService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AEE9BC5249AB22500929A85 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
-		5AEE9BF7249AB99200929A85 /* HackerNews watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HackerNews watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AEE9BFA249AB99300929A85 /* HackerNews watchOS WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HackerNews watchOS WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AEE9C00249AB99300929A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		5AEE9C02249AB99900929A85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5AEE9C04249AB99900929A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AEE9C09249AB99900929A85 /* HackerNews watchOS WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HackerNews watchOS WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AEE9C0E249AB99900929A85 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		5AEE9C12249AB99D00929A85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5AEE9C14249AB99D00929A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AEE9C20249AB9F800929A85 /* InterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		5AEE9C23249ABC7600929A85 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		5AF4954B249D5CC000E469A2 /* HackerNewsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF4954E249D5CC000E469A2 /* HackerNewsWatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HackerNewsWatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF49554249D5CC000E469A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		5AF49556249D5CC500E469A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5AF49558249D5CC500E469A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AF4955D249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HackerNewsWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF49562249D5CC500E469A2 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		5AF49564249D5CC500E469A2 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		5AF49566249D5CC800E469A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5AF49568249D5CC800E469A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AF495A1249D5E2300E469A2 /* NetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0973524E7C669B5C27E93D /* StoriesPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesPresenterTests.swift; sourceTree = "<group>"; };
 		6588DDD3BA46AA474D11E747 /* Pods-HackerNewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewsUITests.debug.xcconfig"; path = "Target Support Files/Pods-HackerNewsUITests/Pods-HackerNewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C54504D79E3203454D65767 /* StoriesViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoriesViewInput.swift; sourceTree = "<group>"; };
@@ -612,10 +616,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5AEE9C06249AB99900929A85 /* Frameworks */ = {
+		5AF4955A249D5CC500E469A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AF495A2249D5E2300E469A2 /* NetworkManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,9 +628,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38BF9C07215D494F0080C57C /* NetworkManager.framework in Frameworks */,
 				0EC6C9C75C06A1962156C50B /* Pods_HackerNews.framework in Frameworks */,
-				5AEE9BAE249AA22C00929A85 /* HNService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1674,34 +1677,25 @@
 			path = RateView;
 			sourceTree = "<group>";
 		};
-		5AEE9BFE249AB99300929A85 /* HackerNews watchOS WatchKit App */ = {
+		5AF49552249D5CC000E469A2 /* HackerNewsWatch WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				5AEE9BFF249AB99300929A85 /* Interface.storyboard */,
-				5AEE9C02249AB99900929A85 /* Assets.xcassets */,
-				5AEE9C04249AB99900929A85 /* Info.plist */,
+				5AF49553249D5CC000E469A2 /* Interface.storyboard */,
+				5AF49556249D5CC500E469A2 /* Assets.xcassets */,
+				5AF49558249D5CC500E469A2 /* Info.plist */,
 			);
-			path = "HackerNews watchOS WatchKit App";
+			path = "HackerNewsWatch WatchKit App";
 			sourceTree = "<group>";
 		};
-		5AEE9C0D249AB99900929A85 /* HackerNews watchOS WatchKit Extension */ = {
+		5AF49561249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				5AEE9C22249ABC6000929A85 /* Cells */,
-				5AEE9C20249AB9F800929A85 /* InterfaceController.swift */,
-				5AEE9C0E249AB99900929A85 /* ExtensionDelegate.swift */,
-				5AEE9C12249AB99D00929A85 /* Assets.xcassets */,
-				5AEE9C14249AB99D00929A85 /* Info.plist */,
+				5AF49562249D5CC500E469A2 /* InterfaceController.swift */,
+				5AF49564249D5CC500E469A2 /* ExtensionDelegate.swift */,
+				5AF49566249D5CC800E469A2 /* Assets.xcassets */,
+				5AF49568249D5CC800E469A2 /* Info.plist */,
 			);
-			path = "HackerNews watchOS WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		5AEE9C22249ABC6000929A85 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				5AEE9C23249ABC7600929A85 /* CategoryCell.swift */,
-			);
-			path = Cells;
+			path = "HackerNewsWatch WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		5F7B60CE9584FD15023856EF /* Interactor */ = {
@@ -1770,7 +1764,7 @@
 		6B0E681D8751E4A9EBA5A2F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5AEE9BAD249AA22C00929A85 /* HNService.framework */,
+				5AF495A1249D5E2300E469A2 /* NetworkManager.framework */,
 				7F10F7222A47FB417E6C4588 /* Pods_HackerNews.framework */,
 				BAF3412A178EA5EB164E53D3 /* Pods_HackerNewsTests.framework */,
 				941A683CEF3511E341FC3BDA /* Pods_HackerNewsUITests.framework */,
@@ -1999,13 +1993,12 @@
 			isa = PBXGroup;
 			children = (
 				5AE2EDE7241047650011A198 /* R.generated.swift */,
-				38BF9C06215D494F0080C57C /* NetworkManager.framework */,
 				D07204F221309FC600E4B1ED /* HackerNews */,
 				D072050721309FC900E4B1ED /* HackerNewsTests */,
 				D072051221309FC900E4B1ED /* HackerNewsUITests */,
 				5A8F6B062499722000484C18 /* HackerNewsTodayExtension */,
-				5AEE9BFE249AB99300929A85 /* HackerNews watchOS WatchKit App */,
-				5AEE9C0D249AB99900929A85 /* HackerNews watchOS WatchKit Extension */,
+				5AF49552249D5CC000E469A2 /* HackerNewsWatch WatchKit App */,
+				5AF49561249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension */,
 				D07204F121309FC600E4B1ED /* Products */,
 				8BC97F3A84EFEA640D8278F3 /* Pods */,
 				6B0E681D8751E4A9EBA5A2F0 /* Frameworks */,
@@ -2019,9 +2012,9 @@
 				D072050421309FC900E4B1ED /* HackerNewsTests.xctest */,
 				D072050F21309FC900E4B1ED /* HackerNewsUITests.xctest */,
 				5A8F6B032499722000484C18 /* HackerNewsTodayExtension.appex */,
-				5AEE9BF7249AB99200929A85 /* HackerNews watchOS.app */,
-				5AEE9BFA249AB99300929A85 /* HackerNews watchOS WatchKit App.app */,
-				5AEE9C09249AB99900929A85 /* HackerNews watchOS WatchKit Extension.appex */,
+				5AF4954B249D5CC000E469A2 /* HackerNewsWatch.app */,
+				5AF4954E249D5CC000E469A2 /* HackerNewsWatch WatchKit App.app */,
+				5AF4955D249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2308,55 +2301,56 @@
 			productReference = 5A8F6B032499722000484C18 /* HackerNewsTodayExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		5AEE9BF6249AB99200929A85 /* HackerNews watchOS */ = {
+		5AF4954A249D5CC000E469A2 /* HackerNewsWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AEE9C1F249AB99D00929A85 /* Build configuration list for PBXNativeTarget "HackerNews watchOS" */;
+			buildConfigurationList = 5AF49571249D5CC800E469A2 /* Build configuration list for PBXNativeTarget "HackerNewsWatch" */;
 			buildPhases = (
-				5AEE9BF5249AB99200929A85 /* Resources */,
-				5AEE9C17249AB99D00929A85 /* Embed Watch Content */,
+				5AF49549249D5CC000E469A2 /* Resources */,
+				5AF49570249D5CC800E469A2 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5AEE9BFD249AB99300929A85 /* PBXTargetDependency */,
+				5AF49551249D5CC000E469A2 /* PBXTargetDependency */,
 			);
-			name = "HackerNews watchOS";
-			productName = "HackerNews watchOS";
-			productReference = 5AEE9BF7249AB99200929A85 /* HackerNews watchOS.app */;
+			name = HackerNewsWatch;
+			productName = HackerNewsWatch;
+			productReference = 5AF4954B249D5CC000E469A2 /* HackerNewsWatch.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
-		5AEE9BF9249AB99300929A85 /* HackerNews watchOS WatchKit App */ = {
+		5AF4954D249D5CC000E469A2 /* HackerNewsWatch WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AEE9C1E249AB99D00929A85 /* Build configuration list for PBXNativeTarget "HackerNews watchOS WatchKit App" */;
+			buildConfigurationList = 5AF4956D249D5CC800E469A2 /* Build configuration list for PBXNativeTarget "HackerNewsWatch WatchKit App" */;
 			buildPhases = (
-				5AEE9BF8249AB99300929A85 /* Resources */,
-				5AEE9C1A249AB99D00929A85 /* Embed App Extensions */,
+				5AF4954C249D5CC000E469A2 /* Resources */,
+				5AF4956C249D5CC800E469A2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5AEE9C0C249AB99900929A85 /* PBXTargetDependency */,
+				5AF49560249D5CC500E469A2 /* PBXTargetDependency */,
 			);
-			name = "HackerNews watchOS WatchKit App";
-			productName = "HackerNews watchOS WatchKit App";
-			productReference = 5AEE9BFA249AB99300929A85 /* HackerNews watchOS WatchKit App.app */;
+			name = "HackerNewsWatch WatchKit App";
+			productName = "HackerNewsWatch WatchKit App";
+			productReference = 5AF4954E249D5CC000E469A2 /* HackerNewsWatch WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		5AEE9C08249AB99900929A85 /* HackerNews watchOS WatchKit Extension */ = {
+		5AF4955C249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AEE9C1D249AB99D00929A85 /* Build configuration list for PBXNativeTarget "HackerNews watchOS WatchKit Extension" */;
+			buildConfigurationList = 5AF49569249D5CC800E469A2 /* Build configuration list for PBXNativeTarget "HackerNewsWatch WatchKit Extension" */;
 			buildPhases = (
-				5AEE9C05249AB99900929A85 /* Sources */,
-				5AEE9C06249AB99900929A85 /* Frameworks */,
-				5AEE9C07249AB99900929A85 /* Resources */,
+				5AF49559249D5CC500E469A2 /* Sources */,
+				5AF4955A249D5CC500E469A2 /* Frameworks */,
+				5AF4955B249D5CC500E469A2 /* Resources */,
+				5AF495A4249D5E2300E469A2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "HackerNews watchOS WatchKit Extension";
-			productName = "HackerNews watchOS WatchKit Extension";
-			productReference = 5AEE9C09249AB99900929A85 /* HackerNews watchOS WatchKit Extension.appex */;
+			name = "HackerNewsWatch WatchKit Extension";
+			productName = "HackerNewsWatch WatchKit Extension";
+			productReference = 5AF4955D249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		D07204EF21309FC600E4B1ED /* HackerNews */ = {
@@ -2438,13 +2432,13 @@
 					5A8F6B022499722000484C18 = {
 						CreatedOnToolsVersion = 11.5;
 					};
-					5AEE9BF6249AB99200929A85 = {
+					5AF4954A249D5CC000E469A2 = {
 						CreatedOnToolsVersion = 11.5;
 					};
-					5AEE9BF9249AB99300929A85 = {
+					5AF4954D249D5CC000E469A2 = {
 						CreatedOnToolsVersion = 11.5;
 					};
-					5AEE9C08249AB99900929A85 = {
+					5AF4955C249D5CC500E469A2 = {
 						CreatedOnToolsVersion = 11.5;
 					};
 					D07204EF21309FC600E4B1ED = {
@@ -2478,9 +2472,9 @@
 				D072050321309FC900E4B1ED /* HackerNewsTests */,
 				D072050E21309FC900E4B1ED /* HackerNewsUITests */,
 				5A8F6B022499722000484C18 /* HackerNewsTodayExtension */,
-				5AEE9BF6249AB99200929A85 /* HackerNews watchOS */,
-				5AEE9BF9249AB99300929A85 /* HackerNews watchOS WatchKit App */,
-				5AEE9C08249AB99900929A85 /* HackerNews watchOS WatchKit Extension */,
+				5AF4954A249D5CC000E469A2 /* HackerNewsWatch */,
+				5AF4954D249D5CC000E469A2 /* HackerNewsWatch WatchKit App */,
+				5AF4955C249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -2495,27 +2489,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5AEE9BF5249AB99200929A85 /* Resources */ = {
+		5AF49549249D5CC000E469A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5AEE9BF8249AB99300929A85 /* Resources */ = {
+		5AF4954C249D5CC000E469A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AEE9C03249AB99900929A85 /* Assets.xcassets in Resources */,
-				5AEE9C01249AB99300929A85 /* Interface.storyboard in Resources */,
+				5AF49557249D5CC500E469A2 /* Assets.xcassets in Resources */,
+				5AF49555249D5CC000E469A2 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5AEE9C07249AB99900929A85 /* Resources */ = {
+		5AF4955B249D5CC500E469A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AEE9C13249AB99D00929A85 /* Assets.xcassets in Resources */,
+				5AF49567249D5CC800E469A2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2764,13 +2758,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5AEE9C05249AB99900929A85 /* Sources */ = {
+		5AF49559249D5CC500E469A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AEE9C0F249AB99900929A85 /* ExtensionDelegate.swift in Sources */,
-				5AEE9C21249AB9F800929A85 /* InterfaceController.swift in Sources */,
-				5AEE9C24249ABC7600929A85 /* CategoryCell.swift in Sources */,
+				5AF49565249D5CC500E469A2 /* ExtensionDelegate.swift in Sources */,
+				5AF49563249D5CC500E469A2 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3001,15 +2994,15 @@
 			target = 5A8F6B022499722000484C18 /* HackerNewsTodayExtension */;
 			targetProxy = 5A8F6B0D2499722000484C18 /* PBXContainerItemProxy */;
 		};
-		5AEE9BFD249AB99300929A85 /* PBXTargetDependency */ = {
+		5AF49551249D5CC000E469A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5AEE9BF9249AB99300929A85 /* HackerNews watchOS WatchKit App */;
-			targetProxy = 5AEE9BFC249AB99300929A85 /* PBXContainerItemProxy */;
+			target = 5AF4954D249D5CC000E469A2 /* HackerNewsWatch WatchKit App */;
+			targetProxy = 5AF49550249D5CC000E469A2 /* PBXContainerItemProxy */;
 		};
-		5AEE9C0C249AB99900929A85 /* PBXTargetDependency */ = {
+		5AF49560249D5CC500E469A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5AEE9C08249AB99900929A85 /* HackerNews watchOS WatchKit Extension */;
-			targetProxy = 5AEE9C0B249AB99900929A85 /* PBXContainerItemProxy */;
+			target = 5AF4955C249D5CC500E469A2 /* HackerNewsWatch WatchKit Extension */;
+			targetProxy = 5AF4955F249D5CC500E469A2 /* PBXContainerItemProxy */;
 		};
 		D072050621309FC900E4B1ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3041,10 +3034,10 @@
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
-		5AEE9BFF249AB99300929A85 /* Interface.storyboard */ = {
+		5AF49553249D5CC000E469A2 /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5AEE9C00249AB99300929A85 /* Base */,
+				5AF49554249D5CC000E469A2 /* Base */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -3113,83 +3106,13 @@
 			};
 			name = Release;
 		};
-		5AEE9C15249AB99D00929A85 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A8WE5LL2GU;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.HackerNews-watchOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		5AEE9C16249AB99D00929A85 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A8WE5LL2GU;
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.HackerNews-watchOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		5AEE9C18249AB99D00929A85 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A8WE5LL2GU;
-				IBSC_MODULE = HackerNews_watchOS_WatchKit_Extension;
-				INFOPLIST_FILE = "HackerNews watchOS WatchKit App/Info.plist";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.HackerNews-watchOS.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.2;
-			};
-			name = Debug;
-		};
-		5AEE9C19249AB99D00929A85 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A8WE5LL2GU;
-				IBSC_MODULE = HackerNews_watchOS_WatchKit_Extension;
-				INFOPLIST_FILE = "HackerNews watchOS WatchKit App/Info.plist";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.HackerNews-watchOS.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.2;
-			};
-			name = Release;
-		};
-		5AEE9C1B249AB99D00929A85 /* Debug */ = {
+		5AF4956A249D5CC800E469A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A8WE5LL2GU;
-				INFOPLIST_FILE = "HackerNews watchOS WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "HackerNewsWatch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3197,7 +3120,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.HackerNews-watchOS.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNewsWatch.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -3207,26 +3130,96 @@
 			};
 			name = Debug;
 		};
-		5AEE9C1C249AB99D00929A85 /* Release */ = {
+		5AF4956B249D5CC800E469A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A8WE5LL2GU;
-				INFOPLIST_FILE = "HackerNews watchOS WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "HackerNewsWatch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.HackerNews-watchOS.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNewsWatch.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		5AF4956E249D5CC800E469A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8WE5LL2GU;
+				IBSC_MODULE = HackerNewsWatch_WatchKit_Extension;
+				INFOPLIST_FILE = "HackerNewsWatch WatchKit App/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNewsWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		5AF4956F249D5CC800E469A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8WE5LL2GU;
+				IBSC_MODULE = HackerNewsWatch_WatchKit_Extension;
+				INFOPLIST_FILE = "HackerNewsWatch WatchKit App/Info.plist";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNewsWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		5AF49572249D5CC800E469A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8WE5LL2GU;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNewsWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5AF49573249D5CC800E469A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8WE5LL2GU;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNewsWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -3488,29 +3481,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AEE9C1D249AB99D00929A85 /* Build configuration list for PBXNativeTarget "HackerNews watchOS WatchKit Extension" */ = {
+		5AF49569249D5CC800E469A2 /* Build configuration list for PBXNativeTarget "HackerNewsWatch WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5AEE9C1B249AB99D00929A85 /* Debug */,
-				5AEE9C1C249AB99D00929A85 /* Release */,
+				5AF4956A249D5CC800E469A2 /* Debug */,
+				5AF4956B249D5CC800E469A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AEE9C1E249AB99D00929A85 /* Build configuration list for PBXNativeTarget "HackerNews watchOS WatchKit App" */ = {
+		5AF4956D249D5CC800E469A2 /* Build configuration list for PBXNativeTarget "HackerNewsWatch WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5AEE9C18249AB99D00929A85 /* Debug */,
-				5AEE9C19249AB99D00929A85 /* Release */,
+				5AF4956E249D5CC800E469A2 /* Debug */,
+				5AF4956F249D5CC800E469A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AEE9C1F249AB99D00929A85 /* Build configuration list for PBXNativeTarget "HackerNews watchOS" */ = {
+		5AF49571249D5CC800E469A2 /* Build configuration list for PBXNativeTarget "HackerNewsWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5AEE9C15249AB99D00929A85 /* Debug */,
-				5AEE9C16249AB99D00929A85 /* Release */,
+				5AF49572249D5CC800E469A2 /* Debug */,
+				5AF49573249D5CC800E469A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

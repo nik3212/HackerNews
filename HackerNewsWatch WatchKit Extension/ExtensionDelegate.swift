@@ -1,8 +1,8 @@
 //
 //  ExtensionDelegate.swift
-//  HackerNews watchOS WatchKit Extension
+//  HackerNewsWatch WatchKit Extension
 //
-//  Created by Никита Васильев on 17.06.2020.
+//  Created by Никита Васильев on 19.06.2020.
 //  Copyright © 2020 Никита Васильев. All rights reserved.
 //
 

@@ -28,6 +28,18 @@
 		5A8054D0244CC0AD005E4F96 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054CF244CC0AD005E4F96 /* NetworkError.swift */; };
 		5A8054D2244CC1EE005E4F96 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054D1244CC1EE005E4F96 /* NetworkManagerProtocol.swift */; };
 		5A8054D6244CC322005E4F96 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054D5244CC322005E4F96 /* NetworkManagerTests.swift */; };
+		5AF49591249D5DE500E469A2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054CF244CC0AD005E4F96 /* NetworkError.swift */; };
+		5AF49592249D5DE500E469A2 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1CADE3244B1412002D0114 /* JSONParameterEncoder.swift */; };
+		5AF49593249D5DE500E469A2 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1CADDF244AFB1B002D0114 /* URLParameterEncoder.swift */; };
+		5AF49594249D5DE500E469A2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054CC244CB665005E4F96 /* NetworkManager.swift */; };
+		5AF49595249D5DE500E469A2 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8054D1244CC1EE005E4F96 /* NetworkManagerProtocol.swift */; };
+		5AF49596249D5DE500E469A2 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1CADD9244AF415002D0114 /* APIRequest.swift */; };
+		5AF49597249D5DE500E469A2 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1CADD7244AF3E7002D0114 /* NetworkRequest.swift */; };
+		5AF49598249D5DE500E469A2 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A811E244B911A00BF554D /* NetworkSession.swift */; };
+		5AF49599249D5DE500E469A2 /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1CADDD244AF461002D0114 /* APIResource.swift */; };
+		5AF4959A249D5DE500E469A2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1CADE5244B2210002D0114 /* HTTPMethod.swift */; };
+		5AF4959B249D5DE500E469A2 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1CADE7244B3D8B002D0114 /* HTTPTask.swift */; };
+		5AF4959C249D5DEB00E469A2 /* NetworkManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D0FA2E3621373CCC00C073A3 /* NetworkManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6656BEBD045976CA2CEC4AE3 /* Pods_NetworkManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7529AD9DE31E87E29A292FBF /* Pods_NetworkManagerTests.framework */; };
 		872E5E0096182FF74FFD0912 /* Pods_NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6396BAC443EB0FD6D4A57DB /* Pods_NetworkManager.framework */; };
 		D0FA2E3D21373CCC00C073A3 /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FA2E3321373CCC00C073A3 /* NetworkManager.framework */; };
@@ -68,6 +80,7 @@
 		5A8054CF244CC0AD005E4F96 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		5A8054D1244CC1EE005E4F96 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		5A8054D5244CC322005E4F96 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		5AF49589249D5DDB00E469A2 /* NetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA4D6BA42570055750886FD /* Pods-NetworkManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManagerTests.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-NetworkManagerTests/Pods-NetworkManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		7529AD9DE31E87E29A292FBF /* Pods_NetworkManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1326FB6653D5411D03275E7 /* Pods-NetworkManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManager.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +93,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5AF49586249D5DDB00E469A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0FA2E2F21373CCC00C073A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +265,7 @@
 			children = (
 				D0FA2E3321373CCC00C073A3 /* NetworkManager.framework */,
 				D0FA2E3C21373CCC00C073A3 /* NetworkManagerTests.xctest */,
+				5AF49589249D5DDB00E469A2 /* NetworkManager.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -285,6 +306,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5AF49584249D5DDB00E469A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF4959C249D5DEB00E469A2 /* NetworkManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0FA2E3021373CCC00C073A3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,6 +325,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5AF49588249D5DDB00E469A2 /* NetworkManager watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AF4958E249D5DDB00E469A2 /* Build configuration list for PBXNativeTarget "NetworkManager watchOS" */;
+			buildPhases = (
+				5AF49584249D5DDB00E469A2 /* Headers */,
+				5AF49585249D5DDB00E469A2 /* Sources */,
+				5AF49586249D5DDB00E469A2 /* Frameworks */,
+				5AF49587249D5DDB00E469A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NetworkManager watchOS";
+			productName = "NetworkManager watchOS";
+			productReference = 5AF49589249D5DDB00E469A2 /* NetworkManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D0FA2E3221373CCC00C073A3 /* NetworkManager */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0FA2E4721373CCC00C073A3 /* Build configuration list for PBXNativeTarget "NetworkManager" */;
@@ -344,6 +391,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Никита Васильев";
 				TargetAttributes = {
+					5AF49588249D5DDB00E469A2 = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					D0FA2E3221373CCC00C073A3 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
@@ -369,11 +419,19 @@
 			targets = (
 				D0FA2E3221373CCC00C073A3 /* NetworkManager */,
 				D0FA2E3B21373CCC00C073A3 /* NetworkManagerTests */,
+				5AF49588249D5DDB00E469A2 /* NetworkManager watchOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5AF49587249D5DDB00E469A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0FA2E3121373CCC00C073A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,6 +488,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5AF49585249D5DDB00E469A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF49591249D5DE500E469A2 /* NetworkError.swift in Sources */,
+				5AF49592249D5DE500E469A2 /* JSONParameterEncoder.swift in Sources */,
+				5AF49593249D5DE500E469A2 /* URLParameterEncoder.swift in Sources */,
+				5AF49594249D5DE500E469A2 /* NetworkManager.swift in Sources */,
+				5AF49595249D5DE500E469A2 /* NetworkManagerProtocol.swift in Sources */,
+				5AF49596249D5DE500E469A2 /* APIRequest.swift in Sources */,
+				5AF49597249D5DE500E469A2 /* NetworkRequest.swift in Sources */,
+				5AF49598249D5DE500E469A2 /* NetworkSession.swift in Sources */,
+				5AF49599249D5DE500E469A2 /* APIResource.swift in Sources */,
+				5AF4959A249D5DE500E469A2 /* HTTPMethod.swift in Sources */,
+				5AF4959B249D5DE500E469A2 /* HTTPTask.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0FA2E2E21373CCC00C073A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -476,6 +552,63 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5AF4958F249D5DDB00E469A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = A8WE5LL2GU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NetworkManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.NetworkManager-watchOS";
+				PRODUCT_NAME = NetworkManager;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		5AF49590249D5DDB00E469A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = A8WE5LL2GU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NetworkManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitavasilev.NetworkManager-watchOS";
+				PRODUCT_NAME = NetworkManager;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
 		D0FA2E4521373CCC00C073A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -701,6 +834,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5AF4958E249D5DDB00E469A2 /* Build configuration list for PBXNativeTarget "NetworkManager watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AF4958F249D5DDB00E469A2 /* Debug */,
+				5AF49590249D5DDB00E469A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D0FA2E2D21373CCC00C073A3 /* Build configuration list for PBXProject "NetworkManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
