@@ -1,15 +1,95 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Top Stories Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="TopStoriesInterfaceController" customModule="HackerNewsWatch_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Label" id="0N5-X3-x0i">
+                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                        </label>
+                        <table alignment="left" id="2JH-zQ-ocK">
+                            <items>
+                                <tableRow identifier="PostCell" id="nbg-IW-1i0" customClass="PostCell" customModule="HackerNewsWatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="45" alignment="left" layout="vertical" id="bWY-OO-whG">
+                                        <items>
+                                            <group width="1" height="20" alignment="left" id="lYI-ab-mMa">
+                                                <items>
+                                                    <label width="20" alignment="left" verticalAlignment="center" text="10" textAlignment="center" id="pXM-Hk-PQm">
+                                                        <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="font" type="system" pointSize="9"/>
+                                                    </label>
+                                                    <label alignment="left" text="LabelLabelLabelLabelLabelLabel" id="mzF-Rs-b07">
+                                                        <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <label height="18" alignment="left" text="domain" numberOfLines="2" id="wvR-8Z-OWC">
+                                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="domainLabel" destination="wvR-8Z-OWC" id="1gN-gK-ynQ"/>
+                                        <outlet property="rateLabel" destination="pXM-Hk-PQm" id="8yY-er-wHY"/>
+                                        <outlet property="titleLabel" destination="mzF-Rs-b07" id="09z-5r-NbD"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="loadingLabel" destination="0N5-X3-x0i" id="XgZ-Dv-epQ"/>
+                        <outlet property="tableView" destination="2JH-zQ-ocK" id="e3w-vM-s3k"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="102" y="87"/>
+        </scene>
+        <!--CommentsInterfaceController-->
+        <scene sceneID="r3z-LV-8hc">
+            <objects>
+                <controller identifier="CommentsInterfaceController" id="3kT-gH-26e" customClass="CommentsInterfaceController" customModule="HackerNewsWatch_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="S8m-46-ndl">
+                            <items>
+                                <tableRow identifier="CommentCell" id="6rS-6m-ban" customClass="CommentCell" customModule="HackerNewsWatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="fgh-V3-x8Y">
+                                        <items>
+                                            <label alignment="left" text="Label" id="HKP-OD-bfK">
+                                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                            <label alignment="left" text="Label" numberOfLines="0" id="jPU-xi-uqa">
+                                                <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="commentLabel" destination="jPU-xi-uqa" id="a3N-nt-5e9"/>
+                                        <outlet property="usernameLabel" destination="HKP-OD-bfK" id="nbF-Tv-GsV"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <label alignment="center" verticalAlignment="center" text="Label" id="mxq-MU-n9E">
+                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="loadingLabel" destination="mxq-MU-n9E" id="EvD-I1-KcY"/>
+                        <outlet property="tableView" destination="S8m-46-ndl" id="yB7-pI-ZN7"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="356" y="87"/>
         </scene>
     </scenes>
 </document>
