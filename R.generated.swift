@@ -160,6 +160,14 @@ struct R: Rswift.Validatable {
   }
   #endif
 
+  /// This `R.entitlements` struct is generated, and contains static references to 2 properties.
+  struct entitlements {
+    static let comAppleSecurityAppSandbox = true
+    static let comAppleSecurityNetworkClient = true
+
+    fileprivate init() {}
+  }
+
   /// This `R.file` struct is generated, and contains static references to 10 files.
   struct file {
     /// Resource file `Poppins-Bold.ttf`.

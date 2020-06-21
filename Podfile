@@ -18,11 +18,6 @@ def app_pods
     pod 'EmptyDataSet-Swift', '~> 5.0.0'
 end
 
-def analitics_pod
-    pod 'Fabric'
-    pod 'Crashlytics'
-end
-
 def other_pods
     pod 'SwiftLint'
     pod 'Sourcery'
@@ -42,7 +37,6 @@ target :HackerNews do
 	xcodeproj 'HackerNews.xcodeproj'
     app_pods
     di_pods
-    analitics_pod
     other_pods
 end
 
