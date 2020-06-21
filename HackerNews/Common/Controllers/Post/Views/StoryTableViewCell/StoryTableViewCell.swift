@@ -1,5 +1,5 @@
 //
-//  StoryTableViewCell.swift
+//  PostTableViewCell.swift
 //  HackerNews
 //
 //  Created by Никита Васильев on 19.04.2020.
@@ -9,12 +9,12 @@
 import UIKit
 import struct HNService.PostModel
 
-protocol StoryTableViewCellDelegate: class {
+protocol PostTableViewCellDelegate: class {
     /// A block object to executed when image tapped.
-    func imageDidTapped(cell: StoryTableViewCell)
+    func imageDidTapped(cell: PostTableViewCell)
 }
 
-final class StoryTableViewCell: UITableViewCell {
+final class PostTableViewCell: UITableViewCell {
     
     // MARK: IBOutlets
     @IBOutlet private var previewImageView: HNImageView!
@@ -23,7 +23,7 @@ final class StoryTableViewCell: UITableViewCell {
     @IBOutlet private var contentStackView: UIStackView!
     
     // MARK: Public Properties
-    weak var delegate: StoryTableViewCellDelegate?
+    weak var delegate: PostTableViewCellDelegate?
     
     // MARK: Private Properties
     private var theme: Theme?
@@ -91,7 +91,7 @@ final class StoryTableViewCell: UITableViewCell {
 }
 
 // MARK: IBAction
-extension StoryTableViewCell {
+extension PostTableViewCell {
     @objc func imageDidTap() {
         self.delegate?.imageDidTapped(cell: self)
     }

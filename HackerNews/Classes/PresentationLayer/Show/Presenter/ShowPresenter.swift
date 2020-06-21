@@ -11,7 +11,7 @@ import struct HNService.PostModel
 
 final class ShowPresenter {
     // MARK: Public Properties
-    weak var view: ShowViewInput!
+    weak var view: PostsViewInput!
     var interactor: ShowInteractorInput!
     var router: ShowRouterInput!
     var themeManager: ThemeManagerProtocol!
@@ -37,9 +37,25 @@ final class ShowPresenter {
 }
 
 // MARK: ShowViewOutput
-extension ShowPresenter: ShowViewOutput {
+extension ShowPresenter: PostsViewOutput {
+    func didSelectImage(at row: Int) {
+    
+    }
+    
+    func numberOfRows() -> Int {
+        return skeletonState == .enabled ? ShowConstants.skeletonCount : posts.count
+    }
+    
+    func getSkeletonState() -> SkeletonState {
+        return skeletonState
+    }
+    
+    func segmentedControlDidChange(to index: Int) {
+        
+    }
+    
     func viewIsReady() {
-        view.setupInitialState(title: ShowConstants.title.localized(), theme: themeManager.theme)
+        view.setupInitialState(title: ShowConstants.title.localized(), theme: themeManager.theme, titles: [])
         view.setUserInteractorEnabled(to: false)
         view.update(theme: themeManager.theme)
         themeManager.addObserver(self)
@@ -61,10 +77,6 @@ extension ShowPresenter: ShowViewOutput {
             return SkeletonCellViewModel(theme: themeManager.theme)
         }
         return PostCellViewModel(post: posts[indexPath.row], theme: themeManager.theme, placeholderImage: .placeholder)
-    }
-    
-    func getNumberOfRow() -> Int {
-        return skeletonState == .enabled ? ShowConstants.skeletonCount : posts.count
     }
     
     func refreshStories() {

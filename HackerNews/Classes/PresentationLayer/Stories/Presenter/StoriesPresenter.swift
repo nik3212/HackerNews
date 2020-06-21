@@ -16,7 +16,7 @@ enum SkeletonState {
 
 class StoriesPresenter {
     // MARK: Public Properties
-    weak var view: StoriesViewInput!
+    weak var view: PostsViewInput!
     var interactor: StoriesInteractorInput!
     var router: StoriesRouterInput!
     var themeManager: ThemeManagerProtocol!
@@ -69,7 +69,7 @@ class StoriesPresenter {
 }
 
 // MARK: StoriesViewOutput
-extension StoriesPresenter: StoriesViewOutput {    
+extension StoriesPresenter: PostsViewOutput {    
     func numberOfRows() -> Int {
         return skeletonState == .enabled ? StoriesConstants.skeletonCount : stories.count
     }

@@ -31,7 +31,7 @@ extension StoriesConfigurator: TabBarViewProtocol {
     }
     
     func configureViewController() -> UIViewController {
-        guard let viewController = assembler.resolver.resolve(StoriesViewController.self) else {
+        guard let viewController = assembler.resolver.resolve(PostsViewController.self) else {
             fatalError("StoriesViewController shouldn't be nil")
         }
         

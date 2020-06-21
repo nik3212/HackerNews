@@ -11,7 +11,7 @@ import struct HNService.PostModel
 
 final class AskPresenter {
     // MARK: Public Properties
-    weak var view: AskViewInput!
+    weak var view: PostsViewInput!
     var interactor: AskInteractorInput!
     var router: AskRouterInput!
     var themeManager: ThemeManagerProtocol!
@@ -37,9 +37,25 @@ final class AskPresenter {
 }
 
 // MARK: AskViewOutput
-extension AskPresenter: AskViewOutput {    
+extension AskPresenter: PostsViewOutput {
+    func didSelectImage(at row: Int) {
+        
+    }
+    
+    func numberOfRows() -> Int {
+        return skeletonState == .enabled ? AskConstants.skeletonCount : posts.count
+    }
+    
+    func getSkeletonState() -> SkeletonState {
+        return skeletonState
+    }
+    
+    func segmentedControlDidChange(to index: Int) {
+        
+    }
+    
     func viewIsReady() {
-        view.setupInitialState(title: AskConstants.title.localized(), theme: themeManager.theme)
+        view.setupInitialState(title: AskConstants.title.localized(), theme: themeManager.theme, titles: [])
         view.update(theme: themeManager.theme)
         view.setUserInteractorEnabled(to: false)
         themeManager.addObserver(self)

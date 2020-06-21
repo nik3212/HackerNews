@@ -41,7 +41,7 @@ class CommentsViewController: UIViewController {
             navigationItem.largeTitleDisplayMode = .never
         }
         
-        tableView.register(StoryTableViewCell.self)
+        tableView.register(PostTableViewCell.self)
         tableView.register(SkeletonCell.self)
         tableView.register(CommentCell.self)
         tableView.tableFooterView = UIView()

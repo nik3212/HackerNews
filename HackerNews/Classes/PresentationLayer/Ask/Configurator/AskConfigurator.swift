@@ -31,7 +31,7 @@ extension AskConfigurator: TabBarViewProtocol {
     }
     
     func configureViewController() -> UIViewController {
-        guard let viewController = assembler.resolver.resolve(AskViewController.self) else {
+        guard let viewController = assembler.resolver.resolve(PostsViewController.self) else {
             fatalError("AskViewController shouldn't be nil")
         }
         

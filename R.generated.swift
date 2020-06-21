@@ -90,10 +90,8 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
-    /// Storyboard `Ask`.
-    static let ask = _R.storyboard.ask()
     /// Storyboard `Comments`.
     static let comments = _R.storyboard.comments()
     /// Storyboard `LaunchScreen`.
@@ -102,17 +100,8 @@ struct R: Rswift.Validatable {
     static let main = _R.storyboard.main()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
-    /// Storyboard `Show`.
-    static let show = _R.storyboard.show()
     /// Storyboard `Theme`.
     static let theme = _R.storyboard.theme()
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Ask", bundle: ...)`
-    static func ask(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.ask)
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Comments", bundle: ...)`
@@ -139,13 +128,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Settings", bundle: ...)`
     static func settings(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.settings)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Show", bundle: ...)`
-    static func show(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.show)
     }
     #endif
 
@@ -329,7 +311,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.id` struct is generated, and contains static references to accessibility identifiers.
   struct id {
-    struct storyTableViewCell {
+    struct postTableViewCell {
       /// Accessibility identifier `PostCell`.
       static let postCell: String = "PostCell"
 
@@ -475,12 +457,12 @@ struct R: Rswift.Validatable {
   struct nib {
     /// Nib `CommentCell`.
     static let commentCell = _R.nib._CommentCell()
+    /// Nib `PostTableViewCell`.
+    static let postTableViewCell = _R.nib._PostTableViewCell()
     /// Nib `SettingsTableViewCell`.
     static let settingsTableViewCell = _R.nib._SettingsTableViewCell()
     /// Nib `SkeletonCell`.
     static let skeletonCell = _R.nib._SkeletonCell()
-    /// Nib `StoryTableViewCell`.
-    static let storyTableViewCell = _R.nib._StoryTableViewCell()
     /// Nib `ThemeSelectableTableViewCell`.
     static let themeSelectableTableViewCell = _R.nib._ThemeSelectableTableViewCell()
 
@@ -489,6 +471,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.commentCell) instead")
     static func commentCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.commentCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "PostTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.postTableViewCell) instead")
+    static func postTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.postTableViewCell)
     }
     #endif
 
@@ -509,14 +499,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UINib(name: "StoryTableViewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.storyTableViewCell) instead")
-    static func storyTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.storyTableViewCell)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UINib(name: "ThemeSelectableTableViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.themeSelectableTableViewCell) instead")
     static func themeSelectableTableViewCell(_: Void = ()) -> UIKit.UINib {
@@ -528,16 +510,16 @@ struct R: Rswift.Validatable {
       return R.nib.commentCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CommentCell
     }
 
+    static func postTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PostTableViewCell? {
+      return R.nib.postTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PostTableViewCell
+    }
+
     static func settingsTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SettingsTableViewCell? {
       return R.nib.settingsTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsTableViewCell
     }
 
     static func skeletonCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SkeletonCell? {
       return R.nib.skeletonCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SkeletonCell
-    }
-
-    static func storyTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StoryTableViewCell? {
-      return R.nib.storyTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StoryTableViewCell
     }
 
     static func themeSelectableTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ThemeSelectableTableViewCell? {
@@ -551,12 +533,12 @@ struct R: Rswift.Validatable {
   struct reuseIdentifier {
     /// Reuse identifier `CommentCell`.
     static let commentCell: Rswift.ReuseIdentifier<CommentCell> = Rswift.ReuseIdentifier(identifier: "CommentCell")
+    /// Reuse identifier `PostTableViewCell`.
+    static let postTableViewCell: Rswift.ReuseIdentifier<PostTableViewCell> = Rswift.ReuseIdentifier(identifier: "PostTableViewCell")
     /// Reuse identifier `SettingsTableViewCell`.
     static let settingsTableViewCell: Rswift.ReuseIdentifier<SettingsTableViewCell> = Rswift.ReuseIdentifier(identifier: "SettingsTableViewCell")
     /// Reuse identifier `SkeletonCell`.
     static let skeletonCell: Rswift.ReuseIdentifier<SkeletonCell> = Rswift.ReuseIdentifier(identifier: "SkeletonCell")
-    /// Reuse identifier `StoryTableViewCell`.
-    static let storyTableViewCell: Rswift.ReuseIdentifier<StoryTableViewCell> = Rswift.ReuseIdentifier(identifier: "StoryTableViewCell")
     /// Reuse identifier `ThemeSelectableTableViewCell`.
     static let themeSelectableTableViewCell: Rswift.ReuseIdentifier<ThemeSelectableTableViewCell> = Rswift.ReuseIdentifier(identifier: "ThemeSelectableTableViewCell")
 
@@ -964,6 +946,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _PostTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = PostTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "PostTableViewCell"
+      let name = "PostTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PostTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PostTableViewCell
+      }
+
+      fileprivate init() {}
+    }
+
     struct _SettingsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = SettingsTableViewCell
 
@@ -992,20 +988,6 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _StoryTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
-      typealias ReusableType = StoryTableViewCell
-
-      let bundle = R.hostingBundle
-      let identifier = "StoryTableViewCell"
-      let name = "StoryTableViewCell"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StoryTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StoryTableViewCell
-      }
-
-      fileprivate init() {}
-    }
-
     struct _ThemeSelectableTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = ThemeSelectableTableViewCell
 
@@ -1028,9 +1010,6 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
-      try ask.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try comments.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -1043,32 +1022,9 @@ struct _R: Rswift.Validatable {
       try settings.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try show.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try theme.validate()
       #endif
     }
-
-    #if os(iOS) || os(tvOS)
-    struct ask: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let askViewController = StoryboardViewControllerResource<AskViewController>(identifier: "AskViewController")
-      let bundle = R.hostingBundle
-      let name = "Ask"
-
-      func askViewController(_: Void = ()) -> AskViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: askViewController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.ask().askViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'askViewController' could not be loaded from storyboard 'Ask' as 'AskViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     struct comments: Rswift.StoryboardResourceType, Rswift.Validatable {
@@ -1137,26 +1093,6 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.settings().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Settings' as 'SettingsViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct show: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "Show"
-      let showViewController = StoryboardViewControllerResource<ShowViewController>(identifier: "ShowViewController")
-
-      func showViewController(_: Void = ()) -> ShowViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: showViewController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.show().showViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'showViewController' could not be loaded from storyboard 'Show' as 'ShowViewController'.") }
       }
 
       fileprivate init() {}

@@ -31,8 +31,8 @@ extension ShowConfigurator: TabBarViewProtocol {
     }
     
     func configureViewController() -> UIViewController {
-        guard let viewController = assembler.resolver.resolve(ShowViewController.self) else {
-            fatalError("ShowViewController shouldn't be nil")
+        guard let viewController = assembler.resolver.resolve(PostsViewController.self) else {
+            fatalError("PostsViewController shouldn't be nil")
         }
         
         let item = UITabBarItem()

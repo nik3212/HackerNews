@@ -18,14 +18,14 @@ final class AskModuleAssembly: Assembly {
             return interactor
         }
 
-        container.register(AskRouter.self) { (resolver, viewController: AskViewController) in
+        container.register(AskRouter.self) { (resolver, viewController: PostsViewController) in
             let router = AskRouter()
             router.transitionHandler = viewController
             router.commentsConfigurator = resolver.resolve(CommentsConfigurator.self)
             return router
         }
 
-        container.register(AskPresenter.self) { (resolver, viewController: AskViewController) in
+        container.register(AskPresenter.self) { (resolver, viewController: PostsViewController) in
             let presenter = AskPresenter()
 
             presenter.view = viewController
@@ -36,8 +36,8 @@ final class AskModuleAssembly: Assembly {
             return presenter
         }
 
-        container.register(AskViewController.self) { resolver in
-            let viewController = R.storyboard.ask().instantiateViewController(type: AskViewController.self)
+        container.register(PostsViewController.self) { resolver in
+            let viewController = PostsViewController()
             viewController.output = resolver.resolve(AskPresenter.self, argument: viewController)
             return viewController
         }

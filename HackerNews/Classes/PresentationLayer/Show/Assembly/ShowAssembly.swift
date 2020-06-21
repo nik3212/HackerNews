@@ -18,14 +18,14 @@ final class ShowModuleAssembly: Assembly {
             return interactor
         }
 
-        container.register(ShowRouter.self) { (resolver, viewController: ShowViewController) in
+        container.register(ShowRouter.self) { (resolver, viewController: PostsViewController) in
             let router = ShowRouter()
             router.transitionHandler = viewController
             router.commentsConfigurator = resolver.resolve(CommentsConfigurator.self)
             return router
         }
 
-        container.register(ShowPresenter.self) { (resolver, viewController: ShowViewController) in
+        container.register(ShowPresenter.self) { (resolver, viewController: PostsViewController) in
             let presenter = ShowPresenter()
 
             presenter.view = viewController
@@ -36,8 +36,8 @@ final class ShowModuleAssembly: Assembly {
             return presenter
         }
 
-        container.register(ShowViewController.self) { resolver in
-            let viewController = R.storyboard.show().instantiateViewController(type: ShowViewController.self)
+        container.register(PostsViewController.self) { resolver in
+            let viewController = PostsViewController()
             viewController.output = resolver.resolve(ShowPresenter.self, argument: viewController)
             return viewController
         }

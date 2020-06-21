@@ -1,5 +1,5 @@
 //
-//  StoriesViewController.swift
+//  PostsViewController.swift
 //  HackerNews
 //
 //  Created by Nikita Vasilev on 04/03/2020.
@@ -9,13 +9,13 @@
 import UIKit
 import EmptyDataSet_Swift
 
-class StoriesViewController: UIViewController {
+class PostsViewController: UIViewController {
     
     // MARK: IBOutlets
     //@IBOutlet private var tableView: UITableView!
     
     // MARK: Public Properties
-    var output: StoriesViewOutput!
+    var output: PostsViewOutput!
 
     // MARK: Private Properties
     private lazy var tableView: UITableView = {
@@ -59,7 +59,7 @@ class StoriesViewController: UIViewController {
         navigationController?.navigationBar.isAccessibilityElement = true
         navigationController?.navigationBar.accessibilityIdentifier = "storiesNavigationBar"
         
-        tableView.register(StoryTableViewCell.self)
+        tableView.register(PostTableViewCell.self)
         tableView.register(SkeletonCell.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = Metrics.estimatedRowHeight
@@ -103,7 +103,7 @@ class StoriesViewController: UIViewController {
 }
 
 // MARK: StoriesViewInput
-extension StoriesViewController: StoriesViewInput {    
+extension PostsViewController: PostsViewInput {    
     func setupInitialState(title: String, theme: Theme, titles: [String]) {
         self.title = title
         self.theme = theme
@@ -141,7 +141,7 @@ extension StoriesViewController: StoriesViewInput {
 }
 
 // MARK: UITableViewDataSourcePrefetching
-extension StoriesViewController: UITableViewDataSourcePrefetching {
+extension PostsViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             output.prefetch(at: indexPath)
@@ -150,7 +150,7 @@ extension StoriesViewController: UITableViewDataSourcePrefetching {
 }
 
 // MARK: UITableViewDelegate
-extension StoriesViewController: UITableViewDelegate {
+extension PostsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.didSelectRow(at: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
@@ -158,7 +158,7 @@ extension StoriesViewController: UITableViewDelegate {
 }
 
 // MARK: UITableViewDataSource
-extension StoriesViewController: UITableViewDataSource {
+extension PostsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? SkeletonCell {
             cell.slide(to: .right)
@@ -180,7 +180,7 @@ extension StoriesViewController: UITableViewDataSource {
 }
 
 // MARK: EmptyDataSetSource
-extension StoriesViewController: EmptyDataSetSource {
+extension PostsViewController: EmptyDataSetSource {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         return theme?.emptySetTitle(title: output.getEmptyDataSetTitle())
     }
@@ -203,19 +203,19 @@ extension StoriesViewController: EmptyDataSetSource {
 }
 
 // MARK: EmptyDataSetDelegate
-extension StoriesViewController: EmptyDataSetDelegate {
+extension PostsViewController: EmptyDataSetDelegate {
 
 }
 
-extension StoriesViewController: StoryTableViewCellDelegate {
-    func imageDidTapped(cell: StoryTableViewCell) {
+extension PostsViewController: PostTableViewCellDelegate {
+    func imageDidTapped(cell: PostTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         output.didSelectImage(at: indexPath.row)
     }
 }
 
 // MARK: ThemeUpdatable
-extension StoriesViewController: ThemeUpdatable {
+extension PostsViewController: ThemeUpdatable {
     func update(theme: Theme) {
         self.theme = theme
         theme.tableView.apply(to: tableView)
@@ -228,7 +228,7 @@ extension StoriesViewController: ThemeUpdatable {
 }
 
 // MARK: Constants
-extension StoriesViewController {
+extension PostsViewController {
     private enum Metrics {
         static let estimatedRowHeight: CGFloat = 75.0
         static let verticalOffset: CGFloat = -50.0
@@ -236,7 +236,7 @@ extension StoriesViewController {
 }
 
 // MARK: Selectors
-extension StoriesViewController {
+extension PostsViewController {
     @objc func refreshStories(_ sender: UIRefreshControl) {
         output.refreshStories()
     }
