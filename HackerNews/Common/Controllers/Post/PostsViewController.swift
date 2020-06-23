@@ -98,6 +98,21 @@ final class PostsViewController: UIViewController {
         segmentedControl.setNeedsLayout()
         segmentedControl.layoutIfNeeded()
     }
+    
+    // MARK: Private Methods
+    private func showLoadingIndicator() {
+        let spinner = UIActivityIndicatorView(style: .gray)
+        theme?.activityIndicator.apply(to: spinner)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+        
+        tableView.tableFooterView = spinner
+        tableView.tableFooterView?.isHidden = false
+    }
+    
+    private func hideLoadingIndicator() {
+        tableView.tableFooterView = nil
+    }
 }
 
 // MARK: StoriesViewInput
@@ -138,6 +153,10 @@ extension PostsViewController: PostsViewInput {
                                                y: -tableView.contentInset.top),
                                        animated: false)
         }
+    }
+    
+    func setLoadingIndicator(to state: Bool) {
+        state ? showLoadingIndicator() : hideLoadingIndicator()
     }
 }
 

@@ -14,4 +14,5 @@ protocol PostsViewInput: class, Presentable, ThemeUpdatable {
     func scrollContentToTop()
     func reloadData()
     func hideRefreshControl()
+    func setLoadingIndicator(to state: Bool)
 }

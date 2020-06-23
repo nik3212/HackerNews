@@ -105,6 +105,7 @@ extension StoriesPresenter: PostsViewOutput {
     }
     
     func prefetch(at indexPath: IndexPath) {
+        view.setLoadingIndicator(to: !isFinished)
         guard !isFinished, !stories.isEmpty, indexPath.row >= stories.count - 1 else { return }
         interactor.fetchPosts(with: loadingIds)
     }

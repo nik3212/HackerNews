@@ -65,6 +65,7 @@ extension ShowPresenter: PostsViewOutput {
     }
     
     func prefetch(at indexPath: IndexPath) {
+        view.setLoadingIndicator(to: !isFinished)
         guard !isFinished, !posts.isEmpty, indexPath.row >= posts.count - 1 else { return }
         interactor.fetchPosts(with: loadingIds)
     }
