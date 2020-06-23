@@ -21,6 +21,7 @@ final class ShowPresenter {
     private var ids: [Int] = []
     private var posts: [PostModel] = []
     private var errorDescription: String?
+    private var isFinished: Bool = false
     
     private var loadingIds: [Int] {
         let count = self.posts.count
@@ -49,13 +50,9 @@ extension ShowPresenter: PostsViewOutput {
     func getSkeletonState() -> SkeletonState {
         return skeletonState
     }
-    
-    func segmentedControlDidChange(to index: Int) {
         
-    }
-    
     func viewIsReady() {
-        view.setupInitialState(title: ShowConstants.title.localized(), theme: themeManager.theme, titles: [])
+        view.setupInitialState(title: ShowConstants.title.localized(), theme: themeManager.theme, titles: nil)
         view.setUserInteractorEnabled(to: false)
         view.update(theme: themeManager.theme)
         themeManager.addObserver(self)
@@ -68,7 +65,7 @@ extension ShowPresenter: PostsViewOutput {
     }
     
     func prefetch(at indexPath: IndexPath) {
-        guard !posts.isEmpty, indexPath.row >= posts.count - 1 else { return }
+        guard !isFinished, !posts.isEmpty, indexPath.row >= posts.count - 1 else { return }
         interactor.fetchPosts(with: loadingIds)
     }
     
@@ -80,6 +77,7 @@ extension ShowPresenter: PostsViewOutput {
     }
     
     func refreshStories() {
+        isFinished = false
         view.setUserInteractorEnabled(to: false)
         skeletonState = .enabled
         ids.removeAll()
@@ -113,6 +111,7 @@ extension ShowPresenter: ShowInteractorOutput {
     }
     
     func fetchPostsSuccess(_ posts: [PostModel]) {
+        self.isFinished = posts.isEmpty
         self.posts.append(contentsOf: posts.sorted(by: { $0.id > $1.id }))
         view.setUserInteractorEnabled(to: true)
         skeletonState = .disabled

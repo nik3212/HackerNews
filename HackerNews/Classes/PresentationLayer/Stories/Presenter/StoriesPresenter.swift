@@ -14,7 +14,7 @@ enum SkeletonState {
     case disabled
 }
 
-class StoriesPresenter {
+final class StoriesPresenter {
     // MARK: Public Properties
     weak var view: PostsViewInput!
     var interactor: StoriesInteractorInput!
@@ -27,6 +27,7 @@ class StoriesPresenter {
     private var ids: [Int] = []
     private var stories: [PostModel] = []
     private var errorDescription: String?
+    private var isFinished: Bool = false
     
     private var loadingIds: [Int] {
         let count = self.stories.count
@@ -48,6 +49,7 @@ class StoriesPresenter {
     }
     
     private func backToInitialState() {
+        isFinished = false
         interactor.cancleRequests()
         view.setUserInteractorEnabled(to: false)
         view.scrollContentToTop()
@@ -103,7 +105,7 @@ extension StoriesPresenter: PostsViewOutput {
     }
     
     func prefetch(at indexPath: IndexPath) {
-        guard !stories.isEmpty, indexPath.row >= stories.count - 1 else { return }
+        guard !isFinished, !stories.isEmpty, indexPath.row >= stories.count - 1 else { return }
         interactor.fetchPosts(with: loadingIds)
     }
 }
@@ -138,6 +140,7 @@ extension StoriesPresenter: StoriesInteractorOutput {
     }
     
     func fetchItemsSuccess(_ items: [PostModel]) {
+        self.isFinished = items.isEmpty
         self.stories.append(contentsOf: items.sorted(by: { $0.id > $1.id }))
         view.setUserInteractorEnabled(to: true)
         skeletonState = .disabled

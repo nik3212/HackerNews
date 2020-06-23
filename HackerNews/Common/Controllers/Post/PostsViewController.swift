@@ -67,6 +67,7 @@ final class PostsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshStories(_:)), for: .valueChanged)
     
         extendedLayoutIncludesOpaqueBars = true
+        edgesForExtendedLayout = [.top, .left, .right]
     }
     
     private func createSubviews() {
@@ -101,11 +102,14 @@ final class PostsViewController: UIViewController {
 
 // MARK: StoriesViewInput
 extension PostsViewController: PostsViewInput {    
-    func setupInitialState(title: String, theme: Theme, titles: [String]) {
+    func setupInitialState(title: String, theme: Theme, titles: [String]?) {
         self.title = title
         self.theme = theme
         update(theme: theme)
-        configureNavigationItem(with: titles)
+        
+        if let titles = titles {
+            configureNavigationItem(with: titles)
+        }
     }
 
     func reloadData() {

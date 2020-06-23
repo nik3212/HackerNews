@@ -22,3 +22,7 @@ protocol PostsViewOutput: class {
     func getEmptyDataSetDecription() -> String
     func getEmptyDataSetImage() -> Image
 }
+
+extension PostsViewOutput {
+    func segmentedControlDidChange(to index: Int) { }
+}

@@ -53,6 +53,8 @@
 		5A0D25E7248C084A006718D4 /* WeakObjectSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D25E6248C084A006718D4 /* WeakObjectSetTests.swift */; };
 		5A0D25EA248C09C2006718D4 /* WeakObjectSetPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D25E9248C09C2006718D4 /* WeakObjectSetPerformanceTests.swift */; };
 		5A0D25F2248C190D006718D4 /* MockThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D25F1248C190D006718D4 /* MockThemeManager.swift */; };
+		5A116C7924A2927B00E27834 /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF495A1249D5E2300E469A2 /* NetworkManager.framework */; };
+		5A116C7A24A2927B00E27834 /* NetworkManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF495A1249D5E2300E469A2 /* NetworkManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A14BC5624899CAE008E9B7B /* MockContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A14BC5524899CAE008E9B7B /* MockContainer.swift */; };
 		5A25EF3A2455870900AC7C56 /* BaseCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25EF392455870900AC7C56 /* BaseCellModel.swift */; };
 		5A25EF3C2455888700AC7C56 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25EF3B2455888700AC7C56 /* PostCellViewModel.swift */; };
@@ -353,6 +355,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5A4D0B29249FBA3B0076A781 /* HNService.framework in Embed Frameworks */,
+				5A116C7A24A2927B00E27834 /* NetworkManager.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,6 +655,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A116C7924A2927B00E27834 /* NetworkManager.framework in Frameworks */,
 				5A4D0B28249FBA3B0076A781 /* HNService.framework in Frameworks */,
 				0EC6C9C75C06A1962156C50B /* Pods_HackerNews.framework in Frameworks */,
 			);
@@ -3145,7 +3149,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A8WE5LL2GU;
 				INFOPLIST_FILE = HackerNewsTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3168,7 +3172,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A8WE5LL2GU;
 				INFOPLIST_FILE = HackerNewsTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

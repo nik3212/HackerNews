@@ -79,8 +79,6 @@ final class PostTableViewCell: UITableViewCell {
         self.theme = theme
         theme.postTitle.apply(to: titleLabel)
         theme.postCell.apply(to: self)
-        theme.view.apply(to: titleLabel)
-        theme.view.apply(to: descriptionLabel)
     }
     
     // MARK: Private Methods

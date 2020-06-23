@@ -9,7 +9,7 @@
 protocol PostsViewInput: class, Presentable, ThemeUpdatable {
     var output: PostsViewOutput! { get set }
     
-    func setupInitialState(title: String, theme: Theme, titles: [String])
+    func setupInitialState(title: String, theme: Theme, titles: [String]?)
     func setUserInteractorEnabled(to state: Bool)
     func scrollContentToTop()
     func reloadData()
