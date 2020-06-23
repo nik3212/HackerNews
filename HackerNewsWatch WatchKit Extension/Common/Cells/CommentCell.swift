@@ -14,7 +14,6 @@ final class CommentCell: NSObject {
     @IBOutlet private var usernameLabel: WKInterfaceLabel!
     @IBOutlet private var commentLabel: WKInterfaceLabel!
 
-    
     // MARK: Public Methods
     func setup(username: String?, text: String) {
         usernameLabel.setText(username)

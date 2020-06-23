@@ -46,6 +46,7 @@ class CommentsViewController: UIViewController {
         tableView.register(CommentCell.self)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.cellLayoutMarginsFollowReadableWidth = true
         
         if #available(iOS 11.0, *) {
             tableView.estimatedRowHeight = UITableView.automaticDimension
