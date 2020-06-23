@@ -219,8 +219,10 @@ extension PostsViewController: ThemeUpdatable {
         theme.view.apply(to: view)
         theme.refreshControl.apply(to: refreshControl)
         theme.segmentedControl.apply(to: segmentedControl)
-        tableView.reloadData()
-        tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
+        
+        if let indexPaths = tableView.indexPathsForVisibleRows, !indexPaths.isEmpty {
+            tableView.reloadRows(at: indexPaths, with: .none)
+        }
     }
 }
 
