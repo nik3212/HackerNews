@@ -24,6 +24,7 @@ final class CommentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         textView.textContainer.lineFragmentPadding = 0
+        textView.textContainerInset = .zero
     }
     
     // MARK: Public Methods

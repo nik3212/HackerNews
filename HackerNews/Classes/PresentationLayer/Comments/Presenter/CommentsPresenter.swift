@@ -10,7 +10,7 @@ import UIKit
 import struct HNService.CommentModel
 import struct HNService.PostModel
 
-class CommentsPresenter {
+final class CommentsPresenter {
     // MARK: Public Properties
     weak var view: CommentsViewInput!
     var interactor: CommentsInteractorInput!
@@ -31,7 +31,10 @@ class CommentsPresenter {
     
     // MARK: Private Methods
     private func fetchComments() {
-        guard let id = commentIds.dequeue(), loadingCommentId == nil else { return }
+        guard let id = commentIds.dequeue(), loadingCommentId == nil else {
+            self.view.setLoadingIndicator(to: false)
+            return
+        }
         self.loadingCommentId = id
         self.interactor.fetchComments(for: id)
     }
@@ -70,7 +73,7 @@ class CommentsPresenter {
         }
         
         self.loadingCommentId = nil
-
+        self.view.setLoadingIndicator(to: false)
         self.view.hideActivityIndicator()
         self.view.insertRows(at: indexPaths)
     }
@@ -147,6 +150,7 @@ extension CommentsPresenter: CommentsViewOutput {
         let isLastRow = sectionType == .comments && indexPath.row == comments.count - 1
         
         if isLastRow && !commentIds.isEmpty {
+            view.setLoadingIndicator(to: true)
             fetchComments()
         }
     }

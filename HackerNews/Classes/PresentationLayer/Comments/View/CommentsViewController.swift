@@ -36,6 +36,7 @@ class CommentsViewController: UIViewController {
         self.navigationItem.leftItemsSupplementBackButton = true
     }
     
+    // MARK: Private Methods
     private func setup() {
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
@@ -66,6 +67,20 @@ class CommentsViewController: UIViewController {
         
         activityIndicator.style = .gray
         activityIndicator.hidesWhenStopped = true
+    }
+    
+    private func showLoadingIndicator() {
+        let spinner = UIActivityIndicatorView(style: .gray)
+        theme?.activityIndicator.apply(to: spinner)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+        
+        tableView.tableFooterView = spinner
+        tableView.tableFooterView?.isHidden = false
+    }
+    
+    private func hideLoadingIndicator() {
+        tableView.tableFooterView = nil
     }
 }
 
@@ -100,6 +115,10 @@ extension CommentsViewController: CommentsViewInput {
     
     func insertRows(at indexPaths: [IndexPath]) {
         tableView.insertRows(at: indexPaths, with: .automatic)
+    }
+    
+    func setLoadingIndicator(to state: Bool) {
+        state ? showLoadingIndicator() : hideLoadingIndicator()
     }
 }
 
