@@ -15,6 +15,6 @@ extension String {
             .characterEncoding: String.Encoding.utf8.rawValue
             ], documentAttributes: nil).string
         
-        return decoded ?? self
+        return decoded?.trimmingCharacters(in: .whitespacesAndNewlines) ?? self
     }
 }

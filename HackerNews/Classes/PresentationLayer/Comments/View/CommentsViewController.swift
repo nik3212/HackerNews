@@ -114,7 +114,10 @@ extension CommentsViewController: CommentsViewInput {
     }
     
     func insertRows(at indexPaths: [IndexPath]) {
+        tableView.beginUpdates()
+        self.tableView.setContentOffset(self.tableView.contentOffset, animated: false)
         tableView.insertRows(at: indexPaths, with: .automatic)
+        tableView.endUpdates()
     }
     
     func setLoadingIndicator(to state: Bool) {
