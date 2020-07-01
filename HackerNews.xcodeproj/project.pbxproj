@@ -56,6 +56,7 @@
 		5A116C7924A2927B00E27834 /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF495A1249D5E2300E469A2 /* NetworkManager.framework */; };
 		5A116C7A24A2927B00E27834 /* NetworkManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF495A1249D5E2300E469A2 /* NetworkManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A14BC5624899CAE008E9B7B /* MockContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A14BC5524899CAE008E9B7B /* MockContainer.swift */; };
+		5A1CA33624AD3B4B006EA300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A1CA33524AD3B4B006EA300 /* GoogleService-Info.plist */; };
 		5A25EF3A2455870900AC7C56 /* BaseCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25EF392455870900AC7C56 /* BaseCellModel.swift */; };
 		5A25EF3C2455888700AC7C56 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25EF3B2455888700AC7C56 /* PostCellViewModel.swift */; };
 		5A25EF3E2455894A00AC7C56 /* CommentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25EF3D2455894A00AC7C56 /* CommentCellViewModel.swift */; };
@@ -403,6 +404,7 @@
 		5A0D25E9248C09C2006718D4 /* WeakObjectSetPerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakObjectSetPerformanceTests.swift; sourceTree = "<group>"; };
 		5A0D25F1248C190D006718D4 /* MockThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockThemeManager.swift; sourceTree = "<group>"; };
 		5A14BC5524899CAE008E9B7B /* MockContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockContainer.swift; sourceTree = "<group>"; };
+		5A1CA33524AD3B4B006EA300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A25EF392455870900AC7C56 /* BaseCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellModel.swift; sourceTree = "<group>"; };
 		5A25EF3B2455888700AC7C56 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 		5A25EF3D2455894A00AC7C56 /* CommentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellViewModel.swift; sourceTree = "<group>"; };
@@ -2091,6 +2093,7 @@
 		D07204F221309FC600E4B1ED /* HackerNews */ = {
 			isa = PBXGroup;
 			children = (
+				5A1CA33524AD3B4B006EA300 /* GoogleService-Info.plist */,
 				5A4D0B26249FB9880076A781 /* Hacker News.entitlements */,
 				5AE2EDC424103B450011A198 /* Classes */,
 				D07205332130A23100E4B1ED /* Application */,
@@ -2440,6 +2443,7 @@
 				3860B554219F132500D2CC03 /* ShellScript */,
 				0145C849EAC1D39C87F71C49 /* [CP] Embed Pods Frameworks */,
 				5A8F6B102499722000484C18 /* Embed App Extensions */,
+				5A1CA33724AD3E83006EA300 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2609,6 +2613,7 @@
 				5A9C965424425B4A002AC0F5 /* Poppins-ExtraBold.ttf in Resources */,
 				71D3EE6174A29CCC96AF27FC /* Settings.storyboard in Resources */,
 				4EFF808EC08E9CCA2D33FC20 /* Theme.storyboard in Resources */,
+				5A1CA33624AD3B4B006EA300 /* GoogleService-Info.plist in Resources */,
 				5A8BF1682449ABAB00215883 /* Localizable.strings in Resources */,
 				5A9C965E24425B4A002AC0F5 /* Poppins-SemiBold.ttf in Resources */,
 				5A9C965D24425B4A002AC0F5 /* Poppins-Regular.ttf in Resources */,
@@ -2744,6 +2749,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5A1CA33724AD3E83006EA300 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		5AE2EDC3241038500011A198 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3429,6 +3453,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "HackerNews/Hacker News.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = A8WE5LL2GU;
 				INFOPLIST_FILE = "$(SRCROOT)/HackerNews/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

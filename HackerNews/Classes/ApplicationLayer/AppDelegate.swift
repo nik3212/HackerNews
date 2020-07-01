@@ -7,8 +7,7 @@
 //
 
 import UIKit
-//import Fabric
-//import Crashlytics
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder {
@@ -33,6 +32,8 @@ extension AppDelegate: UIApplicationDelegate {
         ThemeManager.shared.theme = Theme(rawValue: SettingsManager.shared.currentTheme ?? "") ?? .dark
         
         loadFabricKeys()
+        
+        FirebaseApp.configure()
         
         return true
     }
