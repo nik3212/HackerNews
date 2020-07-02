@@ -2439,7 +2439,6 @@
 				D07204ED21309FC600E4B1ED /* Frameworks */,
 				D07204EE21309FC600E4B1ED /* Resources */,
 				D02555AC213C6F7400822BFE /* Embed Frameworks */,
-				3860B553219F0B8300D2CC03 /* ShellScript */,
 				3860B554219F132500D2CC03 /* ShellScript */,
 				0145C849EAC1D39C87F71C49 /* [CP] Embed Pods Frameworks */,
 				5A8F6B102499722000484C18 /* Embed App Extensions */,
@@ -2693,24 +2692,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3860B553219F0B8300D2CC03 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "FABRIC_APIKEY_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.apikey\"\nFABRIC_BUILDSECRET_FILE=\"${SRCROOT}/HackerNews/Resources/Keys/fabric.buildsecret\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\nif test ! -f \"$FABRIC_APIKEY_FILE\" -o ! -f \"$FABRIC_BUILDSECRET_FILE\"; then\necho \"This build wants to upload dSYM files to Crashlytics.\"\necho \"Uploading is possible only if a Fabric API key and a Fabric build secret are\"\necho \"available. This build is failing because at least one of these pieces of\"\necho \"information is missing.\"\necho \"\"\necho \"To fix the problem, create the following files and store the API key and\"\necho \"build secret, respectively, within those files:\"\necho \"\"\necho \"  $FABRIC_APIKEY_FILE\"\necho \"  $FABRIC_BUILDSECRET_FILE\"\necho \"\"\necho \"If you forked the project then you must register with Crashlytics and\"\necho \"get your own API key and build secret.\"\n\n# Let the build fail\nexit 1\nfi\n\nFABRIC_APIKEY=$(cat \"$FABRIC_APIKEY_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_APIKEY_FILE\"\nexit 1\nfi\n\nFABRIC_BUILDSECRET=$(cat \"$FABRIC_BUILDSECRET_FILE\")\nif test $? -ne 0; then\necho \"Cannot read $FABRIC_BUILDSECRET_FILE\"\nexit 1\nfi\n\necho \"Uploading dSYM files to Crashlytics\"\n\"${PODS_ROOT}/Fabric/run\" \"$FABRIC_APIKEY\" \"$FABRIC_BUILDSECRET\"\nfi\n";
-		};
 		3860B554219F132500D2CC03 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2758,8 +2739,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 			);
 			outputFileListPaths = (
 			);
@@ -3461,6 +3442,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNews;
 				PRODUCT_MODULE_NAME = HackerNews;
 				PRODUCT_NAME = "Hacker News";
@@ -3485,6 +3467,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikitavasilev.HackerNews;
 				PRODUCT_MODULE_NAME = HackerNews;
 				PRODUCT_NAME = "Hacker News";

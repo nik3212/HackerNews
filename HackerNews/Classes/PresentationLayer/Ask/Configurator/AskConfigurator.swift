@@ -27,7 +27,7 @@ extension AskConfigurator: TabBarViewProtocol {
     }
     
     var title: String? {
-        return "Ask"
+        return "Ask".localized()
     }
     
     func configureViewController() -> UIViewController {

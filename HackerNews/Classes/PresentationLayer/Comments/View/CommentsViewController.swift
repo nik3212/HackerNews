@@ -169,7 +169,10 @@ extension CommentsViewController: ThemeUpdatable {
         theme.activityIndicator.apply(to: activityIndicator)
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
-        tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
+        
+        if let indexPaths = tableView.indexPathsForVisibleRows, !indexPaths.isEmpty {
+            tableView.reloadRows(at: indexPaths, with: .none)
+        }
     }
 }
 

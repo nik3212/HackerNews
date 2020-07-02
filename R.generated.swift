@@ -329,7 +329,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 14 images.
+  /// This `R.image` struct is generated, and contains static references to 13 images.
   struct image {
     /// Image `Ask`.
     static let ask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Ask")
@@ -343,8 +343,6 @@ struct R: Rswift.Validatable {
     static let filterIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "FilterIcon")
     /// Image `Help`.
     static let help = Rswift.ImageResource(bundle: R.hostingBundle, name: "Help")
-    /// Image `LanuchScreenIcon`.
-    static let lanuchScreenIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "LanuchScreenIcon")
     /// Image `News`.
     static let news = Rswift.ImageResource(bundle: R.hostingBundle, name: "News")
     /// Image `Placeholder`.
@@ -399,13 +397,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Help", bundle: ..., traitCollection: ...)`
     static func help(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.help, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "LanuchScreenIcon", bundle: ..., traitCollection: ...)`
-    static func lanuchScreenIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.lanuchScreenIcon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1062,7 +1053,6 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
 
       static func validate() throws {
-        if UIKit.UIImage(named: "LanuchScreenIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LanuchScreenIcon' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

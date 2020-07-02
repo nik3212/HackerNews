@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Semibold.ttf">
-            <string>OpenSans-Semibold</string>
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -23,29 +21,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yZ5-ih-mdR">
-                                <rect key="frame" x="112" y="227" width="151" height="213"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LanuchScreenIcon" translatesAutoresizingMaskIntoConstraints="NO" id="PsY-u7-he5">
-                                        <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="I8z-Ul-VFy"/>
-                                            <constraint firstAttribute="width" constant="150" id="s69-hu-z79"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hacker News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZE-OB-y6P">
-                                        <rect key="frame" x="0.0" y="180" width="151" height="33"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="24"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQu-tb-66b">
+                                <rect key="frame" x="134.5" y="283" width="106.5" height="101"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="72"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yZ5-ih-mdR" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bll-7G-Wey"/>
-                            <constraint firstItem="yZ5-ih-mdR" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sLZ-h6-3Yb"/>
+                            <constraint firstItem="NQu-tb-66b" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HnV-ck-R2O"/>
+                            <constraint firstItem="NQu-tb-66b" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ZC3-yY-6lc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -55,7 +41,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="LanuchScreenIcon" width="150" height="150"/>
-    </resources>
 </document>

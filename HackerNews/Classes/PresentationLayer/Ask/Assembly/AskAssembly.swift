@@ -40,6 +40,6 @@ final class AskModuleAssembly: Assembly {
             let viewController = PostsViewController()
             viewController.output = resolver.resolve(AskPresenter.self, argument: viewController)
             return viewController
-        }
+        }.inObjectScope(.container)
     }
 }

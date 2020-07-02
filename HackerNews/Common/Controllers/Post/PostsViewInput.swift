@@ -16,3 +16,7 @@ protocol PostsViewInput: class, Presentable, ThemeUpdatable {
     func hideRefreshControl()
     func setLoadingIndicator(to state: Bool)
 }
+
+extension PostsViewInput {
+    func scrollContentToTop() { }
+}
