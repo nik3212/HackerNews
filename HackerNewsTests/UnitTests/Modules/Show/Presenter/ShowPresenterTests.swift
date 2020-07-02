@@ -113,7 +113,7 @@ final class ShowPresenterTests: QuickSpec {
                 }
                 
                 it("count displayed posts") {
-                    expect(presenter.getNumberOfRow()).to(equal(1))
+                    expect(presenter.numberOfRows()).to(equal(1))
                 }
             }
             
@@ -211,8 +211,8 @@ extension ShowPresenterTests {
         }
     }
     
-    final class MockView: UIViewController, ShowViewInput {
-        var output: ShowViewOutput!
+    final class MockView: UIViewController, PostsViewInput {
+        var output: PostsViewOutput!
         
         var navigationTitle: String?
         var theme: Theme?
@@ -220,7 +220,7 @@ extension ShowPresenterTests {
         var isReloadDataCalled: Bool = false
         var isHideRefreshControlCalled: Bool = false
         
-        func setupInitialState(title: String, theme: Theme) {
+        func setupInitialState(title: String, theme: Theme, titles: [String]?) {
             self.navigationTitle = title
             self.theme = theme
         }
@@ -239,6 +239,10 @@ extension ShowPresenterTests {
         
         func update(theme: Theme) {
             self.theme = theme
+        }
+        
+        func setLoadingIndicator(to state: Bool) {
+            
         }
     }
     

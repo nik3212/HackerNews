@@ -211,8 +211,8 @@ extension AskPresenterTests {
         }
     }
     
-    final class MockView: UIViewController, AskViewInput {
-        var output: AskViewOutput!
+    final class MockView: UIViewController, PostsViewInput {
+        var output: PostsViewOutput!
         
         var navigationTitle: String?
         var theme: Theme?
@@ -220,7 +220,7 @@ extension AskPresenterTests {
         var isReloadDataCalled: Bool = false
         var isHideRefreshControlCalled: Bool = false
         
-        func setupInitialState(title: String, theme: Theme) {
+        func setupInitialState(title: String, theme: Theme, titles: [String]?) {
             self.navigationTitle = title
             self.theme = theme
         }
@@ -239,6 +239,10 @@ extension AskPresenterTests {
         
         func update(theme: Theme) {
             self.theme = theme
+        }
+        
+        func setLoadingIndicator(to state: Bool) {
+            
         }
     }
     

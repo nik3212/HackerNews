@@ -158,6 +158,10 @@ extension CommentsPresenterSpec {
         func update(theme: Theme) {
             self.theme = theme
         }
+        
+        func setLoadingIndicator(to state: Bool) {
+            
+        }
     }
     
     struct Locale {

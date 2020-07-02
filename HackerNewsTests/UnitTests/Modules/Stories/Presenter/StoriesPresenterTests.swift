@@ -345,21 +345,25 @@ extension StoriesPresenterSpec {
         }
     }
     
-    final class MockView: UIViewController, StoriesViewInput {
-        var output: StoriesViewOutput!
+    final class MockView: UIViewController, PostsViewInput {
+        var output: PostsViewOutput!
         
         var navigationTitle: String?
         var theme: Theme?
         var userInteractionEnabled: Bool?
         var isReloadDataCalled: Bool = false
         var hideRefreshControlCalled: Bool = false
-        var titles: [String] = []
+        var titles: [String]?
         var scrollContentToTopCalled: Bool = false
         
-        func setupInitialState(title: String, theme: Theme, titles: [String]) {
+        func setupInitialState(title: String, theme: Theme, titles: [String]?) {
             self.navigationTitle = title
             self.theme = theme
             self.titles = titles
+        }
+        
+        func setLoadingIndicator(to state: Bool) {
+            
         }
         
         func setUserInteractorEnabled(to state: Bool) {

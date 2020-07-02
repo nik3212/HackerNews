@@ -21,7 +21,7 @@ class AskConfiguratorTests: QuickSpec {
             it("Module input shouldn't be nil") {
                 expect(viewController).notTo(beNil())
                 expect(viewController).to(beAKindOf(UINavigationController.self))
-                expect((viewController as? UINavigationController)?.topViewController).to(beAKindOf(AskViewController.self))
+                expect((viewController as? UINavigationController)?.topViewController).to(beAKindOf(PostsViewController.self))
             }
         }
     }

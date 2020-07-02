@@ -17,15 +17,15 @@ class AskModuleAssemblySpec: QuickSpec {
     override func spec() {
         let container = MockContainer().container
         
-        let viewController = container.resolve(ShowViewController.self)
+        let viewController = container.resolve(PostsViewController.self)
         let presenter = viewController?.output as? ShowPresenter
         let router = presenter?.router as? ShowRouter
         let interactor = presenter?.interactor as? ShowInteractor
 
         describe("Checking module creation") {
-            it("Must be ShowViewController") {
+            it("Must be PostsViewController") {
                 expect(viewController).toNot(beNil())
-                expect(viewController).to(beAKindOf(ShowViewController.self))
+                expect(viewController).to(beAKindOf(PostsViewController.self))
             }
             
             it("Must contains correct output") {

@@ -27,7 +27,7 @@ class StoriesConfiguratorTests: QuickSpec {
         describe("Check module configuration") {
             it("ViewController shouldn't be nil") {
                 expect(storiesViewController).notTo(beNil())
-                expect(storiesViewController).to(beAKindOf(StoriesViewController.self))
+                expect(storiesViewController).to(beAKindOf(PostsViewController.self))
             }
         }
     }

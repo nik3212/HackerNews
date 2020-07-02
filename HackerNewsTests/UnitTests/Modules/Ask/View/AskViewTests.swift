@@ -14,7 +14,7 @@ import Nimble
 class AskViewTests: QuickSpec {
     override func spec() {
         let output = AskPresenterMock()
-        let view = R.storyboard.ask().instantiateViewController(type: AskViewController.self)
+        let view = PostsViewController()
 
 //        describe("Checking view configuration") {
 //            it("view initializes properties") {
@@ -28,7 +28,7 @@ class AskViewTests: QuickSpec {
 }
 
 extension AskViewTests {
-    final class AskPresenterMock: AskViewOutput {
+    final class AskPresenterMock: PostsViewOutput {
         var viewIsReadyIsCalled: Bool = false
 
         func viewIsReady() {
@@ -65,6 +65,18 @@ extension AskViewTests {
         
         func getEmptyDataSetImage() -> Image {
             return .connectionError
+        }
+        
+        func didSelectImage(at row: Int) {
+            
+        }
+        
+        func numberOfRows() -> Int {
+            return 2
+        }
+        
+        func getSkeletonState() -> SkeletonState {
+            return .disabled
         }
     }
 }
