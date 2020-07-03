@@ -24,6 +24,10 @@ final class MockNetworkSession {
 
 // MARK: NetworkSession
 extension MockNetworkSession: NetworkSession {
+    func cancelAllTasks() {
+        
+    }
+    
     func getAllTasks(completionHandler: @escaping ([URLSessionTask]) -> Void) {
         
     }
