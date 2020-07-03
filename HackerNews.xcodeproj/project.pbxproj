@@ -74,7 +74,6 @@
 		5A4D0B28249FBA3B0076A781 /* HNService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4D0B27249FBA3B0076A781 /* HNService.framework */; };
 		5A4D0B29249FBA3B0076A781 /* HNService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4D0B27249FBA3B0076A781 /* HNService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A4D0B31249FC23D0076A781 /* HNService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4D0B30249FC23D0076A781 /* HNService.framework */; };
-		5A4D0B32249FC23D0076A781 /* HNService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4D0B30249FC23D0076A781 /* HNService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A52212124479D01003B799D /* ThemeSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52212024479D00003B799D /* ThemeSelectableTableViewCell.swift */; };
 		5A52212324479D1B003B799D /* ThemeSelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A52212224479D1B003B799D /* ThemeSelectableTableViewCell.xib */; };
 		5A5C0AA0241ECB7D007B4FCF /* ServiceLocatorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C0A9F241ECB7D007B4FCF /* ServiceLocatorConfigurator.swift */; };
@@ -294,17 +293,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5A4D0B33249FC23D0076A781 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5A4D0B32249FC23D0076A781 /* HNService.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5A8F6B102499722000484C18 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2360,10 +2348,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A8F6B132499722000484C18 /* Build configuration list for PBXNativeTarget "HackerNewsTodayExtension" */;
 			buildPhases = (
+				5ABCB62C24AE6E6800C42BFC /* ShellScript */,
 				5A8F6AFF2499722000484C18 /* Sources */,
 				5A8F6B002499722000484C18 /* Frameworks */,
 				5A8F6B012499722000484C18 /* Resources */,
-				5A4D0B33249FC23D0076A781 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2749,6 +2737,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		5ABCB62C24AE6E6800C42BFC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "EMBEDDED_EXTENSION_PLUGIN_PATH=\"$TARGET_BUILD_DIR/$PLUGINS_FOLDER_PATH/HackerNewsTodayExtension.appex/Frameworks\"\nif [[ -d \"$EMBEDDED_EXTENSION_PLUGIN_PATH\" ]]; then\n    rm -fr \"$EMBEDDED_EXTENSION_PLUGIN_PATH\"\nfi\n";
 		};
 		5AE2EDC3241038500011A198 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

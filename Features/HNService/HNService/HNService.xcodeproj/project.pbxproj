@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5A4D0B2C249FBA8D0076A781 /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4D0B2B249FBA8D0076A781 /* NetworkManager.framework */; };
-		5A4D0B2D249FBA8D0076A781 /* NetworkManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4D0B2B249FBA8D0076A781 /* NetworkManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5AEE9B88249A9FE900929A85 /* HNService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE9B7E249A9FE900929A85 /* HNService.framework */; };
 		5AEE9B8D249A9FE900929A85 /* HNServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B8C249A9FE900929A85 /* HNServiceTests.swift */; };
 		5AEE9B8F249A9FE900929A85 /* HNService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AEE9B81249A9FE900929A85 /* HNService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,7 +63,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5A4D0B2D249FBA8D0076A781 /* NetworkManager.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

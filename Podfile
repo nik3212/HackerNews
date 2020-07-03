@@ -9,7 +9,6 @@ xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
 
 def analitics_pods
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 end
 
 def di_pods
