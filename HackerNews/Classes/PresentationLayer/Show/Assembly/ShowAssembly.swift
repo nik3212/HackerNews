@@ -36,10 +36,10 @@ final class ShowModuleAssembly: Assembly {
             return presenter
         }
 
-        container.register(PostsViewController.self) { resolver in
+        container.register(PostsViewController.self, name: "ShowVC") { resolver in
             let viewController = PostsViewController()
             viewController.output = resolver.resolve(ShowPresenter.self, argument: viewController)
             return viewController
-        }
+        }.inObjectScope(.transient)
     }
 }

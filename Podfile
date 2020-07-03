@@ -7,7 +7,7 @@ workspace 'HackerNews'
 xcodeproj 'HackerNews.xcodeproj'
 xcodeproj 'Features/NetworkManager/NetworkManager.xcodeproj'
 
-def analitics_pods
+def analytics_pods
   pod 'Firebase/Crashlytics'
 end
 
@@ -42,13 +42,14 @@ target :HackerNews do
     app_pods
     di_pods
     other_pods
-    analitics_pods
+    analytics_pods
 end
 
 target :HackerNewsTests do
 	xcodeproj 'HackerNews.xcodeproj'
     test_pods
     di_pods
+    analytics_pods
 end
 
 target :HackerNewsUITests do

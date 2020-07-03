@@ -27,11 +27,11 @@ extension ShowConfigurator: TabBarViewProtocol {
     }
     
     var title: String? {
-        return "Show"
+        return "Show".localized()
     }
     
     func configureViewController() -> UIViewController {
-        guard let viewController = assembler.resolver.resolve(PostsViewController.self) else {
+        guard let viewController = assembler.resolver.resolve(PostsViewController.self, name: "ShowVC") else {
             fatalError("PostsViewController shouldn't be nil")
         }
         

@@ -16,8 +16,8 @@ import HNService
 final class AskModuleAssemblyTests: QuickSpec {
     override func spec() {
         let container = MockContainer().container
-        
-        let viewController = container.resolve(PostsViewController.self)
+
+        let viewController = container.resolve(PostsViewController.self, name: "AskView")
         let presenter = viewController?.output as? AskPresenter
         let router = presenter?.router as? AskRouter
         let interactor = presenter?.interactor as? AskInteractor

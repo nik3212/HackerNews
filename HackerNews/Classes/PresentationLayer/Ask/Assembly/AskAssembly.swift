@@ -36,10 +36,10 @@ final class AskModuleAssembly: Assembly {
             return presenter
         }
 
-        container.register(PostsViewController.self) { resolver in
+        container.register(PostsViewController.self, name: "AskView") { resolver in
             let viewController = PostsViewController()
             viewController.output = resolver.resolve(AskPresenter.self, argument: viewController)
             return viewController
-        }.inObjectScope(.container)
+        }
     }
 }

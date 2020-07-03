@@ -36,7 +36,7 @@ final class StoriesModuleAssembly: Assembly {
             return presenter
         }
 
-        container.register(PostsViewController.self) { resolver in
+        container.register(PostsViewController.self, name: "StoriesVC") { resolver in
             let viewController = PostsViewController()
             viewController.output = resolver.resolve(StoriesPresenter.self, argument: viewController)
             return viewController

@@ -17,7 +17,7 @@ class StoriesModuleAssemblyTests: QuickSpec {
     override func spec() {
         let container = MockContainer().container
         
-        let viewController = container.resolve(PostsViewController.self)
+        let viewController = container.resolve(PostsViewController.self, name: "StoriesVC")
         let presenter = viewController?.output as? StoriesPresenter
         let router = presenter?.router as? StoriesRouter
         let interactor = presenter?.interactor as? StoriesInteractor

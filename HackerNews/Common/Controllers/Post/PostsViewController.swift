@@ -9,7 +9,7 @@
 import UIKit
 import EmptyDataSet_Swift
 
-final class PostsViewController: UIViewController {
+class PostsViewController: UIViewController {
     
     // MARK: Public Properties
     var output: PostsViewOutput!

@@ -13,11 +13,11 @@ import HNService
 
 @testable import HackerNews
 
-class AskModuleAssemblySpec: QuickSpec {
+class ShowModuleAssemblySpec: QuickSpec {
     override func spec() {
         let container = MockContainer().container
         
-        let viewController = container.resolve(PostsViewController.self)
+        let viewController = container.resolve(PostsViewController.self, name: "ShowVC")
         let presenter = viewController?.output as? ShowPresenter
         let router = presenter?.router as? ShowRouter
         let interactor = presenter?.interactor as? ShowInteractor
