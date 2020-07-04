@@ -9,22 +9,12 @@
 import UIKit
 import EmptyDataSet_Swift
 
-class PostsViewController: UIViewController {
+final class PostsViewController: UITableViewController {
     
     // MARK: Public Properties
     var output: PostsViewOutput!
 
     // MARK: Private Properties
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.prefetchDataSource = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        return tableView
-    }()
-    
-    private var refreshControl = UIRefreshControl()
     private var segmentedControl = UISegmentedControl()
     private var theme: Theme?
     
@@ -32,25 +22,21 @@ class PostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        createSubviews()
         output.viewIsReady()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .none)
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        segmentedControl.setNeedsLayout()
+        segmentedControl.layoutIfNeeded()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.invalidateIntrinsicContentSize()
-    }
-    
+
     // MARK: Private Methods
     private func setup() {
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
-            navigationController?.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.navigationItem.largeTitleDisplayMode = .always
         }
         
         navigationController?.navigationBar.isAccessibilityElement = true
@@ -60,25 +46,14 @@ class PostsViewController: UIViewController {
         tableView.register(SkeletonCell.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = Metrics.estimatedRowHeight
-        tableView.refreshControl = refreshControl
+        tableView.refreshControl = UIRefreshControl()
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
-        refreshControl.addTarget(self, action: #selector(refreshStories(_:)), for: .valueChanged)
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshStories(_:)), for: .valueChanged)
     
         extendedLayoutIncludesOpaqueBars = true
         edgesForExtendedLayout = [.top, .left, .right]
-    }
-    
-    private func createSubviews() {
-        view.addSubview(tableView)
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: safeLeadingAnchor),
-            safeTrailingAnchor.constraint(equalTo: tableView.trailingAnchor),
-            safeBottomAnchor.constraint(equalTo: tableView.bottomAnchor)
-        ])
     }
 
     private func configureNavigationItem(with titles: [String]) {
@@ -90,13 +65,6 @@ class PostsViewController: UIViewController {
         segmentedControl.sizeToFit()
         segmentedControl.addTarget(self, action: #selector(segmentedControlDidChange(_:)), for: .valueChanged)
         navigationItem.titleView = segmentedControl
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        segmentedControl.setNeedsLayout()
-        segmentedControl.layoutIfNeeded()
     }
     
     // MARK: Private Methods
@@ -111,7 +79,7 @@ class PostsViewController: UIViewController {
     }
     
     private func hideLoadingIndicator() {
-        tableView.tableFooterView = nil
+        tableView.tableFooterView = UIView()
     }
 }
 
@@ -170,31 +138,31 @@ extension PostsViewController: UITableViewDataSourcePrefetching {
 }
 
 // MARK: UITableViewDelegate
-extension PostsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension PostsViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.didSelectRow(at: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 // MARK: UITableViewDataSource
-extension PostsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+extension PostsViewController {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? SkeletonCell {
             cell.slide(to: .right)
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.numberOfRows()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = output.getModel(for: indexPath)
         return tableView.dequeueReusableCell(forIndexPath: indexPath, with: model)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
@@ -240,8 +208,11 @@ extension PostsViewController: ThemeUpdatable {
         self.theme = theme
         theme.tableView.apply(to: tableView)
         theme.view.apply(to: view)
-        theme.refreshControl.apply(to: refreshControl)
         theme.segmentedControl.apply(to: segmentedControl)
+        
+        if let refreshControl = tableView.refreshControl {
+            theme.refreshControl.apply(to: refreshControl)
+        }
         
         if let indexPaths = tableView.indexPathsForVisibleRows, !indexPaths.isEmpty {
             tableView.reloadRows(at: indexPaths, with: .none)

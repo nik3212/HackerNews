@@ -33,6 +33,7 @@ final class AskPresenter {
         skeletonState = .disabled
         errorDescription = error.localizedDescription
         view.setUserInteractorEnabled(to: true)
+        view.setLoadingIndicator(to: false)
         view.reloadData()
     }
 }

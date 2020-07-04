@@ -80,7 +80,7 @@ class CommentsViewController: UIViewController {
     }
     
     private func hideLoadingIndicator() {
-        tableView.tableFooterView = nil
+        tableView.tableFooterView = UIView()
     }
 }
 

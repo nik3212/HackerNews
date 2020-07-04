@@ -34,6 +34,7 @@ final class ShowPresenter {
         errorDescription = error.localizedDescription
         view.setUserInteractorEnabled(to: true)
         view.reloadData()
+        view.setLoadingIndicator(to: false)
     }
 }
 

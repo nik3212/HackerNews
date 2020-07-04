@@ -67,6 +67,7 @@ final class StoriesPresenter {
         errorDescription = error.localizedDescription
         view.hideRefreshControl()
         view.reloadData()
+        view.setLoadingIndicator(to: false)
     }
 }
 
