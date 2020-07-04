@@ -32,6 +32,7 @@ final class AskPresenter {
     private func showError(_ error: Error) {
         skeletonState = .disabled
         errorDescription = error.localizedDescription
+        view.hideRefreshControl()
         view.setUserInteractorEnabled(to: true)
         view.setLoadingIndicator(to: false)
         view.reloadData()

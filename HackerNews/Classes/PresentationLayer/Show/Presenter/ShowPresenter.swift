@@ -32,6 +32,7 @@ final class ShowPresenter {
     private func showError(_ error: Error) {
         skeletonState = .disabled
         errorDescription = error.localizedDescription
+        view.hideRefreshControl()
         view.setUserInteractorEnabled(to: true)
         view.reloadData()
         view.setLoadingIndicator(to: false)
