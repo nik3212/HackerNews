@@ -29,6 +29,10 @@ final class StoriesPresenter {
     private var errorDescription: String?
     private var isFinished: Bool = false
     
+    private var skeletonCount: Int {
+        return Int(UIScreen.main.bounds.height) / 84 + 1
+    }
+    
     private var loadingIds: [Int] {
         let count = self.stories.count
         return Array(ids[safe:count..<count + StoriesConstants.loadItemsCountPerOnce])
@@ -74,7 +78,7 @@ final class StoriesPresenter {
 // MARK: StoriesViewOutput
 extension StoriesPresenter: PostsViewOutput {    
     func numberOfRows() -> Int {
-        return skeletonState == .enabled ? StoriesConstants.skeletonCount : stories.count
+        return skeletonState == .enabled ? skeletonCount : stories.count
     }
     
     func getModel(for indexPath: IndexPath) -> BaseCellViewModel {
@@ -202,8 +206,7 @@ extension StoriesPresenter: ThemeObserver {
 extension StoriesPresenter {
     private enum StoriesConstants {
         static let loadItemsCountPerOnce: Int = 20
-        static let skeletonCount: Int = 10
-        
+
         static let canceledCode: Int = -999
         
         static let title: String = "Stories"

@@ -23,6 +23,10 @@ final class AskPresenter {
     private var errorDescription: String?
     private var isFinished: Bool = false
     
+    private var skeletonCount: Int {
+        return Int(UIScreen.main.bounds.height) / 84 + 1
+    }
+    
     private var loadingIds: [Int] {
         let count = self.posts.count
         return Array(ids[safe:count..<count + AskConstants.loadItemsCountPerOnce])
@@ -46,7 +50,7 @@ extension AskPresenter: PostsViewOutput {
     }
     
     func numberOfRows() -> Int {
-        return skeletonState == .enabled ? AskConstants.skeletonCount : posts.count
+        return skeletonState == .enabled ? skeletonCount : posts.count
     }
     
     func getSkeletonState() -> SkeletonState {
@@ -79,10 +83,6 @@ extension AskPresenter: PostsViewOutput {
         return PostCellViewModel(post: posts[indexPath.row],
                                  theme: themeManager.theme,
                                  placeholderImage: .placeholder)
-    }
-    
-    func getNumberOfRow() -> Int {
-        return skeletonState == .enabled ? AskConstants.skeletonCount : posts.count
     }
     
     func refreshStories() {
@@ -144,8 +144,7 @@ extension AskPresenter: ThemeObserver {
 extension AskPresenter {
     private enum AskConstants {
         static let loadItemsCountPerOnce: Int = 20
-        static let skeletonCount: Int = 10
-        
+
         static let title: String = "Ask"
         static let emptyTitle: String = "No stories to show"
     }
