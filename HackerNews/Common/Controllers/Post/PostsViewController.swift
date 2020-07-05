@@ -50,6 +50,8 @@ final class PostsViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
+        tableView.prefetchDataSource = self
+        
         tableView.refreshControl?.addTarget(self, action: #selector(refreshStories(_:)), for: .valueChanged)
     
         extendedLayoutIncludesOpaqueBars = true

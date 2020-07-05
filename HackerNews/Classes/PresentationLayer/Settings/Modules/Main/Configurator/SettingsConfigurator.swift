@@ -26,7 +26,7 @@ extension SettingsConfigurator: TabBarViewProtocol {
     }
     
     var title: String? {
-        return "Settings"
+        return Locale.title.localized()
     }
     
     func configureViewController() -> UIViewController {
@@ -45,5 +45,12 @@ extension SettingsConfigurator: TabBarViewProtocol {
         viewController.title = item.title
 
         return UINavigationController(rootViewController: viewController)
+    }
+}
+
+// MARK: Locale
+extension SettingsConfigurator {
+    private enum Locale {
+        static let title: String = "Settings"
     }
 }

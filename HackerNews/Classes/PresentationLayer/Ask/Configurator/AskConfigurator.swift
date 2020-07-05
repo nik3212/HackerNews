@@ -27,7 +27,7 @@ extension AskConfigurator: TabBarViewProtocol {
     }
     
     var title: String? {
-        return "Ask".localized()
+        return Locale.title.localized()
     }
     
     func configureViewController() -> UIViewController {
@@ -43,5 +43,12 @@ extension AskConfigurator: TabBarViewProtocol {
         viewController.title = item.title
         
         return UINavigationController(rootViewController: viewController)
+    }
+}
+
+// MARK: Locale
+extension AskConfigurator {
+    private enum Locale {
+        static let title: String = "Ask"
     }
 }

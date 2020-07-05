@@ -211,6 +211,5 @@ extension StoriesPresenter {
         
         static let title: String = "Stories"
         static let emptyTitle: String = "No stories to show"
-        static let reloadButtonTitle: String = "Reload"
     }
 }

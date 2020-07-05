@@ -27,7 +27,7 @@ extension ShowConfigurator: TabBarViewProtocol {
     }
     
     var title: String? {
-        return "Show".localized()
+        return Locale.title.localized()
     }
     
     func configureViewController() -> UIViewController {
@@ -43,5 +43,12 @@ extension ShowConfigurator: TabBarViewProtocol {
         viewController.title = item.title
         
         return UINavigationController(rootViewController: viewController)
+    }
+}
+
+// MARK: Locale
+extension ShowConfigurator {
+    private enum Locale {
+        static let title: String = "Show"
     }
 }

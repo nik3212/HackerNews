@@ -16,6 +16,6 @@ struct Constants {
     struct Links {
         static let feedbackURL: String = "https://www.github.com/nik3212/HackerNews"
         static let appstoreURL: String = "itms-apps://itunes.apple.com/app/id1442922669"
-        static let imageExtractorURL: String = "https://image-extractor.now.sh/?url="
+        static let imageExtractorURL: String = "https://thumbnail-extractor.herokuapp.com/?url="
     }
 }
