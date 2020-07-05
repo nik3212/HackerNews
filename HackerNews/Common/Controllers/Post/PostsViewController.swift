@@ -24,7 +24,17 @@ final class PostsViewController: UITableViewController {
         setup()
         output.viewIsReady()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.refreshControl?.endRefreshing()
+        
+        if let indexPaths = tableView.indexPathsForVisibleRows, !indexPaths.isEmpty {
+            tableView.reloadRows(at: indexPaths, with: .none)
+        }
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 

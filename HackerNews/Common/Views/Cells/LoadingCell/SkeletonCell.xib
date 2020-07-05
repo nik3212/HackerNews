@@ -22,7 +22,7 @@
                         <color key="backgroundColor" red="0.87450980389999999" green="0.87563550469999996" blue="0.87565046550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Ahh-vY-HWF"/>
-                            <constraint firstAttribute="height" constant="60" id="bFU-zZ-dYx"/>
+                            <constraint firstAttribute="height" priority="999" constant="60" id="bFU-zZ-dYx"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2VZ-jl-Wn2">
