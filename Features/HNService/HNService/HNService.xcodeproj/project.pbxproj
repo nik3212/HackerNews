@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A4D0B2C249FBA8D0076A781 /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4D0B2B249FBA8D0076A781 /* NetworkManager.framework */; };
 		5A5177D124C4D3D5005856C4 /* StoryTypeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5177D024C4D3D5005856C4 /* StoryTypeFactory.swift */; };
+		5A5177D424C4DED3005856C4 /* StoryTypeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5177D024C4D3D5005856C4 /* StoryTypeFactory.swift */; };
 		5AEE9B88249A9FE900929A85 /* HNService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE9B7E249A9FE900929A85 /* HNService.framework */; };
 		5AEE9B8D249A9FE900929A85 /* HNServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B8C249A9FE900929A85 /* HNServiceTests.swift */; };
 		5AEE9B8F249A9FE900929A85 /* HNService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AEE9B81249A9FE900929A85 /* HNService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -421,6 +422,7 @@
 				5AF495B1249D5EE700E469A2 /* PostModel.swift in Sources */,
 				5AF495B2249D5EE700E469A2 /* AskStoriesResource.swift in Sources */,
 				5AF495B3249D5EE700E469A2 /* BestStoriesResource.swift in Sources */,
+				5A5177D424C4DED3005856C4 /* StoryTypeFactory.swift in Sources */,
 				5AF495B4249D5EE700E469A2 /* CommentResource.swift in Sources */,
 				5AF495B5249D5EE700E469A2 /* ItemResource.swift in Sources */,
 				5AF495B6249D5EE700E469A2 /* NewsResource.swift in Sources */,

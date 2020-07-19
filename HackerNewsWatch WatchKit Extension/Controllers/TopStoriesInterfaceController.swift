@@ -33,11 +33,11 @@ final class TopStoriesInterfaceController: WKInterfaceController {
     
     // MARK: Private Methods
     private func fetchIds() {
-        service.loadTopStories(completion: { [weak self] (ids) in
-            self?.fetchPosts(with: Array(ids[0..<20]))
-        }) { [weak self] error in
+        service.fetchIds(for: .top, completion: { [weak self] ids in
+            self?.fetchPosts(with: ids)
+        }, fail: { [weak self] error in
             self?.loadingLabel.setText(error.localizedDescription)
-        }
+        })
     }
     
     private func fetchPosts(with ids: [Int]) {

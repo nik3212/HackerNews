@@ -900,6 +900,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5A5177D324C4DE81005856C4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5AEE9ADA249A84E600929A85 /* Views */,
+				5A8F6B072499722000484C18 /* TopStoriesViewController.swift */,
+				5A8F6B092499722000484C18 /* MainInterface.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5A52211E24479CD7003B799D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1069,7 +1079,7 @@
 		5A8F6B062499722000484C18 /* HackerNewsTodayExtension */ = {
 			isa = PBXGroup;
 			children = (
-				5AEE9AD7249A84C700929A85 /* Today */,
+				5A5177D324C4DE81005856C4 /* View */,
 				5A8F6B0C2499722000484C18 /* Info.plist */,
 			);
 			path = HackerNewsTodayExtension;
@@ -1177,10 +1187,10 @@
 		5AC10D24248AEC0800132EB4 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				5A0D25E5248C0831006718D4 /* Utils */,
 				5A0D25E2248BF94D006718D4 /* Managers */,
 				5AC10D21248AE96100132EB4 /* Model */,
 				5AC10D2D248AF6CE00132EB4 /* Modules */,
+				5A0D25E5248C0831006718D4 /* Utils */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -1312,9 +1322,9 @@
 		5AD9C02F244E3C50007F8769 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5AB113992456252400332B5F /* LoadingFooterView */,
 				5AAC911F2450E8830041006F /* HNImageView.swift */,
 				5AAC911D2450E82E0041006F /* Cells */,
+				5AB113992456252400332B5F /* LoadingFooterView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1445,24 +1455,6 @@
 				5AE2EDDC241040A40011A198 /* MainTabBarViewController.swift */,
 				5ACB43DE244886E30010465B /* MainTabBarViewOutput.swift */,
 				5ACB43E32448875C0010465B /* MainTabBarViewInput.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		5AEE9AD7249A84C700929A85 /* Today */ = {
-			isa = PBXGroup;
-			children = (
-				5AEE9AD8249A84D700929A85 /* View */,
-			);
-			path = Today;
-			sourceTree = "<group>";
-		};
-		5AEE9AD8249A84D700929A85 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				5AEE9ADA249A84E600929A85 /* Views */,
-				5A8F6B072499722000484C18 /* TopStoriesViewController.swift */,
-				5A8F6B092499722000484C18 /* MainInterface.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1860,14 +1852,14 @@
 		D07205212130A02E00E4B1ED /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				5ACA6C452454E2B1007E89BF /* DataStructures */,
-				5AD9C02F244E3C50007F8769 /* Views */,
-				5A1CADEE244B4BDC002D0114 /* Models */,
-				5AE2EDD82410400F0011A198 /* Controllers */,
 				D07204F721309FC600E4B1ED /* Main.storyboard */,
-				D026E8602131ADE000512C32 /* Style */,
+				5AE2EDD82410400F0011A198 /* Controllers */,
+				5ACA6C452454E2B1007E89BF /* DataStructures */,
 				D07205222130A03800E4B1ED /* Extensions */,
+				5A1CADEE244B4BDC002D0114 /* Models */,
+				D026E8602131ADE000512C32 /* Style */,
 				D07205232130A03E00E4B1ED /* Utils */,
+				5AD9C02F244E3C50007F8769 /* Views */,
 			);
 			path = Common;
 			sourceTree = "<group>";
