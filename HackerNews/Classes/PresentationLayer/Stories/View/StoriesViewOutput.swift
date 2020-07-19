@@ -1,5 +1,5 @@
 //
-//  PostsViewOutput.swift
+//  StoriesViewOutput.swift
 //  HackerNews
 //
 //  Created by Nikita Vasilev on 04/03/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PostsViewOutput: class {
+protocol StoriesViewOutput: class {
     func viewIsReady()
     func prefetch(at indexPath: IndexPath)
     func didSelectRow(at row: Int)
@@ -23,6 +23,6 @@ protocol PostsViewOutput: class {
     func getEmptyDataSetImage() -> Image
 }
 
-extension PostsViewOutput {
+extension StoriesViewOutput {
     func segmentedControlDidChange(to index: Int) { }
 }

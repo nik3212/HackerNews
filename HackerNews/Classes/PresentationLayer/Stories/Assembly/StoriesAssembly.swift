@@ -18,14 +18,14 @@ final class StoriesModuleAssembly: Assembly {
             return interactor
         }
 
-        container.register(StoriesRouter.self) { (resolver, viewController: PostsViewController) in
+        container.register(StoriesRouter.self) { (resolver, viewController: StoriesViewController) in
             let router = StoriesRouter()
             router.transitionHandler = viewController
             router.commentsConfigurator = resolver.resolve(CommentsConfigurator.self)
             return router
         }
 
-        container.register(StoriesPresenter.self) { (resolver, viewController: PostsViewController) in
+        container.register(StoriesPresenter.self) { (resolver, viewController: StoriesViewController) in
             let presenter = StoriesPresenter()
 
             presenter.view = viewController
@@ -36,8 +36,8 @@ final class StoriesModuleAssembly: Assembly {
             return presenter
         }
 
-        container.register(PostsViewController.self, name: "StoriesVC") { resolver in
-            let viewController = PostsViewController()
+        container.register(StoriesViewController.self) { resolver in
+            let viewController = StoriesViewController()
             viewController.output = resolver.resolve(StoriesPresenter.self, argument: viewController)
             return viewController
         }

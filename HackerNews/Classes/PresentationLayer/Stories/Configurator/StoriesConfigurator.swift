@@ -31,8 +31,8 @@ extension StoriesConfigurator: TabBarViewProtocol {
     }
     
     func configureViewController() -> UIViewController {
-        guard let viewController = assembler.resolver.resolve(PostsViewController.self, name: "StoriesVC") else {
-            fatalError("PostsViewController shouldn't be nil")
+        guard let viewController = assembler.resolver.resolve(StoriesViewController.self) else {
+            fatalError("StoriesViewController shouldn't be nil")
         }
         
         let item = UITabBarItem()

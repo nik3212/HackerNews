@@ -1,5 +1,5 @@
 //
-//  PostsViewController.swift
+//  StoriesViewController.swift
 //  HackerNews
 //
 //  Created by Nikita Vasilev on 04/03/2020.
@@ -9,10 +9,10 @@
 import UIKit
 import EmptyDataSet_Swift
 
-final class PostsViewController: UITableViewController {
+final class StoriesViewController: UITableViewController {
     
     // MARK: Public Properties
-    var output: PostsViewOutput!
+    var output: StoriesViewOutput!
 
     // MARK: Private Properties
     private var segmentedControl = UISegmentedControl()
@@ -96,7 +96,7 @@ final class PostsViewController: UITableViewController {
 }
 
 // MARK: StoriesViewInput
-extension PostsViewController: PostsViewInput {    
+extension StoriesViewController: StoriesViewInput {
     func setupInitialState(title: String, theme: Theme, titles: [String]?) {
         self.title = title
         self.theme = theme
@@ -141,7 +141,7 @@ extension PostsViewController: PostsViewInput {
 }
 
 // MARK: UITableViewDataSourcePrefetching
-extension PostsViewController: UITableViewDataSourcePrefetching {
+extension StoriesViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             output.prefetch(at: indexPath)
@@ -150,7 +150,7 @@ extension PostsViewController: UITableViewDataSourcePrefetching {
 }
 
 // MARK: UITableViewDelegate
-extension PostsViewController {
+extension StoriesViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.didSelectRow(at: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
@@ -158,7 +158,7 @@ extension PostsViewController {
 }
 
 // MARK: UITableViewDataSource
-extension PostsViewController {
+extension StoriesViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? SkeletonCell {
             cell.slide(to: .right)
@@ -180,7 +180,7 @@ extension PostsViewController {
 }
 
 // MARK: EmptyDataSetSource
-extension PostsViewController: EmptyDataSetSource {
+extension StoriesViewController: EmptyDataSetSource {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         return theme?.emptySetTitle(title: output.getEmptyDataSetTitle())
     }
@@ -203,11 +203,12 @@ extension PostsViewController: EmptyDataSetSource {
 }
 
 // MARK: EmptyDataSetDelegate
-extension PostsViewController: EmptyDataSetDelegate {
+extension StoriesViewController: EmptyDataSetDelegate {
 
 }
 
-extension PostsViewController: PostTableViewCellDelegate {
+// MARK: PostTableViewCellDelegate
+extension StoriesViewController: PostTableViewCellDelegate {
     func imageDidTapped(cell: PostTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         output.didSelectImage(at: indexPath.row)
@@ -215,7 +216,7 @@ extension PostsViewController: PostTableViewCellDelegate {
 }
 
 // MARK: ThemeUpdatable
-extension PostsViewController: ThemeUpdatable {
+extension StoriesViewController: ThemeUpdatable {
     func update(theme: Theme) {
         self.theme = theme
         theme.tableView.apply(to: tableView)
@@ -233,7 +234,7 @@ extension PostsViewController: ThemeUpdatable {
 }
 
 // MARK: Constants
-extension PostsViewController {
+extension StoriesViewController {
     private enum Metrics {
         static let estimatedRowHeight: CGFloat = 75.0
         static let verticalOffset: CGFloat = -50.0
@@ -241,7 +242,7 @@ extension PostsViewController {
 }
 
 // MARK: Selectors
-extension PostsViewController {
+extension StoriesViewController {
     @objc func refreshStories(_ sender: UIRefreshControl) {
         output.refreshStories()
     }

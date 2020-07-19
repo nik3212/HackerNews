@@ -56,7 +56,7 @@ extension TopStoriesViewController: NCWidgetProviding {
 // MARK: Loading Data
 extension TopStoriesViewController {
     private func fetchTopStoriesIds(completionHandler: @escaping (NCUpdateResult) -> Void) {
-        service.loadTopStories(completion: { [weak self] ids in
+        service.fetchIds(for: .top, completion: { [weak self] ids in
             self?.fetchTopStories(from: Array(ids[0..<Metrics.defaultPostCount]), completionHandler: completionHandler)
         }, fail: { _ in
             completionHandler(.failed)
