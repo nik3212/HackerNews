@@ -24,6 +24,10 @@
 
 "Appearance" = "Appearance";
 
+"Comments" = "Comments";
+
+"No comments" = "No comments";
+
 "settings.themes.header" = "Themes";
 
 "settings.help.header" = "Help";

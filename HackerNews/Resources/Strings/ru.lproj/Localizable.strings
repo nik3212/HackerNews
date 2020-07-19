@@ -24,6 +24,10 @@
 
 "Show" = "Демонстрация";
 
+"Comments" = "Комментарии";
+
+"No comments" = "Нет комментариев";
+
 "settings.themes.header" = "Темы";
 
 "settings.help.header" = "Помощь";

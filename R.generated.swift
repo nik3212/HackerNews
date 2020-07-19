@@ -562,7 +562,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 18 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
     struct localizable {
       /// en translation: Appearance
       ///
@@ -576,6 +576,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ru, en
       static let best = Rswift.StringResource(key: "Best", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      /// en translation: Comments
+      ///
+      /// Locales: ru, en
+      static let comments = Rswift.StringResource(key: "Comments", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
       /// en translation: Dark
       ///
       /// Locales: ru, en
@@ -600,6 +604,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: ru, en
       static let news = Rswift.StringResource(key: "News", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      /// en translation: No comments
+      ///
+      /// Locales: ru, en
+      static let noComments = Rswift.StringResource(key: "No comments", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
       /// en translation: Rate Us
       ///
       /// Locales: ru, en
@@ -680,6 +688,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("Best", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Comments
+      ///
+      /// Locales: ru, en
+      static func comments(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Comments", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "Comments"
+        }
+
+        return NSLocalizedString("Comments", bundle: bundle, comment: "")
       }
 
       /// en translation: Dark
@@ -770,6 +793,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("News", bundle: bundle, comment: "")
+      }
+
+      /// en translation: No comments
+      ///
+      /// Locales: ru, en
+      static func noComments(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("No comments", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "No comments"
+        }
+
+        return NSLocalizedString("No comments", bundle: bundle, comment: "")
       }
 
       /// en translation: Rate Us
