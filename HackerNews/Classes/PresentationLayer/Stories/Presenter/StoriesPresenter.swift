@@ -49,7 +49,6 @@ final class StoriesPresenter {
         isFinished = false
         interactor.cancleRequests()
         view.setUserInteractorEnabled(to: false)
-        
         ids.removeAll()
         stories.removeAll()
         skeletonState = .enabled
