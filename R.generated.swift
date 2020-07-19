@@ -90,14 +90,12 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `Comments`.
     static let comments = _R.storyboard.comments()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Main`.
-    static let main = _R.storyboard.main()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
     /// Storyboard `Theme`.
@@ -114,13 +112,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Main", bundle: ...)`
-    static func main(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.main)
     }
     #endif
 
@@ -544,7 +535,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
     /// This `R.string.launchScreen` struct is generated, and contains static references to 1 localization keys.
     struct launchScreen {
@@ -919,50 +910,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.main` struct is generated, and contains static references to 2 localization keys.
-    struct main {
-      /// ru translation: Hacker News
-      ///
-      /// Locales: ru
-      static let kZ9ZSgTitle = Rswift.StringResource(key: "76k-z9-zSg.title", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Item
-      ///
-      /// Locales: ru
-      static let nZA5TQvETitle = Rswift.StringResource(key: "nZA-5T-qvE.title", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-
-      /// ru translation: Hacker News
-      ///
-      /// Locales: ru
-      static func kZ9ZSgTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("76k-z9-zSg.title", tableName: "Main", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
-          return "76k-z9-zSg.title"
-        }
-
-        return NSLocalizedString("76k-z9-zSg.title", tableName: "Main", bundle: bundle, comment: "")
-      }
-
-      /// ru translation: Item
-      ///
-      /// Locales: ru
-      static func nZA5TQvETitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("nZA-5T-qvE.title", tableName: "Main", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
-          return "nZA-5T-qvE.title"
-        }
-
-        return NSLocalizedString("nZA-5T-qvE.title", tableName: "Main", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
     fileprivate init() {}
   }
 
@@ -1072,9 +1019,6 @@ struct _R: Rswift.Validatable {
       try launchScreen.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try main.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try settings.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -1108,22 +1052,6 @@ struct _R: Rswift.Validatable {
 
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
-
-      let bundle = R.hostingBundle
-      let name = "Main"
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {

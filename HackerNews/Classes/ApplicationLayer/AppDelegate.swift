@@ -31,23 +31,9 @@ extension AppDelegate: UIApplicationDelegate {
         
         ThemeManager.shared.theme = Theme(rawValue: SettingsManager.shared.currentTheme ?? "") ?? .dark
         
-        loadFabricKeys()
-        
         FirebaseApp.configure()
         
         return true
-    }
-    
-    private func loadFabricKeys() {
-//        if let resourceURL = Bundle.main.url(forResource: "fabric.apikey", withExtension: nil) {
-//            do {
-//                let fabricAPIKey = try String.init(contentsOf: resourceURL)
-//                let fabricAPIKeyTrimmed = fabricAPIKey.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-//                Crashlytics.start(withAPIKey: fabricAPIKeyTrimmed)
-//            } catch {
-//                print("Failed to initialize Fabric")
-//            }
-//        }
     }
 }
 
