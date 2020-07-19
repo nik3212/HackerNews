@@ -13,28 +13,8 @@ final public class HNService: BaseService { }
 
 // MARK: HNServiceProtocol
 extension HNService: HNServiceProtocol {
-    public func loadTopStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
-        let resource = TopStoriesResource()
-        load(resource: resource, completion: completion, fail: fail)
-    }
-
-    public func loadNewStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
-        let resource = NewStoriesResource()
-        load(resource: resource, completion: completion, fail: fail)
-    }
-    
-    public func loadBestStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
-        let resource = BestStoriesResource()
-        load(resource: resource, completion: completion, fail: fail)
-    }
-    
-    public func loadAskStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
-        let resource = AskStoriesResource()
-        load(resource: resource, completion: completion, fail: fail)
-    }
-    
-    public func loadShowStories(completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
-        let resource = ShowStoriesResource()
+    public func fetchIds(for type: StoryType, completion: @escaping ([Int]) -> Void, fail: @escaping (Error) -> Void) {
+        let resource = StoryTypeFactory.resource(for: type)
         load(resource: resource, completion: completion, fail: fail)
     }
     

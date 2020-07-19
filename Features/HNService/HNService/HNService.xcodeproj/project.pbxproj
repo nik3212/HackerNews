@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A4D0B2C249FBA8D0076A781 /* NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4D0B2B249FBA8D0076A781 /* NetworkManager.framework */; };
+		5A5177D124C4D3D5005856C4 /* StoryTypeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5177D024C4D3D5005856C4 /* StoryTypeFactory.swift */; };
 		5AEE9B88249A9FE900929A85 /* HNService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE9B7E249A9FE900929A85 /* HNService.framework */; };
 		5AEE9B8D249A9FE900929A85 /* HNServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE9B8C249A9FE900929A85 /* HNServiceTests.swift */; };
 		5AEE9B8F249A9FE900929A85 /* HNService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AEE9B81249A9FE900929A85 /* HNService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		5A4D0B2B249FBA8D0076A781 /* NetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A5177D024C4D3D5005856C4 /* StoryTypeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTypeFactory.swift; sourceTree = "<group>"; };
 		5AEE9B7E249A9FE900929A85 /* HNService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HNService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AEE9B81249A9FE900929A85 /* HNService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNService.h; sourceTree = "<group>"; };
 		5AEE9B82249A9FE900929A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				5AEE9BC0249AA41700929A85 /* Constants.swift */,
+				5A5177D024C4D3D5005856C4 /* StoryTypeFactory.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				5AEE9BB7249AA31800929A85 /* NewsResource.swift in Sources */,
 				5AEE9BBD249AA32700929A85 /* BaseService.swift in Sources */,
 				5AEE9BBB249AA31A00929A85 /* Item.swift in Sources */,
+				5A5177D124C4D3D5005856C4 /* StoryTypeFactory.swift in Sources */,
 				5AEE9BBC249AA31A00929A85 /* PostModel.swift in Sources */,
 				5AEE9BC1249AA41700929A85 /* Constants.swift in Sources */,
 				5AEE9BB1249AA31200929A85 /* HNServiceProtocol.swift in Sources */,

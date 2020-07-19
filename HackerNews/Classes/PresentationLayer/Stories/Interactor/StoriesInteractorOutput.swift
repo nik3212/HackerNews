@@ -9,14 +9,8 @@
 import struct HNService.PostModel
 
 protocol StoriesInteractorOutput: class {
-    func fetchTopStoriesSuccess(ids: [Int])
-    func fetchTopStoriesFailed(error: Error)
-    
-    func fetchBestStoriesSuccess(ids: [Int])
-    func fetchBestStoriesFailed(error: Error)
-    
-    func fetchNewStoriesSuccess(ids: [Int])
-    func fetchNewStoriesFailed(error: Error)
+    func fetchIdsSuccess(_ ids: [Int])
+    func fetchIdsFail(error: Error)
     
     func fetchItemsSuccess(_ items: [PostModel])
     func fetchItemsFailed(error: Error)

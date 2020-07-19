@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import enum HNService.StoryType
 import struct HNService.PostModel
 
 enum SkeletonState {
@@ -41,15 +42,7 @@ final class StoriesPresenter {
     // MARK: Private Methods
     private func fetchStories(by type: StoryType) {
         self.storyType = type
-        
-        switch type {
-        case .top:
-            interactor.fetchTopStories()
-        case .best:
-            interactor.fetchBestStories()
-        case .new:
-            interactor.fetchNewStories()
-        }
+        interactor.fetchIds(for: type)
     }
     
     private func backToInitialState() {
@@ -94,7 +87,7 @@ extension StoriesPresenter: PostsViewOutput {
         skeletonState = .enabled
         view.setupInitialState(title: StoriesConstants.title.localized(),
                                theme: themeManager.theme,
-                               titles: StoryType.allCases.map { $0.rawValue.localized() })
+                               titles: StoryType.allValues.map { $0.displayName })
         view.setUserInteractorEnabled(to: false)
         themeManager?.addObserver(self)
         fetchStories(by: storyType)
@@ -118,33 +111,15 @@ extension StoriesPresenter: PostsViewOutput {
 
 // MARK: StoriesInteractorOutput
 extension StoriesPresenter: StoriesInteractorOutput {
-    func fetchBestStoriesSuccess(ids: [Int]) {
+    func fetchIdsSuccess(_ ids: [Int]) {
         self.ids = ids
         interactor.fetchPosts(with: loadingIds)
     }
     
-    func fetchBestStoriesFailed(error: Error) {
+    func fetchIdsFail(error: Error) {
         showError(error)
     }
-    
-    func fetchNewStoriesSuccess(ids: [Int]) {
-        self.ids = ids
-        interactor.fetchPosts(with: loadingIds)
-    }
-    
-    func fetchNewStoriesFailed(error: Error) {
-        showError(error)
-    }
-    
-    func fetchTopStoriesSuccess(ids: [Int]) {
-        self.ids = ids
-        interactor.fetchPosts(with: loadingIds)
-    }
-    
-    func fetchTopStoriesFailed(error: Error) {
-        showError(error)
-    }
-    
+        
     func fetchItemsSuccess(_ items: [PostModel]) {
         self.isFinished = items.isEmpty
         self.stories.append(contentsOf: items.sorted(by: { $0.id > $1.id }))
@@ -168,7 +143,8 @@ extension StoriesPresenter: StoriesInteractorOutput {
     }
     
     func segmentedControlDidChange(to index: Int) {
-        let type = StoryType.allCases[index]
+        guard let type = StoryType(rawValue: index) else { return }
+        
         backToInitialState()
         fetchStories(by: type)
     }
@@ -183,15 +159,6 @@ extension StoriesPresenter: StoriesInteractorOutput {
     
     func getEmptyDataSetImage() -> Image {
         return .connectionError
-    }
-}
-
-// MARK: StoryType
-extension StoriesPresenter {
-    enum StoryType: String, CaseIterable {
-        case new = "New"
-        case top = "Top"
-        case best = "Best"
     }
 }
 

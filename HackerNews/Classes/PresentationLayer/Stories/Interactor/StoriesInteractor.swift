@@ -8,6 +8,7 @@
 
 import Foundation
 import NetworkManager
+import enum HNService.StoryType
 import protocol HNService.HNServiceProtocol
 
 class StoriesInteractor {
@@ -18,29 +19,11 @@ class StoriesInteractor {
 
 // MARK: StoriesInteractorInput
 extension StoriesInteractor: StoriesInteractorInput {
-    func fetchTopStories() {
-        networkService?.loadTopStories(completion: { [weak self] ids in
-            self?.output?.fetchTopStoriesSuccess(ids: ids)
+    func fetchIds(for type: StoryType) {
+        networkService?.fetchIds(for: type, completion: { [weak self] ids in
+            self?.output?.fetchIdsSuccess(ids)
         }, fail: { [weak self] error in
-            self?.output?.fetchTopStoriesFailed(error: error)
-        })
-    }
-    
-    func fetchBestStories() {
-        networkService?.loadBestStories(completion: { [weak self] ids in
-            self?.output?.fetchBestStoriesSuccess(ids: ids)
-            }, fail: { [weak self] error in
-            self?.output?.fetchBestStoriesFailed(error: error)
-        })
-    }
-    
-    func fetchNewStories() {
-        //self.output?.fetchNewStoriesFailed(error: NetworkError.decodingFailed)
-        
-        networkService?.loadNewStories(completion: { [weak self] ids in
-            self?.output?.fetchNewStoriesSuccess(ids: ids)
-            }, fail: { [weak self] error in
-            self?.output?.fetchNewStoriesFailed(error: error)
+            self?.output?.fetchIdsFail(error: error)
         })
     }
     
