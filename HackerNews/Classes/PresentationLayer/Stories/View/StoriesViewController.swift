@@ -124,15 +124,7 @@ extension StoriesViewController: StoriesViewInput {
     }
     
     func scrollContentToTop() {
-        if #available(iOS 11.0, *) {
-            tableView.setContentOffset(CGPoint(x: 0,
-                                               y: -tableView.adjustedContentInset.top),
-                                       animated: false)
-        } else {
-            tableView.setContentOffset(CGPoint(x: 0,
-                                               y: -tableView.contentInset.top),
-                                       animated: false)
-        }
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
     func setLoadingIndicator(to state: Bool) {

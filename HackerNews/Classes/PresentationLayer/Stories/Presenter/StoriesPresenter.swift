@@ -49,11 +49,12 @@ final class StoriesPresenter {
         isFinished = false
         interactor.cancleRequests()
         view.setUserInteractorEnabled(to: false)
-        view.scrollContentToTop()
+        
         ids.removeAll()
         stories.removeAll()
         skeletonState = .enabled
         view.reloadData()
+        view.scrollContentToTop()
     }
     
     private func showError(_ error: Error) {
