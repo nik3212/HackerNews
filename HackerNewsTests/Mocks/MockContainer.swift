@@ -26,9 +26,7 @@ final class MockContainer {
             RootModuleAssembly(),
             MainTabBarModuleAssembly(),
             SettingsModuleAssembly(),
-            AskModuleAssembly(),
             StoriesModuleAssembly(),
-            ShowModuleAssembly(),
             ThemeModuleAssembly(),
             ServiceLocatorAssembly(),
             CommentsModuleAssembly()

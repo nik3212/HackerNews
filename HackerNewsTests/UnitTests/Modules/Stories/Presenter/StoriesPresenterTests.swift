@@ -47,7 +47,7 @@ final class StoriesPresenterSpec: QuickSpec {
             }
             
             it("set segmented control titles") {
-                expect(view.titles).to(equal(StoriesPresenter.StoryType.allCases.map { $0.rawValue.localized() }))
+                expect(view.titles).to(equal(StoryType.allValues.map { $0.displayName }))
             }
             
             it("set theme") {
@@ -59,7 +59,7 @@ final class StoriesPresenterSpec: QuickSpec {
             }
             
             it("fetch stories ids") {
-                expect(interactor.fetchNewStoriesCalled).to(beTrue())
+                expect(interactor.fetchIdsCalled).to(beTrue())
                 expect(view.userInteractionEnabled).to(beFalse())
             }
             
@@ -74,7 +74,7 @@ final class StoriesPresenterSpec: QuickSpec {
         describe("fetching ids") {
             context("fetching new stories ids success") {
                 beforeEach {
-                    presenter.fetchNewStoriesSuccess(ids: Array(0...50))
+                    presenter.fetchIdsSuccess(Array(0...50))
                 }
                 
                 it("interactor fetch ids") {
@@ -84,57 +84,7 @@ final class StoriesPresenterSpec: QuickSpec {
             
             context("fetching new stories ids failed") {
                 beforeEach {
-                    presenter.fetchNewStoriesFailed(error: UnitTestError())
-                }
-                
-                it("should show error") {
-                    expect(view.userInteractionEnabled).to(beTrue())
-                    expect(view.isReloadDataCalled).to(beTrue())
-                    expect(presenter.getEmptyDataSetTitle()).to(equal(Locale.emptyTitle.localized()))
-                    expect(presenter.getEmptyDataSetDecription()).toNot(beNil())
-                    expect(presenter.getEmptyDataSetImage()).toNot(beNil())
-                    expect(presenter.getSkeletonState()).to(equal(.disabled))
-                }
-            }
-            
-            context("fetching best stories ids success") {
-                beforeEach {
-                    presenter.fetchBestStoriesSuccess(ids: Array(0...50))
-                }
-                
-                it("interactor fetch ids") {
-                    expect(interactor.postsIds).to(equal(Array(0...19)))
-                }
-            }
-            
-            context("fetching best stories ids failed") {
-                beforeEach {
-                    presenter.fetchBestStoriesFailed(error: UnitTestError())
-                }
-                
-                it("should show error") {
-                    expect(view.userInteractionEnabled).to(beTrue())
-                    expect(view.isReloadDataCalled).to(beTrue())
-                    expect(presenter.getEmptyDataSetTitle()).to(equal(Locale.emptyTitle.localized()))
-                    expect(presenter.getEmptyDataSetDecription()).toNot(beNil())
-                    expect(presenter.getEmptyDataSetImage()).toNot(beNil())
-                    expect(presenter.getSkeletonState()).to(equal(.disabled))
-                }
-            }
-            
-            context("fetching top stories ids success") {
-                beforeEach {
-                    presenter.fetchTopStoriesSuccess(ids: Array(0...50))
-                }
-                
-                it("interactor fetch ids") {
-                    expect(interactor.postsIds).to(equal(Array(0...19)))
-                }
-            }
-            
-            context("fetching top stories ids failed") {
-                beforeEach {
-                    presenter.fetchTopStoriesFailed(error: UnitTestError())
+                    presenter.fetchItemsFailed(error: UnitTestError())
                 }
                 
                 it("should show error") {
@@ -212,13 +162,13 @@ final class StoriesPresenterSpec: QuickSpec {
             }
             
             it("send request") {
-                expect(interactor.fetchNewStoriesCalled).to(beTrue())
+                expect(interactor.fetchIdsCalled).to(beTrue())
             }
         }
         
         describe("prefetch data") {
             beforeEach {
-                presenter.fetchNewStoriesSuccess(ids: Array(0...50))
+                presenter.fetchIdsSuccess(Array(0...50))
                 presenter.fetchItemsSuccess([TestData.post])
                 presenter.prefetch(at: IndexPath(row: 0, section: 0))
             }
@@ -256,39 +206,7 @@ final class StoriesPresenterSpec: QuickSpec {
                 }
                 
                 it("send request") {
-                    expect(interactor.fetchNewStoriesCalled).to(beTrue())
-                }
-            }
-            
-            context("on top stories") {
-                beforeEach {
-                    presenter.segmentedControlDidChange(to: 1)
-                }
-                
-                it("show loader on view") {
-                    expect(view.userInteractionEnabled).to(beFalse())
-                    expect(view.isReloadDataCalled).to(beTrue())
-                    expect(view.scrollContentToTopCalled).to(beTrue())
-                }
-                
-                it("send request") {
-                    expect(interactor.fetchTopStoriesCalled).to(beTrue())
-                }
-            }
-            
-            context("on best stories") {
-                beforeEach {
-                    presenter.segmentedControlDidChange(to: 2)
-                }
-                
-                it("show loader on view") {
-                    expect(view.userInteractionEnabled).to(beFalse())
-                    expect(view.isReloadDataCalled).to(beTrue())
-                    expect(view.scrollContentToTopCalled).to(beTrue())
-                }
-                
-                it("send request") {
-                    expect(interactor.fetchBestStoriesCalled).to(beTrue())
+                    expect(interactor.fetchIdsCalled).to(beTrue())
                 }
             }
         }
@@ -300,22 +218,12 @@ extension StoriesPresenterSpec {
         var output: StoriesInteractorOutput?
         var networkService: HNServiceProtocol?
         
-        var fetchTopStoriesCalled: Bool = false
-        var fetchBestStoriesCalled: Bool = false
-        var fetchNewStoriesCalled: Bool = false
+        var fetchIdsCalled: Bool = false
         var cancleRequestsCalled: Bool = false
         var postsIds: [Int] = []
         
-        func fetchTopStories() {
-            fetchTopStoriesCalled = true
-        }
-        
-        func fetchBestStories() {
-            fetchBestStoriesCalled = true
-        }
-        
-        func fetchNewStories() {
-            fetchNewStoriesCalled = true
+        func fetchIds(for type: StoryType) {
+            fetchIdsCalled = true
         }
         
         func fetchPosts(with ids: [Int]) {
@@ -345,8 +253,8 @@ extension StoriesPresenterSpec {
         }
     }
     
-    final class MockView: UIViewController, PostsViewInput {
-        var output: PostsViewOutput!
+    final class MockView: UIViewController, StoriesViewInput {
+        var output: StoriesViewOutput!
         
         var navigationTitle: String?
         var theme: Theme?

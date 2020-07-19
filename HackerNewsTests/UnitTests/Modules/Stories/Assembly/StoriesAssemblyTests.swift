@@ -17,7 +17,7 @@ class StoriesModuleAssemblyTests: QuickSpec {
     override func spec() {
         let container = MockContainer().container
         
-        let viewController = container.resolve(PostsViewController.self, name: "StoriesVC")
+        let viewController = container.resolve(StoriesViewController.self)
         let presenter = viewController?.output as? StoriesPresenter
         let router = presenter?.router as? StoriesRouter
         let interactor = presenter?.interactor as? StoriesInteractor
@@ -25,7 +25,7 @@ class StoriesModuleAssemblyTests: QuickSpec {
         describe("Checking module creation") {
             it("Must be StoriesViewController") {
                 expect(viewController).toNot(beNil())
-                expect(viewController).to(beAKindOf(PostsViewController.self))
+                expect(viewController).to(beAKindOf(StoriesViewController.self))
             }
             
             it("Must contains correct output") {

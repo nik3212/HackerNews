@@ -30,84 +30,28 @@ final class StoriesInteractorSpec: QuickSpec {
         describe("fetch ids") {
             context("top stories") {
                 beforeEach {
-                    interactor.fetchTopStories()
+                    interactor.fetchIds(for: .top)
                 }
                 
                 context("success") {
                     beforeEach {
-                        networkService.loadTopStoriesCompletion?(Array(0...50))
+                        networkService.fetchIdsCompletion?(Array(0...50))
                     }
                     
                     it("should call output to present all ids") {
-                        expect(networkService.loadTopStoriesCalled).to(beTrue())
-                        expect(output.fetchedTopStoriesIds).to(equal(Array(0...50)))
+                        expect(networkService.fetchIdsCalled).to(beTrue())
+                        expect(output.fetchedStoriesIds).to(equal(Array(0...50)))
                     }
                 }
                 
                 context("failed") {
                     beforeEach {
-                        networkService.loadTopStoriesFail?(UnitTestError())
+                        networkService.fetchIdsFail?(UnitTestError())
                     }
                     
                     it("should call output to display error") {
-                        expect(networkService.loadTopStoriesCalled).to(beTrue())
-                        expect(output.fetchedTopStoriesIdsError).to(beAKindOf(UnitTestError.self))
-                    }
-                }
-            }
-            
-            context("best stories") {
-                beforeEach {
-                    interactor.fetchBestStories()
-                }
-                
-                context("success") {
-                    beforeEach {
-                        networkService.loadBestStoriesCompletion?(Array(0...50))
-                    }
-                    
-                    it("should call output to present all ids") {
-                        expect(networkService.loadBestStoriesCalled).to(beTrue())
-                        expect(output.fetchedBestStoriesIds).to(equal(Array(0...50)))
-                    }
-                }
-                
-                context("failed") {
-                    beforeEach {
-                        networkService.loadBestStoriesFail?(UnitTestError())
-                    }
-                    
-                    it("should call output to display error") {
-                        expect(networkService.loadBestStoriesCalled).to(beTrue())
-                        expect(output.fetchedBestStoriesIdsError).to(beAKindOf(UnitTestError.self))
-                    }
-                }
-            }
-            
-            context("new stories") {
-                beforeEach {
-                    interactor.fetchNewStories()
-                }
-                
-                context("success") {
-                    beforeEach {
-                        networkService.loadNewStoriesCompletion?(Array(0...50))
-                    }
-                    
-                    it("should call output to present all ids") {
-                        expect(networkService.loadNewStoriesCalled).to(beTrue())
-                        expect(output.fetchedNewStoriesIds).to(equal(Array(0...50)))
-                    }
-                }
-                
-                context("failed") {
-                    beforeEach {
-                        networkService.loadNewStoriesFail?(UnitTestError())
-                    }
-                    
-                    it("should call output to display error") {
-                        expect(networkService.loadNewStoriesCalled).to(beTrue())
-                        expect(output.fetchedNewStoriesIdsError).to(beAKindOf(UnitTestError.self))
+                        expect(networkService.fetchIdsCalled).to(beTrue())
+                        expect(output.fetchedError).to(beAKindOf(UnitTestError.self))
                     }
                 }
             }
@@ -118,37 +62,18 @@ final class StoriesInteractorSpec: QuickSpec {
 // MARK: Mocks
 extension StoriesInteractorSpec {
     final class MockPresenter: StoriesInteractorOutput {
-        var fetchedTopStoriesIds: [Int] = []
-        var fetchedTopStoriesIdsError: Error?
-        var fetchedBestStoriesIds: [Int] = []
-        var fetchedBestStoriesIdsError: Error?
-        var fetchedNewStoriesIds: [Int] = []
-        var fetchedNewStoriesIdsError: Error?
+        var fetchedStoriesIds: [Int] = []
+        var fetchedError: Error?
+        
         var fetchedPosts: [PostModel] = []
         var fetchedPostsError: Error?
         
-        func fetchTopStoriesSuccess(ids: [Int]) {
-            fetchedTopStoriesIds = ids
+        func fetchIdsSuccess(_ ids: [Int]) {
+            fetchedStoriesIds = ids
         }
         
-        func fetchTopStoriesFailed(error: Error) {
-            fetchedTopStoriesIdsError = error
-        }
-        
-        func fetchBestStoriesSuccess(ids: [Int]) {
-            fetchedBestStoriesIds = ids
-        }
-        
-        func fetchBestStoriesFailed(error: Error) {
-            fetchedBestStoriesIdsError = error
-        }
-        
-        func fetchNewStoriesSuccess(ids: [Int]) {
-            fetchedNewStoriesIds = ids
-        }
-        
-        func fetchNewStoriesFailed(error: Error) {
-            fetchedNewStoriesIdsError = error
+        func fetchIdsFail(error: Error) {
+            fetchedError = error
         }
         
         func fetchItemsSuccess(_ items: [PostModel]) {
