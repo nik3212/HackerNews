@@ -113,7 +113,7 @@ final class AskPresenterTests: QuickSpec {
                 }
                 
                 it("count displayed posts") {
-                    expect(presenter.getNumberOfRow()).to(equal(1))
+                    expect(presenter.numberOfRows()).to(equal(1))
                 }
             }
             
