@@ -10,6 +10,7 @@ import FBSnapshotTestCase
     
 @testable import HackerNews
 
+// swiftlint:disable force_unwrapping
 final class SettingsShapshotTests: FBSnapshotTestCase {
     
     var settingsViewController: SettingsViewController!
@@ -36,7 +37,8 @@ final class SettingsShapshotTests: FBSnapshotTestCase {
         continueAfterFailure = true
         
         settingsViewController = MockContainer().container.resolve(SettingsViewController.self)
-        presenter = MockContainer().container.resolve(SettingsPresenter.self, argument: settingsViewController!)
+        presenter = MockContainer().container.resolve(SettingsPresenter.self,
+                                                      argument: settingsViewController!)
         themeManager = MockContainer().container.resolve(ThemeManager.self)
     }
     
@@ -52,3 +54,4 @@ final class SettingsShapshotTests: FBSnapshotTestCase {
         FBSnapshotVerifyView(settingsViewController.view, identifier: identifier, perPixelTolerance: 0.05)
     }
 }
+// swiftlint:enable force_unwrapping

@@ -45,9 +45,9 @@ final class TopStoriesInterfaceController: WKInterfaceController {
             self?.posts = posts
             self?.configureTableView(posts)
             self?.loadingLabel.setHidden(true)
-        }) { [weak self] error in
+        }, fail: { [weak self] error in
             self?.loadingLabel.setText(error.localizedDescription)
-        }
+        })
     }
     
     private func configureTableView(_ posts: [PostModel]) {

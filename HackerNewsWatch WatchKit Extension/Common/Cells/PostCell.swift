@@ -16,7 +16,6 @@ final class PostCell: NSObject {
     @IBOutlet private var domainLabel: WKInterfaceLabel!
     @IBOutlet private var rateLabel: WKInterfaceLabel!
 
-    
     // MARK: Public Methods
     func setup(post: PostModel) {
         titleLabel.setText(post.title)

@@ -102,9 +102,9 @@ final class CommentsInterfaceController: WKInterfaceController {
     private func fetchComment(for id: Int) {
         service.loadComments(with: id, completion: { [weak self] model in
             self?.prepareComments(from: model)
-        }) { [weak self] error in
+        }, fail: { [weak self] error in
             self?.loadingLabel.setText(error.localizedDescription)
-        }
+        })
     }
 }
 
