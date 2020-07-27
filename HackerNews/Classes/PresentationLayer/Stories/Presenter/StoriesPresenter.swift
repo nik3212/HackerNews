@@ -47,7 +47,7 @@ final class StoriesPresenter {
     
     private func backToInitialState() {
         isFinished = false
-        interactor.cancleRequests()
+        interactor.cancelRequests()
         view.setUserInteractorEnabled(to: false)
         ids.removeAll()
         stories.removeAll()

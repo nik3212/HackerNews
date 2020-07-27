@@ -16,5 +16,5 @@ protocol StoriesInteractorInput {
     func fetchIds(for type: StoryType)
     
     func fetchPosts(with ids: [Int])
-    func cancleRequests()
+    func cancelRequests()
 }

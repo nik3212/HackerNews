@@ -8,12 +8,7 @@
 
 import UIKit
 
-class SettingsPresenter {
-    
-    private enum SettingsConstants {
-        static let title: String = "Settings"
-    }
-    
+final class SettingsPresenter {
     // MARK: Public Properties
     weak var view: SettingsViewInput!
     var interactor: SettingsInteractorInput!
@@ -29,7 +24,7 @@ class SettingsPresenter {
 // MARK: SettingsViewOutput
 extension SettingsPresenter: SettingsViewOutput {
     func viewIsReady() {
-        view.setupInitialState(title: SettingsConstants.title.localized(), theme: themeManager.theme)
+        view.setupInitialState(title: Locale.title.localized(), theme: themeManager.theme)
         themeManager?.addObserver(self)
     }
     
@@ -99,5 +94,12 @@ extension SettingsPresenter: SettingsInteractorOutput {
 extension SettingsPresenter: ThemeObserver {
     func themeDidChange(_ theme: Theme) {
         view.update(theme: theme)
+    }
+}
+
+// MARK: Locale
+extension SettingsPresenter {
+    private enum Locale {
+        static let title: String = "Settings"
     }
 }

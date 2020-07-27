@@ -35,7 +35,7 @@ extension StoriesInteractor: StoriesInteractorInput {
         })
     }
     
-    func cancleRequests() {
+    func cancelRequests() {
         networkService?.cancelAllTasks()
     }
 }

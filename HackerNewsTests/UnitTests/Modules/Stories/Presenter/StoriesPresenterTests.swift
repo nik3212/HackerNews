@@ -219,7 +219,7 @@ extension StoriesPresenterSpec {
         var networkService: HNServiceProtocol?
         
         var fetchIdsCalled: Bool = false
-        var cancleRequestsCalled: Bool = false
+        var cancelRequestsCalled: Bool = false
         var postsIds: [Int] = []
         
         func fetchIds(for type: StoryType) {
@@ -230,8 +230,8 @@ extension StoriesPresenterSpec {
             postsIds = ids
         }
         
-        func cancleRequests() {
-            cancleRequestsCalled = true
+        func cancelRequests() {
+            cancelRequestsCalled = true
         }
     }
     
