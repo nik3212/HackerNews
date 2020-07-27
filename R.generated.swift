@@ -141,7 +141,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 11 files.
+  /// This `R.file` struct is generated, and contains static references to 9 files.
   struct file {
     /// Resource file `GoogleService-Info.plist`.
     static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
@@ -161,10 +161,6 @@ struct R: Rswift.Validatable {
     static let poppinsRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-Regular", pathExtension: "ttf")
     /// Resource file `Poppins-SemiBold.ttf`.
     static let poppinsSemiBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Poppins-SemiBold", pathExtension: "ttf")
-    /// Resource file `fabric.apikey`.
-    static let fabricApikey = Rswift.FileResource(bundle: R.hostingBundle, name: "fabric", pathExtension: "apikey")
-    /// Resource file `fabric.buildsecret`.
-    static let fabricBuildsecret = Rswift.FileResource(bundle: R.hostingBundle, name: "fabric", pathExtension: "buildsecret")
 
     /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
     static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
@@ -217,18 +213,6 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Poppins-SemiBold", withExtension: "ttf")`
     static func poppinsSemiBoldTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.poppinsSemiBoldTtf
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "fabric", withExtension: "apikey")`
-    static func fabricApikey(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.fabricApikey
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "fabric", withExtension: "buildsecret")`
-    static func fabricBuildsecret(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.fabricBuildsecret
       return fileResource.bundle.url(forResource: fileResource)
     }
 

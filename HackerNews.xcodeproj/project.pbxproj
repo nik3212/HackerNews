@@ -23,8 +23,6 @@
 		37B144B44710E04D53D38B1F /* SettingsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C7453871B7DB5374C91D0 /* SettingsViewInput.swift */; };
 		384F0821219E07D30029ADDD /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F0820219E07D30029ADDD /* Alertable.swift */; };
 		385B495311D6CBD5EB3F44E7 /* SettingsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84559136E2CC1694F565A308 /* SettingsInteractorInput.swift */; };
-		3860B559219F2DD800D2CC03 /* fabric.buildsecret in Resources */ = {isa = PBXBuildFile; fileRef = 3860B557219F2DD800D2CC03 /* fabric.buildsecret */; };
-		3860B55A219F2DD800D2CC03 /* fabric.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 3860B558219F2DD800D2CC03 /* fabric.apikey */; };
 		3867CB6F215FB264003C0658 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867CB6E215FB264003C0658 /* Date+.swift */; };
 		38AB0BDD12801ED62ABDAA88 /* ThemePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABC193D2B780816BABAF6D7 /* ThemePresenterTests.swift */; };
 		38F7969A2198A2710083EFEF /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F796992198A2710083EFEF /* String+.swift */; };
@@ -336,8 +334,6 @@
 		2BE2E7CCBA31084C76C3274C /* CommentsViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommentsViewInput.swift; sourceTree = "<group>"; };
 		2C08F6F4829CAEB8EF67D15A /* ThemeConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeConfigurator.swift; sourceTree = "<group>"; };
 		384F0820219E07D30029ADDD /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
-		3860B557219F2DD800D2CC03 /* fabric.buildsecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.buildsecret; sourceTree = "<group>"; };
-		3860B558219F2DD800D2CC03 /* fabric.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fabric.apikey; sourceTree = "<group>"; };
 		3867CB6E215FB264003C0658 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		38F796992198A2710083EFEF /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3B757722416640AE5DA2D5B6 /* ThemeConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeConfiguratorTests.swift; sourceTree = "<group>"; };
@@ -706,15 +702,6 @@
 				71C4B2F3CE40C5B4BBB8DFDD /* SettingsRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		3860B556219F2DD800D2CC03 /* Keys */ = {
-			isa = PBXGroup;
-			children = (
-				3860B557219F2DD800D2CC03 /* fabric.buildsecret */,
-				3860B558219F2DD800D2CC03 /* fabric.apikey */,
-			);
-			path = Keys;
 			sourceTree = "<group>";
 		};
 		3F8D45DA94E05083F9573FC9 /* Assembly */ = {
@@ -1899,7 +1886,6 @@
 			isa = PBXGroup;
 			children = (
 				D07205392130ABA400E4B1ED /* Fonts */,
-				3860B556219F2DD800D2CC03 /* Keys */,
 				5A8BF1632449AAAE00215883 /* Strings */,
 				D07204FA21309FC900E4B1ED /* Assets.xcassets */,
 				D07204FF21309FC900E4B1ED /* Info.plist */,
@@ -2291,14 +2277,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3860B55A219F2DD800D2CC03 /* fabric.apikey in Resources */,
 				D07204FE21309FC900E4B1ED /* LaunchScreen.storyboard in Resources */,
 				D07204FB21309FC900E4B1ED /* Assets.xcassets in Resources */,
 				5A9C965624425B4A002AC0F5 /* Poppins-ExtraLight.ttf in Resources */,
 				5AD8D59624532F6100D7E1F1 /* Comments.storyboard in Resources */,
 				5A52212324479D1B003B799D /* ThemeSelectableTableViewCell.xib in Resources */,
 				5A7347E7242E9562005B394F /* SettingsTableViewCell.xib in Resources */,
-				3860B559219F2DD800D2CC03 /* fabric.buildsecret in Resources */,
 				5A9C965924425B4A002AC0F5 /* Poppins-Light.ttf in Resources */,
 				5A9C965224425B4A002AC0F5 /* Poppins-Bold.ttf in Resources */,
 				5A9C965824425B4A002AC0F5 /* Poppins-Italic.ttf in Resources */,
