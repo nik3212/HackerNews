@@ -1,0 +1,4 @@
+#include "Base.xcconfig"
+
+ENVIRONMENT = debug
+APP_GROUP = group.$(BASE_BUNDLE_ID).beta

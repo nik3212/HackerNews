@@ -1,0 +1,3 @@
+git_url "git@github.com:nik3212/certs-ios.git"
+clone_branch_directly true
+app_identifier(["com.nikitavasilev.HackerNews", "com.nikitavasilev.HackerNews.beta", "com.nikitavasilev.HackerNews.debug"])

@@ -1,0 +1,122 @@
+name: HackerNews
+options:
+  developmentLanguage: en
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: 16.0
+  xcodeVersion: 14.0
+configs:
+  Debug: debug
+  Beta: beta
+  Release: release
+configFiles:
+  Debug: ./HackerNews/Resources/Configurations/Debug.xcconfig
+  Beta: ./HackerNews/Resources/Configurations/Beta.xcconfig
+  Release: ./HackerNews/Resources/Configurations/Release.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: "5.7"
+  configs:
+    Debug:
+      DEVELOPMENT_TEAM: A8WE5LL2GU
+      OTHER_SWIFT_FLAGS: -D DEBUG
+      SWIFT_OPTIMIZATION_LEVEL: -Onone
+      GCC_OPTIMIZATION_LEVEL: 1
+      SWIFT_COMPILATION_MODE: "incremental"
+    Beta:
+      DEVELOPMENT_TEAM: A8WE5LL2GU
+      OTHER_SWIFT_FLAGS: -D DEBUG
+      SWIFT_OPTIMIZATION_LEVEL: -O
+      GCC_OPTIMIZATION_LEVEL: 1
+      SWIFT_COMPILATION_MODE: "incremental"
+    Release:
+      DEVELOPMENT_TEAM: A8WE5LL2GU
+      OTHER_SWIFT_FLAGS: -D RELEASE
+      OTHER_LDFLAGS: -Objc
+      SWIFT_COMPILATION_MODE: wholemodule
+attributes:
+  ORGANIZATIONNAME: Nikita Vasilev
+schemes:
+  Debug:
+      build:
+        targets:
+          HackerNews: all
+      run:
+        config: Debug
+      test:
+        gatherCoverageData: true
+        targets:
+          - HackerNewsTests
+          - HackerNewsUITests
+        coverageTargets:
+          - HackerNews
+  Release:
+      build:
+        targets:
+          HackerNews: all
+      run:
+        config: Release
+  Debug:
+      build:
+        targets:
+          HackerNews: all
+  Beta:
+      build:
+        targets:
+          HackerNews: all
+targets:
+  HackerNews:
+    type: application
+    platform: iOS
+    sources:
+      - path: HackerNews
+    settings:
+      base:
+        MARKETING_VERSION: 3.0.0
+        CURRENT_PROJECT_VERSION: 1
+        TARGETED_DEVICE_FAMILY: 1
+      configs:
+        Beta:
+          PRODUCT_NAME: HackerNews
+          PRODUCT_BUNDLE_IDENTIFIER: com.nikitavasilev.HackerNews.beta
+          CODE_SIGN_IDENTITY: "iPhone Developer"
+          PROVISIONING_PROFILE_SPECIFIER: match Development com.nikitavasilev.HackerNews.beta
+        Debug:
+          PRODUCT_NAME: HackerNews
+          PRODUCT_BUNDLE_IDENTIFIER: com.nikitavasilev.HackerNews.debug
+          CODE_SIGN_IDENTITY: "iPhone Developer"
+          PROVISIONING_PROFILE_SPECIFIER: match Development com.nikitavasilev.HackerNews.debug
+        Release:
+          PRODUCT_NAME: HackerNews
+          PRODUCT_BUNDLE_IDENTIFIER: com.nikitavasilev.HackerNews
+          CODE_SIGN_IDENTITY: "iPhone Distribution"
+          PROVISIONING_PROFILE_SPECIFIER: match AppStore com.nikitavasilev.HackerNews
+    prebuildScripts:
+      - script: |
+          make swiftgen
+        name: SwiftGen 
+      - script: |
+          if [[ "${CONFIGURATION}" == "Debug" || "${CONFIGURATION}" == "Beta" ]]; then
+            export PATH="$PATH:/opt/homebrew/bin"
+
+            echo "[Swiftlint] Run"
+
+            if which mint >/dev/null; then
+              xcrun --sdk macosx make lint
+  
+              echo "[Swiftlint] Complete"
+            else
+              echo "[Swiftlint] Bootstrap mint"
+            fi
+          fi
+        name: SwiftLint
+  HackerNewsTests:
+    type: bundle.unit-test
+    platform: iOS
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+      BUNDLE_LOADER: $(BUILT_PRODUCTS_DIR)/HackerNews.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HackerNews
+    sources:
+      - HackerNewsTests
+    dependencies:
+      - target: HackerNews

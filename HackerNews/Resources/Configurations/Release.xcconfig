@@ -1,0 +1,4 @@
+#include "Base.xcconfig"
+
+ENVIRONMENT = production
+APP_GROUP = $(BASE_BUNDLE_ID)

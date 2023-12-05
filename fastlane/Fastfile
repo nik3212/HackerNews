@@ -1,0 +1,174 @@
+#!usr/bin/ruby
+
+fastlane_version '2.0'
+
+default_platform :ios
+
+api_key = "fastlane/api-key.json"
+xcodeproj = "HackerNews.xcodeproj"
+
+before_all do 
+  ENV['FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT'] = '120' 
+  build_number = increment_build_number 
+  version_number = get_version_number(xcodeproj: xcodeproj)   
+end
+
+after_all do |lane|
+  # Discard all uncommitted changes(the new app icon images)
+  clean_icons
+end
+
+platform :ios do
+    ## General
+
+    desc "Generate new certificates"
+    lane :generate_new_certificates do
+      sync_code_signing(
+        type: "development",
+        app_identifier: ['com.nikitavasilev.HackerNews.beta', 'com.nikitavasilev.HackerNews.debug', 'com.nikitavasilev.HackerNews'],
+        force_for_new_devices: true,
+        readonly: false
+      )
+      sync_code_signing(
+        type: "appstore",
+        app_identifier: ['com.nikitavasilev.HackerNews.beta', 'com.nikitavasilev.HackerNews.debug', 'com.nikitavasilev.HackerNews'],
+        force_for_new_devices: true,
+        readonly: false
+      )
+    end
+
+    desc "Regester devices on apple portal"
+    lane :register do
+        register_devices(
+            devices_file: "./fastlane/devices.txt"
+        )
+        match(
+            type: "development",
+            force_for_new_devices: true,
+        )
+    end
+
+    ## Builing apps
+
+    desc "Create a Bumpd Beta build for TestFlight"
+    lane :beta do
+      overrideParams = {
+        scheme: "Debug",
+        export_method: "app-store"
+      }
+
+      add_badge_to_icon(release: "beta")
+
+      testflight_build({overrideParams: overrideParams})
+    end
+
+    desc "Create a HackerNews Production build for TestFlight"
+    lane :production do
+      overrideParams = {
+        scheme: "Release",
+        export_method: "app-store"
+      }
+
+      testflight_build({overrideParams: overrideParams})
+    end
+
+    ## Tests
+
+    desc "Run Unit Tests"
+    lane :test do |options|
+      scan(
+        scheme: "Debug",
+        cloned_source_packages_path: ".cache/spm",
+        clean: true,
+        device: "iPhone 14 Pro",
+        reset_simulator: true,
+        reinstall_app: true,
+        skip_detect_devices: true,
+        parallel_testing: false,
+        code_coverage: true,
+        use_system_scm: true,
+        result_bundle: true,
+        output_directory: "./build/test",
+        output_files: "hackernews.unit.test.html,hackernews.unit.test.report.junit.xml",
+      )
+
+      slather(
+        cobertura_xml: true,
+        output_directory: "./build/test",
+        proj: "HackerNews.xcodeproj",
+        scheme: "Debug",
+        binary_basename: "HackerNews",
+      )
+    end
+  
+    # Private Methods
+  
+    desc "Upload build to TestFlight"
+    private_lane :testflight_build do |options|
+      overrideParams = options[:overrideParams]
+      defaultParams = gym_params()
+      gym(defaultParams.merge!(overrideParams))
+
+      changelog = changelog_from_git_commits(
+        between: ["dev", "HEAD"],
+        pretty: "- (%ae) %s",# Optional, lets you provide a custom format to apply to each commit when generating the changelog text
+        date_format: "short",# Optional, lets you provide an additional date format to dates within the pretty-formatted string
+        match_lightweight_tag: false,  # Optional, lets you ignore lightweight (non-annotated) tags when searching for the last tag
+        merge_commit_filtering: "exclude_merges" # Optional, lets you filter out merge commits
+      )
+
+      pilot(
+        api_key_path: api_key,
+        skip_submission: true,
+        skip_waiting_for_build_processing: false,
+        changelog: changelog,
+        groups: "Internal"
+      )
+
+      send_message_to_slack(
+        message: "🎉 The new version released on TestFlight",
+        environment: overrideParams[:scheme]
+      )
+    end
+  
+    desc "Returns the parameters that should be used in any fastlane build"
+    lane :gym_params do
+      {
+        project: xcodeproj,
+        sdk: "iphoneos",
+        clean: true,
+        output_directory: "build"
+      }
+    end
+  
+    private_lane :add_badge_to_icon do |options|    
+      version_number = lane_context[SharedValues::VERSION_NUMBER]
+      build_number = lane_context[SharedValues::BUILD_NUMBER]    
+      if options[:release] == "beta"
+          add_badge(
+              shield: "#{version_number}-#{build_number}-orange",
+              no_badge: false,
+          )      
+      end  
+    end
+
+    private_lane :clean_icons do
+      # Regardless of git flags, always want to forcefully reset icon changes
+      reset_git_repo(files: ["HackerNews/Resources/Assets.xcassets/AppIcon*"], force: true)
+    end
+
+    private_lane :send_message_to_slack do |options|
+      version_number = lane_context[SharedValues::VERSION_NUMBER]
+      build_number = lane_context[SharedValues::BUILD_NUMBER]   
+
+      slack(
+        message: options[:message],
+        payload: {
+          "Build Date" => Time.new.to_s,
+          "Environment": options[:environment],
+          "Version": version_number,
+          "Build Number": build_number
+        }
+      )
+    end
+  end

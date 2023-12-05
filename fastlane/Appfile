@@ -1,0 +1,11 @@
+team_id "A8WE5LL2GU"
+itc_team_name "Nikita Vasilev"
+itc_team_id "118933826"
+
+for_platform :ios do
+    app_identifier "com.nikitavasilev.HackerNews"
+
+    for_lane :beta do
+      app_identifier "com.nikitavasilev.HackerNews.beta"
+    end
+end
