@@ -34,6 +34,23 @@ settings:
       OTHER_SWIFT_FLAGS: -D RELEASE
       OTHER_LDFLAGS: -Objc
       SWIFT_COMPILATION_MODE: wholemodule
+packages:
+  # Commom
+
+  HackerNewsLocalization:
+    path: Modules/Common/HackerNewsLocalization
+  ComposableArchitectureExtensions:
+    path: Modules/Common/ComposableArchitectureExtensions
+
+  # External
+
+  ComposableArchitecture:
+    url: https://github.com/pointfreeco/swift-composable-architecture.git
+    from: 1.5.5
+  SwiftCollections:
+    url: https://github.com/apple/swift-collections.git
+    from: 1.0.5
+
 attributes:
   ORGANIZATIONNAME: Nikita Vasilev
 schemes:
@@ -68,6 +85,12 @@ targets:
   HackerNews:
     type: application
     platform: iOS
+    dependencies:
+      - package: HackerNewsLocalization
+      - package: ComposableArchitecture
+      - package: SwiftCollections
+        product: OrderedCollections
+      - package: ComposableArchitectureExtensions
     sources:
       - path: HackerNews
     settings:

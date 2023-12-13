@@ -3,15 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		041ECB03686B5D5B4306641C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56EB397703756815DC8EA08 /* Assets.xcassets */; };
-		3AD6C9775413AA00C24F7100 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A46925E63EAD787F121E9E /* ContentView.swift */; };
+		396EF63257A7082712F2335C /* RootTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37CD4063A480BD8B44B7F4 /* RootTabBarView.swift */; };
 		50711886D6FFBF343E1A0798 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800E467B85586102FD4E2761 /* Preview Assets.xcassets */; };
+		76D48B8A54C37932D7DD8E98 /* ComposableArchitectureExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 1D001BFF6393883D5DD15A06 /* ComposableArchitectureExtensions */; };
 		8B0723874E74D88AE02723BE /* HackerNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D0E066840C47A090C1511 /* HackerNewsTests.swift */; };
+		8F757BD006B52E2119D0E5D0 /* RootTabBarViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D1F57901421C2F56C1E69C /* RootTabBarViewStore.swift */; };
 		9262C62F3C9BC9D67B4498CF /* HackerNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756D034FAA6CA3786EE00 /* HackerNewsApp.swift */; };
+		A34339F556CE0504546C51CF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A5F06660C41D4414CCFC /* Tab.swift */; };
+		B4DB9AB2B0DE48BD921F5015 /* HackerNewsLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = 00A3FCDF88D76780B5132379 /* HackerNewsLocalization */; };
+		E31C7395CC5AD2626D705C4B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 09DE7DF7AB92C9F7D1742432 /* ComposableArchitecture */; };
+		EC021FF8E6B732A4AFE10ED2 /* RootTabBarViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ED6AA562E90BAACBA15CA7 /* RootTabBarViewFactory.swift */; };
+		F63224CB427FE3C19E37F162 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = F85DBF293C7272776D1D256F /* OrderedCollections */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,20 +33,67 @@
 
 /* Begin PBXFileReference section */
 		10D2A825DDEE69978E5EF20C /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		20A46925E63EAD787F121E9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2CA7A2381D7F7EF683F7AB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		6F906F12DF421D1E29577C4E /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53ED6AA562E90BAACBA15CA7 /* RootTabBarViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarViewFactory.swift; sourceTree = "<group>"; };
+		6F906F12DF421D1E29577C4E /* HackerNews.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		800E467B85586102FD4E2761 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		85D1F57901421C2F56C1E69C /* RootTabBarViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarViewStore.swift; sourceTree = "<group>"; };
 		9854DF605EDA565D4CAC58E3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		9BC38B6C4FCA7FC3511A90BF /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 		9D91C72C8E4266537A2B72EE /* Beta.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Beta.xcconfig; sourceTree = "<group>"; };
+		AF37CD4063A480BD8B44B7F4 /* RootTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarView.swift; sourceTree = "<group>"; };
+		C683A5F06660C41D4414CCFC /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		D22D45891AA0ACD14C043D05 /* HackerNewsTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HackerNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41D0E066840C47A090C1511 /* HackerNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsTests.swift; sourceTree = "<group>"; };
+		E4CCA44452E37E0A445DC479 /* ComposableArchitectureExtensions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ComposableArchitectureExtensions; path = Modules/Common/ComposableArchitectureExtensions; sourceTree = SOURCE_ROOT; };
 		E56EB397703756815DC8EA08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6B756D034FAA6CA3786EE00 /* HackerNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsApp.swift; sourceTree = "<group>"; };
+		E9323784310AE2AF17D921EF /* HackerNewsLocalization */ = {isa = PBXFileReference; lastKnownFileType = folder; name = HackerNewsLocalization; path = Modules/Common/HackerNewsLocalization; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		6FE023209F5CDD605A91B5CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4DB9AB2B0DE48BD921F5015 /* HackerNewsLocalization in Frameworks */,
+				E31C7395CC5AD2626D705C4B /* ComposableArchitecture in Frameworks */,
+				F63224CB427FE3C19E37F162 /* OrderedCollections in Frameworks */,
+				76D48B8A54C37932D7DD8E98 /* ComposableArchitectureExtensions in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		07E286B04E79C2142202FFBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DCAF3DB486E3E4D16ABE83A /* TabBar */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0DCAF3DB486E3E4D16ABE83A /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				AF37CD4063A480BD8B44B7F4 /* RootTabBarView.swift */,
+				85D1F57901421C2F56C1E69C /* RootTabBarViewStore.swift */,
+				C683A5F06660C41D4414CCFC /* Tab.swift */,
+				70F40E5888328C97E0D47E92 /* Factory */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		2264DA7F0C46D1394D869C46 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				E4CCA44452E37E0A445DC479 /* ComposableArchitectureExtensions */,
+				E9323784310AE2AF17D921EF /* HackerNewsLocalization */,
+			);
+			name = Packages;
+			sourceTree = SOURCE_ROOT;
+		};
 		576DCAD0ED894BE744341BB7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -50,11 +104,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		70F40E5888328C97E0D47E92 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				53ED6AA562E90BAACBA15CA7 /* RootTabBarViewFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		77EA97E8FED0128BB8D8C6BE = {
 			isa = PBXGroup;
 			children = (
 				A9796A0C30A0786A3291C486 /* HackerNews */,
 				F33C582B00CFE9E0B4B57FC8 /* HackerNewsTests */,
+				2264DA7F0C46D1394D869C46 /* Packages */,
 				EA92AB24154C5CA4164DA0DB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,8 +125,8 @@
 		91198159BF3E0553CB12016D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				20A46925E63EAD787F121E9E /* ContentView.swift */,
 				E6B756D034FAA6CA3786EE00 /* HackerNewsApp.swift */,
+				9FBFBA39368C84047B9A1DE2 /* ApplicationRoot */,
 				E159320885A133D28D6B2EAA /* Preview Content */,
 			);
 			path = Classes;
@@ -78,6 +141,14 @@
 				9854DF605EDA565D4CAC58E3 /* Release.xcconfig */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		9FBFBA39368C84047B9A1DE2 /* ApplicationRoot */ = {
+			isa = PBXGroup;
+			children = (
+				07E286B04E79C2142202FFBB /* View */,
+			);
+			path = ApplicationRoot;
 			sourceTree = "<group>";
 		};
 		A9796A0C30A0786A3291C486 /* HackerNews */ = {
@@ -125,12 +196,19 @@
 				0BFD8FCC9D597A1EEAFFB9D3 /* SwiftLint */,
 				A32246A57A47FEF9CCDD2F3C /* Sources */,
 				7ECC37E6456AF07E06D68D90 /* Resources */,
+				6FE023209F5CDD605A91B5CD /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = HackerNews;
+			packageProductDependencies = (
+				00A3FCDF88D76780B5132379 /* HackerNewsLocalization */,
+				09DE7DF7AB92C9F7D1742432 /* ComposableArchitecture */,
+				F85DBF293C7272776D1D256F /* OrderedCollections */,
+				1D001BFF6393883D5DD15A06 /* ComposableArchitectureExtensions */,
+			);
 			productName = HackerNews;
 			productReference = 6F906F12DF421D1E29577C4E /* HackerNews.app */;
 			productType = "com.apple.product-type.application";
@@ -178,6 +256,10 @@
 				en,
 			);
 			mainGroup = 77EA97E8FED0128BB8D8C6BE;
+			packageReferences = (
+				C2FEAAD23186CCD83D296115 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				17155E22350924F093FD68D1 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -251,8 +333,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AD6C9775413AA00C24F7100 /* ContentView.swift in Sources */,
 				9262C62F3C9BC9D67B4498CF /* HackerNewsApp.swift in Sources */,
+				396EF63257A7082712F2335C /* RootTabBarView.swift in Sources */,
+				EC021FF8E6B732A4AFE10ED2 /* RootTabBarViewFactory.swift in Sources */,
+				8F757BD006B52E2119D0E5D0 /* RootTabBarViewStore.swift in Sources */,
+				A34339F556CE0504546C51CF /* Tab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +406,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = HackerNews/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,7 +569,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = HackerNews/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -506,7 +589,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = HackerNews/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -554,6 +636,46 @@
 			defaultConfigurationName = Beta;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17155E22350924F093FD68D1 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.5;
+			};
+		};
+		C2FEAAD23186CCD83D296115 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00A3FCDF88D76780B5132379 /* HackerNewsLocalization */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HackerNewsLocalization;
+		};
+		09DE7DF7AB92C9F7D1742432 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2FEAAD23186CCD83D296115 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		1D001BFF6393883D5DD15A06 /* ComposableArchitectureExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ComposableArchitectureExtensions;
+		};
+		F85DBF293C7272776D1D256F /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17155E22350924F093FD68D1 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 43E359E9B8306AC62BC3CC16 /* Project object */;
 }
