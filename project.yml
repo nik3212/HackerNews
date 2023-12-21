@@ -45,6 +45,8 @@ packages:
     path: Modules/Common/UIExtensions
   AppUtils:
     path: Modules/Common/AppUtils
+  DesignKit:
+    path: Modules/Common/DesignKit
 
   # Feature
 
@@ -73,7 +75,6 @@ schemes:
         gatherCoverageData: true
         targets:
           - HackerNewsTests
-          - HackerNewsUITests
         coverageTargets:
           - HackerNews
   Release:
@@ -102,6 +103,7 @@ targets:
       - package: ComposableArchitectureExtensions
       - package: Home
       - package: UIExtensions
+      - package: DesignKit
     sources:
       - path: HackerNews
     settings:

@@ -11,6 +11,8 @@ import SwiftUI
 struct HackerNewsApp: App {
     // MARK: Properties
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+
     private let assembly: IApplicationAssembly = ApplicationAssembly(dependencies: DependenciesAssembly())
 
     // MARK: View
