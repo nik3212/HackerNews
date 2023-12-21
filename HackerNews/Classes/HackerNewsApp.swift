@@ -4,22 +4,20 @@
 //
 
 import ComposableArchitecture
+import Home
 import SwiftUI
 
 @main
 struct HackerNewsApp: App {
-    static let store = Store(
-        initialState: RootTabBarViewStore.State(tabs: [.home, .search, .settings], tab: .home)
-    ) {
-        RootTabBarViewStore()
-    }
+    // MARK: Properties
+
+    private let assembly: IApplicationAssembly = ApplicationAssembly(dependencies: DependenciesAssembly())
+
+    // MARK: View
 
     var body: some Scene {
         WindowGroup {
-            RootTabBarView(
-                store: Self.store,
-                viewFactory: RootTabBarViewFactory()
-            )
+            self.assembly.assemble()
         }
     }
 }

@@ -3,17 +3,30 @@
 // Copyright © 2023 Nikita Vasilev. All rights reserved.
 //
 
+import HomeInterfaces
 import SwiftUI
 
 struct RootTabBarViewFactory {
+    // MARK: Properties
+
+    private let homePublicAssembly: IHomePublicAssembly
+
+    // MARK: Initialization
+
+    init(homePublicAssembly: IHomePublicAssembly) {
+        self.homePublicAssembly = homePublicAssembly
+    }
+
+    // MARK: Internal
+
     func view(for tab: Tab) -> some View {
         switch tab {
         case .home:
-            return Label(title: { Text("HOME") }, icon: {})
+            return homePublicAssembly.assemble()
         case .settings:
-            return Label(title: { Text("SETTING") }, icon: {})
+            return AnyView(Label(title: { Text("SETTING") }, icon: {}))
         case .search:
-            return Label(title: { Text("SEARCH") }, icon: {})
+            return AnyView(Label(title: { Text("SEARCH") }, icon: {}))
         }
     }
 }

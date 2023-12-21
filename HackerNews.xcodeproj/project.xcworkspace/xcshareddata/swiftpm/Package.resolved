@@ -1,11 +1,38 @@
 {
   "pins" : [
     {
+      "identity" : "atomic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/space-code/atomic",
+      "state" : {
+        "revision" : "53fae2fc8216bb5c27c87b245f893176d0d290eb",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "combine-schedulers",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/combine-schedulers",
       "state" : {
         "revision" : "9dc9cbe4bc45c65164fa653a563d8d8db61b09bb",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "dip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AliSoftware/Dip.git",
+      "state" : {
+        "revision" : "c3b601df0ff22b06b6d5ff4943faf05c0bd3f9bb",
+        "version" : "7.1.1"
+      }
+    },
+    {
+      "identity" : "network-layer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/space-code/network-layer.git",
+      "state" : {
+        "revision" : "dfb2ee4beaa55a5e10551d7ef3e20d0362c9c27d",
         "version" : "1.0.0"
       }
     },
@@ -88,6 +115,15 @@
       "state" : {
         "revision" : "78f9d72cf667adb47e2040aa373185c88c63f0dc",
         "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "typhoon",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/space-code/typhoon",
+      "state" : {
+        "revision" : "ed25d1d0736de0dc377615c371165095a8fa1f48",
+        "version" : "1.1.0"
       }
     },
     {

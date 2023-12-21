@@ -54,15 +54,21 @@ struct RootTabBarView: View {
 
 // MARK: - ContentView_Previews
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootTabBarView(
-            store: Store(
-                initialState: RootTabBarViewStore.State(tabs: [.home, .search, .settings], tab: .home)
-            ) {
-                RootTabBarViewStore()
-            },
-            viewFactory: RootTabBarViewFactory()
-        )
-    }
-}
+// #if DEBUG
+//
+// import Home
+//
+// struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RootTabBarView(
+//            store: Store(
+//                initialState: RootTabBarViewStore.State(tabs: [.home, .search, .settings], tab: .home)
+//            ) {
+//                RootTabBarViewStore()
+//            },
+//            viewFactory: RootTabBarViewFactory(homePublicAssembly: HomePublicAssembly(requestProcessor: <#IRequestProcessor#>))
+//        )
+//    }
+// }
+//
+// #endif

@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		041ECB03686B5D5B4306641C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56EB397703756815DC8EA08 /* Assets.xcassets */; };
+		2B06D774829D8C0246FBAA25 /* UIExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 893670CA270858A4F1C69210 /* UIExtensions */; };
+		377A69810C553A6BE6227F6A /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9E76920BCA1549CD91ED7 /* ApplicationAssembly.swift */; };
 		396EF63257A7082712F2335C /* RootTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37CD4063A480BD8B44B7F4 /* RootTabBarView.swift */; };
+		4024B73727DE42366C35B3C1 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 8673A985B3E96C1A9C68777A /* Home */; };
 		50711886D6FFBF343E1A0798 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800E467B85586102FD4E2761 /* Preview Assets.xcassets */; };
+		652EBF776A59D1D900ACBC3E /* RootTabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC94668E73CDC7A315F8848 /* RootTabBarAssembly.swift */; };
 		76D48B8A54C37932D7DD8E98 /* ComposableArchitectureExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 1D001BFF6393883D5DD15A06 /* ComposableArchitectureExtensions */; };
 		8B0723874E74D88AE02723BE /* HackerNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D0E066840C47A090C1511 /* HackerNewsTests.swift */; };
 		8F757BD006B52E2119D0E5D0 /* RootTabBarViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D1F57901421C2F56C1E69C /* RootTabBarViewStore.swift */; };
 		9262C62F3C9BC9D67B4498CF /* HackerNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756D034FAA6CA3786EE00 /* HackerNewsApp.swift */; };
 		A34339F556CE0504546C51CF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683A5F06660C41D4414CCFC /* Tab.swift */; };
+		AC238422FAEF789675F614E0 /* DependenciesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27898AFA4A55DD92673A5383 /* DependenciesAssembly.swift */; };
 		B4DB9AB2B0DE48BD921F5015 /* HackerNewsLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = 00A3FCDF88D76780B5132379 /* HackerNewsLocalization */; };
 		E31C7395CC5AD2626D705C4B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 09DE7DF7AB92C9F7D1742432 /* ComposableArchitecture */; };
 		EC021FF8E6B732A4AFE10ED2 /* RootTabBarViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ED6AA562E90BAACBA15CA7 /* RootTabBarViewFactory.swift */; };
@@ -33,10 +38,15 @@
 
 /* Begin PBXFileReference section */
 		10D2A825DDEE69978E5EF20C /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		16FBB2F1B0DE3027BADC95FF /* AppUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppUtils; path = Modules/Common/AppUtils; sourceTree = SOURCE_ROOT; };
+		1DC94668E73CDC7A315F8848 /* RootTabBarAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarAssembly.swift; sourceTree = "<group>"; };
+		27898AFA4A55DD92673A5383 /* DependenciesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesAssembly.swift; sourceTree = "<group>"; };
 		2CA7A2381D7F7EF683F7AB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		46702B496C954A297DF4A35C /* UIExtensions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UIExtensions; path = Modules/Common/UIExtensions; sourceTree = SOURCE_ROOT; };
 		53ED6AA562E90BAACBA15CA7 /* RootTabBarViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarViewFactory.swift; sourceTree = "<group>"; };
 		6F906F12DF421D1E29577C4E /* HackerNews.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		800E467B85586102FD4E2761 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8347F191AF851B73EE95A9B7 /* Home */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Home; path = Modules/Features/Home; sourceTree = SOURCE_ROOT; };
 		85D1F57901421C2F56C1E69C /* RootTabBarViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarViewStore.swift; sourceTree = "<group>"; };
 		9854DF605EDA565D4CAC58E3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		9BC38B6C4FCA7FC3511A90BF /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
@@ -49,6 +59,7 @@
 		E56EB397703756815DC8EA08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6B756D034FAA6CA3786EE00 /* HackerNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsApp.swift; sourceTree = "<group>"; };
 		E9323784310AE2AF17D921EF /* HackerNewsLocalization */ = {isa = PBXFileReference; lastKnownFileType = folder; name = HackerNewsLocalization; path = Modules/Common/HackerNewsLocalization; sourceTree = SOURCE_ROOT; };
+		F3E9E76920BCA1549CD91ED7 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +71,8 @@
 				E31C7395CC5AD2626D705C4B /* ComposableArchitecture in Frameworks */,
 				F63224CB427FE3C19E37F162 /* OrderedCollections in Frameworks */,
 				76D48B8A54C37932D7DD8E98 /* ComposableArchitectureExtensions in Frameworks */,
+				4024B73727DE42366C35B3C1 /* Home in Frameworks */,
+				2B06D774829D8C0246FBAA25 /* UIExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +90,7 @@
 		0DCAF3DB486E3E4D16ABE83A /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				1DC94668E73CDC7A315F8848 /* RootTabBarAssembly.swift */,
 				AF37CD4063A480BD8B44B7F4 /* RootTabBarView.swift */,
 				85D1F57901421C2F56C1E69C /* RootTabBarViewStore.swift */,
 				C683A5F06660C41D4414CCFC /* Tab.swift */,
@@ -85,11 +99,23 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		21E14B9ECE15DC54A9427067 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				F3E9E76920BCA1549CD91ED7 /* ApplicationAssembly.swift */,
+				27898AFA4A55DD92673A5383 /* DependenciesAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		2264DA7F0C46D1394D869C46 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				16FBB2F1B0DE3027BADC95FF /* AppUtils */,
 				E4CCA44452E37E0A445DC479 /* ComposableArchitectureExtensions */,
 				E9323784310AE2AF17D921EF /* HackerNewsLocalization */,
+				8347F191AF851B73EE95A9B7 /* Home */,
+				46702B496C954A297DF4A35C /* UIExtensions */,
 			);
 			name = Packages;
 			sourceTree = SOURCE_ROOT;
@@ -146,6 +172,7 @@
 		9FBFBA39368C84047B9A1DE2 /* ApplicationRoot */ = {
 			isa = PBXGroup;
 			children = (
+				21E14B9ECE15DC54A9427067 /* Assembly */,
 				07E286B04E79C2142202FFBB /* View */,
 			);
 			path = ApplicationRoot;
@@ -208,6 +235,8 @@
 				09DE7DF7AB92C9F7D1742432 /* ComposableArchitecture */,
 				F85DBF293C7272776D1D256F /* OrderedCollections */,
 				1D001BFF6393883D5DD15A06 /* ComposableArchitectureExtensions */,
+				8673A985B3E96C1A9C68777A /* Home */,
+				893670CA270858A4F1C69210 /* UIExtensions */,
 			);
 			productName = HackerNews;
 			productReference = 6F906F12DF421D1E29577C4E /* HackerNews.app */;
@@ -333,7 +362,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377A69810C553A6BE6227F6A /* ApplicationAssembly.swift in Sources */,
+				AC238422FAEF789675F614E0 /* DependenciesAssembly.swift in Sources */,
 				9262C62F3C9BC9D67B4498CF /* HackerNewsApp.swift in Sources */,
+				652EBF776A59D1D900ACBC3E /* RootTabBarAssembly.swift in Sources */,
 				396EF63257A7082712F2335C /* RootTabBarView.swift in Sources */,
 				EC021FF8E6B732A4AFE10ED2 /* RootTabBarViewFactory.swift in Sources */,
 				8F757BD006B52E2119D0E5D0 /* RootTabBarViewStore.swift in Sources */,
@@ -669,6 +701,14 @@
 		1D001BFF6393883D5DD15A06 /* ComposableArchitectureExtensions */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ComposableArchitectureExtensions;
+		};
+		8673A985B3E96C1A9C68777A /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
+		};
+		893670CA270858A4F1C69210 /* UIExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIExtensions;
 		};
 		F85DBF293C7272776D1D256F /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -41,6 +41,15 @@ packages:
     path: Modules/Common/HackerNewsLocalization
   ComposableArchitectureExtensions:
     path: Modules/Common/ComposableArchitectureExtensions
+  UIExtensions:
+    path: Modules/Common/UIExtensions
+  AppUtils:
+    path: Modules/Common/AppUtils
+
+  # Feature
+
+  Home:
+    path: Modules/Features/Home
 
   # External
 
@@ -91,6 +100,8 @@ targets:
       - package: SwiftCollections
         product: OrderedCollections
       - package: ComposableArchitectureExtensions
+      - package: Home
+      - package: UIExtensions
     sources:
       - path: HackerNews
     settings:
