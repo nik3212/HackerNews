@@ -9,13 +9,15 @@ import Foundation
 struct NewsViewStore: Reducer {
     // MARK: Types
 
-    struct State {
+    struct State: Equatable {
+        @BindingState var selectedItem: PostType
         var news: [News]
     }
 
     enum Action {
         case fetchNews
         case newsFetched(news: [News])
+        case binding(PostType)
     }
 
     // MARK: Properties
@@ -28,17 +30,17 @@ struct NewsViewStore: Reducer {
         self.newsService = newsService
     }
 
-    @Dependency(\.newsService) var newsService1
-
     // MARK: Reducer
 
-    func reduce(into _: inout State, action: Action) -> Effect<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .fetchNews:
             return .run { send in
-//                try await newsService1.loadNews(ids: [])
                 try await send(.newsFetched(news: newsService.loadNews(ids: [])))
             }
+        case let .binding(postType):
+            state.selectedItem = postType
+            return .none
         case .newsFetched:
             return .none
         }

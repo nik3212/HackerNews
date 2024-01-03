@@ -20,7 +20,7 @@ final class NewsAssembly: INewsAssembly {
     private let newsService: INewsService
 
     private lazy var store: StoreOf<NewsViewStore> = {
-        Store(initialState: NewsViewStore.State(news: [])) {
+        Store(initialState: NewsViewStore.State(selectedItem: .new, news: [])) {
             NewsViewStore(newsService: self.newsService)
         }
     }()
@@ -34,6 +34,7 @@ final class NewsAssembly: INewsAssembly {
     // MARK: Private
 
     func assemble() -> AnyView {
+//            NavigationSplitView {
         NewsView(store: store).eraseToAnyView()
     }
 }

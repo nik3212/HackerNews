@@ -5,6 +5,6 @@
 
 import Foundation
 
-struct News: Decodable {
+struct News: Decodable, Equatable {
     let id: String
 }

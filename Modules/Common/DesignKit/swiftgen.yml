@@ -1,12 +1,12 @@
 input_dir: Sources/DesignKit/Resources
 output_dir: Sources/DesignKit/Classes/Design/Generated
-# xcassets:
-#     inputs: Assets.xcassets
-#     outputs:
-#         templateName: swift5
-#         output: Colors.swift
-#         params:
-#             publicAccess: true
+xcassets:
+    inputs: Colors.xcassets
+    outputs:
+        templateName: swift5
+        output: Colors.swift
+        params:
+            publicAccess: true
 fonts:
     inputs: Fonts
     outputs:
