@@ -12,6 +12,8 @@ import SwiftUI
 struct NewsView: View {
     // MARK: Properties
 
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
     private let store: StoreOf<NewsViewStore>
 
     // MARK: Initialization
@@ -23,24 +25,58 @@ struct NewsView: View {
     // MARK: View
 
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
-            VStack {
-                segmentedControlView(viewStore: viewStore)
-                listView
-            }
-            .onAppear {
-                store.send(.fetchNews)
+        VStack {
+            if horizontalSizeClass == .compact {
+                compactView
+            } else {
+                splitView
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                NavigationTitleView()
-                    .padding(.bottom, 8)
-            }
+        .onAppear {
+            store.send(.refresh)
         }
     }
 
     // MARK: Private
+
+    private var postListView: some View {
+        PostListView(store: self.store)
+            .listStyle(GroupedListStyle())
+            .refreshable {
+                await self.store.send(.refresh).finish()
+            }
+    }
+
+    private var compactView: some View {
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            NavigationView {
+                VStack {
+                    segmentedControlView(viewStore: viewStore)
+                    postListView
+                }
+                .toolbar { self.toolbarView }
+            }
+        }
+    }
+
+    private var splitView: some View {
+        NavigationSplitView(
+            sidebar: {
+                PostSidebarView(store: self.store)
+                    .toolbar { self.toolbarView }
+            },
+            content: {
+                postListView
+            },
+            detail: { Text("DETAIL") }
+        )
+    }
+
+    private var toolbarView: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            NavigationTitleView()
+        }
+    }
 
     private func segmentedControlView(
         viewStore: ViewStore<NewsViewStore.State, NewsViewStore.Action>
@@ -65,12 +101,6 @@ struct NewsView: View {
                 RoundedRectangle(cornerRadius: .cornerRadius, style: .continuous)
             }
         )
-    }
-
-    private var listView: some View {
-        List {
-            Text("AAAA")
-        }
     }
 }
 

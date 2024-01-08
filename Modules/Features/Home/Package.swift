@@ -15,10 +15,11 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", .upToNextMajor(from: "1.5.5")),
         .package(url: "https://github.com/space-code/network-layer.git", .upToNextMajor(from: "1.0.0")),
         .package(url: "https://github.com/onevcat/Kingfisher.git", .upToNextMajor(from: "7.10.1")),
-        .package(path: "../Common/AppUtils"),
-        .package(path: "../Common/UIExtensions"),
-        .package(path: "../Common/HackerNewsLocalization"),
-        .package(path: "../Common/DesignKit"),
+        .package(url: "https://github.com/space-code/skeleton-ui.git", .upToNextMajor(from: "1.0.0")),
+        .package(path: "../../Common/AppUtils"),
+        .package(path: "../../Common/UIExtensions"),
+        .package(path: "../../Common/HackerNewsLocalization"),
+        .package(path: "../../Common/DesignKit"),
     ],
     targets: [
         .target(
@@ -32,6 +33,7 @@ let package = Package(
                 .product(name: "UIExtensions", package: "UIExtensions"),
                 .product(name: "HackerNewsLocalization", package: "HackerNewsLocalization"),
                 .product(name: "DesignKit", package: "DesignKit"),
+                .product(name: "SkeletonUI", package: "skeleton-ui"),
             ]
         ),
         .target(name: "HomeInterfaces", dependencies: []),

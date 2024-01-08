@@ -6,5 +6,5 @@
 import Foundation
 
 protocol INewsService {
-    func loadNews(ids: [Int]) async throws -> [News]
+    func loadPosts(with type: PostType) async throws -> [Post]
 }

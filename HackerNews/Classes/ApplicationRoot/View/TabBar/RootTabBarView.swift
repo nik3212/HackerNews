@@ -35,12 +35,10 @@ struct RootTabBarView: View {
 
     @ViewBuilder
     private func tabItemView(_ tab: Tab, @ViewBuilder content: @escaping () -> some View) -> some View {
-        NavigationView {
-            content()
-        }
-        .tabItem {
-            Label(title: { Text(tab.name) }, icon: { Image(systemName: tab.iconSystemName) })
-        }
+        content()
+            .tabItem {
+                Label(title: { Text(tab.name) }, icon: { Image(systemName: tab.iconSystemName) })
+            }
     }
 
     private func tabs(in viewStore: ViewStore<RootTabBarViewStore.State, RootTabBarViewStore.Action>) -> some View {

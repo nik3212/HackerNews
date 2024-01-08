@@ -24,13 +24,15 @@ struct ArticleView: View {
 
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                headerView
-                VStack(alignment: .leading, spacing: 2.0) {
+            VStack(alignment: .leading, spacing: 8.0) {
+                VStack(alignment: .leading, spacing: 4.0) {
+                    headerView
                     titleView
-                    authorInfoView
                 }
-                articleFeedbackView
+                VStack(alignment: .leading, spacing: 4.0) {
+                    authorInfoView
+                    articleFeedbackView
+                }
             }
             imageView
         }
@@ -39,9 +41,11 @@ struct ArticleView: View {
     // MARK: Private
 
     private var headerView: some View {
-        HStack {
-            Text(viewModel.link)
-                .font(FontFamily.Montserrat.regular.font(size: .size13).sui)
+        viewModel.link.map {
+            Text($0)
+                .font(FontFamily.Montserrat.medium.font(size: .size13).sui)
+                .foregroundColor(Color.orange)
+                .lineLimit(1)
         }
     }
 
@@ -52,18 +56,28 @@ struct ArticleView: View {
     }
 
     private var authorInfoView: some View {
-        HStack {
-            Text(viewModel.author)
-        }
-        .font(FontFamily.Montserrat.regular.font(size: .size15).sui)
+        Text(viewModel.author)
+            .font(FontFamily.Montserrat.medium.font(size: .size13).sui)
     }
 
     private var articleFeedbackView: some View {
-        HStack {
-            Text(String(viewModel.rating))
-            Text(L10n.News.Article.comments(viewModel.numberOfComments))
+        HStack(spacing: 4.0) {
+            ratingView
+            Text(String.dot)
+            commentsView
         }
-        .font(FontFamily.Montserrat.regular.font(size: .size15).sui)
+        .font(FontFamily.Montserrat.regular.font(size: .size13).sui)
+    }
+
+    private var ratingView: some View {
+        HStack(spacing: 4.0) {
+            Image(systemName: .arrowUp)
+            Text(viewModel.rating)
+        }
+    }
+
+    private var commentsView: some View {
+        Text(L10n.News.Article.comments(viewModel.numberOfComments))
     }
 
     private var imageView: some View {
@@ -77,11 +91,12 @@ struct ArticleView: View {
 // MARK: - ViewModel
 
 extension ArticleView {
-    struct ViewModel {
+    struct ViewModel: Equatable, Identifiable {
+        let id = UUID()
         let title: String
         let author: String
-        let link: String
-        let rating: Int
+        let link: String?
+        let rating: String
         let numberOfComments: Int
         let imageURL: URL?
     }
@@ -93,6 +108,11 @@ private extension Int {
     static let lineLimit = 2
 }
 
+private extension String {
+    static let arrowUp = "arrow.up"
+    static let dot = "•"
+}
+
 // MARK: - Preview
 
 #if DEBUG
@@ -102,7 +122,7 @@ private extension Int {
             title: "Proton Mail Rewrites Your Emails",
             author: "jamesik",
             link: "x64.sh",
-            rating: 64,
+            rating: "64",
             numberOfComments: 30,
             imageURL: nil
         )

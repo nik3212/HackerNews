@@ -110,7 +110,7 @@ targets:
       base:
         MARKETING_VERSION: 3.0.0
         CURRENT_PROJECT_VERSION: 1
-        TARGETED_DEVICE_FAMILY: 1
+        TARGETED_DEVICE_FAMILY: "1,2"
       configs:
         Beta:
           PRODUCT_NAME: HackerNews

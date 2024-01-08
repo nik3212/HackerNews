@@ -1,11 +1,11 @@
 //
 // HackerNews
-// Copyright © 2023 Nikita Vasilev. All rights reserved.
+// Copyright © 2024 Nikita Vasilev. All rights reserved.
 //
 
 import Foundation
 
-final class NewsRequest: BaseRequest {
+final class PostRequest: BaseRequest {
     // MARK: Properties
 
     private let id: Int
@@ -16,9 +16,9 @@ final class NewsRequest: BaseRequest {
         self.id = id
     }
 
-    // MARK: IRequest
+    // MARK: BaseRequest
 
     override var path: String {
-        ""
+        "item/\(id).json"
     }
 }
