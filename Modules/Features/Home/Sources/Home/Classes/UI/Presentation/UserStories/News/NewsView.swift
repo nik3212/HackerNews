@@ -13,6 +13,7 @@ struct NewsView: View {
     // MARK: Properties
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var isLoading = false
 
     private let store: StoreOf<NewsViewStore>
 
@@ -33,6 +34,7 @@ struct NewsView: View {
             }
         }
         .onAppear {
+            isLoading = true
             store.send(.refresh)
         }
     }
@@ -41,8 +43,11 @@ struct NewsView: View {
 
     private var postListView: some View {
         PostListView(store: self.store)
-            .listStyle(GroupedListStyle())
+            .scrollDisabled(isLoading)
+            .listStyle(.plain)
             .refreshable {
+                defer { isLoading = false }
+                isLoading = true
                 await self.store.send(.refresh).finish()
             }
     }
@@ -50,7 +55,7 @@ struct NewsView: View {
     private var compactView: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             NavigationView {
-                VStack {
+                VStack(spacing: 8.0) {
                     segmentedControlView(viewStore: viewStore)
                     postListView
                 }
@@ -75,6 +80,7 @@ struct NewsView: View {
     private var toolbarView: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             NavigationTitleView()
+                .padding(.bottom, 8.0)
         }
     }
 

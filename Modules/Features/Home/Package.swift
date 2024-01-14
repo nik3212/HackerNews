@@ -1,4 +1,4 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 // swiftlint:disable prefixed_toplevel_constant
 
@@ -6,7 +6,7 @@ import PackageDescription
 
 let package = Package(
     name: "Home",
-    platforms: [.iOS(.v16)],
+    platforms: [.iOS(.v17)],
     products: [
         .library(name: "Home", targets: ["Home"]),
         .library(name: "HomeInterfaces", targets: ["HomeInterfaces"]),
@@ -15,7 +15,7 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", .upToNextMajor(from: "1.5.5")),
         .package(url: "https://github.com/space-code/network-layer.git", .upToNextMajor(from: "1.0.0")),
         .package(url: "https://github.com/onevcat/Kingfisher.git", .upToNextMajor(from: "7.10.1")),
-        .package(url: "https://github.com/space-code/skeleton-ui.git", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/space-code/skeleton-ui.git", .upToNextMajor(from: "1.0.1")),
         .package(path: "../../Common/AppUtils"),
         .package(path: "../../Common/UIExtensions"),
         .package(path: "../../Common/HackerNewsLocalization"),

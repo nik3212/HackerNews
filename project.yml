@@ -3,8 +3,8 @@ options:
   developmentLanguage: en
   createIntermediateGroups: true
   deploymentTarget:
-    iOS: 16.0
-  xcodeVersion: 14.0
+    iOS: 17.0
+  xcodeVersion: 15.2
 configs:
   Debug: debug
   Beta: beta

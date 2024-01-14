@@ -43,6 +43,8 @@ struct PostListView: View {
         }
     }
 
+    // MARK: Private
+
     private func reductedView(index: Int) -> some View {
         VStack {
             if index == 3 {
