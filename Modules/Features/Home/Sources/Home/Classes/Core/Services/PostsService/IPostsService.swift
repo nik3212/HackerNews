@@ -5,6 +5,6 @@
 
 import Foundation
 
-protocol INewsService {
+protocol IPostsService {
     func loadPosts(with type: PostType) async throws -> [Post]
 }

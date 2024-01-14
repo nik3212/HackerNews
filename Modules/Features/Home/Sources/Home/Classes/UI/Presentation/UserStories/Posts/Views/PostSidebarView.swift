@@ -9,11 +9,11 @@ import SwiftUI
 struct PostSidebarView: View {
     // MARK: Properties
 
-    private let store: StoreOf<NewsViewStore>
+    private let store: StoreOf<PostsViewStore>
 
     // MARK: Initialization
 
-    init(store: StoreOf<NewsViewStore>) {
+    init(store: StoreOf<PostsViewStore>) {
         self.store = store
     }
 
@@ -29,7 +29,7 @@ struct PostSidebarView: View {
 
     // MARK: Private
 
-    private func sidebarView(viewStore: ViewStore<NewsViewStore.State, NewsViewStore.Action>) -> some View {
+    private func sidebarView(viewStore: ViewStore<PostsViewStore.State, PostsViewStore.Action>) -> some View {
         List(PostType.allCases) { postType in
             Button(action: {
                 viewStore.send(.binding(postType))

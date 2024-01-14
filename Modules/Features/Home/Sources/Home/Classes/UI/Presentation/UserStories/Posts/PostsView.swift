@@ -7,19 +7,19 @@ import ComposableArchitecture
 import DesignKit
 import SwiftUI
 
-// MARK: - NewsView
+// MARK: - PostsView
 
-struct NewsView: View {
+struct PostsView: View {
     // MARK: Properties
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var isLoading = false
 
-    private let store: StoreOf<NewsViewStore>
+    private let store: StoreOf<PostsViewStore>
 
     // MARK: Initialization
 
-    init(store: StoreOf<NewsViewStore>) {
+    init(store: StoreOf<PostsViewStore>) {
         self.store = store
     }
 
@@ -85,7 +85,7 @@ struct NewsView: View {
     }
 
     private func segmentedControlView(
-        viewStore: ViewStore<NewsViewStore.State, NewsViewStore.Action>
+        viewStore: ViewStore<PostsViewStore.State, PostsViewStore.Action>
     ) -> some View {
         SegmentControlView(
             segments: PostType.allCases,

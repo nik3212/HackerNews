@@ -6,7 +6,7 @@
 import ComposableArchitecture
 import Foundation
 
-struct NewsViewStore: Reducer {
+struct PostsViewStore: Reducer {
     // MARK: Types
 
     struct State: Equatable {
@@ -25,13 +25,13 @@ struct NewsViewStore: Reducer {
 
     // MARK: Properties
 
-    private let newsService: INewsService
+    private let postsService: IPostsService
     private let viewModelFactory: IPostViewModelFactory
 
     // MARK: Initialization
 
-    init(newsService: INewsService, viewModelFactory: IPostViewModelFactory) {
-        self.newsService = newsService
+    init(postsService: IPostsService, viewModelFactory: IPostViewModelFactory) {
+        self.postsService = postsService
         self.viewModelFactory = viewModelFactory
     }
 
@@ -46,7 +46,7 @@ struct NewsViewStore: Reducer {
         case let .fetchPosts(type):
             return .run { send in
                 await send(
-                    .postsResponse(Result { try await self.newsService.loadPosts(with: type) }),
+                    .postsResponse(Result { try await self.postsService.loadPosts(with: type) }),
                     animation: .default
                 )
             }

@@ -10,7 +10,7 @@ import NetworkLayerInterfaces
 // MARK: - IHomeServicesAssembly
 
 protocol IHomeServicesAssembly {
-    var newsService: INewsService { get }
+    var postsService: IPostsService { get }
 }
 
 // MARK: - HomeServicesAssembly
@@ -28,9 +28,9 @@ final class HomeServicesAssembly: AppAssembly, IHomeServicesAssembly {
 
     // MARK: IHomeServicesAssembly
 
-    var newsService: INewsService {
-        resolve(INewsService.self) {
-            NewsService(requestProcessor: self.requestProcessor)
+    var postsService: IPostsService {
+        resolve(IPostsService.self) {
+            PostsService(requestProcessor: self.requestProcessor)
         }
     }
 }

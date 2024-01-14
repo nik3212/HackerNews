@@ -12,11 +12,11 @@ import SwiftUI
 struct PostListView: View {
     // MARK: Properties
 
-    private let store: StoreOf<NewsViewStore>
+    private let store: StoreOf<PostsViewStore>
 
     // MARK: Initialization
 
-    init(store: StoreOf<NewsViewStore>) {
+    init(store: StoreOf<PostsViewStore>) {
         self.store = store
     }
 

@@ -8,7 +8,7 @@ import Foundation
 // MARK: - IHomePresentationAssembly
 
 protocol IHomePresentationAssembly {
-    var newsAssembly: INewsAssembly { get }
+    var newsAssembly: IPostsAssembly { get }
 }
 
 // MARK: - HomePresentationAssembly
@@ -26,7 +26,7 @@ final class HomePresentationAssembly: IHomePresentationAssembly {
 
     // MARK: IHomePresentationAssembly
 
-    var newsAssembly: INewsAssembly {
-        NewsAssembly(newsService: servicesAssembly.newsService)
+    var newsAssembly: IPostsAssembly {
+        PostsAssembly(postsService: servicesAssembly.postsService)
     }
 }

@@ -6,9 +6,9 @@
 import Foundation
 import NetworkLayerInterfaces
 
-// MARK: - NewsService
+// MARK: - PostsService
 
-final class NewsService {
+final class PostsService {
     // MARK: Private
 
     private let requestProcessor: IRequestProcessor
@@ -42,9 +42,9 @@ final class NewsService {
     }
 }
 
-// MARK: INewsService
+// MARK: IPostsService
 
-extension NewsService: INewsService {
+extension PostsService: IPostsService {
     func loadPosts(with type: PostType) async throws -> [Post] {
         let ids = try await loadIDs(for: type).data
         return try await loadPosts(with: ids)
