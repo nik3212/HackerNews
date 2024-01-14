@@ -24,7 +24,7 @@ final class PostViewModelFactory: IPostViewModelFactory {
                 link: makeLink(post.url),
                 rating: String(post.score ?? 0),
                 numberOfComments: post.kids.count,
-                imageURL: nil
+                imageURL: makeImageURL(post.url)
             )
         }
     }
@@ -35,4 +35,17 @@ final class PostViewModelFactory: IPostViewModelFactory {
         guard let link = link, let url = URL(string: link) else { return nil }
         return url.host()
     }
+
+    private func makeImageURL(_ urlString: String?) -> URL? {
+        guard let urlString = urlString, let url = URL(
+            string: .extractURL + urlString
+        ) else { return nil }
+        return url
+    }
+}
+
+// MARK: - Constants
+
+private extension String {
+    static let extractURL = "http://www.google.com/s2/favicons?sz=64&domain="
 }

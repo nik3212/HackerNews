@@ -25,13 +25,3 @@ struct ImageView: View {
         KFImage.url(url)
     }
 }
-
-#if DEBUG
-    struct SwiftUIView_Previews: PreviewProvider {
-        static var previews: some View {
-            URL(string: "https://en.wikipedia.org/wiki/File:Google_Images_2015_logo.svg").map {
-                ImageView(url: $0)
-            }
-        }
-    }
-#endif

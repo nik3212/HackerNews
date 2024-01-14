@@ -34,6 +34,7 @@ struct ArticleView: View {
                     articleFeedbackView
                 }
             }
+            Spacer(minLength: 16.0)
             imageView
         }
     }
@@ -83,7 +84,9 @@ struct ArticleView: View {
     private var imageView: some View {
         self.viewModel.imageURL.map {
             ImageView(url: $0)
-                .frame(width: 50, height: 50)
+                .frame(width: 64, height: 64)
+                .background(Color.white)
+                .clipShape(RoundedRectangle(cornerRadius: 8.0))
         }
     }
 }

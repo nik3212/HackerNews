@@ -36,8 +36,9 @@ struct PostsView: View {
             }
         }
         .onAppear {
-            isLoading = true
-            store.send(.refresh)
+            Task {
+                await self.refresh()
+            }
         }
     }
 
@@ -48,9 +49,7 @@ struct PostsView: View {
             .scrollDisabled(isLoading)
             .listStyle(.plain)
             .refreshable {
-                defer { isLoading = false }
-                isLoading = true
-                await self.store.send(.refresh).finish()
+                await self.refresh()
             }
     }
 
@@ -83,8 +82,6 @@ struct PostsView: View {
         ToolbarItem(placement: .navigationBarLeading) {
             navigationTitleAssembly.assemble()
                 .padding(.bottom, 8.0)
-//            NavigationTitleView()
-//                .padding(.bottom, 8.0)
         }
     }
 
@@ -111,6 +108,12 @@ struct PostsView: View {
                 RoundedRectangle(cornerRadius: .cornerRadius, style: .continuous)
             }
         )
+    }
+
+    private func refresh() async {
+        defer { isLoading = false }
+        isLoading = true
+        await store.send(.refresh).finish()
     }
 }
 
