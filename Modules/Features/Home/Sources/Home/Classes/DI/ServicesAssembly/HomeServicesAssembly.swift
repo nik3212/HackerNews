@@ -11,6 +11,7 @@ import NetworkLayerInterfaces
 
 protocol IHomeServicesAssembly {
     var postsService: IPostsService { get }
+    var appNameProvider: IAppNameProvider { get }
 }
 
 // MARK: - HomeServicesAssembly
@@ -31,6 +32,12 @@ final class HomeServicesAssembly: AppAssembly, IHomeServicesAssembly {
     var postsService: IPostsService {
         resolve(IPostsService.self) {
             PostsService(requestProcessor: self.requestProcessor)
+        }
+    }
+
+    var appNameProvider: IAppNameProvider {
+        resolve(IAppNameProvider.self) {
+            AppNameProvider(bundle: .main)
         }
     }
 }

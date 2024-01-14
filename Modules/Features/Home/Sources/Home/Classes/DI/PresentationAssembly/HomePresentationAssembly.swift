@@ -27,6 +27,9 @@ final class HomePresentationAssembly: IHomePresentationAssembly {
     // MARK: IHomePresentationAssembly
 
     var newsAssembly: IPostsAssembly {
-        PostsAssembly(postsService: servicesAssembly.postsService)
+        PostsAssembly(
+            postsService: servicesAssembly.postsService,
+            appNameProvider: servicesAssembly.appNameProvider
+        )
     }
 }

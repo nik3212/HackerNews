@@ -16,11 +16,13 @@ struct PostsView: View {
     @State private var isLoading = false
 
     private let store: StoreOf<PostsViewStore>
+    private let navigationTitleAssembly: INavigationTitleAssembly
 
     // MARK: Initialization
 
-    init(store: StoreOf<PostsViewStore>) {
+    init(store: StoreOf<PostsViewStore>, navigationTitleAssembly: INavigationTitleAssembly) {
         self.store = store
+        self.navigationTitleAssembly = navigationTitleAssembly
     }
 
     // MARK: View
@@ -79,8 +81,10 @@ struct PostsView: View {
 
     private var toolbarView: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
-            NavigationTitleView()
+            navigationTitleAssembly.assemble()
                 .padding(.bottom, 8.0)
+//            NavigationTitleView()
+//                .padding(.bottom, 8.0)
         }
     }
 
