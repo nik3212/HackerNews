@@ -25,14 +25,14 @@ struct PostsViewStore: Reducer {
 
     // MARK: Properties
 
-    private let postsService: IPostsService
     private let viewModelFactory: IPostViewModelFactory
+    private let pager: PostsPager
 
     // MARK: Initialization
 
-    init(postsService: IPostsService, viewModelFactory: IPostViewModelFactory) {
-        self.postsService = postsService
+    init(viewModelFactory: IPostViewModelFactory, pager: PostsPager) {
         self.viewModelFactory = viewModelFactory
+        self.pager = pager
     }
 
     // MARK: Reducer
@@ -46,7 +46,7 @@ struct PostsViewStore: Reducer {
         case let .fetchPosts(type):
             return .run { send in
                 await send(
-                    .postsResponse(Result { try await self.postsService.loadPosts(with: type) }),
+                    .postsResponse(Result { try await self.pager.loadNext(postType: type) }),
                     animation: .default
                 )
             }

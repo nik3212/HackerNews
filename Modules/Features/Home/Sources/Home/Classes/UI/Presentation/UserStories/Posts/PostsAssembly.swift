@@ -22,7 +22,10 @@ final class PostsAssembly: IPostsAssembly {
 
     private lazy var store: StoreOf<PostsViewStore> = {
         Store(initialState: PostsViewStore.State(selectedItem: .new, articles: [])) {
-            PostsViewStore(postsService: self.postsService, viewModelFactory: self.viewModelFactory)
+            PostsViewStore(
+                viewModelFactory: self.viewModelFactory,
+                pager: self.pager
+            )
         }
     }()
 
@@ -47,5 +50,15 @@ final class PostsAssembly: IPostsAssembly {
 
     private var navigationTitleAssembly: INavigationTitleAssembly {
         NavigationTitleAssembly(appNameProvider: appNameProvider)
+    }
+
+    private var pager: PostsPager {
+        let paginators = Dictionary(uniqueKeysWithValues: PostType.allCases.map {
+            let paginatorService = PostsPaginatorService(postsService: self.postsService, postType: $0)
+            let paginator = Paginator(paginatorService: paginatorService)
+            return ($0, paginator)
+        })
+
+        return PostsPager(paginators: paginators)
     }
 }
