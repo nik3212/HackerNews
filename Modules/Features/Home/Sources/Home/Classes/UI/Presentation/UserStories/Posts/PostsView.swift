@@ -110,6 +110,7 @@ struct PostsView: View {
         )
     }
 
+    @MainActor
     private func refresh() async {
         defer { isLoading = false }
         isLoading = true

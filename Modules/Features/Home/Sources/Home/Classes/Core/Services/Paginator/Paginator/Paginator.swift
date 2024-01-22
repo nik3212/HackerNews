@@ -57,11 +57,11 @@ actor Paginator<T: Decodable> {
 extension Paginator: IPaginator {
     func refresh() async throws -> PageInfo<T> {
         currentPage = firstPage
-        return try await paginatorService.loadPage(currentPage)
+        return try await loadPage(currentPage)
     }
 
     func loadNextPage() async throws -> PageInfo<T> {
-        try await paginatorService.loadPage(currentPage + 1)
+        try await loadPage(currentPage + 1)
     }
 
     func reset() async {

@@ -25,7 +25,7 @@ struct Post: Decodable, Equatable, Identifiable {
     var kids: [Int]
 
     /// Creation date of the item, in Unix Time.
-    var time: Int?
+    var time: Int
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -47,6 +47,6 @@ struct Post: Decodable, Equatable, Identifiable {
         author = try? container.decode(String.self, forKey: .by)
         url = try? container.decode(String.self, forKey: .url)
         kids = (try? container.decode([Int].self, forKey: .kids)) ?? []
-        time = try? container.decode(Int.self, forKey: .time)
+        time = (try? container.decode(Int.self, forKey: .time)) ?? .zero
     }
 }

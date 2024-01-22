@@ -26,4 +26,8 @@ actor PostsPager {
     func loadNext(postType: PostType) async throws -> [Post] {
         try await paginators[postType]?.loadNextPage().items ?? []
     }
+
+    func reset(postType: PostType) async {
+        await paginators[postType]?.reset()
+    }
 }

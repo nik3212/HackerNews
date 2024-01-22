@@ -15,7 +15,7 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", .upToNextMajor(from: "1.5.5")),
         .package(url: "https://github.com/space-code/network-layer.git", .upToNextMajor(from: "1.0.0")),
         .package(url: "https://github.com/onevcat/Kingfisher.git", .upToNextMajor(from: "7.10.1")),
-        .package(url: "https://github.com/space-code/skeleton-ui.git", .upToNextMajor(from: "1.0.1")),
+        .package(url: "https://github.com/space-code/skeleton-ui.git", .branch("dev")),
         .package(path: "../../Common/AppUtils"),
         .package(path: "../../Common/UIExtensions"),
         .package(path: "../../Common/HackerNewsLocalization"),
