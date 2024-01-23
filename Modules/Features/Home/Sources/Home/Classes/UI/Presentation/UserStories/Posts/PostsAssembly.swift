@@ -4,6 +4,7 @@
 //
 
 import ComposableArchitecture
+import Paginator
 import SwiftUI
 
 // MARK: - IPostsAssembly
@@ -21,7 +22,13 @@ final class PostsAssembly: IPostsAssembly {
     private let appNameProvider: IAppNameProvider
 
     private lazy var store: StoreOf<PostsViewStore> = {
-        Store(initialState: PostsViewStore.State(selectedItem: .new, articles: [], isLoading: false)) {
+        Store(
+            initialState: PostsViewStore.State(
+                selectedItem: .new,
+                isLoading: false,
+                paginator: PaginatorState(items: [])
+            )
+        ) {
             PostsViewStore(
                 viewModelFactory: self.viewModelFactory,
                 pager: self.pager

@@ -3,8 +3,9 @@
 // Copyright © 2024 Nikita Vasilev. All rights reserved.
 //
 
-import ComposableArchitecture
+// import ComposableArchitecture
 import Foundation
+import Paginator
 
 actor PostsPaginatorService: IPaginatorService {
     // MARK: Properties
@@ -13,12 +14,6 @@ actor PostsPaginatorService: IPaginatorService {
     private let postType: PostType
 
     private var ids: [PostType: [Int]] = [:]
-
-    // MARK: Constants
-
-    private enum Constants {
-        static let pageSize = 20
-    }
 
     // MARK: Initialization
 
@@ -29,15 +24,18 @@ actor PostsPaginatorService: IPaginatorService {
 
     // MARK: IPaginatorService
 
-    func loadPage(_ page: Int) async throws -> PageInfo<Post> {
+    func loadPage(_ limit: Int, offset: Int) async throws -> Page<Post> {
         let ids = try await prefetchIDs(for: postType)
         let posts = try await postsService.loadPosts(
-            with: Array(ids[safe: page * Constants.pageSize ..< (page + 1) * Constants.pageSize])
+            with: Array(ids[safe: offset ..< limit + offset])
         )
 
-        return PageInfo(
+        let offset = limit + offset
+
+        return Page(
             items: posts,
-            page: page
+            offset: offset,
+            hasMoreData: offset < ids.count
         )
     }
 

@@ -5,6 +5,7 @@
 
 import Foundation
 import NetworkLayerInterfaces
+import Paginator
 
 actor PostsPager {
     // MARK: Properties
@@ -29,5 +30,11 @@ actor PostsPager {
 
     func reset(postType: PostType) async {
         await paginators[postType]?.reset()
+    }
+
+    func load(request: LimitPageRequest, postType: PostType) async throws -> Page<Post> {
+        // FIXME: Remove force unwrapping
+        // swiftlint:disable:next force_unwrapping
+        try await paginators[postType]!.loadPage(request: request)
     }
 }

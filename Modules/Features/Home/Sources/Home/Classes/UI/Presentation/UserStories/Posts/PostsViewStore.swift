@@ -5,16 +5,19 @@
 
 import ComposableArchitecture
 import Foundation
+import Paginator
 
 // MARK: - PostsViewStore
 
-struct PostsViewStore: Reducer {
+@Reducer
+struct PostsViewStore {
     // MARK: Types
 
     struct State: Equatable {
         @BindingState var selectedItem: PostType
-        var articles: [ArticleView.ViewModel]
         var isLoading = false
+
+        var paginator: PaginatorState<ArticleView.ViewModel>
     }
 
     enum Action {
@@ -22,8 +25,8 @@ struct PostsViewStore: Reducer {
         case fetchPosts(PostType)
         case postsResponse(result: Result<[Post], Error>, force: Bool)
         case binding(PostType)
-        case loadNext
-        case appearItem(index: Int)
+
+        case child(PaginatorAction<ArticleView.ViewModel, Never>)
     }
 
     private enum CancelID { case postRequest }
@@ -42,70 +45,54 @@ struct PostsViewStore: Reducer {
 
     // MARK: Reducer
 
-    // swiftlint:disable:next function_body_length
-    func reduce(into state: inout State, action: Action) -> Effect<Action> {
-        switch action {
-        case .refresh:
-            return .run { [type = state.selectedItem] send in
-                await pager.reset(postType: type)
-                await send(
-                    .postsResponse(
-                        result: Result { try await self.pager.refresh(postType: type) },
-                        force: true
-                    ),
-                    animation: .default
-                )
+    var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            case .refresh:
+                return .run { [type = state.selectedItem] send in
+                    await send(self.fetch(type: type, force: true), animation: .default)
+                }
+            case let .fetchPosts(type):
+                state.isLoading = true
+                return .run { send in await send(self.fetch(type: type, force: false), animation: .default) }
+                    .cancellable(id: CancelID.postRequest)
+            case let .binding(postType):
+                state.paginator.items = []
+                state.selectedItem = postType
+                return .send(.fetchPosts(postType))
+            case let .postsResponse(.success(posts), force):
+                state.isLoading = false
+                if force {
+                    state.paginator.items = .init(viewModelFactory.makeViewModel(from: posts))
+                } else {
+                    state.paginator.items += viewModelFactory.makeViewModel(from: posts)
+                }
+                return .none
+            case .postsResponse(.failure, _):
+                state.isLoading = false
+                return .none
+            case let .child(action):
+                return .none
             }
-        case .loadNext:
-            return .run { [type = state.selectedItem] send in
-                await send(.fetchPosts(type))
-            }
-        case let .fetchPosts(type):
-            state.isLoading = true
-            return .run { send in
-                await send(
-                    .postsResponse(
-                        result: Result { try await self.pager.loadNext(postType: type) },
-                        force: false
-                    ),
-                    animation: .default
-                )
-            }
-            .cancellable(id: CancelID.postRequest)
-        case let .binding(postType):
-            state.articles = []
-            state.selectedItem = postType
-            return .send(.fetchPosts(postType))
-        case let .postsResponse(.success(posts), force):
-            state.isLoading = false
-            if force {
-                state.articles = viewModelFactory.makeViewModel(from: posts)
-            } else {
-                state.articles += viewModelFactory.makeViewModel(from: posts)
-            }
-            return .none
-        case .postsResponse(.failure, _):
-            state.isLoading = false
-            return .none
-        case let .appearItem(index):
-            return prefetchDataIfNeeded(for: state, index: index)
         }
+        .paginator(
+            state: \PostsViewStore.State.paginator,
+            action: /PostsViewStore.Action.child,
+            loadPage: { request, state in
+                let page = try await self.pager.load(request: request, postType: state.selectedItem)
+                let items = self.viewModelFactory.makeViewModel(from: page.items)
+                let viewModels = Page(items: items, offset: page.offset, hasMoreData: page.hasMoreData)
+                return viewModels
+            }
+        )
     }
 
     // MARK: Private
 
-    private func prefetchDataIfNeeded(for state: State, index: Int) -> Effect<Action> {
-        if index > state.articles.count - Int.pageSize, !state.isLoading {
-            return .run { [type = state.selectedItem] send in
-                await send(.fetchPosts(type))
-            }
-        }
-        return .none
+    private func fetch(type: PostType, force: Bool) async -> Action {
+        await .postsResponse(
+            result: Result { try await self.pager.loadNext(postType: type) },
+            force: force
+        )
     }
-}
-
-// MARK: - Constants
-
-private extension Int {
-    static let pageSize = 15
 }

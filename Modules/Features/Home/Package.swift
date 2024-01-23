@@ -20,6 +20,7 @@ let package = Package(
         .package(path: "../../Common/UIExtensions"),
         .package(path: "../../Common/HackerNewsLocalization"),
         .package(path: "../../Common/DesignKit"),
+        .package(path: "../../Common/Paginator"),
     ],
     targets: [
         .target(
@@ -34,6 +35,7 @@ let package = Package(
                 .product(name: "HackerNewsLocalization", package: "HackerNewsLocalization"),
                 .product(name: "DesignKit", package: "DesignKit"),
                 .product(name: "SkeletonUI", package: "skeleton-ui"),
+                .product(name: "Paginator", package: "Paginator"),
             ]
         ),
         .target(name: "HomeInterfaces", dependencies: []),

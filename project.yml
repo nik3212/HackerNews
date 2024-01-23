@@ -35,7 +35,7 @@ settings:
       OTHER_LDFLAGS: -Objc
       SWIFT_COMPILATION_MODE: wholemodule
 packages:
-  # Commom
+  # Common
 
   HackerNewsLocalization:
     path: Modules/Common/HackerNewsLocalization
@@ -47,6 +47,8 @@ packages:
     path: Modules/Common/AppUtils
   DesignKit:
     path: Modules/Common/DesignKit
+  Paginator:
+    path: Modules/Common/Paginator
 
   # Feature
 
