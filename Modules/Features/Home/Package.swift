@@ -36,6 +36,7 @@ let package = Package(
                 .product(name: "DesignKit", package: "DesignKit"),
                 .product(name: "SkeletonUI", package: "skeleton-ui"),
                 .product(name: "Paginator", package: "Paginator"),
+                .product(name: "PaginatorTCA", package: "Paginator"),
             ]
         ),
         .target(name: "HomeInterfaces", dependencies: []),

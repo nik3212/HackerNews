@@ -5,6 +5,7 @@
 
 import ComposableArchitecture
 import Foundation
+import Paginator
 
 public enum PaginatorAction<State: Equatable & Identifiable, Action: Equatable>: Equatable {
     case itemAppeared(State.ID)

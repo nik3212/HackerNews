@@ -5,6 +5,7 @@
 
 import ComposableArchitecture
 import Paginator
+import PaginatorTCA
 import SkeletonUI
 import SwiftUI
 

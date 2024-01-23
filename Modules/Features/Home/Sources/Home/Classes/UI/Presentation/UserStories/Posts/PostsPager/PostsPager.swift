@@ -10,27 +10,15 @@ import Paginator
 actor PostsPager {
     // MARK: Properties
 
-    private let paginators: [PostType: any IPaginator<Post>]
+    private let paginators: [PostType: any IPageLoader<Post>]
 
     // MARK: Initialization
 
-    init(paginators: [PostType: any IPaginator<Post>]) {
+    init(paginators: [PostType: any IPageLoader<Post>]) {
         self.paginators = paginators
     }
 
     // MARK: Public
-
-    func refresh(postType: PostType) async throws -> [Post] {
-        try await paginators[postType]?.refresh().items ?? []
-    }
-
-    func loadNext(postType: PostType) async throws -> [Post] {
-        try await paginators[postType]?.loadNextPage().items ?? []
-    }
-
-    func reset(postType: PostType) async {
-        await paginators[postType]?.reset()
-    }
 
     func load(request: LimitPageRequest, postType: PostType) async throws -> Page<Post> {
         // FIXME: Remove force unwrapping

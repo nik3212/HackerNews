@@ -8,7 +8,7 @@ import Foundation
 // MARK: - IPostViewModelFactory
 
 protocol IPostViewModelFactory {
-    func makeViewModel(from posts: [Post]) -> [ArticleView.ViewModel]
+    func makeViewModel(from post: Post) -> ArticleView.ViewModel
 }
 
 // MARK: - PostViewModelFactory
@@ -16,17 +16,15 @@ protocol IPostViewModelFactory {
 final class PostViewModelFactory: IPostViewModelFactory {
     // MARK: IPostViewModelFactory
 
-    func makeViewModel(from posts: [Post]) -> [ArticleView.ViewModel] {
-        posts.map { post in
-            ArticleView.ViewModel(
-                title: post.title ?? "",
-                author: post.author ?? "Unknown",
-                link: makeLink(post.url),
-                rating: String(post.score ?? 0),
-                numberOfComments: post.kids.count,
-                imageURL: makeImageURL(post.url)
-            )
-        }
+    func makeViewModel(from post: Post) -> ArticleView.ViewModel {
+        ArticleView.ViewModel(
+            title: post.title ?? "",
+            author: post.author ?? "Unknown",
+            link: makeLink(post.url),
+            rating: String(post.score ?? 0),
+            numberOfComments: post.kids.count,
+            imageURL: makeImageURL(post.url)
+        )
     }
 
     // MARK: Private

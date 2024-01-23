@@ -4,6 +4,7 @@
 //
 
 import ComposableArchitecture
+import Paginator
 
 struct PaginatorIntegrationReducer<
     Parent: Reducer,
@@ -12,6 +13,7 @@ struct PaginatorIntegrationReducer<
 >: Reducer {
     // MARK: Properties
 
+    let limit: Int
     let parent: Parent
     let childState: WritableKeyPath<Parent.State, PaginatorState<State>>
     let childAction: AnyCasePath<Parent.Action, PaginatorAction<State, Action>>
@@ -21,7 +23,7 @@ struct PaginatorIntegrationReducer<
 
     var body: some Reducer<Parent.State, Parent.Action> {
         Scope(state: childState, action: childAction) {
-            PaginatorReducer(limit: 20)
+            PaginatorReducer(limit: limit)
         }
 
         Reduce { state, action in

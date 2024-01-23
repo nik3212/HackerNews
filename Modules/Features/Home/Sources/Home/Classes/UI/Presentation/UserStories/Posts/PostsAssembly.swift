@@ -5,6 +5,7 @@
 
 import ComposableArchitecture
 import Paginator
+import PaginatorTCA
 import SwiftUI
 
 // MARK: - IPostsAssembly
@@ -25,7 +26,6 @@ final class PostsAssembly: IPostsAssembly {
         Store(
             initialState: PostsViewStore.State(
                 selectedItem: .new,
-                isLoading: false,
                 paginator: PaginatorState(items: [])
             )
         ) {
@@ -62,7 +62,7 @@ final class PostsAssembly: IPostsAssembly {
     private var pager: PostsPager {
         let paginators = Dictionary(uniqueKeysWithValues: PostType.allCases.map {
             let paginatorService = PostsPaginatorService(postsService: self.postsService, postType: $0)
-            let paginator = Paginator(paginatorService: paginatorService)
+            let paginator = PageLoader(paginatorService: paginatorService)
             return ($0, paginator)
         })
 

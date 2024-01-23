@@ -4,6 +4,7 @@
 //
 
 import ComposableArchitecture
+import Paginator
 
 struct PaginatorReducer<State: Equatable & Identifiable, Action: Equatable>: Reducer {
     // MARK: Types

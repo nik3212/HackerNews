@@ -9,14 +9,17 @@ let package = Package(
     platforms: [.iOS(.v17)],
     products: [
         .library(name: "Paginator", targets: ["Paginator"]),
+        .library(name: "PaginatorTCA", targets: ["PaginatorTCA"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", .upToNextMajor(from: "1.5.5")),
     ],
     targets: [
+        .target(name: "Paginator"),
         .target(
-            name: "Paginator",
+            name: "PaginatorTCA",
             dependencies: [
+                "Paginator",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),

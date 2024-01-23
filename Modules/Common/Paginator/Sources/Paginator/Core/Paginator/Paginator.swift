@@ -19,11 +19,11 @@ public actor Paginator<T: Decodable & Equatable> {
     /// The page number of the first page in the pagination sequence.
     private let firstPage: Int
 
+    /// <#Description#>
+    private let limit: Int
+
     /// The current page number being loaded.
     private var currentPage: Int
-
-    /// The service responsible for loading pages of data.
-    private let paginatorService: any IPaginatorService<T>
 
     /// Internal flag to track whether the paginator is currently loading data.
     private var isLoadingInternal = false
@@ -34,37 +34,19 @@ public actor Paginator<T: Decodable & Equatable> {
         set { isLoadingInternal = newValue }
     }
 
+    private let pageLoader: any IPageLoader<T>
+
     /// An array to store the loaded elements.
     private(set) var elements: [T] = []
 
     // MARK: Initialization
 
     /// Initializes the Paginator with the provided first page number and paginator service.
-    public init(firstPage: Int = 0, paginatorService: any IPaginatorService<T>) {
+    public init(firstPage: Int = .zero, limit: Int = 20, pageLoader: any IPageLoader<T>) {
         self.firstPage = firstPage
         self.currentPage = firstPage
-        self.paginatorService = paginatorService
-    }
-
-    // MARK: Private
-
-    /// Loads a specific page of data and updates the internal state.
-    private func loadPage(limit: Int, offset: Int) async throws -> Page<T> {
-        guard !isLoading else { throw Error.alreadyLoading }
-
-        defer { isLoading = false }
-        isLoading = true
-
-        do {
-            let data = try await paginatorService.loadPage(limit, offset: offset)
-
-            currentPage += 1
-            elements += data.items
-
-            return data
-        } catch {
-            throw error
-        }
+        self.limit = limit
+        self.pageLoader = pageLoader
     }
 }
 
@@ -73,15 +55,19 @@ public actor Paginator<T: Decodable & Equatable> {
 extension Paginator: IPaginator {
     public func refresh() async throws -> Page<T> {
         currentPage = firstPage
-        return try await loadPage(limit: 20, offset: 20 * currentPage)
+        let page = try await pageLoader.loadPage(
+            request: LimitPageRequest(limit: limit, offset: limit * currentPage)
+        )
+        currentPage += 1
+        return page
     }
 
     public func loadNextPage() async throws -> Page<T> {
-        try await loadPage(limit: 20, offset: 20 * currentPage)
-    }
-
-    public func loadPage(request: LimitPageRequest) async throws -> Page<T> {
-        try await loadPage(limit: request.limit, offset: request.offset)
+        let page = try await pageLoader.loadPage(
+            request: LimitPageRequest(limit: limit, offset: limit * (currentPage + 1))
+        )
+        currentPage += 1
+        return page
     }
 
     public func reset() async {

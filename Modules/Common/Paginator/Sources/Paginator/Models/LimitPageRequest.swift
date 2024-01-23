@@ -10,4 +10,11 @@ public struct LimitPageRequest: Equatable {
 
     public let limit: Int
     public let offset: Int
+
+    // MARK: Initialization
+
+    public init(limit: Int, offset: Int) {
+        self.limit = limit
+        self.offset = offset
+    }
 }

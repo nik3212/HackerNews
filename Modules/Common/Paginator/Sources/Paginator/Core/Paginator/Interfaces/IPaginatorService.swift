@@ -7,7 +7,7 @@ import Foundation
 
 /// Protocol defining the interface for a service responsible for loading paginated data.
 public protocol IPaginatorService<Element> {
-    /// The type of elements the service is handling, which must conform to `Decodable`.
+    /// The type of elements the service is handling, which must conform to `Decodable` & `Equatable`.
     associatedtype Element: Decodable & Equatable
 
     /// Asynchronously loads a specific page of data.
