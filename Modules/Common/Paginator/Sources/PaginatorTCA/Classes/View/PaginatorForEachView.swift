@@ -6,7 +6,7 @@
 import ComposableArchitecture
 import SwiftUI
 
-public struct PaginatorListView<State: Equatable & Identifiable, Action: Equatable, Body: View>: View {
+public struct PaginatorForEachView<State: Equatable & Identifiable, Action: Equatable, Body: View>: View {
     // MARK: Properties
 
     public let store: Store<PaginatorState<State>, PaginatorAction<State, Action>>
@@ -24,7 +24,7 @@ public struct PaginatorListView<State: Equatable & Identifiable, Action: Equatab
 
     public var body: some View {
         WithViewStore(self.store, observe: { $0 }) { (viewStore: ViewStoreOf<PaginatorReducer<State, Action>>) in
-            List(viewStore.items) { item in
+            ForEach(viewStore.items) { item in
                 content(item)
                     .onAppear {
                         viewStore.send(.itemAppeared(item.id))

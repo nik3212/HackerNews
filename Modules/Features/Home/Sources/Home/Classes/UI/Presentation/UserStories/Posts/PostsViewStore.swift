@@ -26,8 +26,6 @@ struct PostsViewStore {
         case child(PaginatorAction<ArticleView.ViewModel, Never>)
     }
 
-    private enum CancelID { case postRequest }
-
     // MARK: Properties
 
     private let viewModelFactory: IPostViewModelFactory
@@ -47,7 +45,6 @@ struct PostsViewStore {
             switch action {
             case .refresh:
                 return .send(.child(.requestPage(.initial)), animation: .default)
-                    .cancellable(id: CancelID.postRequest)
             case let .binding(postType):
                 state.paginator.items = []
                 state.selectedItem = postType

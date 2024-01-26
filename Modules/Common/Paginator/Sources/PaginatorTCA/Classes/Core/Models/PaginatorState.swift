@@ -19,13 +19,6 @@ public struct PaginatorState<State: Equatable & Identifiable>: Equatable {
 
     // MARK: Initialization
 
-    init(items: IdentifiedArrayOf<State>, isLoading: Bool, offset: Int, hasMoreData: Bool) {
-        self.items = items
-        self.isLoading = isLoading
-        self.hasMoreData = hasMoreData
-        self.offset = offset
-    }
-
     public init(items: IdentifiedArrayOf<State>) {
         self.items = items
         isLoading = false

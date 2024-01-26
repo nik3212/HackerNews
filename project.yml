@@ -63,6 +63,9 @@ packages:
   SwiftCollections:
     url: https://github.com/apple/swift-collections.git
     from: 1.0.5
+  Pulse:
+    url: https://github.com/kean/Pulse.git
+    from: 4.0.5
 
 attributes:
   ORGANIZATIONNAME: Nikita Vasilev
@@ -106,6 +109,8 @@ targets:
       - package: Home
       - package: UIExtensions
       - package: DesignKit
+      - package: Pulse
+        product: PulseUI
     sources:
       - path: HackerNews
     settings:

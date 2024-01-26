@@ -14,6 +14,6 @@ class BaseRequest: IRequest {
     }
 
     var domainName: String {
-        "https://hacker-news.firebaseio.com/v0/"
+        "https://hacker-news.firebaseio.com/v0"
     }
 }

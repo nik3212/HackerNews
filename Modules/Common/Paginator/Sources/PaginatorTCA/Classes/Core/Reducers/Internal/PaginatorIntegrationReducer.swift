@@ -19,6 +19,8 @@ struct PaginatorIntegrationReducer<
     let childAction: AnyCasePath<Parent.Action, PaginatorAction<State, Action>>
     let loadPage: @Sendable(LimitPageRequest, Parent.State) async throws -> Page<State>
 
+    private enum CancelID { case requestPage }
+
     // MARK: Reducer
 
     var body: some Reducer<Parent.State, Parent.Action> {
@@ -36,6 +38,7 @@ struct PaginatorIntegrationReducer<
             return .run { [state] send in
                 await send(childAction.embed(.response(TaskResult { try await self.loadPage(pageRequest, state) })))
             }
+            .cancellable(id: CancelID.requestPage, cancelInFlight: true)
         }
     }
 }

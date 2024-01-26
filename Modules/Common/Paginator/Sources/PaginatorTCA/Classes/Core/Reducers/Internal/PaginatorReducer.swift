@@ -41,7 +41,7 @@ struct PaginatorReducer<State: Equatable & Identifiable, Action: Equatable>: Red
                 state.offset = page.offset
 
                 return .none
-            case let .response(.failure(error)):
+            case .response(.failure):
                 state.isLoading = false
                 return .none
             }
