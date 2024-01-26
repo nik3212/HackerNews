@@ -28,16 +28,23 @@ struct PostListView: View {
         PaginatorView(
             store: store.scope(state: \.paginator, action: { .child($0) }),
             content: { state, handler in
-                SkeletonView(
-                    data: state,
-                    quantity: .quantity,
-                    configuration: .configuration,
-                    builder: { article, _ in
-                        article.map { handler($0) }
-                    }, skeletonBuilder: { index in
-                        self.reductedView(index: index)
+                ScrollViewReader { reader in
+                    SkeletonView(
+                        data: state,
+                        quantity: .quantity,
+                        configuration: .configuration,
+                        builder: { article, index in
+                            article.map { handler($0).id(index) }
+                        }, skeletonBuilder: { index in
+                            self.reductedView(index: index)
+                        }
+                    )
+                    .onChange(of: state.isEmpty) { _, _ in
+                        withAnimation {
+                            reader.scrollTo(Int.zero)
+                        }
                     }
-                )
+                }
             },
             rowContent: { item -> ArticleView in
                 ArticleView(viewModel: item)
