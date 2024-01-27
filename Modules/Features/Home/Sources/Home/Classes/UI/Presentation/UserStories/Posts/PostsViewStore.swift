@@ -16,6 +16,9 @@ struct PostsViewStore {
 
     struct State: Equatable {
         @BindingState var selectedItem: PostType
+        var selectedPostID: ArticleView.ViewModel.ID?
+        @PresentationState var postDetail: PostDetailFeature.State?
+
         var paginator: PaginatorState<ArticleView.ViewModel>
     }
 
@@ -23,6 +26,8 @@ struct PostsViewStore {
         case refresh
         case binding(PostType)
 
+        case selectItem(UUID)
+        case postDetail(PresentationAction<PostDetailFeature.Action>)
         case child(PaginatorAction<ArticleView.ViewModel, Never>)
     }
 
@@ -49,7 +54,14 @@ struct PostsViewStore {
                 state.paginator.items = []
                 state.selectedItem = postType
                 return .send(.refresh)
+            case let .selectItem(id):
+                state.selectedPostID = id
+                state.postDetail = .init(postID: "\(id)")
+                return .none
             case .child:
+                return .none
+            case .postDetail(.dismiss):
+                state.selectedPostID = nil
                 return .none
             }
         }
@@ -61,6 +73,9 @@ struct PostsViewStore {
                     .map { self.viewModelFactory.makeViewModel(from: $0) }
             }
         )
+        .ifLet(\.$postDetail, action: \.postDetail) {
+            PostDetailFeature()
+        }
     }
 }
 

@@ -55,10 +55,13 @@ struct PostsView: View {
 
     private var compactView: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            NavigationView {
+            NavigationStack {
                 VStack(spacing: 8.0) {
                     segmentedControlView(viewStore: viewStore)
                     postListView
+                        .navigationDestination(store: self.store.scope(state: \.$postDetail, action: \.postDetail)) { store in
+                            PostDetailView(store: store)
+                        }
                 }
                 .toolbar { self.toolbarView }
             }
@@ -72,10 +75,18 @@ struct PostsView: View {
                     .toolbar { self.toolbarView }
             },
             content: {
-                postListView
+                WithViewStore(self.store, observe: { $0 }) { viewStore in
+                    postListView
+                        .navigationTitle(viewStore.selectedItem.title)
+                }
             },
-            detail: { Text("DETAIL") }
+            detail: {
+                IfLetStore(self.store.scope(state: \.$postDetail, action: \.postDetail)) { store in
+                    PostDetailView(store: store)
+                }
+            }
         )
+        .listStyle(.sidebar)
     }
 
     private var toolbarView: some ToolbarContent {

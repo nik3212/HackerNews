@@ -14,6 +14,8 @@ import SwiftUI
 struct PostListView: View {
     // MARK: Properties
 
+    @State private var selectedID: ArticleView.ViewModel.ID?
+
     private let store: StoreOf<PostsViewStore>
 
     // MARK: Initialization
@@ -34,7 +36,14 @@ struct PostListView: View {
                         quantity: .quantity,
                         configuration: .configuration,
                         builder: { article, index in
-                            article.map { handler($0).id(index) }
+                            WithViewStore(self.store, observe: { $0 }) { store in
+                                article.map { article in
+                                    handler(article)
+                                        .id(index)
+                                        .onTapGesture { store.send(.selectItem(article.id)) }
+                                        .listRowBackground(self.listRowBackground(store.selectedPostID == article.id))
+                                }
+                            }
                         }, skeletonBuilder: { index in
                             self.reductedView(index: index)
                         }
@@ -65,6 +74,11 @@ struct PostListView: View {
                 RoundedRectangle(cornerRadius: .cornerRadius)
             }
         }
+    }
+
+    private func listRowBackground(_ isSelected: Bool) -> some View {
+        let view = isSelected ? Color.blue.animation(.default) : Color.clear.animation(.default)
+        return view.animation(.easeIn(duration: 10), value: isSelected)
     }
 }
 

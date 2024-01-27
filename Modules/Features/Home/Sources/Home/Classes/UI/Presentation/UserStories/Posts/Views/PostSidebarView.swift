@@ -30,17 +30,19 @@ struct PostSidebarView: View {
     // MARK: Private
 
     private func sidebarView(viewStore: ViewStore<PostsViewStore.State, PostsViewStore.Action>) -> some View {
-        List(PostType.allCases) { postType in
-            Button(action: {
-                viewStore.send(.binding(postType))
-            }, label: {
-                HStack {
-                    Image(systemName: postType.systemName)
-                    Text(postType.title)
+        NavigationStack {
+            List(
+                selection: viewStore.binding(
+                    get: { $0.selectedItem },
+                    send: { .binding($0?.id ?? .top) }
+                )
+            ) {
+                ForEach(PostType.allCases) { postType in
+                    Label(postType.title, systemImage: postType.systemName)
                 }
-            })
+            }
         }
-        .listStyle(SidebarListStyle())
+        .listStyle(.sidebar)
         .scrollContentBackground(.hidden)
     }
 }
