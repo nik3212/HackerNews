@@ -11,6 +11,7 @@ import NetworkLayerInterfaces
 
 protocol IHomeServicesAssembly {
     var postsService: IPostsService { get }
+    var commentsService: ICommentsService { get }
     var appNameProvider: IAppNameProvider { get }
 }
 
@@ -38,6 +39,12 @@ final class HomeServicesAssembly: AppAssembly, IHomeServicesAssembly {
     var appNameProvider: IAppNameProvider {
         resolve(IAppNameProvider.self) {
             AppNameProvider(bundle: .main)
+        }
+    }
+
+    var commentsService: ICommentsService {
+        resolve(ICommentsService.self) {
+            CommentsService(requestProcessor: self.requestProcessor)
         }
     }
 }

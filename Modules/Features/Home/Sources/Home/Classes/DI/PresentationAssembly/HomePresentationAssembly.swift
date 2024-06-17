@@ -29,7 +29,17 @@ final class HomePresentationAssembly: IHomePresentationAssembly {
     var newsAssembly: IPostsAssembly {
         PostsAssembly(
             postsService: servicesAssembly.postsService,
-            appNameProvider: servicesAssembly.appNameProvider
+            appNameProvider: servicesAssembly.appNameProvider,
+            postDetailsAssembly: postDetailsAssembly
+        )
+    }
+
+    // MARK: Private
+
+    private var postDetailsAssembly: IPostDetailAssembly {
+        PostDetailAssembly(
+            commentsService: servicesAssembly.commentsService,
+            postsService: servicesAssembly.postsService
         )
     }
 }

@@ -15,12 +15,12 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", .upToNextMajor(from: "1.5.5")),
         .package(url: "https://github.com/space-code/network-layer.git", .upToNextMajor(from: "1.0.0")),
         .package(url: "https://github.com/onevcat/Kingfisher.git", .upToNextMajor(from: "7.10.1")),
-        .package(url: "https://github.com/space-code/skeleton-ui.git", .branch("dev")),
+        .package(url: "https://github.com/space-code/skeleton-ui.git", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/space-code/blade.git", .upToNextMajor(from: "1.0.0")),
         .package(path: "../../Common/AppUtils"),
         .package(path: "../../Common/UIExtensions"),
         .package(path: "../../Common/HackerNewsLocalization"),
         .package(path: "../../Common/DesignKit"),
-        .package(path: "../../Common/Paginator"),
     ],
     targets: [
         .target(
@@ -35,8 +35,8 @@ let package = Package(
                 .product(name: "HackerNewsLocalization", package: "HackerNewsLocalization"),
                 .product(name: "DesignKit", package: "DesignKit"),
                 .product(name: "SkeletonUI", package: "skeleton-ui"),
-                .product(name: "Paginator", package: "Paginator"),
-                .product(name: "PaginatorTCA", package: "Paginator"),
+                .product(name: "Blade", package: "blade"),
+                .product(name: "BladeTCA", package: "blade"),
             ]
         ),
         .target(name: "HomeInterfaces", dependencies: []),

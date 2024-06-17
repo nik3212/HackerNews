@@ -82,7 +82,7 @@ struct ArticleView: View {
     }
 
     private var imageView: some View {
-        self.viewModel.imageURL.map {
+        viewModel.imageURL.map {
             ImageView(url: $0)
                 .frame(width: 64, height: 64)
                 .background(Color.white)
@@ -91,11 +91,12 @@ struct ArticleView: View {
     }
 }
 
-// MARK: - ViewModel
+// MARK: ArticleView.ViewModel
 
 extension ArticleView {
     struct ViewModel: Equatable, Identifiable {
         let id = UUID()
+        let articleID: Int
         let title: String
         let author: String
         let link: String?
@@ -120,16 +121,15 @@ private extension String {
 
 #if DEBUG
 
-    private var viewModel = {
-        ArticleView.ViewModel(
-            title: "Proton Mail Rewrites Your Emails",
-            author: "jamesik",
-            link: "x64.sh",
-            rating: "64",
-            numberOfComments: 30,
-            imageURL: nil
-        )
-    }()
+    private var viewModel = ArticleView.ViewModel(
+        articleID: .zero,
+        title: "Proton Mail Rewrites Your Emails",
+        author: "jamesik",
+        link: "x64.sh",
+        rating: "64",
+        numberOfComments: 30,
+        imageURL: nil
+    )
 
     struct ArticleView_Previews: PreviewProvider {
         static var previews: some View {

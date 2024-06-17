@@ -3,9 +3,9 @@
 // Copyright © 2024 Nikita Vasilev. All rights reserved.
 //
 
+import Blade
+import BladeTCA
 import ComposableArchitecture
-import Paginator
-import PaginatorTCA
 import SkeletonUI
 import SwiftUI
 
@@ -36,16 +36,16 @@ struct PostListView: View {
                         quantity: .quantity,
                         configuration: .configuration,
                         builder: { article, index in
-                            WithViewStore(self.store, observe: { $0 }) { store in
+                            WithViewStore(store, observe: { $0 }) { store in
                                 article.map { article in
                                     handler(article)
                                         .id(index)
-                                        .onTapGesture { store.send(.selectItem(article.id)) }
-                                        .listRowBackground(self.listRowBackground(store.selectedPostID == article.id))
+                                        .onTapGesture { store.send(.selectItem(article)) }
+                                        .listRowBackground(listRowBackground(store.selectedPostID == article.id))
                                 }
                             }
                         }, skeletonBuilder: { index in
-                            self.reductedView(index: index)
+                            reductedView(index: index)
                         }
                     )
                     .onChange(of: state.isEmpty) { _, _ in

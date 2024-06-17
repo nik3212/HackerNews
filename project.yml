@@ -47,8 +47,6 @@ packages:
     path: Modules/Common/AppUtils
   DesignKit:
     path: Modules/Common/DesignKit
-  Paginator:
-    path: Modules/Common/Paginator
 
   # Feature
 

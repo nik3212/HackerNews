@@ -13,11 +13,11 @@ disabled_rules:
   - identifier_name
   - large_tuple
   - multiple_closures_with_trailing_closure
-
+  - attributes
+  - blanket_disable_command
 opt_in_rules: # some rules are only opt-in
   - anyobject_protocol
   - array_init
-  - attributes
   - closure_body_length
   - closure_end_indentation
   - closure_spacing
@@ -37,7 +37,6 @@ opt_in_rules: # some rules are only opt-in
   - fallthrough
   - fatal_error_message
   - file_name
-  - file_types_order
   - first_where
   - flatmap_over_map_reduce
   - force_unwrapping

@@ -3,11 +3,12 @@
 // Copyright © 2024 Nikita Vasilev. All rights reserved.
 //
 
-// import ComposableArchitecture
+import Blade
 import Foundation
-import Paginator
 
-actor PostsPaginatorService: IPaginatorService {
+// MARK: - PostsPaginatorService
+
+actor PostsPaginatorService: IOffsetPageLoader {
     // MARK: Properties
 
     private let postsService: IPostsService
@@ -24,17 +25,17 @@ actor PostsPaginatorService: IPaginatorService {
 
     // MARK: IPaginatorService
 
-    func loadPage(_ limit: Int, offset: Int) async throws -> Page<Post> {
+    // FIXME: Implement a force update when refreshing articles
+    func loadPage(request: OffsetPaginationRequest) async throws -> Page<Post> {
         let ids = try await prefetchIDs(for: postType)
         let posts = try await postsService.loadPosts(
-            with: Array(ids[safe: offset ..< limit + offset])
+            with: Array(ids[safe: request.offset ... request.limit + request.offset - 1])
         )
 
-        let offset = limit + offset
+        let offset = request.limit + request.offset
 
         return Page(
             items: posts,
-            offset: offset,
             hasMoreData: offset < ids.count
         )
     }
@@ -52,8 +53,9 @@ actor PostsPaginatorService: IPaginatorService {
 
 // MARK: Private
 
-private extension Array {
-    subscript(safe range: Range<Int>) -> [Element] {
+// FIXME: Make a public extension
+extension Array {
+    subscript(safe range: ClosedRange<Int>) -> [Element] {
         let minIndex = Swift.max(range.lowerBound, 0)
         let maxIndex = Swift.min(range.upperBound, count - 1)
 
@@ -61,6 +63,6 @@ private extension Array {
             return []
         }
 
-        return Array(self[minIndex ..< maxIndex])
+        return Array(self[minIndex ... maxIndex])
     }
 }

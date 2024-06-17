@@ -1,6 +1,6 @@
 //
 // HackerNews
-// Copyright © 2024 Nikita Vasilev. All rights reserved.
+// Copyright © 2023 Nikita Vasilev. All rights reserved.
 //
 
 import ComposableArchitecture
@@ -14,15 +14,22 @@ struct PostsView: View {
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var isLoading = false
+    @State private var isPresented = false
 
     private let store: StoreOf<PostsViewStore>
     private let navigationTitleAssembly: INavigationTitleAssembly
+    private let postDetailsAssembly: IPostDetailAssembly
 
     // MARK: Initialization
 
-    init(store: StoreOf<PostsViewStore>, navigationTitleAssembly: INavigationTitleAssembly) {
+    init(
+        store: StoreOf<PostsViewStore>,
+        navigationTitleAssembly: INavigationTitleAssembly,
+        postDetailsAssembly: IPostDetailAssembly
+    ) {
         self.store = store
         self.navigationTitleAssembly = navigationTitleAssembly
+        self.postDetailsAssembly = postDetailsAssembly
     }
 
     // MARK: View
@@ -37,7 +44,7 @@ struct PostsView: View {
         }
         .onAppear {
             Task {
-                await self.refresh()
+                await refresh()
             }
         }
     }
@@ -45,25 +52,25 @@ struct PostsView: View {
     // MARK: Private
 
     private var postListView: some View {
-        PostListView(store: self.store)
+        PostListView(store: store)
             .scrollDisabled(isLoading)
             .listStyle(.plain)
             .refreshable {
-                await self.refresh()
+                await refresh()
             }
     }
 
     private var compactView: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
+        WithViewStore(store, observe: { $0 }) { viewStore in
             NavigationStack {
                 VStack(spacing: 8.0) {
                     segmentedControlView(viewStore: viewStore)
                     postListView
-                        .navigationDestination(store: self.store.scope(state: \.$postDetail, action: \.postDetail)) { store in
-                            PostDetailView(store: store)
+                        .navigationDestination(store: store.scope(state: \.$postDetail, action: \.postDetail)) { store in
+                            postDetailsAssembly.assemble(store: store)
                         }
                 }
-                .toolbar { self.toolbarView }
+                .toolbar { toolbarView }
             }
         }
     }
@@ -71,18 +78,18 @@ struct PostsView: View {
     private var splitView: some View {
         NavigationSplitView(
             sidebar: {
-                PostSidebarView(store: self.store)
-                    .toolbar { self.toolbarView }
+                PostSidebarView(store: store)
+                    .toolbar { toolbarView }
             },
             content: {
-                WithViewStore(self.store, observe: { $0 }) { viewStore in
+                WithViewStore(store, observe: { $0 }) { viewStore in
                     postListView
                         .navigationTitle(viewStore.selectedItem.title)
                 }
             },
             detail: {
-                IfLetStore(self.store.scope(state: \.$postDetail, action: \.postDetail)) { store in
-                    PostDetailView(store: store)
+                IfLetStore(store.scope(state: \.$postDetail, action: \.postDetail)) { store in
+                    postDetailsAssembly.assemble(store: store)
                 }
             }
         )

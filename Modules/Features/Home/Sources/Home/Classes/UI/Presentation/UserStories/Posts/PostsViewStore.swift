@@ -1,12 +1,12 @@
 //
 // HackerNews
-// Copyright © 2024 Nikita Vasilev. All rights reserved.
+// Copyright © 2023 Nikita Vasilev. All rights reserved.
 //
 
+import Blade
+import BladeTCA
 import ComposableArchitecture
 import Foundation
-import Paginator
-import PaginatorTCA
 
 // MARK: - PostsViewStore
 
@@ -19,29 +19,22 @@ struct PostsViewStore {
         var selectedPostID: ArticleView.ViewModel.ID?
         @PresentationState var postDetail: PostDetailFeature.State?
 
-        var paginator: PaginatorState<ArticleView.ViewModel>
+        var paginator: PaginatorState<ArticleView.ViewModel, Int>
     }
 
     enum Action {
         case refresh
         case binding(PostType)
 
-        case selectItem(UUID)
+        case selectItem(ArticleView.ViewModel)
         case postDetail(PresentationAction<PostDetailFeature.Action>)
-        case child(PaginatorAction<ArticleView.ViewModel, Never>)
+        case child(PaginatorAction<ArticleView.ViewModel, Never, OffsetPaginationRequest>)
     }
 
     // MARK: Properties
 
-    private let viewModelFactory: IPostViewModelFactory
-    private let pager: PostsPager
-
-    // MARK: Initialization
-
-    init(viewModelFactory: IPostViewModelFactory, pager: PostsPager) {
-        self.viewModelFactory = viewModelFactory
-        self.pager = pager
-    }
+    @Dependency(\.postsViewModelFactory) var viewModelFactory
+    @Dependency(\.postsPager) var pager
 
     // MARK: Reducer
 
@@ -54,14 +47,20 @@ struct PostsViewStore {
                 state.paginator.items = []
                 state.selectedItem = postType
                 return .send(.refresh)
-            case let .selectItem(id):
-                state.selectedPostID = id
-                state.postDetail = .init(postID: "\(id)")
+            case let .selectItem(viewModel):
+                state.selectedPostID = viewModel.id
+                state.postDetail = .init(
+                    postID: viewModel.articleID,
+                    paginator: .init(items: [], position: .zero)
+                )
                 return .none
             case .child:
                 return .none
             case .postDetail(.dismiss):
                 state.selectedPostID = nil
+                state.postDetail = nil
+                return .none
+            case .postDetail(.presented):
                 return .none
             }
         }
@@ -69,8 +68,8 @@ struct PostsViewStore {
             state: \PostsViewStore.State.paginator,
             action: /PostsViewStore.Action.child,
             loadPage: { request, state in
-                try await self.pager.load(request: request, postType: state.selectedItem)
-                    .map { self.viewModelFactory.makeViewModel(from: $0) }
+                try await pager.load(request: request, postType: state.selectedItem)
+                    .map { viewModelFactory.makeViewModel(from: $0) }
             }
         )
         .ifLet(\.$postDetail, action: \.postDetail) {
@@ -81,6 +80,6 @@ struct PostsViewStore {
 
 // MARK: - Constants
 
-private extension LimitPageRequest {
-    static let initial = LimitPageRequest(limit: 20, offset: .zero)
+private extension OffsetPaginationRequest {
+    static let initial = OffsetPaginationRequest(limit: 20, offset: .zero)
 }

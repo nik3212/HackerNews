@@ -18,6 +18,7 @@ final class PostViewModelFactory: IPostViewModelFactory {
 
     func makeViewModel(from post: Post) -> ArticleView.ViewModel {
         ArticleView.ViewModel(
+            articleID: post.id,
             title: post.title ?? "",
             author: post.author ?? "Unknown",
             link: makeLink(post.url),
@@ -30,12 +31,12 @@ final class PostViewModelFactory: IPostViewModelFactory {
     // MARK: Private
 
     private func makeLink(_ link: String?) -> String? {
-        guard let link = link, let url = URL(string: link) else { return nil }
+        guard let link, let url = URL(string: link) else { return nil }
         return url.host()
     }
 
     private func makeImageURL(_ urlString: String?) -> URL? {
-        guard let urlString = urlString, let url = URL(
+        guard let urlString, let url = URL(
             string: .extractURL + urlString
         ) else { return nil }
         return url

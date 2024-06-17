@@ -20,7 +20,7 @@ struct RootTabBarViewStore: Reducer {
     var body: some ReducerOf<Self> {
         Reduce { _, action in
             switch action {
-            case let .tab(tab):
+            case .tab:
                 return .none
             }
         }
