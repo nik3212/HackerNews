@@ -13,7 +13,16 @@ struct PostDetailView: View {
 
     @State private var isLoading = false
 
+    private let repliesAssembly: IRepliesAssembly
+
     let store: StoreOf<PostDetailFeature>
+
+    // MARK: Initialization
+
+    init(store: StoreOf<PostDetailFeature>, repliesAssembly: IRepliesAssembly) {
+        self.repliesAssembly = repliesAssembly
+        self.store = store
+    }
 
     // MARK: View
 
@@ -27,6 +36,9 @@ struct PostDetailView: View {
                 store.send(.refresh)
             }
             .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(store: store.scope(state: \.$replies, action: \.replies)) { store in
+                repliesAssembly.assemble(store: store)
+            }
         }
     }
 
@@ -38,7 +50,9 @@ struct PostDetailView: View {
 
     private var commentsView: some View {
         PaginatorListView(store: store.scope(state: \.paginator, action: { .child($0) })) { viewModel in
-            CommentView(viewModel: viewModel)
+            ShortCommentView(viewModel: viewModel) {
+                store.send(.replyButtonTapped(commentID: viewModel.id))
+            }
         }
         .listStyle(.plain)
     }

@@ -32,24 +32,6 @@ final class CommentsService {
 
 extension CommentsService: ICommentsService {
     func loadComment(id: Int) async throws -> Comment {
-        var comment = try await _loadComment(id: id)
-
-        if comment.kids.isEmpty {
-            return comment
-        }
-
-        let subComments = try await withThrowingTaskGroup(of: Comment.self, returning: [Comment].self) { taskGroup in
-            for id in comment.kids {
-                taskGroup.addTask { try await self._loadComment(id: id) }
-            }
-
-            let comments = try await taskGroup.reduce(into: [Comment]()) { $0.append($1) }
-//                            .sorted(by: { $0.time < $1.time })
-            return comments
-        }
-
-        comment.comments = subComments
-
-        return comment
+        try await _loadComment(id: id)
     }
 }

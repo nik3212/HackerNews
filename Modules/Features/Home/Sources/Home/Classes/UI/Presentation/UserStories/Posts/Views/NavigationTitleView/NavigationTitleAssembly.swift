@@ -18,21 +18,23 @@ protocol INavigationTitleAssembly {
 final class NavigationTitleAssembly: INavigationTitleAssembly {
     // MARK: Properties
 
+    private let dateTimeFormatter: RelativeDateTimeFormatter
     private let appNameProvider: IAppNameProvider
 
-    private lazy var store: StoreOf<NavigationTitleViewStore> = {
-        Store(initialState: NavigationTitleViewStore.State(date: "", appName: "")) {
-            NavigationTitleViewStore(
-                appNameProvider: self.appNameProvider,
-                dateFormatter: DateFormatter.EEEEMMMd
-            )
-        }
-    }()
+    private lazy var store: StoreOf<NavigationTitleViewStore> = Store(
+        initialState: NavigationTitleViewStore.State(date: "", appName: "")
+    ) {
+        NavigationTitleViewStore(
+            appNameProvider: self.appNameProvider,
+            dateFormatter: DateFormatter.EEEEMMMd
+        )
+    }
 
     // MARK: Initialization
 
-    init(appNameProvider: IAppNameProvider) {
+    init(appNameProvider: IAppNameProvider, dateTimeFormatter: RelativeDateTimeFormatter) {
         self.appNameProvider = appNameProvider
+        self.dateTimeFormatter = dateTimeFormatter
     }
 
     // MARK: INavigationTitleAssembly

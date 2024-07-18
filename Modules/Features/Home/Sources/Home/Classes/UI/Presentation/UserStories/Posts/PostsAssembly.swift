@@ -73,6 +73,9 @@ final class PostsAssembly: BootstrappableAssembly, IPostsAssembly {
     }
 
     private var navigationTitleAssembly: INavigationTitleAssembly {
-        NavigationTitleAssembly(appNameProvider: appNameProvider)
+        NavigationTitleAssembly(
+            appNameProvider: appNameProvider,
+            dateTimeFormatter: RelativeDateTimeFormatter()
+        )
     }
 }

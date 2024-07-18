@@ -4,11 +4,12 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 // MARK: - PostDetailViewModelFactoryKey
 
 private enum PostDetailViewModelFactoryKey: DependencyKey {
-    static var liveValue: IPostDetailViewModelFactory = PostDetailViewModelFactory()
+    static var liveValue: IPostDetailViewModelFactory = PostDetailViewModelFactory(dateTimeFormatter: RelativeDateTimeFormatter())
 }
 
 extension DependencyValues {

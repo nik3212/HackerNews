@@ -39,6 +39,14 @@ final class HomePresentationAssembly: IHomePresentationAssembly {
     private var postDetailsAssembly: IPostDetailAssembly {
         PostDetailAssembly(
             commentsService: servicesAssembly.commentsService,
+            postsService: servicesAssembly.postsService,
+            repliesAssembly: repliesAssembly
+        )
+    }
+
+    private var repliesAssembly: IRepliesAssembly {
+        RepliesAssembly(
+            commentsService: servicesAssembly.commentsService,
             postsService: servicesAssembly.postsService
         )
     }

@@ -28,7 +28,7 @@ public extension NSAttributedString {
 
                     body {
                         font: -apple-system-body;
-                        color: \(UIColor.secondaryLabel.hex);
+                        color: \(UIColor.label.hex);
                     }
 
                     h1, h2, h3, h4, h5, h6 {
@@ -36,7 +36,7 @@ public extension NSAttributedString {
                     }
 
                     a {
-                        color: \(UIColor.systemGreen.hex);
+                        color: \(UIColor.systemOrange.hex);
                     }
 
                     li:last-child {
@@ -45,7 +45,9 @@ public extension NSAttributedString {
                 </style>
             </head>
             <body>
+            <span style=\"font-size: 15px;\">
                 \(body)
+            </span>
             </body>
             </html>
             """.data(using: .utf8)!,
@@ -80,3 +82,21 @@ private extension UIColor {
         )
     }
 }
+
+// extension NSAttributedString {
+//    func trimmedAttributedString() -> NSAttributedString {
+//        let nonNewlines = CharacterSet.whitespacesAndNewlines.inverted
+//
+//        // Find first non-whitespace character and new line character
+//        let startRange = string.rangeOfCharacter(from: nonNewlines)
+//
+//        // Find last non-whitespace character and new line character.
+//        let endRange = string.rangeOfCharacter(from: nonNewlines, options: .backwards)
+//        guard let startLocation = startRange?.lowerBound, let endLocation = endRange?.lowerBound else {
+//            return self
+//        }
+//        // Getting range out of locations. This trim out leading and trailing whitespaces and new line characters.
+//        let range = NSRange(startLocation...endLocation, in: string)
+//        return attributedSubstring(from: range)
+//    }
+// }

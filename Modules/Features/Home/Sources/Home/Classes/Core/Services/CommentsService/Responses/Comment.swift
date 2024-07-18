@@ -9,10 +9,10 @@ struct Comment: Decodable, Equatable {
     let id: Int
     let author: String?
     let text: String?
-    let time: Int?
+    let time: Int
     let kids: [Int]
 
-    var comments: [Comment] = []
+//    var comments: [Comment] = []
 
     enum CodingKeys: CodingKey {
         case id
@@ -27,7 +27,7 @@ struct Comment: Decodable, Equatable {
         id = try container.decode(Int.self, forKey: .id)
         author = try container.decodeIfPresent(String.self, forKey: .by)
         text = try container.decodeIfPresent(String.self, forKey: .text)
-        time = try container.decodeIfPresent(Int.self, forKey: .time)
+        time = try container.decode(Int.self, forKey: .time)
         kids = try container.decodeIfPresent([Int].self, forKey: .kids) ?? []
     }
 }

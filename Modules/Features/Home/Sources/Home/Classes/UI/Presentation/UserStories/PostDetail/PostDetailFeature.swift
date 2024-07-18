@@ -17,12 +17,16 @@ struct PostDetailFeature {
     struct State: Equatable {
         let postID: Int
 
-        var paginator: PaginatorState<CommentView.ViewModel, Int>
+        var paginator: PaginatorState<ShortCommentView.ViewModel, Int>
+
+        @PresentationState var replies: RepliesFeature.State?
     }
 
     enum Action {
         case refresh
-        case child(PaginatorAction<CommentView.ViewModel, Never, OffsetPaginationRequest>)
+        case replyButtonTapped(commentID: Int)
+        case child(PaginatorAction<ShortCommentView.ViewModel, Never, OffsetPaginationRequest>)
+        case replies(PresentationAction<RepliesFeature.Action>)
     }
 
     // MARK: Dependencies
@@ -33,11 +37,16 @@ struct PostDetailFeature {
     // MARK: Reducer
 
     var body: some ReducerOf<Self> {
-        Reduce { _, action in
+        Reduce { state, action in
             switch action {
             case .refresh:
                 return .send(.child(.requestPage(.initial)), animation: .default)
             case .child:
+                return .none
+            case .replies:
+                return .none
+            case let .replyButtonTapped(commentID):
+                state.replies = RepliesFeature.State(commentID: commentID, replies: [])
                 return .none
             }
         }
@@ -49,6 +58,9 @@ struct PostDetailFeature {
                     .map { viewModelFactory.makeViewModel(from: $0) }
             }
         )
+        .ifLet(\.$replies, action: \.replies) {
+            RepliesFeature()
+        }
     }
 }
 

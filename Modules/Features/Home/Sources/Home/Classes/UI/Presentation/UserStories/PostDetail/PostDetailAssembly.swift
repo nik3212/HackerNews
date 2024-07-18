@@ -20,18 +20,20 @@ final class PostDetailAssembly: BootstrappableAssembly, IPostDetailAssembly {
 
     private let commentsService: ICommentsService
     private let postsService: IPostsService
+    private let repliesAssembly: IRepliesAssembly
 
     // MARK: Initializaiton
 
-    init(commentsService: ICommentsService, postsService: IPostsService) {
+    init(commentsService: ICommentsService, postsService: IPostsService, repliesAssembly: IRepliesAssembly) {
         self.commentsService = commentsService
         self.postsService = postsService
+        self.repliesAssembly = repliesAssembly
     }
 
     // MARK: IPostDetailAssembly
 
     func assemble(store: StoreOf<PostDetailFeature>) -> AnyView {
-        let view = PostDetailView(store: store)
+        let view = PostDetailView(store: store, repliesAssembly: repliesAssembly)
         return view.eraseToAnyView()
     }
 
