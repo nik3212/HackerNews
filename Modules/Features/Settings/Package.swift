@@ -11,8 +11,17 @@ let package = Package(
         .library(name: "Settings", targets: ["Settings"]),
         .library(name: "SettingsInterfaces", targets: ["SettingsInterfaces"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", .upToNextMajor(from: "1.5.5")),
+    ],
     targets: [
-        .target(name: "Settings", dependencies: ["SettingsInterfaces"]),
+        .target(
+            name: "Settings",
+            dependencies: [
+                "SettingsInterfaces",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
         .target(name: "SettingsInterfaces"),
         .testTarget(name: "SettingsTests", dependencies: ["Settings"]),
     ]

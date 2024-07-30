@@ -7,9 +7,13 @@ import SettingsInterfaces
 import SwiftUI
 
 public final class SettingsPublicAssembly: ISettingsPublicAssembly {
-    public init() {}
+    private let presentationAssembly: ISettingsPresentationAssembly
+
+    public init() {
+        presentationAssembly = SettingsPresentationAssembly()
+    }
 
     public func assemble() -> AnyView {
-        AnyView(RootSettingsView())
+        presentationAssembly.rootSettingsAssembly.assemble()
     }
 }
