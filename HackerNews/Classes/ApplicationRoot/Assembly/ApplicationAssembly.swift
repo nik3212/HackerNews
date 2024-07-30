@@ -27,6 +27,9 @@ final class ApplicationAssembly: IApplicationAssembly {
     // MARK: IApplicationAssembly
 
     func assemble() -> AnyView {
-        RootTabBarAssembly(homePublicAssembly: dependencies.homePublicAssembly).assemble()
+        RootTabBarAssembly(
+            homePublicAssembly: dependencies.homePublicAssembly,
+            settingsPublicAssembly: dependencies.settingsPublicAssembly
+        ).assemble()
     }
 }

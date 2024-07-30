@@ -4,17 +4,20 @@
 //
 
 import HomeInterfaces
+import SettingsInterfaces
 import SwiftUI
 
 struct RootTabBarViewFactory {
     // MARK: Properties
 
     private let homePublicAssembly: IHomePublicAssembly
+    private let settingsPublicAssembly: ISettingsPublicAssembly
 
     // MARK: Initialization
 
-    init(homePublicAssembly: IHomePublicAssembly) {
+    init(homePublicAssembly: IHomePublicAssembly, settingsPublicAssembly: ISettingsPublicAssembly) {
         self.homePublicAssembly = homePublicAssembly
+        self.settingsPublicAssembly = settingsPublicAssembly
     }
 
     // MARK: Internal
@@ -24,9 +27,7 @@ struct RootTabBarViewFactory {
         case .home:
             return homePublicAssembly.assemble()
         case .settings:
-            return AnyView(Label(title: { Text("SETTING") }, icon: {}))
-        case .search:
-            return AnyView(Label(title: { Text("SEARCH") }, icon: {}))
+            return settingsPublicAssembly.assemble()
         }
     }
 }

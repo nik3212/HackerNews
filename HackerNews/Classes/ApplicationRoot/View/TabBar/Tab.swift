@@ -8,7 +8,6 @@ import HackerNewsLocalization
 
 enum Tab: Int, Identifiable {
     case home
-    case search
     case settings
 
     var id: Self { self }
@@ -17,8 +16,6 @@ enum Tab: Int, Identifiable {
         switch self {
         case .home:
             return L10n.TabBar.Item.home
-        case .search:
-            return L10n.TabBar.Item.search
         case .settings:
             return L10n.TabBar.Item.settings
         }
@@ -28,8 +25,6 @@ enum Tab: Int, Identifiable {
         switch self {
         case .home:
             return "house"
-        case .search:
-            return "magnifyingglass"
         case .settings:
             return "gearshape"
         }

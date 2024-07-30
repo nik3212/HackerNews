@@ -7,11 +7,14 @@ import Home
 import HomeInterfaces
 import NetworkLayer
 import NetworkLayerInterfaces
+import Settings
+import SettingsInterfaces
 
 // MARK: - IDependenciesAssembly
 
 protocol IDependenciesAssembly {
     var homePublicAssembly: IHomePublicAssembly { get }
+    var settingsPublicAssembly: ISettingsPublicAssembly { get }
     var networkAssembly: INetworkLayerAssembly { get }
 }
 
@@ -24,5 +27,9 @@ final class DependenciesAssembly: IDependenciesAssembly {
 
     var networkAssembly: INetworkLayerAssembly {
         NetworkLayerAssembly()
+    }
+
+    var settingsPublicAssembly: ISettingsPublicAssembly {
+        SettingsPublicAssembly()
     }
 }

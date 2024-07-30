@@ -5,6 +5,7 @@
 
 import ComposableArchitecture
 import HomeInterfaces
+import SettingsInterfaces
 import SwiftUI
 import UIExtensions
 
@@ -20,19 +21,19 @@ final class RootTabBarAssembly: IRootTabBarAssembly {
     // MARK: Private
 
     private let homePublicAssembly: IHomePublicAssembly
+    private let settingsPublicAssembly: ISettingsPublicAssembly
 
-    private lazy var store: Store = {
-        Store(
-            initialState: RootTabBarViewStore.State(tabs: [.home, .search, .settings], tab: .home)
-        ) {
-            RootTabBarViewStore()
-        }
-    }()
+    private lazy var store: Store = .init(
+        initialState: RootTabBarViewStore.State(tabs: [.home, .settings], tab: .home)
+    ) {
+        RootTabBarViewStore()
+    }
 
     // MARK: Initialization
 
-    init(homePublicAssembly: IHomePublicAssembly) {
+    init(homePublicAssembly: IHomePublicAssembly, settingsPublicAssembly: ISettingsPublicAssembly) {
         self.homePublicAssembly = homePublicAssembly
+        self.settingsPublicAssembly = settingsPublicAssembly
     }
 
     // MARK: IRootTabBarAssembly
@@ -41,7 +42,8 @@ final class RootTabBarAssembly: IRootTabBarAssembly {
         RootTabBarView(
             store: store,
             viewFactory: RootTabBarViewFactory(
-                homePublicAssembly: homePublicAssembly
+                homePublicAssembly: homePublicAssembly,
+                settingsPublicAssembly: settingsPublicAssembly
             )
         ).eraseToAnyView()
     }
