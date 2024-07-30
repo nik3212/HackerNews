@@ -24,10 +24,11 @@ struct RootTabBarView: View {
     // MARK: View
 
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
+        WithViewStore(store, observe: { $0 }) { viewStore in
             TabView(selection: viewStore.binding(send: { .tab($0.tab) })) {
                 tabs(in: viewStore)
             }
+            .tint(.orange)
         }
     }
 

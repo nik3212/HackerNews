@@ -23,5 +23,6 @@ struct ImageView: View {
 
     var body: some View {
         KFImage.url(url)
+            .resizable()
     }
 }

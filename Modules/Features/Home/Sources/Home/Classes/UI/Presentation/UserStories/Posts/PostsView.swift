@@ -54,7 +54,8 @@ struct PostsView: View {
     private var postListView: some View {
         PostListView(store: store)
             .scrollDisabled(isLoading)
-            .listStyle(.plain)
+            .listStyle(.insetGrouped)
+            .listRowSpacing(8.0)
             .refreshable {
                 await refresh()
             }
@@ -70,6 +71,7 @@ struct PostsView: View {
                             postDetailsAssembly.assemble(store: store)
                         }
                 }
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar { toolbarView }
             }
         }
@@ -97,7 +99,7 @@ struct PostsView: View {
     }
 
     private var toolbarView: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarLeading) {
+        ToolbarItem(placement: .topBarLeading) {
             navigationTitleAssembly.assemble()
                 .padding(.bottom, 8.0)
         }

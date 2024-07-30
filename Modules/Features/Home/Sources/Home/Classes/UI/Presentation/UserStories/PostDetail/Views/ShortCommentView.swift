@@ -35,11 +35,11 @@ struct ShortCommentView: View {
                 .padding(.top, 4.0)
                 .buttonStyle(RepliesButtonStyle())
         }
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: .cornerRadius)
-                .foregroundStyle(Color(uiColor: UIColor.secondarySystemBackground))
-        )
+//        .padding()
+//        .background(
+//            RoundedRectangle(cornerRadius: .cornerRadius)
+//                .foregroundStyle(Color(uiColor: UIColor.secondarySystemBackground))
+//        )
     }
 
     // MARK: Private

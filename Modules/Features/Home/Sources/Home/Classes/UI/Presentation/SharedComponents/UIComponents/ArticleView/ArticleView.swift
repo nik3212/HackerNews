@@ -23,30 +23,31 @@ struct ArticleView: View {
     // MARK: View
 
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 8.0) {
-                VStack(alignment: .leading, spacing: 4.0) {
-                    headerView
-                    titleView
-                }
-                VStack(alignment: .leading, spacing: 4.0) {
-                    authorInfoView
-                    articleFeedbackView
-                }
-            }
-            Spacer(minLength: 16.0)
-            imageView
+        VStack(alignment: .leading) {
+            headerView
+
+            titleView
+                .padding(.vertical, 4.0)
+
+            Divider()
+
+            footerView
         }
+        .fixedSize(horizontal: false, vertical: true)
     }
 
     // MARK: Private
 
     private var headerView: some View {
-        viewModel.link.map {
-            Text($0)
-                .font(FontFamily.Montserrat.medium.font(size: .size13).sui)
-                .foregroundColor(Color.orange)
-                .lineLimit(1)
+        HStack(alignment: .center) {
+            imageView
+
+            viewModel.link.map {
+                Text($0)
+                    .font(FontFamily.Montserrat.medium.font(size: .size12).sui)
+                    .foregroundColor(Color.orange)
+                    .lineLimit(1)
+            }
         }
     }
 
@@ -56,37 +57,24 @@ struct ArticleView: View {
             .lineLimit(.lineLimit)
     }
 
-    private var authorInfoView: some View {
-        Text(viewModel.author)
-            .font(FontFamily.Montserrat.medium.font(size: .size13).sui)
-    }
-
-    private var articleFeedbackView: some View {
-        HStack(spacing: 4.0) {
-            ratingView
-            Text(String.dot)
-            commentsView
-        }
-        .font(FontFamily.Montserrat.regular.font(size: .size13).sui)
-    }
-
-    private var ratingView: some View {
-        HStack(spacing: 4.0) {
-            Image(systemName: .arrowUp)
-            Text(viewModel.rating)
-        }
-    }
-
-    private var commentsView: some View {
-        Text(L10n.News.Article.comments(viewModel.numberOfComments))
-    }
-
     private var imageView: some View {
         viewModel.imageURL.map {
             ImageView(url: $0)
-                .frame(width: 64, height: 64)
+                .frame(width: .headerImageSize, height: .headerImageSize)
                 .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 8.0))
+                .clipShape(Circle())
+        }
+    }
+
+    private var footerView: some View {
+        HStack {
+            IndicatorView(viewModel: IndicatorView.ViewModel(imageName: .arrowUp, text: viewModel.rating))
+            Divider()
+            IndicatorView(viewModel: IndicatorView.ViewModel(imageName: .person, text: viewModel.author))
+            Divider()
+            IndicatorView(viewModel: IndicatorView.ViewModel(imageName: .comments, text: "\(viewModel.numberOfComments)"))
+            Divider()
+            IndicatorView(viewModel: IndicatorView.ViewModel(imageName: .calendar, text: viewModel.date))
         }
     }
 }
@@ -102,7 +90,9 @@ extension ArticleView {
         let link: String?
         let rating: String
         let numberOfComments: Int
+        let date: String
         let imageURL: URL?
+        let url: URL?
     }
 }
 
@@ -112,8 +102,18 @@ private extension Int {
     static let lineLimit = 2
 }
 
+// MARK: Constants
+
+private extension CGFloat {
+    static let headerSpacing = 4.0
+    static let headerImageSize = 12.0
+}
+
 private extension String {
-    static let arrowUp = "arrow.up"
+    static let arrowUp = "arrow.up.circle.fill"
+    static let person = "person.circle.fill"
+    static let calendar = "calendar.circle.fill"
+    static let comments = "line.3.horizontal.circle.fill"
     static let dot = "•"
 }
 
@@ -128,7 +128,9 @@ private extension String {
         link: "x64.sh",
         rating: "64",
         numberOfComments: 30,
-        imageURL: nil
+        date: "22 hours ago",
+        imageURL: nil,
+        url: nil
     )
 
     struct ArticleView_Previews: PreviewProvider {

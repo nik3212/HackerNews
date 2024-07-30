@@ -6,6 +6,8 @@
 import Foundation
 
 public extension CGFloat {
+    /// 12px
+    static let size12 = 12.0
     /// 13px
     static let size13 = 13.0
     /// 15px

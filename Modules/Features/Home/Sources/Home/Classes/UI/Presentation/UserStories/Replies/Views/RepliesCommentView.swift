@@ -16,11 +16,6 @@ struct RepliesCommentView: View {
 
     var body: some View {
         contentView
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: .cornerRadius)
-                    .foregroundStyle(Color(uiColor: UIColor.secondarySystemBackground))
-            )
     }
 
     // MARK: Private
@@ -29,6 +24,7 @@ struct RepliesCommentView: View {
         HStack {
             if viewModel.level > 0 {
                 verticalLine
+                    .padding(.vertical, 4.0)
             }
             CommentView(viewModel: viewModel.comment)
         }
@@ -59,31 +55,3 @@ private extension CGFloat {
     static let cornerRadius = 16.0
     static let spacing = 16.0
 }
-
-//
-// #Preview {
-//    RepliesCommentView(
-//        viewModel: RepliesCommentView.ViewModel(
-//            comment: CommentView.ViewModel(title: "Title", text: "Text"),
-//            replies: [
-//                RepliesCommentView.ViewModel(
-//                    comment: CommentView.ViewModel(title: "Title", text: "Text"),
-//                    replies: [
-//                        RepliesCommentView.ViewModel(
-//                            comment: CommentView.ViewModel(title: "Title", text: "Text"),
-//                            replies: [
-//
-//                            ]
-//                        )
-//                    ]
-//                ),
-//                RepliesCommentView.ViewModel(
-//                    comment: CommentView.ViewModel(title: "Title", text: "Text"),
-//                    replies: [
-//
-//                    ]
-//                )
-//            ]
-//        )
-//    )
-// }

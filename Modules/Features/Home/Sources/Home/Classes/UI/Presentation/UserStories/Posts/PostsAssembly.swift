@@ -69,7 +69,7 @@ final class PostsAssembly: BootstrappableAssembly, IPostsAssembly {
     // MARK: Private
 
     private var viewModelFactory: IPostViewModelFactory {
-        PostViewModelFactory()
+        PostViewModelFactory(dateTimeFormatter: RelativeDateTimeFormatter())
     }
 
     private var navigationTitleAssembly: INavigationTitleAssembly {

@@ -14,6 +14,16 @@ protocol IPostViewModelFactory {
 // MARK: - PostViewModelFactory
 
 final class PostViewModelFactory: IPostViewModelFactory {
+    // MARK: Properties
+
+    private let dateTimeFormatter: RelativeDateTimeFormatter
+
+    // MARK: Initialization
+
+    init(dateTimeFormatter: RelativeDateTimeFormatter) {
+        self.dateTimeFormatter = dateTimeFormatter
+    }
+
     // MARK: IPostViewModelFactory
 
     func makeViewModel(from post: Post) -> ArticleView.ViewModel {
@@ -24,7 +34,14 @@ final class PostViewModelFactory: IPostViewModelFactory {
             link: makeLink(post.url),
             rating: String(post.score ?? 0),
             numberOfComments: post.kids.count,
-            imageURL: makeImageURL(post.url)
+            date: dateTimeFormatter.localizedString(
+                for: Date(
+                    timeIntervalSince1970: TimeInterval(post.time)
+                ),
+                relativeTo: Date()
+            ),
+            imageURL: makeImageURL(post.url),
+            url: makeURL(post.url)
         )
     }
 
@@ -39,6 +56,13 @@ final class PostViewModelFactory: IPostViewModelFactory {
         guard let urlString, let url = URL(
             string: .extractURL + urlString
         ) else { return nil }
+        return url
+    }
+
+    private func makeURL(_ urlString: String?) -> URL? {
+        guard let urlString, let url = URL(string: urlString) else {
+            return nil
+        }
         return url
     }
 }

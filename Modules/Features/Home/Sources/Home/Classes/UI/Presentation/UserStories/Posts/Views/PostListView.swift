@@ -41,7 +41,6 @@ struct PostListView: View {
                                     handler(article)
                                         .id(index)
                                         .onTapGesture { store.send(.selectItem(article)) }
-                                        .listRowBackground(listRowBackground(store.selectedPostID == article.id))
                                 }
                             }
                         }, skeletonBuilder: { index in
@@ -69,16 +68,13 @@ struct PostListView: View {
                 HStack {
                     RoundedRectangle(cornerRadius: .cornerRadius)
                     RoundedRectangle(cornerRadius: .cornerRadius)
+                    RoundedRectangle(cornerRadius: .cornerRadius)
+                    RoundedRectangle(cornerRadius: .cornerRadius)
                 }
             } else {
                 RoundedRectangle(cornerRadius: .cornerRadius)
             }
         }
-    }
-
-    private func listRowBackground(_ isSelected: Bool) -> some View {
-        let view = isSelected ? Color.blue.animation(.default) : Color.clear.animation(.default)
-        return view.animation(.easeIn(duration: 10), value: isSelected)
     }
 }
 
@@ -97,7 +93,12 @@ private extension CGFloat {
 private extension SkeletonConfiguration {
     static let configuration = SkeletonConfiguration(
         numberOfLines: .numberOfLines,
-        scales: [0.5, 1.0, 0.3, 0.25],
-        insets: .init(top: .inset, leading: .zero, bottom: .inset, trailing: .zero)
+        scales: [0.5, 1.0, 0.3, 1],
+        insets: .init(top: .inset, leading: .zero, bottom: .inset, trailing: .zero),
+        gradient: Gradient(stops: [
+            .init(color: Color(uiColor: .gray).opacity(0.3), location: 0.8),
+            .init(color: Color(uiColor: .gray).opacity(0.5), location: 0.9),
+            .init(color: Color(uiColor: .gray).opacity(0.3), location: 1.0),
+        ])
     )
 }

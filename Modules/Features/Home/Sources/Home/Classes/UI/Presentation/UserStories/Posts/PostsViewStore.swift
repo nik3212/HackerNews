@@ -50,7 +50,7 @@ struct PostsViewStore {
             case let .selectItem(viewModel):
                 state.selectedPostID = viewModel.id
                 state.postDetail = .init(
-                    postID: viewModel.articleID,
+                    viewModel: viewModel,
                     paginator: .init(items: [], position: .zero)
                 )
                 return .none

@@ -42,7 +42,7 @@ extension PostsService: IPostsService {
             }
 
             let posts = try await taskGroup.reduce(into: [Post]()) { $0.append($1) }
-                .sorted(by: { $0.time < $1.time })
+                .sorted(by: { $0.time > $1.time })
 
             return posts
         })

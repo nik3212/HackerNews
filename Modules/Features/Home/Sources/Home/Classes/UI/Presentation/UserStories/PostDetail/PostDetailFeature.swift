@@ -15,15 +15,20 @@ struct PostDetailFeature {
     // MARK: Types
 
     struct State: Equatable {
-        let postID: Int
-
+        var viewModel: ArticleView.ViewModel
         var paginator: PaginatorState<ShortCommentView.ViewModel, Int>
+        var isSafariViewPresented: Bool = false
+        var safariURL: URL?
+        var hasComments: Bool = true
 
         @PresentationState var replies: RepliesFeature.State?
     }
 
     enum Action {
+        case presentSafariView(URL?)
+        case dismissSafariView
         case refresh
+        case postLoaded(post: Post?)
         case replyButtonTapped(commentID: Int)
         case child(PaginatorAction<ShortCommentView.ViewModel, Never, OffsetPaginationRequest>)
         case replies(PresentationAction<RepliesFeature.Action>)
@@ -31,8 +36,10 @@ struct PostDetailFeature {
 
     // MARK: Dependencies
 
+    @Dependency(\.postsService) var postsService
     @Dependency(\.commentsPager) var pager
     @Dependency(\.postDetailViewModelFactory) var viewModelFactory
+    @Dependency(\.postsViewModelFactory) var postsViewModelFactory
 
     // MARK: Reducer
 
@@ -40,6 +47,23 @@ struct PostDetailFeature {
         Reduce { state, action in
             switch action {
             case .refresh:
+                return .run { [state] send in
+                    let post = try await postsService.loadPosts(with: [state.viewModel.articleID])
+                    return await send(.postLoaded(post: post.first))
+                }
+            case let .presentSafariView(url):
+                state.safariURL = url
+                state.isSafariViewPresented = true
+                return .none
+            case .dismissSafariView:
+                state.isSafariViewPresented = false
+                state.safariURL = nil
+                return .none
+            case let .postLoaded(post):
+                if let post {
+                    state.viewModel = postsViewModelFactory.makeViewModel(from: post)
+                    state.hasComments = !post.kids.isEmpty
+                }
                 return .send(.child(.requestPage(.initial)), animation: .default)
             case .child:
                 return .none
@@ -54,7 +78,7 @@ struct PostDetailFeature {
             state: \PostDetailFeature.State.paginator,
             action: /PostDetailFeature.Action.child,
             loadPage: { request, state in
-                try await pager.load(request: request, postID: state.postID)
+                try await pager.load(request: request, postID: state.viewModel.articleID)
                     .map { viewModelFactory.makeViewModel(from: $0) }
             }
         )

@@ -28,36 +28,17 @@ struct CommentView: View {
 
     private var headerView: some View {
         HStack(alignment: .center) {
-            headerItemView(
-                systemName: .person,
-                text: viewModel.username
-            )
+            IndicatorView(viewModel: .init(imageName: .person, text: viewModel.username))
 
             Divider()
 
-            headerItemView(
-                systemName: .calendar,
-                text: viewModel.date
-            )
+            IndicatorView(viewModel: .init(imageName: .calendar, text: viewModel.date))
         }
     }
 
     private var contentView: some View {
         VStack(alignment: .leading) {
             Text(AttributedString(.html(withBody: viewModel.text)))
-        }
-    }
-
-    @ViewBuilder
-    private func headerItemView(systemName: String, text: String) -> some View {
-        HStack(spacing: .headerSpacing) {
-            Image(systemName: systemName)
-                .resizable()
-                .frame(width: .headerImageSize, height: .headerImageSize)
-                .foregroundStyle(Color(uiColor: UIColor.secondaryLabel))
-            Text(text)
-                .font(.caption)
-                .foregroundStyle(Color(uiColor: UIColor.secondaryLabel))
         }
     }
 }

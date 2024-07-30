@@ -20,9 +20,9 @@ struct PostSidebarView: View {
     // MARK: View
 
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
+        WithViewStore(store, observe: { $0 }) { viewStore in
             VStack {
-                self.sidebarView(viewStore: viewStore)
+                sidebarView(viewStore: viewStore)
             }
         }
     }
@@ -43,6 +43,7 @@ struct PostSidebarView: View {
             }
         }
         .listStyle(.sidebar)
+        .tint(.orange)
         .scrollContentBackground(.hidden)
     }
 }

@@ -6,7 +6,10 @@
 import Blade
 import BladeTCA
 import ComposableArchitecture
+import SkeletonUI
 import SwiftUI
+
+// MARK: - PostDetailView
 
 struct PostDetailView: View {
     // MARK: Properties
@@ -27,34 +30,103 @@ struct PostDetailView: View {
     // MARK: View
 
     var body: some View {
-        WithViewStore(store, observe: { $0 }) { _ in
-            VStack {
-                postDetailView
-                commentsView
-            }
-            .onAppear {
-                store.send(.refresh)
-            }
+        contentView
+            .listStyle(.insetGrouped)
+            .listRowSpacing(.inset)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Comments")
             .navigationDestination(store: store.scope(state: \.$replies, action: \.replies)) { store in
                 repliesAssembly.assemble(store: store)
             }
-        }
+            .refreshable { await refresh() }
+            .onAppear { store.send(.refresh) }
     }
 
     // MARK: Private
 
-    private var postDetailView: some View {
-        Text("Details")
+    private var contentView: some View {
+        WithViewStore(store, observe: { $0 }) { store in
+            if store.hasComments {
+                commentsView
+            } else {
+                emptyView
+            }
+        }
     }
 
     private var commentsView: some View {
-        PaginatorListView(store: store.scope(state: \.paginator, action: { .child($0) })) { viewModel in
-            ShortCommentView(viewModel: viewModel) {
-                store.send(.replyButtonTapped(commentID: viewModel.id))
+        PaginatorView(
+            store: store.scope(state: \.paginator, action: { .child($0) }),
+            content: { state, handler in
+                SkeletonView(
+                    data: state,
+                    quantity: .quantity,
+                    configuration: .configuration,
+                    builder: { comment, index in
+                        WithViewStore(store, observe: { $0 }) { store in
+                            if index == .zero {
+                                articleView(with: store)
+                            }
+
+                            comment.map { comment in
+                                handler(comment)
+                            }
+                        }
+                    },
+                    skeletonBuilder: { index in
+                        reductedView(index: index)
+                    }
+                )
+            },
+            rowContent: { item -> AnyView in
+                WithViewStore(store, observe: { $0 }) { store in
+                    ShortCommentView(
+                        viewModel: item,
+                        action: {
+                            store.send(.replyButtonTapped(commentID: item.id))
+                        }
+                    )
+                }.eraseToAnyView()
+            }
+        )
+    }
+
+    private var emptyView: some View {
+        WithViewStore(store, observe: { $0 }) { store in
+            List {
+                articleView(with: store)
             }
         }
-        .listStyle(.plain)
+    }
+
+    private func articleView(with store: ViewStore<PostDetailFeature.State, PostDetailFeature.Action>) -> some View {
+        ArticleView(viewModel: store.viewModel)
+            .onTapGesture { store.send(.presentSafariView(store.viewModel.url)) }
+            .fullScreenCover(
+                isPresented: store.binding(
+                    get: \.isSafariViewPresented,
+                    send: PostDetailFeature.Action.dismissSafariView
+                )
+            ) {
+                if let url = store.safariURL {
+                    SafariView(url: url, onDismiss: {
+                        store.send(.dismissSafariView)
+                    })
+                }
+            }
+    }
+
+    private func reductedView(index: Int) -> some View {
+        VStack {
+            if index == 0 {
+                HStack {
+                    RoundedRectangle(cornerRadius: .cornerRadius)
+                    RoundedRectangle(cornerRadius: .cornerRadius)
+                }
+            } else {
+                RoundedRectangle(cornerRadius: .cornerRadius)
+            }
+        }
     }
 
     @MainActor
@@ -62,5 +134,36 @@ struct PostDetailView: View {
         defer { isLoading = false }
         isLoading = true
         await store.send(.refresh).finish()
+    }
+}
+
+// MARK: - Constants
+
+private extension Int {
+    static let quantity = 20
+    static let numberOfLines = 4
+}
+
+private extension CGFloat {
+    static let cornerRadius = 8.0
+    static let inset = 8.0
+}
+
+private extension SkeletonConfiguration {
+    static let configuration = SkeletonConfiguration(
+        numberOfLines: .numberOfLines,
+        scales: [0.25, 1.0, 0.8],
+        insets: .init(top: .inset, leading: .zero, bottom: .inset, trailing: .zero),
+        gradient: Gradient(stops: [
+            .init(color: Color(uiColor: .gray).opacity(0.3), location: 0.8),
+            .init(color: Color(uiColor: .gray).opacity(0.5), location: 0.9),
+            .init(color: Color(uiColor: .gray).opacity(0.3), location: 1.0),
+        ])
+    )
+}
+
+extension View {
+    func eraseToAnyView() -> AnyView {
+        AnyView(self)
     }
 }
