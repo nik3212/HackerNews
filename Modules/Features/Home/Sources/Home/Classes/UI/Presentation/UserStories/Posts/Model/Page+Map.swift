@@ -14,4 +14,13 @@ extension Page {
         )
         return page
     }
+
+    func compactMap<U: Equatable>(_ closure: @escaping (T) throws -> U?) rethrows -> Page<U> {
+        let items = try items.compactMap { try closure($0) }
+        let page = Page<U>(
+            items: items,
+            hasMoreData: hasMoreData
+        )
+        return page
+    }
 }

@@ -6,6 +6,7 @@
 import Blade
 import BladeTCA
 import ComposableArchitecture
+import HackerNewsLocalization
 import SkeletonUI
 import SwiftUI
 
@@ -34,7 +35,7 @@ struct PostDetailView: View {
             .listStyle(.insetGrouped)
             .listRowSpacing(.inset)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Comments")
+            .navigationTitle(L10n.PostDetails.NavigationBar.title)
             .navigationDestination(store: store.scope(state: \.$replies, action: \.replies)) { store in
                 repliesAssembly.assemble(store: store)
             }
@@ -47,30 +48,28 @@ struct PostDetailView: View {
     private var contentView: some View {
         WithViewStore(store, observe: { $0 }) { store in
             if store.hasComments {
-                commentsView
+                commentsView(with: store)
             } else {
-                emptyView
+                emptyView(with: store)
             }
         }
     }
 
-    private var commentsView: some View {
+    private func commentsView(with store: ViewStore<PostDetailFeature.State, PostDetailFeature.Action>) -> some View {
         PaginatorView(
-            store: store.scope(state: \.paginator, action: { .child($0) }),
+            store: self.store.scope(state: \.paginator, action: { .child($0) }),
             content: { state, handler in
                 SkeletonView(
                     data: state,
                     quantity: .quantity,
                     configuration: .configuration,
                     builder: { comment, index in
-                        WithViewStore(store, observe: { $0 }) { store in
-                            if index == .zero {
-                                articleView(with: store)
-                            }
+                        if index == .zero {
+                            articleView(with: store)
+                        }
 
-                            comment.map { comment in
-                                handler(comment)
-                            }
+                        comment.map { comment in
+                            handler(comment)
                         }
                     },
                     skeletonBuilder: { index in
@@ -79,23 +78,20 @@ struct PostDetailView: View {
                 )
             },
             rowContent: { item -> AnyView in
-                WithViewStore(store, observe: { $0 }) { store in
-                    ShortCommentView(
-                        viewModel: item,
-                        action: {
-                            store.send(.replyButtonTapped(commentID: item.id))
-                        }
-                    )
-                }.eraseToAnyView()
+                ShortCommentView(
+                    viewModel: item,
+                    action: {
+                        store.send(.replyButtonTapped(commentID: item.id))
+                    }
+                )
+                .eraseToAnyView()
             }
         )
     }
 
-    private var emptyView: some View {
-        WithViewStore(store, observe: { $0 }) { store in
-            List {
-                articleView(with: store)
-            }
+    private func emptyView(with store: ViewStore<PostDetailFeature.State, PostDetailFeature.Action>) -> some View {
+        List {
+            articleView(with: store)
         }
     }
 
@@ -160,10 +156,4 @@ private extension SkeletonConfiguration {
             .init(color: Color(uiColor: .gray).opacity(0.3), location: 1.0),
         ])
     )
-}
-
-extension View {
-    func eraseToAnyView() -> AnyView {
-        AnyView(self)
-    }
 }

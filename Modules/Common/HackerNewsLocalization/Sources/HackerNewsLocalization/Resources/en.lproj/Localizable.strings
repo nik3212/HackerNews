@@ -2,3 +2,11 @@
 "tab-bar.item.search" = "Search";
 "tab-bar.item.settings" = "Settings";
 "news.article.comments" = "%d comments";
+"settings.menu.send_feedback" = "Send Feedback";
+"settings.menu.rate_us" = "Rate Us";
+"settings.menu.github" = "GitHub";
+"settings.navbar.title" = "Settings";
+"comment.expand-branch" = "Expand the branch (%@ Replies)";
+"comment.user.unknown" = "Unknown";
+"post-details.navigation-bar.title" = "Comments";
+"replies.navigation-bar.title" = "Replies";

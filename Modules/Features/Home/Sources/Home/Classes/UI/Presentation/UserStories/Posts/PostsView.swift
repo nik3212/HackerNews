@@ -55,7 +55,7 @@ struct PostsView: View {
         PostListView(store: store)
             .scrollDisabled(isLoading)
             .listStyle(.insetGrouped)
-            .listRowSpacing(8.0)
+            .listRowSpacing(.listRowSpacing)
             .refreshable {
                 await refresh()
             }
@@ -64,7 +64,7 @@ struct PostsView: View {
     private var compactView: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             NavigationStack {
-                VStack(spacing: 8.0) {
+                VStack(spacing: .compactSpacing) {
                     segmentedControlView(viewStore: viewStore)
                     postListView
                         .navigationDestination(store: store.scope(state: \.$postDetail, action: \.postDetail)) { store in
@@ -143,6 +143,8 @@ struct PostsView: View {
 private extension CGFloat {
     static let cornerRadius = 20.0
     static let spacing = 4.0
+    static let listRowSpacing = 8.0
+    static let compactSpacing = 8.0
 }
 
 private extension EdgeInsets {

@@ -6,6 +6,7 @@
 import ComposableArchitecture
 import DesignKit
 import SwiftUI
+import UIExtensions
 
 struct NavigationTitleView: View {
     // MARK: Properties
@@ -21,7 +22,7 @@ struct NavigationTitleView: View {
     // MARK: View
 
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
+        WithViewStore(store, observe: { $0 }) { viewStore in
             VStack(alignment: .leading) {
                 Text(viewStore.date)
                     .font(FontFamily.Montserrat.semiBold.font(size: .size13).sui)

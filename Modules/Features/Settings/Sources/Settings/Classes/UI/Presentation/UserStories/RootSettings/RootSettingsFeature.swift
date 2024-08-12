@@ -6,6 +6,8 @@
 import ComposableArchitecture
 import UIKit
 
+// MARK: - RootSettingsFeature
+
 @Reducer
 struct RootSettingsFeature {
     struct State: Equatable {
@@ -27,13 +29,13 @@ struct RootSettingsFeature {
                 return .none
 
             case .rateUs:
-                if let url = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID?action=write-review") {
+                if let url = URL(string: .rateUs) {
                     UIApplication.shared.open(url)
                 }
                 return .none
 
             case .openGitHub:
-                if let url = URL(string: "https://github.com/YOUR_GITHUB_REPOSITORY") {
+                if let url = URL(string: .githubURL) {
                     UIApplication.shared.open(url)
                 }
                 return .none
@@ -44,4 +46,11 @@ struct RootSettingsFeature {
             }
         }
     }
+}
+
+// MARK: - Constants
+
+private extension String {
+    static let githubURL = "https://github.com/nik3212/HackerNews"
+    static let rateUs = "https://apps.apple.com/app/idYOUR_APP_ID?action=write-review"
 }

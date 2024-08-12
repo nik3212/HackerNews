@@ -79,7 +79,7 @@ struct PostDetailFeature {
             action: /PostDetailFeature.Action.child,
             loadPage: { request, state in
                 try await pager.load(request: request, postID: state.viewModel.articleID)
-                    .map { viewModelFactory.makeViewModel(from: $0) }
+                    .compactMap { viewModelFactory.makeViewModel(from: $0) }
             }
         )
         .ifLet(\.$replies, action: \.replies) {

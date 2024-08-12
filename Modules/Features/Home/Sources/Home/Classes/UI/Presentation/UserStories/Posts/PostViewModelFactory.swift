@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import HackerNewsLocalization
 
 // MARK: - IPostViewModelFactory
 
@@ -30,7 +31,7 @@ final class PostViewModelFactory: IPostViewModelFactory {
         ArticleView.ViewModel(
             articleID: post.id,
             title: post.title ?? "",
-            author: post.author ?? "Unknown",
+            author: post.author ?? L10n.Comment.User.unknown,
             link: makeLink(post.url),
             rating: String(post.score ?? 0),
             numberOfComments: post.kids.count,

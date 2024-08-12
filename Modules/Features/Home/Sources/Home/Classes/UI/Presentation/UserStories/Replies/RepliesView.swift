@@ -5,6 +5,7 @@
 
 import BladeTCA
 import ComposableArchitecture
+import HackerNewsLocalization
 import SkeletonUI
 import SwiftUI
 
@@ -26,10 +27,10 @@ struct RepliesView: View {
     var body: some View {
         WithViewStore(store, observe: { $0 }) { store in
             NavigationStack {
-                contentView
+                contentView(with: store)
                     .listStyle(.insetGrouped)
-                    .listRowSpacing(8.0)
-                    .navigationTitle("Replies")
+                    .listRowSpacing(.listRowSpacing)
+                    .navigationTitle(L10n.Replies.NavigationBar.title)
                     .toolbarTitleDisplayMode(.inline)
             }
             .onAppear {
@@ -40,27 +41,25 @@ struct RepliesView: View {
 
     // MARK: Private
 
-    private var contentView: some View {
-        WithViewStore(store, observe: { $0 }) { store in
-            SkeletonView(
-                data: store.replies,
-                quantity: .quantity,
-                configuration: .configuration,
-                builder: { reply, _ in
-                    reply.map { reply in
-                        RepliesCommentView(viewModel: reply)
-                    }
-                },
-                skeletonBuilder: { index in
-                    reductedView(index: index)
+    private func contentView(with store: ViewStore<RepliesFeature.State, RepliesFeature.Action>) -> some View {
+        SkeletonView(
+            data: store.replies,
+            quantity: .quantity,
+            configuration: .configuration,
+            builder: { reply, _ in
+                reply.map { reply in
+                    RepliesCommentView(viewModel: reply)
                 }
-            )
-        }
+            },
+            skeletonBuilder: { index in
+                reductedView(index: index)
+            }
+        )
     }
 
     private func reductedView(index: Int) -> some View {
         VStack {
-            if index == 0 {
+            if index == .zero {
                 HStack {
                     RoundedRectangle(cornerRadius: .cornerRadius)
                     RoundedRectangle(cornerRadius: .cornerRadius)
@@ -82,6 +81,7 @@ private extension Int {
 private extension CGFloat {
     static let cornerRadius = 8.0
     static let inset = 8.0
+    static let listRowSpacing = 8.0
 }
 
 private extension SkeletonConfiguration {

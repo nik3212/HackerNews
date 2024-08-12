@@ -27,7 +27,7 @@ final class RepliesViewModelFactory: IRepliesViewModelFactory {
     // MARK: IRepliesViewModelFactory
 
     func makeViewModel(from reply: ReplyComment) -> [RepliesCommentView.ViewModel] {
-        makeViewModel(from: reply, level: 0)
+        makeViewModel(from: reply, level: .zero)
     }
 
     // MARK: Private
@@ -41,7 +41,7 @@ final class RepliesViewModelFactory: IRepliesViewModelFactory {
             return comments
         }
 
-        for reply in reply.replies {
+        for reply in reply.replies where !reply.comment.text.isNilOrEmpty {
             let replies = makeViewModel(from: reply, level: level + 1)
             comments.append(contentsOf: replies)
         }
@@ -58,5 +58,11 @@ final class RepliesViewModelFactory: IRepliesViewModelFactory {
             ),
             text: comment.text ?? ""
         )
+    }
+}
+
+extension String? {
+    var isNilOrEmpty: Bool {
+        self == nil || self?.isEmpty == true
     }
 }
