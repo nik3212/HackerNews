@@ -5,6 +5,7 @@
 
 import ComposableArchitecture
 import DesignKit
+import SettingsInterfaces
 import SwiftUI
 
 // MARK: - PostsView
@@ -19,17 +20,20 @@ struct PostsView: View {
     private let store: StoreOf<PostsViewStore>
     private let navigationTitleAssembly: INavigationTitleAssembly
     private let postDetailsAssembly: IPostDetailAssembly
+    private let settingsAssembly: ISettingsPublicAssembly
 
     // MARK: Initialization
 
     init(
         store: StoreOf<PostsViewStore>,
         navigationTitleAssembly: INavigationTitleAssembly,
-        postDetailsAssembly: IPostDetailAssembly
+        postDetailsAssembly: IPostDetailAssembly,
+        settingsAssembly: ISettingsPublicAssembly
     ) {
         self.store = store
         self.navigationTitleAssembly = navigationTitleAssembly
         self.postDetailsAssembly = postDetailsAssembly
+        self.settingsAssembly = settingsAssembly
     }
 
     // MARK: View
@@ -80,7 +84,7 @@ struct PostsView: View {
     private var splitView: some View {
         NavigationSplitView(
             sidebar: {
-                PostSidebarView(store: store)
+                PostSidebarView(store: store, settingsAssembly: settingsAssembly)
                     .toolbar { toolbarView }
             },
             content: {
@@ -90,8 +94,10 @@ struct PostsView: View {
                 }
             },
             detail: {
-                IfLetStore(store.scope(state: \.$postDetail, action: \.postDetail)) { store in
-                    postDetailsAssembly.assemble(store: store)
+                NavigationStack {
+                    IfLetStore(store.scope(state: \.$postDetail, action: \.postDetail)) { store in
+                        postDetailsAssembly.assemble(store: store)
+                    }
                 }
             }
         )

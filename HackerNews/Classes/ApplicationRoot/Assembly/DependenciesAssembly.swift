@@ -22,7 +22,7 @@ protocol IDependenciesAssembly {
 
 final class DependenciesAssembly: IDependenciesAssembly {
     var homePublicAssembly: IHomePublicAssembly {
-        HomePublicAssembly(requestProcessor: networkAssembly.assemble())
+        HomePublicAssembly(requestProcessor: networkAssembly.assemble(), settingsAssembly: settingsPublicAssembly)
     }
 
     var networkAssembly: INetworkLayerAssembly {

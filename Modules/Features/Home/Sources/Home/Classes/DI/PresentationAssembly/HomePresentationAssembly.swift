@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import SettingsInterfaces
 
 // MARK: - IHomePresentationAssembly
 
@@ -16,12 +17,14 @@ protocol IHomePresentationAssembly {
 final class HomePresentationAssembly: IHomePresentationAssembly {
     // MARK: Properties
 
+    private let settingsAssembly: ISettingsPublicAssembly
     private let servicesAssembly: IHomeServicesAssembly
 
     // MARK: Initialization
 
-    init(servicesAssembly: IHomeServicesAssembly) {
+    init(servicesAssembly: IHomeServicesAssembly, settingsAssembly: ISettingsPublicAssembly) {
         self.servicesAssembly = servicesAssembly
+        self.settingsAssembly = settingsAssembly
     }
 
     // MARK: IHomePresentationAssembly
@@ -30,7 +33,8 @@ final class HomePresentationAssembly: IHomePresentationAssembly {
         PostsAssembly(
             postsService: servicesAssembly.postsService,
             appNameProvider: servicesAssembly.appNameProvider,
-            postDetailsAssembly: postDetailsAssembly
+            postDetailsAssembly: postDetailsAssembly,
+            settingsAssembly: settingsAssembly
         )
     }
 

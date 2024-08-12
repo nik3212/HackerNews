@@ -7,6 +7,7 @@ import AppUtils
 import Blade
 import BladeTCA
 import ComposableArchitecture
+import SettingsInterfaces
 import SwiftUI
 
 // MARK: - IPostsAssembly
@@ -23,6 +24,7 @@ final class PostsAssembly: BootstrappableAssembly, IPostsAssembly {
     private let postsService: IPostsService
     private let appNameProvider: IAppNameProvider
     private let postDetailsAssembly: IPostDetailAssembly
+    private let settingsAssembly: ISettingsPublicAssembly
 
     private lazy var store: StoreOf<PostsViewStore> = Store(
         initialState: PostsViewStore.State(
@@ -35,10 +37,16 @@ final class PostsAssembly: BootstrappableAssembly, IPostsAssembly {
 
     // MARK: Initialization
 
-    init(postsService: IPostsService, appNameProvider: IAppNameProvider, postDetailsAssembly: IPostDetailAssembly) {
+    init(
+        postsService: IPostsService,
+        appNameProvider: IAppNameProvider,
+        postDetailsAssembly: IPostDetailAssembly,
+        settingsAssembly: ISettingsPublicAssembly
+    ) {
         self.postsService = postsService
         self.appNameProvider = appNameProvider
         self.postDetailsAssembly = postDetailsAssembly
+        self.settingsAssembly = settingsAssembly
         super.init()
     }
 
@@ -62,7 +70,8 @@ final class PostsAssembly: BootstrappableAssembly, IPostsAssembly {
         PostsView(
             store: store,
             navigationTitleAssembly: navigationTitleAssembly,
-            postDetailsAssembly: postDetailsAssembly
+            postDetailsAssembly: postDetailsAssembly,
+            settingsAssembly: settingsAssembly
         ).eraseToAnyView()
     }
 

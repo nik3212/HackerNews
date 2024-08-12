@@ -5,6 +5,7 @@
 
 import HomeInterfaces
 import NetworkLayerInterfaces
+import SettingsInterfaces
 import SwiftUI
 import UIExtensions
 
@@ -16,9 +17,12 @@ public final class HomePublicAssembly: IHomePublicAssembly {
 
     // MARK: Initialization
 
-    public init(requestProcessor: IRequestProcessor) {
+    public init(requestProcessor: IRequestProcessor, settingsAssembly: ISettingsPublicAssembly) {
         servicesAssembly = HomeServicesAssembly(requestProcessor: requestProcessor)
-        presentationAssembly = HomePresentationAssembly(servicesAssembly: servicesAssembly)
+        presentationAssembly = HomePresentationAssembly(
+            servicesAssembly: servicesAssembly,
+            settingsAssembly: settingsAssembly
+        )
     }
 
     // MARK: IHomePublicAssembly

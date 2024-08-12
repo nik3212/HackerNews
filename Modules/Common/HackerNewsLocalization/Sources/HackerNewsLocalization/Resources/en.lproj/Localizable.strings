@@ -10,3 +10,5 @@
 "comment.user.unknown" = "Unknown";
 "post-details.navigation-bar.title" = "Comments";
 "replies.navigation-bar.title" = "Replies";
+"sidebar.items.settings" = "Settings";
+"sidebar.groups.feeds.title" = "Feeds";
