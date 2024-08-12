@@ -20,15 +20,10 @@ struct RepliesCommentView: View {
 
     // MARK: Private
 
-    private var contentView: some View {
-        HStack {
-            if viewModel.level > 0 {
-                verticalLine
-                    .padding(.vertical, 4.0)
-            }
-            CommentView(viewModel: viewModel.comment)
+    private var commentView: some View {
+        VStack(alignment: .leading) {
+            Text(AttributedString(.html(withBody: viewModel.comment.text)))
         }
-        .padding(.leading, .spacing * CGFloat(viewModel.level))
     }
 
     private var verticalLine: some View {
@@ -36,6 +31,25 @@ struct RepliesCommentView: View {
             .frame(maxHeight: .infinity)
             .frame(width: 2.0)
             .foregroundStyle(.orange)
+    }
+
+    private var contentView: some View {
+        VStack(alignment: .leading) {
+            CommentHeaderView(viewModel: .init(username: viewModel.comment.username, date: viewModel.comment.date))
+
+            Divider()
+
+            HStack {
+                if viewModel.level > 0 {
+                    verticalLine
+                        .padding(.vertical, 4.0)
+                }
+
+                commentView
+            }
+            .padding(.leading, .spacing * CGFloat(viewModel.level))
+        }
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 
@@ -53,5 +67,5 @@ extension RepliesCommentView {
 
 private extension CGFloat {
     static let cornerRadius = 16.0
-    static let spacing = 16.0
+    static let spacing = 8.0
 }

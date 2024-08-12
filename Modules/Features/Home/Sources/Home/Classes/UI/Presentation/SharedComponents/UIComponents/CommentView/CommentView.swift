@@ -17,23 +17,13 @@ struct CommentView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            headerView
+            CommentHeaderView(viewModel: .init(username: viewModel.username, date: viewModel.date))
 
             Divider()
 
             contentView
         }
         .fixedSize(horizontal: false, vertical: true)
-    }
-
-    private var headerView: some View {
-        HStack(alignment: .center) {
-            IndicatorView(viewModel: .init(imageName: .person, text: viewModel.username))
-
-            Divider()
-
-            IndicatorView(viewModel: .init(imageName: .calendar, text: viewModel.date))
-        }
     }
 
     private var contentView: some View {
@@ -59,11 +49,6 @@ extension CommentView {
 private extension CGFloat {
     static let headerSpacing = 4.0
     static let headerImageSize = 12.0
-}
-
-private extension String {
-    static let person = "person.circle.fill"
-    static let calendar = "calendar.circle.fill"
 }
 
 // MARK: Preview
