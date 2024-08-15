@@ -24,7 +24,7 @@ struct PostsViewStore {
 
     enum Action {
         case refresh
-        case binding(PostType)
+        case binding(PostType?)
 
         case selectItem(ArticleView.ViewModel)
         case postDetail(PresentationAction<PostDetailFeature.Action>)
@@ -44,6 +44,9 @@ struct PostsViewStore {
             case .refresh:
                 return .send(.child(.requestPage(.initial)), animation: .default)
             case let .binding(postType):
+                guard let postType, postType != state.selectedItem else {
+                    return .none
+                }
                 state.paginator.items = []
                 state.selectedItem = postType
                 return .send(.refresh)

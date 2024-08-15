@@ -102,6 +102,7 @@ struct PostsView: View {
             }
         )
         .listStyle(.sidebar)
+        .tint(.orange)
     }
 
     private var toolbarView: some ToolbarContent {

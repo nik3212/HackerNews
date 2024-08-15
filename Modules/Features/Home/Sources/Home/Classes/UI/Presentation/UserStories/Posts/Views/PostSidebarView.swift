@@ -63,7 +63,7 @@ struct PostSidebarView: View {
         List(
             selection: viewStore.binding(
                 get: { $0.selectedItem },
-                send: { .binding($0?.id ?? .top) }
+                send: { .binding($0?.id) }
             )
         ) {
             DisclosureGroup(
