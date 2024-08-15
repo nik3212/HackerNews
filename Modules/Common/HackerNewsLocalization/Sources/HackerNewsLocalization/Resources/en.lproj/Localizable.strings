@@ -12,3 +12,5 @@
 "replies.navigation-bar.title" = "Replies";
 "sidebar.items.settings" = "Settings";
 "sidebar.groups.feeds.title" = "Feeds";
+"common.actions.cancel" = "Cancel";
+"common.actions.close" = "Close";

@@ -49,6 +49,7 @@ struct PostsViewStore {
                 }
                 state.paginator.items = []
                 state.selectedItem = postType
+                state.postDetail = nil
                 return .send(.refresh)
             case let .selectItem(viewModel):
                 state.selectedPostID = viewModel.id
@@ -59,7 +60,7 @@ struct PostsViewStore {
                 return .none
             case .child:
                 return .none
-            case .postDetail(.dismiss):
+            case .postDetail(.dismiss), .postDetail(.presented(.close)):
                 state.selectedPostID = nil
                 state.postDetail = nil
                 return .none

@@ -12,6 +12,9 @@ import UIExtensions
 struct RootSettingsView: View {
     // MARK: Properties
 
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.presentationMode) private var presentationMode
+
     let store: StoreOf<RootSettingsFeature>
 
     // MARK: Initialization
@@ -27,6 +30,16 @@ struct RootSettingsView: View {
             NavigationView {
                 contentView(viewStore)
                     .navigationTitle(L10n.Settings.Navbar.title)
+                    .toolbar {
+                        if horizontalSizeClass != .compact {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button(L10n.Common.Actions.cancel) {
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+                                .tint(.orange)
+                            }
+                        }
+                    }
             }
             .listStyle(.insetGrouped)
             .tint(Color(uiColor: .label))

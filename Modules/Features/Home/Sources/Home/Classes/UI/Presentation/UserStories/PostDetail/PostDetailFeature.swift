@@ -32,6 +32,7 @@ struct PostDetailFeature {
         case replyButtonTapped(commentID: Int)
         case child(PaginatorAction<ShortCommentView.ViewModel, Never, OffsetPaginationRequest>)
         case replies(PresentationAction<RepliesFeature.Action>)
+        case close
     }
 
     // MARK: Dependencies
@@ -71,6 +72,8 @@ struct PostDetailFeature {
                 return .none
             case let .replyButtonTapped(commentID):
                 state.replies = RepliesFeature.State(commentID: commentID, replies: [])
+                return .none
+            case .close:
                 return .none
             }
         }

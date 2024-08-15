@@ -15,6 +15,8 @@ import SwiftUI
 struct PostDetailView: View {
     // MARK: Properties
 
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
     @State private var isLoading = false
 
     private let repliesAssembly: IRepliesAssembly
@@ -47,12 +49,31 @@ struct PostDetailView: View {
 
     private var contentView: some View {
         WithViewStore(store, observe: { $0 }) { store in
-            if store.hasComments {
-                commentsView(with: store)
-            } else {
-                emptyView(with: store)
+            toolbar(with: store) {
+                if store.hasComments {
+                    commentsView(with: store)
+                } else {
+                    emptyView(with: store)
+                }
             }
         }
+    }
+
+    private func toolbar(
+        with store: ViewStore<PostDetailFeature.State, PostDetailFeature.Action>,
+        @ViewBuilder content: () -> some View
+    ) -> some View {
+        content()
+            .toolbar {
+                if horizontalSizeClass != .compact {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(L10n.Common.Actions.close) {
+                            store.send(.close)
+                        }
+                        .tint(.orange)
+                    }
+                }
+            }
     }
 
     private func commentsView(with store: ViewStore<PostDetailFeature.State, PostDetailFeature.Action>) -> some View {
