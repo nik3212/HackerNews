@@ -11,6 +11,7 @@ enum PostType: Int, CaseIterable, Identifiable {
     case best
     case ask
     case show
+    case jobs
 
     var title: String {
         switch self {
@@ -24,6 +25,8 @@ enum PostType: Int, CaseIterable, Identifiable {
             return "Ask"
         case .show:
             return "Show"
+        case .jobs:
+            return "Jobs"
         }
     }
 
@@ -39,6 +42,8 @@ enum PostType: Int, CaseIterable, Identifiable {
             return "brain.head.profile.fill"
         case .show:
             return "eyes.inverse"
+        case .jobs:
+            return "suitcase.fill"
         }
     }
 
