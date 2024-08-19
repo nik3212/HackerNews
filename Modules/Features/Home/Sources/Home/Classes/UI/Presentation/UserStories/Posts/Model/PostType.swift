@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import HackerNewsLocalization
 
 enum PostType: Int, CaseIterable, Identifiable {
     case top
@@ -16,17 +17,17 @@ enum PostType: Int, CaseIterable, Identifiable {
     var title: String {
         switch self {
         case .new:
-            return "New"
+            return L10n.PostType.new
         case .best:
-            return "Best"
+            return L10n.PostType.best
         case .top:
-            return "Top"
+            return L10n.PostType.top
         case .ask:
-            return "Ask"
+            return L10n.PostType.ask
         case .show:
-            return "Show"
+            return L10n.PostType.show
         case .jobs:
-            return "Jobs"
+            return L10n.PostType.jobs
         }
     }
 
