@@ -14,3 +14,4 @@
 "sidebar.groups.feeds.title" = "Feeds";
 "common.actions.cancel" = "Cancel";
 "common.actions.close" = "Close";
+"settings.author" = "By %@";

@@ -48,10 +48,11 @@ struct RootSettingsView: View {
 
     private var headerView: some View {
         HStack {
+            
             VStack {
-                Text("HackerNews")
+                Text(String.appName)
                     .font(FontFamily.Montserrat.semiBold.font(size: .size17).sui)
-                Text("By Nikita Vasilev")
+                Text(L10n.Settings.author(String.author))
                     .font(FontFamily.Montserrat.semiBold.font(size: .size13).sui)
             }
         }
@@ -89,4 +90,9 @@ struct RootSettingsView: View {
             }
         }
     }
+}
+
+private extension String {
+    static let author = "Nikita Vasilev"
+    static let appName = "HackerNews"
 }
