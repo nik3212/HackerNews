@@ -1,6 +1,6 @@
 //
 // HackerNews
-// Copyright © 2024 Nikita Vasilev. All rights reserved.
+// Copyright © 2023 Nikita Vasilev. All rights reserved.
 //
 
 import DesignKit
@@ -9,7 +9,9 @@ import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        URLSessionProxyDelegate.enableAutomaticRegistration()
+        #if DEBUG
+            URLSessionProxyDelegate.enableAutomaticRegistration()
+        #endif
         FontFamily.registerAllCustomFonts()
         return true
     }
