@@ -9,6 +9,8 @@ import HackerNewsLocalization
 import SwiftUI
 import UIExtensions
 
+// MARK: - RootSettingsView
+
 struct RootSettingsView: View {
     // MARK: Properties
 
@@ -48,7 +50,8 @@ struct RootSettingsView: View {
 
     private var headerView: some View {
         HStack {
-            
+            Asset.Settings.headerIcon.swiftUIImage
+
             VStack {
                 Text(String.appName)
                     .font(FontFamily.Montserrat.semiBold.font(size: .size17).sui)
@@ -91,6 +94,8 @@ struct RootSettingsView: View {
         }
     }
 }
+
+// MARK: - Constants
 
 private extension String {
     static let author = "Nikita Vasilev"

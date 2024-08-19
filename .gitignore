@@ -94,6 +94,7 @@ iOSInjectionProject/
 Modules/Common/HackerNewsLocalization/Sources/HackerNewsLocalization/Classes/Strings.swift
 Modules/Common/DesignKit/Sources/DesignKit/Classes/Design/Generated/Colors.swift
 Modules/Common/DesignKit/Sources/DesignKit/Classes/Design/Generated/Fonts.swift
+Modules/Features/Settings/Sources/Settings/Classes/Generated/Assets.swift
 
 # Others
 
