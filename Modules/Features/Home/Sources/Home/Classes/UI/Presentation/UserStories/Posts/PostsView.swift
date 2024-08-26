@@ -14,6 +14,8 @@ struct PostsView: View {
     // MARK: Properties
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
+    @State private var columnVisibility = NavigationSplitViewVisibility.doubleColumn
     @State private var isLoading = false
     @State private var isPresented = false
 
@@ -83,17 +85,16 @@ struct PostsView: View {
 
     private var splitView: some View {
         NavigationSplitView(
+            columnVisibility: $columnVisibility,
             sidebar: {
                 PostSidebarView(store: store, settingsAssembly: settingsAssembly)
                     .toolbar { toolbarView }
-            },
-            content: {
+            }, content: {
                 WithViewStore(store, observe: { $0 }) { viewStore in
                     postListView
                         .navigationTitle(viewStore.selectedItem.title)
                 }
-            },
-            detail: {
+            }, detail: {
                 NavigationStack {
                     IfLetStore(store.scope(state: \.$postDetail, action: \.postDetail)) { store in
                         postDetailsAssembly.assemble(store: store)
@@ -102,6 +103,7 @@ struct PostsView: View {
             }
         )
         .listStyle(.sidebar)
+        .navigationSplitViewStyle(.balanced)
         .tint(.orange)
     }
 
