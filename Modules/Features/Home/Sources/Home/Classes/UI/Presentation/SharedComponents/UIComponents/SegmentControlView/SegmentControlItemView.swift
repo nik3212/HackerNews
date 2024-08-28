@@ -8,7 +8,7 @@ import SwiftUI
 // MARK: - SegmentControlItemView
 
 struct SegmentControlItemView<ID: Identifiable, ContentView: View, BackgroundView: Shape>: View {
-    // MARK: Properies
+    // MARK: Properties
 
     let id: ID
     let action: (() -> Void)?

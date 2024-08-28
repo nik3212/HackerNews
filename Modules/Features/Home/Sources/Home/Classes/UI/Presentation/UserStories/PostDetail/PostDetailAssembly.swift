@@ -22,7 +22,7 @@ final class PostDetailAssembly: BootstrappableAssembly, IPostDetailAssembly {
     private let postsService: IPostsService
     private let repliesAssembly: IRepliesAssembly
 
-    // MARK: Initializaiton
+    // MARK: Initialization
 
     init(commentsService: ICommentsService, postsService: IPostsService, repliesAssembly: IRepliesAssembly) {
         self.commentsService = commentsService

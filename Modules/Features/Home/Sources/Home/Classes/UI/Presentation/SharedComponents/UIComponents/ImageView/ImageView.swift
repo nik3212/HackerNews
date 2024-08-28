@@ -13,7 +13,7 @@ struct ImageView: View {
 
     private let url: URL
 
-    // MARK: Intiialization
+    // MARK: Initialization
 
     init(url: URL) {
         self.url = url

@@ -38,7 +38,7 @@ open class AppAssembly {
         do {
             return try Locator.shared.container.resolve(tag: tag) as T
         } catch {
-            fatalError("[AppAssembly] The instance with type \(String(describing: T.self)) wasn't found in the containter.")
+            fatalError("[AppAssembly] The instance with type \(String(describing: T.self)) wasn't found in the container.")
         }
     }
 }
