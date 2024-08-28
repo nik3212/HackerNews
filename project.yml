@@ -126,7 +126,7 @@ targets:
           PRODUCT_NAME: HackerNews
           PRODUCT_BUNDLE_IDENTIFIER: com.nikitavasilev.HackerNews.debug
           CODE_SIGN_IDENTITY: "iPhone Developer"
-          PROVISIONING_PROFILE_SPECIFIER: match Development com.nikitavasilev.HackerNews.debug
+          PROVISIONING_PROFILE_SPECIFIER: match Development com.nikitavasilev.HackerNews.deb
         Release:
           PRODUCT_NAME: HackerNews
           PRODUCT_BUNDLE_IDENTIFIER: com.nikitavasilev.HackerNews
