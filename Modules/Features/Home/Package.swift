@@ -21,6 +21,7 @@ let package = Package(
         .package(path: "../../Common/UIExtensions"),
         .package(path: "../../Common/HackerNewsLocalization"),
         .package(path: "../../Common/DesignKit"),
+        .package(path: "../../Features/Settings"),
     ],
     targets: [
         .target(
@@ -37,6 +38,7 @@ let package = Package(
                 .product(name: "SkeletonUI", package: "skeleton-ui"),
                 .product(name: "Blade", package: "blade"),
                 .product(name: "BladeTCA", package: "blade"),
+                .product(name: "SettingsInterfaces", package: "Settings"),
             ]
         ),
         .target(name: "HomeInterfaces", dependencies: []),

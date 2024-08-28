@@ -78,18 +78,18 @@ schemes:
         gatherCoverageData: true
         targets:
           - HackerNewsTests
+          - package: Home/HomeTests
+          - package: Settings/SettingsTests
         coverageTargets:
           - HackerNews
+          - package: Home/Home
+          - package: Settings/Settings
   Release:
       build:
         targets:
           HackerNews: all
       run:
         config: Release
-  Debug:
-      build:
-        targets:
-          HackerNews: all
   Beta:
       build:
         targets:
