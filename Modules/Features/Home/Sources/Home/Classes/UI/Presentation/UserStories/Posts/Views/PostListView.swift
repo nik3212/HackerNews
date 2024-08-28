@@ -28,7 +28,7 @@ struct PostListView: View {
 
     var body: some View {
         PaginatorView(
-            store: store.scope(state: \.paginator, action: { .child($0) }),
+            store: store.scope(state: \.paginator, action: \.child),
             content: { state, handler in
                 ScrollViewReader { reader in
                     SkeletonView(

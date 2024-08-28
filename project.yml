@@ -39,8 +39,6 @@ packages:
 
   HackerNewsLocalization:
     path: Modules/Common/HackerNewsLocalization
-  ComposableArchitectureExtensions:
-    path: Modules/Common/ComposableArchitectureExtensions
   UIExtensions:
     path: Modules/Common/UIExtensions
   AppUtils:
@@ -59,7 +57,7 @@ packages:
 
   ComposableArchitecture:
     url: https://github.com/pointfreeco/swift-composable-architecture.git
-    from: 1.5.5
+    from: 1.13.1
   SwiftCollections:
     url: https://github.com/apple/swift-collections.git
     from: 1.0.5
@@ -105,7 +103,6 @@ targets:
       - package: ComposableArchitecture
       - package: SwiftCollections
         product: OrderedCollections
-      - package: ComposableArchitectureExtensions
       - package: Home
       - package: Settings
       - package: UIExtensions

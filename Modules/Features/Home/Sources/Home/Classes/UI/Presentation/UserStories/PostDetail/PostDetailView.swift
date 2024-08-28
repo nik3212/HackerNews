@@ -78,7 +78,7 @@ struct PostDetailView: View {
 
     private func commentsView(with store: ViewStore<PostDetailFeature.State, PostDetailFeature.Action>) -> some View {
         PaginatorView(
-            store: self.store.scope(state: \.paginator, action: { .child($0) }),
+            store: self.store.scope(state: \.paginator, action: \.child),
             content: { state, handler in
                 SkeletonView(
                     data: state,

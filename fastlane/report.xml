@@ -5,29 +5,39 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.000357">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.000496">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000158">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000269">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: increment_build_number" time="4.28168">
+      <testcase classname="fastlane.lanes" name="2: increment_build_number" time="0.609136">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: get_version_number" time="0.078684">
+      <testcase classname="fastlane.lanes" name="3: get_version_number" time="0.083867">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: sync_code_signing" time="14.5105">
+      <testcase classname="fastlane.lanes" name="4: Switch to ios testflight_build lane" time="0.000319">
         
-          <failure message="/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/runner.rb:229:in `chdir&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/runner.rb:229:in `execute_action&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;Fastfile:26:in `block (2 levels) in parsing_binding&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/lane.rb:33:in `call&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/runner.rb:45:in `chdir&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/runner.rb:45:in `execute&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/commands_generator.rb:110:in `block (2 levels) in run&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/commands_generator.rb:354:in `run&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/commands_generator.rb:43:in `start&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/fastlane/lib/fastlane/cli_tools_distributor.rb:123:in `take_off&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.216.0/bin/fastlane:23:in `&lt;top (required)&gt;&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/bin/fastlane:25:in `load&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/bin/fastlane:25:in `&lt;main&gt;&apos;&#10;&#10;Your certificate &apos;UG9RCADL7C.cer&apos; is not valid, please check end date and renew it if necessary" />
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: Switch to ios gym_params lane" time="0.000217">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: gym" time="71.798799">
+        
+          <failure message="/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/runner.rb:229:in `chdir&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/runner.rb:229:in `execute_action&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;Fastfile:110:in `block (2 levels) in parsing_binding&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/lane.rb:41:in `call&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/runner.rb:204:in `try_switch_to_lane&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/runner.rb:146:in `trigger_action_by_name&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;Fastfile:72:in `block (2 levels) in parsing_binding&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/lane.rb:41:in `call&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/runner.rb:45:in `chdir&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/runner.rb:45:in `execute&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/lane_manager.rb:46:in `cruise_lane&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/command_line_handler.rb:34:in `handle&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/commands_generator.rb:110:in `block (2 levels) in run&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/commands_generator.rb:363:in `run&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/commands_generator.rb:43:in `start&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/fastlane/lib/fastlane/cli_tools_distributor.rb:123:in `take_off&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/fastlane-2.220.0/bin/fastlane:23:in `&lt;top (required)&gt;&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/bin/fastlane:25:in `load&apos;&#10;/Users/nv3212/.rbenv/versions/3.2.2/bin/fastlane:25:in `&lt;main&gt;&apos;&#10;&#10;Error building the application - see the log above" />
         
       </testcase>
     
