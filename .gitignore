@@ -98,6 +98,7 @@ Modules/Features/Settings/Sources/Settings/Classes/Generated/Assets.swift
 
 # Others
 
+.cache
 *.xcodeproj
 *.env.default
 *.p8

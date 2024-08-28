@@ -37,11 +37,8 @@ jobs:
         run: sudo xcode-select -s '/Applications/Xcode_15.4.app/Contents/Developer'
       - name: Run tests
         run: |
-          xcodebuild clean test \
-            -skipMacroValidation \
-            -scheme ${{ matrix.scheme }} \
-            -destination "${{ matrix.destination }}" \
-            -enableCodeCoverage YES || exit 1
+          bundle add fastlane
+          bundle exec fastlane test
 
   discover-typos:
     name: Discover Typos

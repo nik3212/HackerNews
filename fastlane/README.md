@@ -37,7 +37,7 @@ Regester devices on apple portal
 [bundle exec] fastlane ios beta
 ```
 
-Create a Bumpd Beta build for TestFlight
+Create a HackerNews Beta build for TestFlight
 
 ### ios production
 

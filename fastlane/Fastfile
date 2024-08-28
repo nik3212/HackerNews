@@ -50,7 +50,7 @@ platform :ios do
 
     ## Builing apps
 
-    desc "Create a Bumpd Beta build for TestFlight"
+    desc "Create a HackerNews Beta build for TestFlight"
     lane :beta do
       overrideParams = {
         scheme: "Debug",
@@ -90,6 +90,7 @@ platform :ios do
         result_bundle: true,
         output_directory: "./build/test",
         output_files: "hackernews.unit.test.html,hackernews.unit.test.report.junit.xml",
+        xcargs: "-skipMacroValidation",
       )
 
       slather(
