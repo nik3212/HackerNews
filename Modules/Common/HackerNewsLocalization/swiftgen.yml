@@ -1,0 +1,10 @@
+input_dir: Sources/HackerNewsLocalization/Resources
+output_dir: Sources/HackerNewsLocalization/Classes
+strings:
+    inputs:
+        - en.lproj/Localizable.strings
+    outputs:
+        templateName: structured-swift5
+        output: Strings.swift
+        params:
+            publicAccess: true

@@ -1,79 +1,71 @@
-# HackerNews
+<h1 align="center" style="margin-top: 0px;">HackerNews</h1>
 
-![](https://user-images.githubusercontent.com/17319991/87887377-477dfe80-ca2d-11ea-8422-b4e2dd52ff46.png)
+<p align="center">
+<a href="https://github.com/nik3212/HackerNews/blob/master/LICENSE"><img alt="Licence" src="https://img.shields.io/cocoapods/l/service-core.svg?style=flat"></a> 
+<a href="https://github.com/nik3212/HackerNews"><img alt="CI" src="https://github.com/nik3212/HackerNews/actions/workflows/ios.yml/badge.svg?branch=master"></a>
+</p>
+
+![HackerNews: A HackerNews Reader](https://github.com/user-attachments/assets/8a5ba7ae-1e1d-47de-80db-10ed725c5e5e)
 
 <p align="center"><a href="https://itunes.apple.com/ru/app/hacker-news-social-news/id1442922669"><img src="https://user-images.githubusercontent.com/17319991/49230688-4421a380-f401-11e8-929e-53c5ed081bda.png" width="250" /></a></p>
 
 ## Description
+HackerNews is an app for readering Hacker News, built using TCA architecture.
 
-A Hacker News reader iOS application.
+- [Features](#features)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Communication](#communication)
+- [Have a Question](#have-a-question)
+- [Author](#author)
+- [License](#license)
 
 ## Features
 
-* View "top", "newest", "best", "ask" and "show" posts from Hacker News
+* View "Top," "Newest," "Best," "Ask," and "Show" posts from Hacker News
 * Read posts using the `SFSafariViewController` component
-* View comments
-* Today extension
-* VIPER architecture
-* Supports dark theme
-* Thumbnails generated for posts
 * Full iPad multitasking support
-* Uses the official [Firebase-based Hacker News API](https://github.com/HackerNews/API)
+* Utilizes the official [Firebase-based Hacker News API](https://github.com/HackerNews/API)
 
 ## Usage
 
-1) Download the repository
-
+1) Download the repository:
 ```
 $ git clone https://github.com/nik3212/HackerNews
 $ cd HackerNews
 ```
     
-2) Install the required dependencies
-
+2) Bootstrap the development environment:
 ```
-$ pod install
-```
-
-3) Open the workspace project in Xcode
-
-```
-$ open HackerNews.xcworkspace
+make bootstrap
 ```
 
-4) Compile and run the app in your simulator
+3) Open the project in Xcode:
+```
+$ open HackerNews.xcodeproj
+```
 
+4) Compile and run the app in your simulator.
+
+## Communication
+- If you **found a bug**, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
 
 # Requirements
-
-- Xcode 11.5+
-- iOS 10+
-- Swift 5.2+
+- Xcode 15+
+- iOS 17+
+- Swift 5.9+
 
 ## Contributing
-
 Please feel free to help out with this project! If you see something that could be made better or want a new feature, open up an issue or send a Pull Request!
 
-## About
+## Have a Question?
+Contact us via [issues on GitHub](https://github.com/nik3212/HackerNews/issues).
 
-Hacker News is an open source project by [Nikita Vasilev](mailto:nv3212@gmail.com) licensed under the [MIT license](LICENSE).
-
-## Credits
-
-I use several open source projects in Hacker News, in no particular order:
-
-* [CocoaPods](https://github.com/CocoaPods/CocoaPods)
-* [Firebase](https://github.com/firebase/firebase-ios-sdk)
-* [SwiftLint](https://github.com/realm/SwiftLint)
-* [Sourcery](https://github.com/krzysztofzablocki/Sourcery)
-* [Swinject](https://github.com/Swinject/Swinject)
-* [Kingfisher](https://github.com/onevcat/Kingfisher)
-* [Skeleton](https://github.com/gonzalonunez/Skeleton)
-* [EmptyDataSet-Swift](https://github.com/Xiaoye220/EmptyDataSet-Swift)
-* [Nimble](https://github.com/Quick/Nimble)
-* [Quick](https://github.com/Quick/Quick)
-* [iOSSnapshotTestCase](https://github.com/uber/ios-snapshot-test-case)
-* [R.swift](https://github.com/mac-cain13/R.swift)
+## Author
+Nikita Vasilev, nv3212@gmail.com
 
 ## License
 
