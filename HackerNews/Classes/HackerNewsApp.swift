@@ -1,6 +1,6 @@
 //
 // HackerNews
-// Copyright © 2024 Nikita Vasilev. All rights reserved.
+// Copyright © 2023 Nikita Vasilev. All rights reserved.
 //
 
 import ComposableArchitecture
@@ -14,7 +14,9 @@ struct HackerNewsApp: App {
     // MARK: Properties
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-    @State private var showConsole = false
+    #if DEBUG
+        @State private var showConsole = false
+    #endif
 
     private let assembly: IApplicationAssembly = ApplicationAssembly(dependencies: DependenciesAssembly())
 
@@ -22,15 +24,19 @@ struct HackerNewsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            self.assembly.assemble()
-                .sheet(isPresented: $showConsole) {
-                    NavigationView {
-                        ConsoleView()
+            #if DEBUG
+                assembly.assemble()
+                    .sheet(isPresented: $showConsole) {
+                        NavigationView {
+                            ConsoleView()
+                        }
                     }
-                }
-                .onShake {
-                    showConsole.toggle()
-                }
+                    .onShake {
+                        showConsole.toggle()
+                    }
+            #else
+                assembly.assemble()
+            #endif
         }
     }
 }

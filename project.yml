@@ -15,7 +15,7 @@ configFiles:
   Release: ./HackerNews/Resources/Configurations/Release.xcconfig
 settings:
   base:
-    SWIFT_VERSION: "5.7"
+    SWIFT_VERSION: "5.9"
   configs:
     Debug:
       DEVELOPMENT_TEAM: A8WE5LL2GU
